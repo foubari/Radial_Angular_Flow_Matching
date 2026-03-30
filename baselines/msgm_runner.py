@@ -20,9 +20,16 @@ def run_msgm(dataset, cfg: dict, seed: int, run_dir: Path) -> None:
 
     Fits MSGM on the same train split as FM methods.
     Evaluates on the same test split.
+    Skips if metrics.json already exists (completed run).
+    Resumes from checkpoint if training was interrupted.
     """
     run_dir = Path(run_dir)
     run_dir.mkdir(parents=True, exist_ok=True)
+
+    # Skip completed runs
+    if (run_dir / "metrics.json").exists():
+        print(f"  [msgm seed={seed}] already done, skipping")
+        return
 
     set_all_seeds(seed)
 
@@ -38,7 +45,7 @@ def run_msgm(dataset, cfg: dict, seed: int, run_dir: Path) -> None:
         from baselines.msgm_adapter import MSGMAdapter
         adapter = MSGMAdapter(train_data, cfg, device)
         adapter.build()
-        train_stats = adapter.train(seed=seed)
+        train_stats = adapter.train(seed=seed, ckpt_dir=run_dir)
     except ImportError as e:
         print(f"  MSGM adapter failed (reference code not available?): {e}")
         return

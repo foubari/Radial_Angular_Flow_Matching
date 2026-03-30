@@ -51,8 +51,8 @@ class MSGMAdapter:
             hidden_dim=self.cfg.get("hidden_dim", 128),
         ).to(self.device)
 
-    def train(self, seed: int = 0) -> dict:
-        """Train MSGM with sliced score matching."""
+    def train(self, seed: int = 0, ckpt_dir: Path | None = None) -> dict:
+        """Train MSGM with sliced score matching. Resumes from checkpoint if available."""
         if self._sde is None:
             self.build()
 
@@ -66,6 +66,7 @@ class MSGMAdapter:
         optimizer = Adam(self._model.parameters(), lr=self.cfg.get("lr", 1e-3))
         n_steps = self.cfg.get("n_train_steps", 100_000)
         batch_size = self.cfg.get("batch_size", 256)
+        ckpt_every = self.cfg.get("ckpt_every", 1000)
 
         # Import SSM loss from MSGM
         from SDEs import PluginReverseSDE
@@ -73,13 +74,26 @@ class MSGMAdapter:
         self._gen_sde = PluginReverseSDE(self._sde, self._model, T=self._sde.T,
                                          debias=False).to(self.device)
 
+        # Resume from checkpoint if available
+        start_step = 0
+        elapsed_before = 0.0
+        ckpt_path = Path(ckpt_dir) / "msgm_ckpt.pt" if ckpt_dir else None
+        if ckpt_path and ckpt_path.exists():
+            ckpt = torch.load(ckpt_path, weights_only=False)
+            self._model.load_state_dict(ckpt["model"])
+            optimizer.load_state_dict(ckpt["optimizer"])
+            start_step = ckpt["step"]
+            elapsed_before = ckpt.get("elapsed_s", 0.0)
+            print(f"  Resuming from checkpoint at step {start_step}")
+
         # Pre-load train data on GPU
         train_gpu = self.train_data.to(self.device)
         n_train = train_gpu.shape[0]
 
         from tqdm import tqdm
         t0 = time.time()
-        pbar = tqdm(range(1, n_steps + 1), desc="msgm", dynamic_ncols=True)
+        pbar = tqdm(range(start_step + 1, n_steps + 1), desc="msgm",
+                     dynamic_ncols=True, initial=start_step, total=n_steps)
         for step in pbar:
             idx = torch.randint(n_train, (batch_size,), device=self.device)
             x = train_gpu[idx]
@@ -89,8 +103,19 @@ class MSGMAdapter:
             optimizer.step()
             if step % 500 == 0:
                 pbar.set_postfix(loss=f"{loss.item():.4f}")
+            if ckpt_path and step % ckpt_every == 0:
+                torch.save({
+                    "step": step,
+                    "model": self._model.state_dict(),
+                    "optimizer": optimizer.state_dict(),
+                    "elapsed_s": elapsed_before + (time.time() - t0),
+                }, ckpt_path)
 
-        return {"total_train_time_s": time.time() - t0}
+        total_time = elapsed_before + (time.time() - t0)
+        # Clean up checkpoint after successful completion
+        if ckpt_path and ckpt_path.exists():
+            ckpt_path.unlink()
+        return {"total_train_time_s": total_time}
 
     @torch.no_grad()
     def sample(self, n: int) -> dict:

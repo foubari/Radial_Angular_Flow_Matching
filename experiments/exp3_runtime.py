@@ -140,8 +140,12 @@ def run_exp3(cfg: dict) -> None:
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", default="configs/exp3/runtime.yaml")
+    parser.add_argument("--exclude", default=None, help="Comma-separated method names to skip")
     args = parser.parse_args()
     cfg = load_config(args.config)
+    if args.exclude:
+        excluded = {s.strip() for s in args.exclude.split(",")}
+        cfg["methods"] = [m for m in cfg["methods"] if m["name"] not in excluded]
     run_exp3(cfg)
 
 

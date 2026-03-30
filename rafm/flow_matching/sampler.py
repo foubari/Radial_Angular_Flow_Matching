@@ -15,11 +15,18 @@ import torch
 from torch import Tensor
 
 
-def _project_tangent(v: Tensor, x: Tensor) -> Tensor:
-    """Project v onto the tangent space of the sphere at x: v - (x.v / ||x||^2) * x."""
-    R2 = (x * x).sum(dim=-1, keepdim=True).clamp(min=1e-12)
-    radial_coeff = (x * v).sum(dim=-1, keepdim=True) / R2
-    return v - radial_coeff * x
+def _project_tangent(v: Tensor, x: Tensor, r_min: float = 1e-3) -> Tensor:
+    """Project v onto the tangent space of the sphere at x: v - (x.v / ||x||^2) * x.
+
+    When ||x|| < r_min, the sphere is degenerate (near origin) and projection
+    is numerically unstable — fall back to unprojected velocity.
+    """
+    R2 = (x * x).sum(dim=-1, keepdim=True)
+    small = R2 < r_min ** 2
+    R2_safe = R2.clamp(min=r_min ** 2)
+    radial_coeff = (x * v).sum(dim=-1, keepdim=True) / R2_safe
+    proj = v - radial_coeff * x
+    return torch.where(small, v, proj)
 
 
 class Sampler:
@@ -33,11 +40,16 @@ class Sampler:
                          Recommended for spherical geodesic paths to prevent norm drift.
     """
 
-    def __init__(self, model, source, cfg: dict, project_tangent: bool = False):
+    def __init__(self, model, source, cfg: dict, project_tangent: bool | None = None):
         self.model = model
         self.source = source
         self.cfg = cfg
-        self.project_tangent = project_tangent or (cfg.get("path") == "spherical_geodesic")
+        # If project_tangent is explicitly set, use it. Otherwise default to True
+        # for spherical_geodesic paths and False for euclidean.
+        if project_tangent is None:
+            self.project_tangent = (cfg.get("path") == "spherical_geodesic")
+        else:
+            self.project_tangent = project_tangent
         self.device = cfg.get("device", "cpu")
         if self.device == "auto":
             self.device = "cuda" if torch.cuda.is_available() else "cpu"

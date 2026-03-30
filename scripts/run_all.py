@@ -19,8 +19,8 @@ EXPERIMENT_CONFIGS = {
         "configs/exp1/gaussian_d16.yaml",
         "configs/exp1/gaussian_d32.yaml",
         # PIV configs require prepare_piv.py to be run first:
-        # "configs/exp1/piv_d16.yaml",
-        # "configs/exp1/piv_d32.yaml",
+        "configs/exp1/piv_d16.yaml",
+        "configs/exp1/piv_d32.yaml",
     ],
     "2": ["configs/exp2/sample_efficiency.yaml"],
     "3": ["configs/exp3/runtime.yaml"],
@@ -36,9 +36,11 @@ EXPERIMENT_SCRIPTS = {
 }
 
 
-def run_experiment(exp_id: str, config: str) -> int:
+def run_experiment(exp_id: str, config: str, exclude: str | None = None) -> int:
     script = EXPERIMENT_SCRIPTS[exp_id]
     cmd = [sys.executable, "-m", script, "--config", config]
+    if exclude and exp_id in ("1", "2", "3", "4"):
+        cmd += ["--exclude", exclude]
     print(f"\n{'='*60}")
     print(f"Running: {' '.join(cmd)}")
     print(f"{'='*60}")
@@ -52,6 +54,8 @@ def main():
                         help="Comma-separated list of experiment IDs")
     parser.add_argument("--dataset", default=None,
                         help="Only run configs matching this dataset name")
+    parser.add_argument("--exclude", default=None,
+                        help="Comma-separated method names to skip (e.g. msgm)")
     args = parser.parse_args()
 
     exp_ids = [e.strip() for e in args.experiments.split(",")]
@@ -70,7 +74,7 @@ def main():
             if not Path(config).exists():
                 print(f"Config not found: {config} — skipping")
                 continue
-            rc = run_experiment(exp_id, config)
+            rc = run_experiment(exp_id, config, exclude=args.exclude)
             if rc != 0:
                 print(f"FAILED: {config} (exit code {rc})")
                 total_failed += 1

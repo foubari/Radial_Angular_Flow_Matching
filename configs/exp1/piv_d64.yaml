@@ -2,10 +2,9 @@ inherit: defaults.yaml
 
 experiment: exp1_main_benchmark
 dataset:
-  name: gaussian_aniso
-  dim: 16
-  n_samples: 50000
-  correlated: true
+  name: piv
+  dim: 64
+  data_root: data/piv   # Requires: python -m rafm.data.prepare_piv --zip dataverse_files.zip --out_dir data/piv --grids 8x8
 
 methods:
   - name: msgm
@@ -19,9 +18,4 @@ methods:
   - name: rafm_empirical
     source: radial_empirical_ecdf
     path: spherical_geodesic
-  - name: source_only_oracle
-    source: radial_oracle
-    path: euclidean
-  - name: rafm_oracle
-    source: radial_oracle
-    path: spherical_geodesic
+# NOTE: radial_oracle is NOT applicable to PIV (real dataset, analytic CDF unknown)

@@ -122,8 +122,12 @@ def run_exp2(cfg: dict) -> None:
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", default="configs/exp2/sample_efficiency.yaml")
+    parser.add_argument("--exclude", default=None, help="Comma-separated method names to skip")
     args = parser.parse_args()
     cfg = load_config(args.config)
+    if args.exclude:
+        excluded = {s.strip() for s in args.exclude.split(",")}
+        cfg["methods"] = [m for m in cfg["methods"] if m["name"] not in excluded]
     run_exp2(cfg)
 
 
