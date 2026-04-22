@@ -2,7 +2,7 @@
 
 Official implementation for:
 
-> **Correcting Source Mismatch in Flow Matching with Radial-Angular Transport**
+> **Source-Matched Flow Matching via Radial–Angular Transport**
 
 ---
 
