@@ -64,7 +64,7 @@ class MSGMAdapter:
         torch.manual_seed(seed)
 
         optimizer = Adam(self._model.parameters(), lr=self.cfg.get("lr", 1e-3))
-        n_steps = self.cfg.get("n_train_steps", 100_000)
+        n_steps = self.cfg.get("n_train_steps", 10_000)
         batch_size = self.cfg.get("batch_size", 256)
         ckpt_every = self.cfg.get("ckpt_every", 1000)
 
@@ -91,6 +91,14 @@ class MSGMAdapter:
         n_train = train_gpu.shape[0]
 
         from tqdm import tqdm
+        # Train log CSV
+        log_path = (ckpt_dir / "train_log.csv") if ckpt_dir else None
+        log_rows = []
+        if log_path and log_path.exists():
+            import csv
+            with open(log_path) as f:
+                log_rows = list(csv.DictReader(f))
+
         t0 = time.time()
         pbar = tqdm(range(start_step + 1, n_steps + 1), desc="msgm",
                      dynamic_ncols=True, initial=start_step, total=n_steps)
@@ -103,6 +111,17 @@ class MSGMAdapter:
             optimizer.step()
             if step % 500 == 0:
                 pbar.set_postfix(loss=f"{loss.item():.4f}")
+                if log_path:
+                    log_rows.append({
+                        "step": step,
+                        "loss": loss.item(),
+                        "elapsed_s": elapsed_before + (time.time() - t0),
+                    })
+                    import csv
+                    with open(log_path, "w", newline="") as f:
+                        w = csv.DictWriter(f, fieldnames=["step", "loss", "elapsed_s"])
+                        w.writeheader()
+                        w.writerows(log_rows)
             if ckpt_path and step % ckpt_every == 0:
                 torch.save({
                     "step": step,

@@ -8,7 +8,7 @@ premodule: null  # null = no preprocessing (default). "NormalizeLogRadius" = exp
 
 # Training
 lr: 0.001
-batch_size: 4096
+batch_size: 256
 n_train_steps: 10000
 log_every: 200
 ckpt_every: 5000
