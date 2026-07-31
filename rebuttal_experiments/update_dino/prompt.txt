@@ -1,0 +1,569 @@
+# RAFM ICLR Image / DINO / RAE Experimental Program
+
+You are an autonomous research engineer working on the RAFM project. Your task is to:
+
+1. integrate all NeurIPS rebuttal experiments and artifacts into the canonical Git repository without losing history or reproducibility;
+2. add a rigorous image-generation evaluation centered on DINO/Representation Autoencoder (RAE) latent spaces;
+3. run the experiments in staged order, produce machine-readable results, paper-ready tables and figures, and a complete scientific report;
+4. preserve negative or neutral results and never cherry-pick.
+
+## Scientific context
+
+RAFM decomposes a vector into radius and direction. It samples the source radius from the empirical training radial law and transports directions using norm-preserving spherical geodesics.
+
+The central claim to test on images is not merely “spherical paths help.” It is:
+
+> source design and transport geometry should be chosen jointly.
+
+The required source/path decomposition is:
+
+1. Gaussian source + Euclidean path: standard Euclidean Flow Matching.
+2. Empirical matched-radial source + Euclidean path: source-only ablation.
+3. Fixed-radius spherical source + spherical path: SFM/RFM/RJF-style angular-only baseline.
+4. Empirical matched-radial source + spherical path: RAFM.
+
+The reviewer specifically suggested testing RAFM in DINO/representation-autoencoder latents, where recent work normalizes representations onto spheres and learns angular flow. The experiment must determine whether preserving a non-degenerate empirical radial law improves over a uniform/fixed-radius spherical prior, or whether DINO/RAE latents are effectively fixed-radius and RAFM reduces to the spherical baseline.
+
+Do not assume there is useful radial variation. Measure it first.
+
+## Primary literature and official implementations
+
+Read these sources before implementation and record the exact versions and commit SHAs used:
+
+- Reviewer-cited DINO-SAE:
+  - Paper: https://arxiv.org/abs/2601.22904
+  - Treat this as reviewer-cited related work; do not claim peer-review status unless independently verified.
+- Diffusion Transformers with Representation Autoencoders (RAE), ICLR 2026:
+  - Paper/venue: https://iclr.cc/virtual/2026/poster/10011890
+  - Official code: https://github.com/bytetriper/RAE
+- Learning on the Manifold / RJF:
+  - Paper: https://arxiv.org/abs/2602.10099
+  - Official code: https://github.com/amandpkr/RJF
+  - The official repository labels the work ECCV 2026.
+- Geometry-Aware Image Flow Matching, ICML 2026:
+  - Paper: https://arxiv.org/abs/2605.25294
+  - OpenReview: https://openreview.net/forum?id=m1bU4KRgtB
+- General Flow Matching reference implementation:
+  - https://github.com/facebookresearch/flow_matching
+
+Use official repositories where available. Pin every external dependency by commit SHA. Do not silently copy code. Put external implementations under `third_party/` as pinned submodules or clearly documented vendored snapshots, and preserve their licenses.
+
+## Repository and Git requirements
+
+Canonical repository:
+
+- `https://github.com/foubari/rafm_for_speech_embeddings`
+- default branch currently: `master`
+- existing public code includes `rafm_lite.py`, speech-embedding experiments, `outputs/`, and `figures/`.
+- rebuttal work is expected on a branch such as `rebuttal-experiments` and/or under `rebuttal_experiments/`.
+
+Start with a full audit:
+
+```bash
+git fetch --all --prune
+git status --short
+git branch -a
+git log --oneline --decorate --graph --all -n 50
+```
+
+Record the exact starting commit, current branch, dirty files, remotes, and all branches in `ICLR_AUDIT.md`.
+
+Then:
+
+1. Identify the branch/commit containing the latest complete rebuttal experiments.
+2. Create a new branch named `iclr-image-experiments` from that latest complete state.
+3. Do not modify, force-push, merge into, or rebase `master`.
+4. Do not delete or overwrite previous raw results.
+5. Integrate rebuttal artifacts into the canonical repository while preserving their existing directory and provenance.
+6. Make small logical commits after each milestone.
+7. Leave the branch PR-ready, but do not open or merge a PR unless explicitly instructed.
+8. Do not edit the manuscript `.tex` files. Produce a separate paper-insertion draft only.
+
+Large datasets, model weights, latent caches, generated images, and checkpoints must not be committed. Add them to `.gitignore`. Track compact CSV/JSON summaries, configs, scripts, logs, environment snapshots, and paper-ready PNG/PDF figures.
+
+## Required target structure
+
+Preserve existing files and add a clean structure resembling:
+
+```text
+rebuttal_experiments/              # preserve and integrate existing rebuttal work
+experiments/
+  image_latents/
+    README.md
+    STATUS.md
+    configs/
+    scripts/
+    diagnostics/
+    metrics/
+    tests/
+    tables/
+    figures/
+    reports/
+    manifests/
+third_party/
+ICLR_AUDIT.md
+ICLR_EXPERIMENT_PLAN.md
+```
+
+Do not perform a broad repository refactor before results exist.
+
+---
+
+# Phase 0 — Rebuttal integration and reproducibility audit
+
+Before new image experiments:
+
+1. Locate all rebuttal configs, scripts, checkpoints, logs, raw results, tables, and figures.
+2. Produce `rebuttal_experiments/INTEGRATION_REPORT.md` containing:
+   - source branch and commit;
+   - inventory of artifacts;
+   - exact commands;
+   - environment/hardware;
+   - which results can be regenerated from tracked raw files;
+   - known negative/inconclusive results;
+   - missing or untracked dependencies.
+3. Run lightweight smoke tests.
+4. Regenerate existing aggregate tables and figures from raw results without retraining.
+5. Compare regenerated outputs with the recorded rebuttal values and fail loudly on material discrepancies.
+6. Do not rerun expensive MSGM jobs unless needed to verify a bug.
+7. Preserve the existing findings, including:
+   - dimension scaling through `d=256`;
+   - tail and anisotropy sweeps;
+   - Finance and Weather;
+   - PIV diagnostics;
+   - larger-model ablation;
+   - NFE sweeps;
+   - tangent-projection drift;
+   - MSGM comparisons;
+   - negative regimes such as `d=2`, small samples, and train/test radial shift.
+
+Create a compact machine-readable manifest of all legacy results.
+
+---
+
+# Phase 1 — Environment, upstream reproduction, and unit tests
+
+Create an isolated reproducible environment. Record:
+
+- Python, PyTorch, CUDA, cuDNN;
+- GPU model/count/memory;
+- package lock file;
+- upstream repository SHAs;
+- dataset versions;
+- checkpoint hashes.
+
+First validate the official upstream pipelines:
+
+1. Download the official pretrained DINOv2-B RAE decoder and normalization statistics.
+2. Reconstruct a small ImageNet validation batch.
+3. Reproduce a released reconstruction metric or a small numerical sanity check.
+4. Download a released RAE or RJF Stage-2 checkpoint and verify sampling/evaluation end-to-end.
+5. Verify ADM FID evaluation on a small sample set. Label small-sample FID as a smoke test, not a scientific result.
+
+Required tests:
+
+- SLERP endpoints are exact.
+- SLERP preserves radius, including a stable small-angle branch.
+- Tangent projection is orthogonal to the state.
+- The manifold integrator preserves radius within numerical tolerance.
+- Empirical radial CDF uses training data only.
+- No validation/test radius enters source construction.
+- Fixed-radius baseline uses the training-set mean radius only.
+- All source/path variants use identical neural architecture and parameter count.
+- Same seed/config reproduces identical batches and initialization.
+- Metrics distinguish standard generation metrics from post-hoc common-radial diagnostics.
+
+Do not begin expensive training until these tests pass.
+
+---
+
+# Phase 2 — Representation geometry diagnostics (mandatory before training)
+
+Measure the exact latent tensor consumed by the Stage-2 generative model. Do not analyze a convenient tensor that is different from the actual Stage-2 input.
+
+Primary representation:
+
+- official RAE DINOv2-B encoder + pretrained decoder.
+
+Inspect, when accessible:
+
+1. raw encoder output before RAE normalization;
+2. normalized tensor passed to Stage 2;
+3. token-level vectors;
+4. the flattened global latent vector.
+
+For train and validation splits, compute:
+
+- global norm distribution;
+- per-token norm distribution;
+- mean, standard deviation, coefficient of variation, skewness, kurtosis;
+- train/validation radial `W1` and KS;
+- class-conditional norm distributions;
+- between-class variation of mean radius;
+- dependence between radius and direction/class;
+- radial correlations across spatial tokens;
+- effective dimensionality and covariance anisotropy.
+
+Perform decoder sensitivity diagnostics:
+
+- multiply latent radii by factors such as
+  `0.50, 0.75, 0.90, 1.00, 1.10, 1.25, 1.50`;
+- preserve direction;
+- decode;
+- measure rFID, LPIPS, PSNR and SSIM where supported;
+- save uncurated reconstructions using fixed images and scales.
+
+Produce:
+
+1. global and token norm histograms;
+2. norm coefficient-of-variation table;
+3. class-conditional radius plot;
+4. decoder quality versus radius scale;
+5. representative reconstructions at several scales.
+
+Decision rule:
+
+- If the Stage-2 DINO/RAE latent has negligible radial variability, explicitly label it a **fixed-radius / angular-only control**. Do not manufacture a radial advantage.
+- If raw/pre-normalization representations vary radially but cannot be passed through the released decoder, do not present them as a generative benchmark.
+- If a non-degenerate decodable radial law exists, continue with the full RAFM comparison.
+
+Also determine whether the baseline geometry is a single global sphere or a product of token-wise spheres. The primary RAFM implementation must match the baseline geometry. A token-wise radius-field extension may be explored, but it must be clearly labeled as an extension rather than silently replacing original global RAFM.
+
+---
+
+# Phase 3 — CIFAR-10 controlled benchmark
+
+Run a relatively inexpensive controlled image benchmark before full ImageNet training.
+
+Dataset:
+
+- CIFAR-10, official 50,000-image training split.
+- No test leakage.
+- Three seeds for the main comparison.
+- Generate 50,000 samples per final model for reported metrics.
+
+Use one common architecture, optimizer, learning-rate schedule, EMA, augmentations, batch size, training steps, initialization protocol, and evaluation pipeline across all methods.
+
+Required methods:
+
+1. `gaussian_euclidean`
+   - Gaussian source;
+   - linear/Euclidean conditional path.
+
+2. `matched_euclidean`
+   - empirical train-only radial source;
+   - uniform random direction;
+   - Euclidean path;
+   - source-only ablation.
+
+3. `fixed_spherical`
+   - fixed radius equal to training mean radius;
+   - uniform direction;
+   - spherical geodesic path;
+   - fixed-radius SFM/RFM baseline.
+
+4. `rafm_empirical`
+   - empirical train-only radial source;
+   - uniform direction;
+   - spherical geodesic path;
+   - tangent-preserving inference.
+
+Optional only after the core four are complete:
+
+5. smoothed log-radius KDE source;
+6. OT-CFM / spherical OT baselines;
+7. a learned norm-refinement network.
+
+Do not tune each method independently on the test set. Use a shared validation protocol and document every method-specific choice.
+
+Metrics:
+
+- gFID/FID-50k, lower is better;
+- sFID if supported;
+- Inception Score;
+- precision and recall;
+- radial `W1` and KS;
+- global sliced `W1`;
+- normalized-direction sliced `W1`;
+- common-radial sliced `W1` as a post-hoc direction-only diagnostic;
+- train time, sampling time, samples/second;
+- NFE;
+- peak VRAM;
+- parameter count;
+- analytical leading-order FLOP estimate.
+
+Sampling-efficiency sweeps:
+
+- at minimum NFE `10, 20, 50, 100`;
+- use appropriate Euclidean and geometry-preserving integrators;
+- report both NFE and measured wall-clock;
+- do not call a cross-method quality gap “solver efficiency.”
+
+Save fixed-seed, uncurated sample grids for all methods using the same latent seeds and class labels where applicable.
+
+---
+
+# Phase 4 — Core ImageNet-256 RAE/DINO experiment
+
+This is the main modern deep-learning experiment.
+
+Use:
+
+- ImageNet-1K at 256×256;
+- frozen official DINOv2-B RAE encoder/decoder;
+- the exact normalized Stage-2 latent representation;
+- LightningDiT-B as the first full comparison;
+- class-conditional generation;
+- official ADM FID reference statistics;
+- 50,000 generated images for final metrics.
+
+Base the implementation on official RAE and RJF code rather than rewriting the whole training stack.
+
+## Main four-way factorial comparison
+
+Keep architecture and training budget fixed:
+
+1. Euclidean FM:
+   - Gaussian source;
+   - linear path.
+
+2. Source-only:
+   - empirical train-only radial source;
+   - Euclidean path.
+
+3. Fixed-radius spherical:
+   - uniform/fixed-radius source;
+   - spherical geodesic path;
+   - no radial modeling.
+
+4. RAFM:
+   - empirical train-only radial source;
+   - spherical geodesic path.
+
+For class-conditional ImageNet:
+
+- primary source law: global train radial law;
+- optional ablation: class-conditional radial law, only if each class has adequate data;
+- clearly separate global and class-conditional results;
+- never use validation radii to define either law.
+
+If the upstream RJF objective includes Jacobi regularization, do not confound it with radial source choice. Run either:
+
+- the source comparison with Jacobi weighting disabled for both spherical variants; and then
+- a paired ablation with the same Jacobi weighting enabled for both fixed-radius spherical and RAFM;
+
+or provide an equally rigorous design that isolates the radial source effect.
+
+## Training protocol
+
+First run:
+
+1. a one-batch overfit test;
+2. a short smoke run;
+3. a pilot with frequent checkpoint evaluation.
+
+Only then launch the full run.
+
+Use the upstream protocol unless hardware requires a documented adaptation. A reasonable target based on the official RAE/RJF setup is:
+
+- LightningDiT-B;
+- 80 epochs;
+- global batch approximately 1024 when feasible through DDP/gradient accumulation;
+- AdamW, learning rate `2e-4`, betas `(0.9, 0.95)`;
+- EMA;
+- gradient clipping;
+- FP32 when required for stability;
+- 50-step primary sampling;
+- equal class-label sampling: 50 samples per class for FID-50k.
+
+Do not claim an 80-epoch full ImageNet result if training used a subset or fewer epochs.
+
+Compute-adaptive rule:
+
+- Full ImageNet may be reported with one full seed because of cost.
+- Evaluate multiple fixed checkpoints to show convergence.
+- Use three seeds for CIFAR and for short ImageNet pilots when feasible.
+- If ImageNet access or compute is unavailable, record the blocker immediately, complete CIFAR and latent diagnostics, and optionally run a clearly labeled ImageNet-100/subset pilot. Never label a subset as ImageNet-1K.
+
+MSGM is optional on ImageNet only if computationally tractable. Do not spend weeks reproducing a baseline whose complexity makes the comparison infeasible. Measure and report the feasibility estimate honestly.
+
+## ImageNet metrics
+
+Primary:
+
+- gFID/FID-50k;
+- sFID;
+- Inception Score;
+- precision;
+- recall.
+
+Secondary:
+
+- latent radial `W1`, KS, global sliced `W1`;
+- normalized-direction and common-radial sliced `W1`;
+- per-class FID or class-conditional diagnostics where feasible;
+- top-1/top-5 accuracy of a fixed pretrained classifier on generated images as an auxiliary semantic metric;
+- NFE, wall-clock, throughput, VRAM, FLOPs.
+
+Also report rFID/LPIPS/PSNR for autoencoder reconstruction and radius-scaling diagnostics. Do not mix reconstruction FID (`rFID`) with generation FID (`gFID`).
+
+---
+
+# Phase 5 — Non-degenerate image-latent control
+
+The DINO/RAE latent may be nearly fixed-radius. To test RAFM where radial variation is actually present, add one decodable image-latent control after the RAE experiment.
+
+Choose one well-supported representation from relevant literature and available official code, preferably:
+
+- DC-AE; or
+- SD3-VAE.
+
+First measure radial variability and decoder sensitivity exactly as in Phase 2.
+
+Run at least the same four source/path variants on a feasible dataset/configuration. ImageNet-256 is preferred if compute permits; otherwise use a clearly stated smaller benchmark.
+
+This control is important because:
+
+- RAE/DINO can test whether RAFM reduces correctly to angular flow in a fixed-radius regime;
+- a non-degenerate latent can test whether matching radii adds value beyond fixed-radius spherical flow.
+
+Do not add multiple latent spaces before completing one rigorous control.
+
+---
+
+# Phase 6 — Required tables and figures
+
+Produce both PNG and vector PDF versions, with data-backed scripts.
+
+## Main tables
+
+1. `image_quality_main.tex/csv`
+   - method;
+   - source;
+   - path;
+   - FID/gFID;
+   - sFID;
+   - IS;
+   - precision;
+   - recall;
+   - epochs/steps;
+   - NFE;
+   - parameters;
+   - training time;
+   - sampling time;
+   - VRAM;
+   - FLOPs.
+
+2. `source_path_factorial.tex/csv`
+   - the core four methods;
+   - radial, directional and image metrics;
+   - same architecture/budget.
+
+3. `latent_geometry.tex/csv`
+   - representation;
+   - global/token radius statistics;
+   - train/val shift;
+   - decoder sensitivity;
+   - whether radial variation is meaningful.
+
+4. `sampling_efficiency.tex/csv`
+   - FID and latent metrics versus NFE and wall-clock.
+
+## Main figures
+
+1. Source-versus-path factorial comparison.
+2. FID versus training epochs/optimization steps.
+3. FID versus NFE.
+4. FID versus measured sampling wall-clock.
+5. Target/source/generated norm histograms.
+6. Direction-only/common-radial comparison.
+7. Decoder reconstruction quality versus radius scaling.
+8. Fixed-seed uncurated sample grids across methods.
+9. Regime figure contrasting:
+   - near-fixed-radius DINO/RAE latents;
+   - non-degenerate radial latent/image space.
+10. Rebuttal experiment summary figure integrating dimension, tails, anisotropy, and real-data results where appropriate.
+
+All plots must be reproducible from tracked CSV/JSON files. No manually entered plot values.
+
+---
+
+# Phase 7 — Reporting and paper-ready outputs
+
+Maintain `experiments/image_latents/STATUS.md` throughout.
+
+At completion, create:
+
+- `experiments/image_latents/REPORT.md`
+- `experiments/image_latents/RESULTS.md`
+- `experiments/image_latents/PAPER_INSERT.md`
+- `experiments/image_latents/REPRODUCE.md`
+- `experiments/image_latents/results_long.csv`
+- `experiments/image_latents/summary.csv`
+- `experiments/image_latents/manifests/run_manifest.json`
+- paper-ready `.tex` tables;
+- captions for every figure;
+- exact shell commands for every reported result.
+
+`REPORT.md` must contain:
+
+- scientific question;
+- literature basis;
+- exact data/model versions;
+- hardware and software;
+- protocol;
+- all results;
+- uncertainty/seeds;
+- failures and blockers;
+- negative and neutral outcomes;
+- interpretation limited to the evidence;
+- comparison with the prior rebuttal experiments;
+- recommended manuscript claims;
+- claims that must not be made.
+
+`PAPER_INSERT.md` may draft an experiment section and captions, but do not edit the actual manuscript.
+
+## Scientific integrity requirements
+
+- Never cherry-pick seeds, checkpoints, classes, guidance scales, or metrics.
+- Never hide a fixed-radius result where RAFM ties SFM.
+- Never use test/validation radii to construct a source.
+- Never call a post-hoc common-radial diagnostic a standard generation metric.
+- Never compare methods with different architectures or budgets without prominently flagging it.
+- Never report a small-sample FID as FID-50k.
+- Never silently replace missing ImageNet access with another dataset.
+- Never fabricate completed runs, estimates, or citations.
+- Preserve failed runs and explain them.
+- Distinguish measured numbers from analytical estimates.
+- Use lower-is-better arrows and uncertainty consistently.
+- Keep the chronological Finance result primary in the integrated rebuttal record.
+- Keep all known RAFM failure regimes visible.
+
+## Execution order
+
+Execute strictly in this order:
+
+1. Git/repository audit.
+2. Rebuttal integration and regeneration of existing tables.
+3. Environment and unit tests.
+4. Upstream RAE/RJF sampling/evaluator validation.
+5. DINO/RAE latent geometry diagnostics.
+6. CIFAR-10 four-way benchmark.
+7. ImageNet pilot.
+8. Full ImageNet run if resources and access permit.
+9. Non-degenerate latent control.
+10. Aggregate tables, figures, report, and PR-ready commits.
+
+After each phase, update `STATUS.md` with:
+
+- completed work;
+- commands;
+- output paths;
+- elapsed time;
+- GPU hours;
+- issues;
+- next action.
+
+Do not stop merely because a result is neutral. A neutral DINO/RAE radial result is scientifically meaningful if the latent law is nearly fixed-radius. The final goal is a rigorous regime-level conclusion:
+
+> when radial variability is meaningful, does empirical radial matching improve over fixed-radius spherical flow, and when the representation is already fixed-radius, does RAFM correctly reduce to an angular-only method?

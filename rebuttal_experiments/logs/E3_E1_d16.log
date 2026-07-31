@@ -1,0 +1,17 @@
+  gaussian_fm              65457   dir_sw1=0.0119 dir_mmd=0.00131 ang_err=30.01deg cr_sw1=0.3467
+  gaussian_fm              77395   dir_sw1=0.0081 dir_mmd=0.00029 ang_err=29.75deg cr_sw1=0.2603
+  gaussian_fm              8925    dir_sw1=0.0110 dir_mmd=0.00226 ang_err=29.69deg cr_sw1=0.3285
+  rafm_empirical           65457   dir_sw1=0.0120 dir_mmd=0.00163 ang_err=29.19deg cr_sw1=0.3527
+  rafm_empirical           77395   dir_sw1=0.0081 dir_mmd=0.00048 ang_err=28.97deg cr_sw1=0.2572
+  rafm_empirical           8925    dir_sw1=0.0087 dir_mmd=0.00022 ang_err=28.88deg cr_sw1=0.2615
+  rafm_oracle              65457   dir_sw1=0.0121 dir_mmd=0.00173 ang_err=29.21deg cr_sw1=0.3549
+  rafm_oracle              77395   dir_sw1=0.0082 dir_mmd=0.00052 ang_err=29.00deg cr_sw1=0.2579
+  rafm_oracle              8925    dir_sw1=0.0087 dir_mmd=0.00021 ang_err=28.88deg cr_sw1=0.2613
+  source_only_empirical    65457   dir_sw1=0.0122 dir_mmd=0.00154 ang_err=29.09deg cr_sw1=0.3622
+  source_only_empirical    77395   dir_sw1=0.0116 dir_mmd=0.00065 ang_err=28.78deg cr_sw1=0.3408
+  source_only_empirical    8925    dir_sw1=0.0102 dir_mmd=0.00131 ang_err=28.80deg cr_sw1=0.3114
+  source_only_oracle       65457   dir_sw1=0.0122 dir_mmd=0.00158 ang_err=29.15deg cr_sw1=0.3621
+  source_only_oracle       77395   dir_sw1=0.0118 dir_mmd=0.00066 ang_err=28.81deg cr_sw1=0.3464
+  source_only_oracle       8925    dir_sw1=0.0101 dir_mmd=0.00128 ang_err=28.81deg cr_sw1=0.3100
+
+Wrote 15 rows -> rebuttal_experiments\raw_results\E3_angular\E1_student_t_d16.csv

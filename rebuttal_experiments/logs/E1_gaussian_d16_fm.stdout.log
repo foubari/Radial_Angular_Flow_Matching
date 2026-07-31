@@ -1,0 +1,26 @@
+
+Method: gaussian_fm
+  [gaussian_fm seed=8925] radial_w1=0.0541 ks=0.0094 sliced_w1=0.1909
+  [gaussian_fm seed=77395] radial_w1=0.1301 ks=0.0175 sliced_w1=0.1436
+  [gaussian_fm seed=65457] radial_w1=0.0635 ks=0.0120 sliced_w1=0.1072
+
+Method: source_only_empirical
+  [source_only_empirical seed=8925] radial_w1=0.1393 ks=0.0213 sliced_w1=0.1483
+  [source_only_empirical seed=77395] radial_w1=0.1047 ks=0.0153 sliced_w1=0.1287
+  [source_only_empirical seed=65457] radial_w1=0.0963 ks=0.0169 sliced_w1=0.1715
+
+Method: rafm_empirical
+  [rafm_empirical seed=8925] radial_w1=0.0674 ks=0.0151 sliced_w1=0.0934
+  [rafm_empirical seed=77395] radial_w1=0.0470 ks=0.0107 sliced_w1=0.1089
+  [rafm_empirical seed=65457] radial_w1=0.0504 ks=0.0113 sliced_w1=0.1096
+
+Method: source_only_oracle
+  [source_only_oracle seed=8925] radial_w1=0.1312 ks=0.0152 sliced_w1=0.1418
+  [source_only_oracle seed=77395] radial_w1=0.1313 ks=0.0173 sliced_w1=0.1235
+  [source_only_oracle seed=65457] radial_w1=0.1273 ks=0.0177 sliced_w1=0.1749
+
+Method: rafm_oracle
+  [rafm_oracle seed=8925] radial_w1=0.0649 ks=0.0112 sliced_w1=0.0928
+  [rafm_oracle seed=77395] radial_w1=0.0751 ks=0.0099 sliced_w1=0.1130
+  [rafm_oracle seed=65457] radial_w1=0.0760 ks=0.0156 sliced_w1=0.1073
+GAUSS DONE exit=0

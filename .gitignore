@@ -51,3 +51,10 @@ env/
 # OS
 .DS_Store
 Thumbs.db
+
+# Rebuttal: exclude heavy binaries, keep compact artifacts + figures
+**/tb/
+events.out.tfevents.*
+# re-include rebuttal figures despite the global figures/ ignore
+!rebuttal_experiments/figures/
+!rebuttal_experiments/figures/**

@@ -1,0 +1,58 @@
+{
+  "config": {
+    "experiment": "E8_tail_scaling",
+    "output_dir": "rebuttal_experiments/raw_results",
+    "hidden_dim": 128,
+    "n_layers": 3,
+    "premodule": null,
+    "lr": 0.001,
+    "batch_size": 4096,
+    "n_train_steps": 10000,
+    "log_every": 200,
+    "ckpt_every": 5000,
+    "solver": "rk4",
+    "nfe": 128,
+    "n_gen_samples": 10000,
+    "n_seeds": 3,
+    "base_seed": 42,
+    "device": "auto",
+    "split_seed": 0,
+    "train_frac": 0.6,
+    "val_frac": 0.2,
+    "n_projections_sw": 500,
+    "n_projections_angular": 200,
+    "n_angular_bins": 4,
+    "norm_exploding_factor": 100,
+    "dataset": {
+      "name": "student_t",
+      "dim": 16,
+      "df": 50.0,
+      "n_samples": 50000,
+      "correlated": true
+    },
+    "methods": [
+      {
+        "name": "gaussian_fm",
+        "source": "gaussian",
+        "path": "euclidean"
+      },
+      {
+        "name": "source_only_empirical",
+        "source": "radial_empirical_ecdf",
+        "path": "euclidean"
+      },
+      {
+        "name": "rafm_oracle",
+        "source": "radial_oracle",
+        "path": "spherical_geodesic"
+      },
+      {
+        "name": "rafm_empirical",
+        "source": "radial_empirical_ecdf",
+        "path": "spherical_geodesic"
+      }
+    ]
+  },
+  "seed": 77395,
+  "start_time": "2026-07-27T18:18:18"
+}

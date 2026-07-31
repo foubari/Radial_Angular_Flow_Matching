@@ -1,0 +1,42 @@
+base_seed: 42
+batch_size: 4096
+ckpt_every: 5000
+dataset:
+  correlated: true
+  df: 3.0
+  dim: 2
+  n_samples: 50000
+  name: student_t
+device: auto
+experiment: E6_dim_scaling
+hidden_dim: 128
+log_every: 200
+lr: 0.001
+methods:
+- name: gaussian_fm
+  path: euclidean
+  source: gaussian
+- name: source_only_empirical
+  path: euclidean
+  source: radial_empirical_ecdf
+- name: rafm_oracle
+  path: spherical_geodesic
+  source: radial_oracle
+- name: rafm_empirical
+  path: spherical_geodesic
+  source: radial_empirical_ecdf
+n_angular_bins: 4
+n_gen_samples: 10000
+n_layers: 3
+n_projections_angular: 200
+n_projections_sw: 500
+n_seeds: 3
+n_train_steps: 10000
+nfe: 128
+norm_exploding_factor: 100
+output_dir: rebuttal_experiments/raw_results
+premodule: null
+solver: rk4
+split_seed: 0
+train_frac: 0.6
+val_frac: 0.2

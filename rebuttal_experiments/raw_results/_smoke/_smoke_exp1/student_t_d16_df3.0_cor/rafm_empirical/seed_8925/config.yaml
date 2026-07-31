@@ -1,0 +1,39 @@
+base_seed: 42
+batch_size: 256
+ckpt_every: 200
+dataset:
+  correlated: true
+  df: 3.0
+  dim: 16
+  n_samples: 4000
+  name: student_t
+device: auto
+experiment: _smoke_exp1
+hidden_dim: 128
+log_every: 50
+lr: 0.001
+methods:
+- name: gaussian_fm
+  path: euclidean
+  source: gaussian
+- name: source_only_empirical
+  path: euclidean
+  source: radial_empirical_ecdf
+- name: rafm_empirical
+  path: spherical_geodesic
+  source: radial_empirical_ecdf
+n_angular_bins: 4
+n_gen_samples: 1000
+n_layers: 3
+n_projections_angular: 50
+n_projections_sw: 100
+n_seeds: 1
+n_train_steps: 200
+nfe: 16
+norm_exploding_factor: 100
+output_dir: rebuttal_experiments/raw_results/_smoke
+premodule: null
+solver: rk4
+split_seed: 0
+train_frac: 0.6
+val_frac: 0.2

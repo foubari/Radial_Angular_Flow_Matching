@@ -1,0 +1,36 @@
+{
+  "dim": 96,
+  "N": 5847,
+  "vars": [
+    "10m_u_component_of_wind",
+    "10m_v_component_of_wind"
+  ],
+  "region_lat": [
+    -45,
+    -10
+  ],
+  "region_lon": [
+    110,
+    155
+  ],
+  "time_step": 16,
+  "date_start": "1959-01-01",
+  "date_end": "2023-01-09",
+  "split": {
+    "train": [
+      0,
+      3508
+    ],
+    "val": [
+      3508,
+      4677
+    ],
+    "test": [
+      4677,
+      5847
+    ]
+  },
+  "standardize": "train-only per-dim mean/std",
+  "source": "https://storage.googleapis.com/weatherbench2/datasets/era5/1959-2023_01_10-6h-64x32_equiangular_conservative.zarr",
+  "license": "ERA5/Copernicus (research use, attribution); via WeatherBench2 public bucket"
+}

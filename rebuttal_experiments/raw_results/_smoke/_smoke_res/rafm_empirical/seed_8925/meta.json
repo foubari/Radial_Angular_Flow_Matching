@@ -1,0 +1,25 @@
+{
+  "config": {
+    "lr": 0.001,
+    "batch_size": 512,
+    "n_train_steps": 100,
+    "log_every": 200,
+    "ckpt_every": 5000,
+    "device": "cuda",
+    "solver": "rk4",
+    "nfe": 16,
+    "hidden_dim": 256,
+    "n_layers": 4,
+    "arch": "resmlp",
+    "split": "chrono",
+    "path": "spherical_geodesic",
+    "source": "radial_empirical",
+    "n_gen_samples": 1000,
+    "dataset": {
+      "name": "_smoke_res",
+      "dim": 96
+    }
+  },
+  "seed": 8925,
+  "start_time": "2026-07-28T00:14:53"
+}
