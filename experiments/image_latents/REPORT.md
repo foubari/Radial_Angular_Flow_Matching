@@ -40,6 +40,20 @@ advantage.
   variability** (prompt Phase 5): e.g. **SD3-VAE** or **DC-AE**. Measure its norm CoV first (same protocol); only if
   CoV is non-negligible does the full four-way RAFM comparison add value there.
 
+## Phase 5 result — DC-AE latent geometry (non-degenerate control)
+Files: `diagnostics/dcae_geometry.json`, `tables/dcae_geometry.md`, `figures/phase5_dcae_geometry.png`.
+DC-AE (`mit-han-lab/dc-ae-f32c32-sana-1.0`), latent **[32,8,8] = 2048-d**, Imagenette val N=2000:
+
+| latent | global-norm CoV | per-token CoV | skew | decodable radius? |
+|---|---|---|---|---|
+| RAE/DINOv2-B (768×16×16) | **0.016** | 0.039 | −0.13 | yes (±10%≈36 dB) |
+| **DC-AE (32×8×8)** | **0.124** | 0.206 | **0.79** | yes (±10%≈29 dB) |
+
+**DC-AE has a genuinely non-degenerate radial law** — global-norm CoV 12.4% (8× RAE/DINO), right-skewed
+(heavier tail), within-class radius spread (11.4) larger than between-class (5.4). This is the regime where
+matched-radial (RAFM) *can* add value over fixed-radius spherical flow, and where the four-way comparison is
+scientifically informative. **Regime map:** RAE/DINO ≈ fixed-radius (RAFM≡SFM); DC-AE = non-degenerate (RAFM testable).
+
 ## Claims that must NOT be made
 - Do not claim RAFM beats spherical flow on DINO/RAE latents (the latent is ~fixed-radius; expect a tie).
 - Do not present a small-sample or subset result as ImageNet-1K / FID-50k.
