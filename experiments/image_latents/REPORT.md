@@ -70,8 +70,8 @@ empirical-radial source (this split): **train/val 0.190, train/test 0.512**.
 | **rafm_empirical (RAFM)** | eCDF radial | spherical | **0.67±0.11** | **0.116±0.006** | 0.0012 | 0.124 | **0.037** |
 
 **Finding (positive, non-degenerate regime), and where the gain comes from — precisely:**
-- RAFM is best overall. Its radial_w1 (0.67±0.11) essentially reaches the **train/test radial floor (0.512)** — i.e. RAFM
-  attains the best achievable radial given the source; its KS (0.037) is ~15× better than any other method.
+- RAFM is best overall. Its radial_w1 **approaches the train/test radial floor: 0.67±0.11 versus 0.512** — i.e. RAFM comes
+  close to the best achievable radial given the source; its KS (0.037) is ~15× better than any other method.
 - The decisive isolation **RAFM vs `fixed_spherical`** (both spherical geodesic path; RAFM only adds the matched-radial
   source): the win is **almost entirely radial** — radial_w1 **0.67 vs 9.10 (~14×)**, KS **0.037 vs 0.535**. On the
   **direction-only metrics they are tied** (dir_sw1 0.0012 vs 0.0012; cr_sw1 0.124 vs 0.128) — as expected, since both use
