@@ -78,3 +78,7 @@ third_party/flow_matching/
 experiments/image_latents/dit/runs/
 experiments/image_latents/dit/eval/
 !experiments/image_latents/figures/dit_samples/
+
+# transient run logs
+experiments/image_latents/**/*.log
+experiments/image_latents/logs_*.txt
