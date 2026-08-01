@@ -73,3 +73,8 @@ third_party/flow_matching/
 # keep image-latent figures despite global figures/ ignore
 !experiments/image_latents/figures/
 !experiments/image_latents/figures/**
+
+# DiT experiment heavy artifacts
+experiments/image_latents/dit/runs/
+experiments/image_latents/dit/eval/
+!experiments/image_latents/figures/dit_samples/
