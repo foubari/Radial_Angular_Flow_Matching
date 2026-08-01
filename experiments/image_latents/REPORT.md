@@ -54,6 +54,35 @@ DC-AE (`mit-han-lab/dc-ae-f32c32-sana-1.0`), latent **[32,8,8] = 2048-d**, Image
 matched-radial (RAFM) *can* add value over fixed-radius spherical flow, and where the four-way comparison is
 scientifically informative. **Regime map:** RAE/DINO ≈ fixed-radius (RAFM≡SFM); DC-AE = non-degenerate (RAFM testable).
 
+## Phase 5 result — four-way source/path comparison on the DC-AE latent
+Files: `fourway/fourway_dcae.md`, `fourway/raw/*/seed_8925/metrics.json`, `figures/phase5_fourway.png`.
+Pure rafm-library MLP flow (3×256, matched budget 10k steps, batch 2048) on the **centered** DC-AE
+latent (train-mean centered, no leakage); 13394 imagenette latents, random 60/20/20; N_gen=5000.
+**These are latent-distribution metrics (radial/sliced/directional W1), NOT image FID-50k** (FID needs
+a full class-conditional generator + heavy compute; see limitations).
+
+| method | source | path | radial_w1 | sliced_w1 | dir_sw1 | cr_sw1 |
+|---|---|---|---|---|---|---|
+| gaussian_euclidean | N(0,I) | Euclid | 22.0 | 0.428 | 0.0020 | 0.203 |
+| matched_euclidean | eCDF radial | Euclid | 19.6 | 0.370 | 0.0015 | 0.149 |
+| fixed_spherical (SFM) | fixed R0 | spherical | 9.10 | 0.154 | 0.0015 | 0.152 |
+| **rafm_empirical (RAFM)** | eCDF radial | spherical | **0.53** | **0.108** | **0.0010** | **0.106** |
+
+**Finding (positive, non-degenerate regime):** on the DC-AE latent (radial CoV 12%), **RAFM is clearly best**.
+The decisive isolation — RAFM vs `fixed_spherical` (both use the spherical geodesic path; RAFM only adds the
+matched-radial source) — gives radial_w1 **0.53 vs 9.10 (~17×)** and sliced_w1 **0.108 vs 0.154**. `fixed_spherical`'s
+radial_w1 ≈ 0.8·std(radius) ≈ 9.5, exactly the error of a point-mass-at-R0 radial law, confirming the mechanism:
+fixing the radius cannot represent a non-degenerate radial distribution, whereas matched-radial (RAFM) can.
+So **when radial variability is meaningful, empirical radial matching improves over fixed-radius spherical flow.**
+
+## Regime-level conclusion (the scientific answer the reviewer asked for)
+- **Fixed-radius latent (RAE/DINOv2-B, global CoV 1.6%):** RAFM has ~nothing to correct and **reduces to the
+  spherical / angular-only baseline** (expected tie; do not claim a win).
+- **Non-degenerate latent (DC-AE, global CoV 12%):** RAFM's matched-radial source **substantially improves** over
+  both Euclidean FM and fixed-radius spherical flow (radial ~17× better than fixed-spherical, best on all metrics).
+This directly answers: RAFM correctly reduces to angular flow when the representation is already fixed-radius, and
+adds real value when the radial law is non-degenerate.
+
 ## Claims that must NOT be made
 - Do not claim RAFM beats spherical flow on DINO/RAE latents (the latent is ~fixed-radius; expect a tie).
 - Do not present a small-sample or subset result as ImageNet-1K / FID-50k.

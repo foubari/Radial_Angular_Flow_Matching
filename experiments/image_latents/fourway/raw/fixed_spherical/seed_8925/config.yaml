@@ -1,0 +1,14 @@
+batch_size: 2048
+ckpt_every: 10000
+dataset:
+  dim: 2048
+  name: dcae
+device: cuda
+hidden_dim: 256
+log_every: 500
+lr: 0.001
+n_layers: 3
+n_train_steps: 10000
+nfe: 128
+path: spherical
+solver: rk4
