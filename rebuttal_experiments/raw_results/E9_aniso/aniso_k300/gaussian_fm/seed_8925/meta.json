@@ -1,0 +1,23 @@
+{
+  "config": {
+    "lr": 0.001,
+    "batch_size": 4096,
+    "n_train_steps": 10000,
+    "log_every": 200,
+    "ckpt_every": 5000,
+    "device": "cuda",
+    "solver": "rk4",
+    "nfe": 128,
+    "hidden_dim": 128,
+    "n_layers": 3,
+    "path": "euclidean",
+    "source": "gaussian",
+    "n_gen_samples": 10000,
+    "dataset": {
+      "name": "aniso_k300",
+      "dim": 32
+    }
+  },
+  "seed": 8925,
+  "start_time": "2026-07-27T20:26:07"
+}

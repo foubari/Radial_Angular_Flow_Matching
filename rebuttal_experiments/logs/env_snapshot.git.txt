@@ -1,0 +1,19 @@
+2e659c750149e9eb4c6f36177142b7793188d97f
+ M baselines/msgm_adapter.py
+ M configs/defaults.yaml
+?? IMPLEMENTATION_DETAILS.md
+?? RESULTS_SUMMARY.md
+?? appendix.tex
+?? rebuttal_experiments/
+?? scripts/convergence_rafm_msgm.py
+?? scripts/figure1_method.py
+?? scripts/figure1_method_v2.py
+?? scripts/figure1_method_v3_heavytail.py
+?? scripts/figure_loss_curves.py
+?? scripts/figure_path_schematic.py
+?? scripts/figure_radial_cdf.py
+?? scripts/figure_radial_mismatch_2x2.py
+?? scripts/figure_radial_w1_bar.py
+?? scripts/figure_runtime.py
+?? scripts/figure_sample_efficiency.py
+?? scripts/figure_solver_sensitivity.py

@@ -1,0 +1,11 @@
+  gaussian_fm              65457   dir_sw1=0.0072 dir_mmd=0.00160 ang_err=43.47deg cr_sw1=0.0751
+  gaussian_fm              77395   dir_sw1=0.0086 dir_mmd=0.00300 ang_err=43.81deg cr_sw1=0.0864
+  gaussian_fm              8925    dir_sw1=0.0098 dir_mmd=0.00353 ang_err=43.18deg cr_sw1=0.0979
+  rafm_empirical           65457   dir_sw1=0.0068 dir_mmd=0.00135 ang_err=43.50deg cr_sw1=0.0693
+  rafm_empirical           77395   dir_sw1=0.0073 dir_mmd=0.00142 ang_err=43.89deg cr_sw1=0.0749
+  rafm_empirical           8925    dir_sw1=0.0083 dir_mmd=0.00236 ang_err=43.05deg cr_sw1=0.0835
+  source_only_empirical    65457   dir_sw1=0.0098 dir_mmd=0.00384 ang_err=43.58deg cr_sw1=0.0905
+  source_only_empirical    77395   dir_sw1=0.0080 dir_mmd=0.00239 ang_err=43.79deg cr_sw1=0.0781
+  source_only_empirical    8925    dir_sw1=0.0094 dir_mmd=0.00348 ang_err=43.22deg cr_sw1=0.0928
+
+Wrote 9 rows -> rebuttal_experiments\raw_results\E3_angular\E_weather.csv

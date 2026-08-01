@@ -1,0 +1,21 @@
+{
+  "config": {
+    "lr": 0.001,
+    "batch_size": 2048,
+    "n_train_steps": 10000,
+    "log_every": 1000,
+    "ckpt_every": 10000,
+    "device": "cuda",
+    "solver": "rk4",
+    "nfe": 128,
+    "hidden_dim": 256,
+    "n_layers": 3,
+    "path": "spherical",
+    "dataset": {
+      "name": "dcae",
+      "dim": 2048
+    }
+  },
+  "seed": 77395,
+  "start_time": "2026-08-01T14:05:43"
+}

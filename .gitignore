@@ -51,3 +51,34 @@ env/
 # OS
 .DS_Store
 Thumbs.db
+
+# Rebuttal: exclude heavy binaries, keep compact artifacts + figures
+**/tb/
+events.out.tfevents.*
+# re-include rebuttal figures despite the global figures/ ignore
+!rebuttal_experiments/figures/
+!rebuttal_experiments/figures/**
+
+# Image-latent experiments: heavy artifacts not committed
+experiments/image_latents/.venv_img/
+experiments/image_latents/data/
+third_party/*/models/
+third_party/*/.git/
+**/*.tgz
+
+# Vendored external clones: pin by SHA in third_party/README.md instead of committing
+third_party/RAE/
+third_party/RJF/
+third_party/flow_matching/
+# keep image-latent figures despite global figures/ ignore
+!experiments/image_latents/figures/
+!experiments/image_latents/figures/**
+
+# DiT experiment heavy artifacts
+experiments/image_latents/dit/runs/
+experiments/image_latents/dit/eval/
+!experiments/image_latents/figures/dit_samples/
+
+# transient run logs
+experiments/image_latents/**/*.log
+experiments/image_latents/logs_*.txt

@@ -1,0 +1,55 @@
+# SMOKE TEST config — tiny run to validate the exp1 pipeline end-to-end.
+# Self-contained (no inherit). Writes only under rebuttal_experiments/raw_results/_smoke.
+experiment: _smoke_exp1
+output_dir: rebuttal_experiments/raw_results/_smoke
+
+# Model
+hidden_dim: 128
+n_layers: 3
+premodule: null
+
+# Training (tiny)
+lr: 0.001
+batch_size: 256
+n_train_steps: 200
+log_every: 50
+ckpt_every: 200
+
+# Sampling (tiny)
+solver: rk4
+nfe: 16
+n_gen_samples: 1000
+
+# Experiment
+n_seeds: 1
+base_seed: 42
+device: auto
+
+# Data
+split_seed: 0
+train_frac: 0.6
+val_frac: 0.2
+
+# Metrics (reduced projections for speed)
+n_projections_sw: 100
+n_projections_angular: 50
+n_angular_bins: 4
+norm_exploding_factor: 100
+
+dataset:
+  name: student_t
+  dim: 16
+  df: 3.0
+  n_samples: 4000
+  correlated: true
+
+methods:
+  - name: gaussian_fm
+    source: gaussian
+    path: euclidean
+  - name: source_only_empirical
+    source: radial_empirical_ecdf
+    path: euclidean
+  - name: rafm_empirical
+    source: radial_empirical_ecdf
+    path: spherical_geodesic

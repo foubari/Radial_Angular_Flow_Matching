@@ -1,0 +1,16 @@
+batch_size: 4096
+ckpt_every: 5000
+dataset:
+  dim: 32
+  name: aniso_k30
+device: cuda
+hidden_dim: 128
+log_every: 200
+lr: 0.001
+n_gen_samples: 10000
+n_layers: 3
+n_train_steps: 10000
+nfe: 128
+path: euclidean
+solver: rk4
+source: gaussian

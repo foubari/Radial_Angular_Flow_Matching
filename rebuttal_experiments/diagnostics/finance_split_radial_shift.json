@@ -1,0 +1,18 @@
+{
+  "chrono": {
+    "train_norm_mean": 6.057374000549316,
+    "test_norm_mean": 7.437562465667725,
+    "train_q99": 18.469980239868164,
+    "test_q99": 23.95282554626465,
+    "radial_W1_train_test": 1.3864,
+    "radial_KS_train_test": 0.199
+  },
+  "random": {
+    "train_norm_mean": 6.5923662185668945,
+    "test_norm_mean": 6.600063800811768,
+    "train_q99": 22.631771087646484,
+    "test_q99": 23.250844955444336,
+    "radial_W1_train_test": 0.1424,
+    "radial_KS_train_test": 0.0189
+  }
+}

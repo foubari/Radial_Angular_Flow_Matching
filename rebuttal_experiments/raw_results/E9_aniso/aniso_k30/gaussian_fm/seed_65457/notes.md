@@ -1,0 +1,2 @@
+gaussian_fm seed=65457 on aniso_k30
+host=SHADOW-G9VUEQO5 device=cuda

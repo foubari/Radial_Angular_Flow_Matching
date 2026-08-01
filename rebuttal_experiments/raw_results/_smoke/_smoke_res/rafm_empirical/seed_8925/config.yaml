@@ -1,0 +1,18 @@
+arch: resmlp
+batch_size: 512
+ckpt_every: 5000
+dataset:
+  dim: 96
+  name: _smoke_res
+device: cuda
+hidden_dim: 256
+log_every: 200
+lr: 0.001
+n_gen_samples: 1000
+n_layers: 4
+n_train_steps: 100
+nfe: 16
+path: spherical_geodesic
+solver: rk4
+source: radial_empirical
+split: chrono

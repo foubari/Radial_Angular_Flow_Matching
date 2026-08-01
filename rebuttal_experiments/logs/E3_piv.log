@@ -1,0 +1,11 @@
+  gaussian_fm              65457   dir_sw1=0.0176 dir_mmd=0.00612 ang_err=36.06deg cr_sw1=0.0394
+  gaussian_fm              77395   dir_sw1=0.0190 dir_mmd=0.00849 ang_err=36.24deg cr_sw1=0.0414
+  gaussian_fm              8925    dir_sw1=0.0149 dir_mmd=0.00442 ang_err=34.93deg cr_sw1=0.0352
+  rafm_empirical           65457   dir_sw1=0.0149 dir_mmd=0.00381 ang_err=34.21deg cr_sw1=0.0360
+  rafm_empirical           77395   dir_sw1=0.0157 dir_mmd=0.00336 ang_err=33.75deg cr_sw1=0.0373
+  rafm_empirical           8925    dir_sw1=0.0143 dir_mmd=0.00405 ang_err=34.27deg cr_sw1=0.0358
+  source_only_empirical    65457   dir_sw1=0.0159 dir_mmd=0.00477 ang_err=33.91deg cr_sw1=0.0370
+  source_only_empirical    77395   dir_sw1=0.0181 dir_mmd=0.00655 ang_err=34.05deg cr_sw1=0.0400
+  source_only_empirical    8925    dir_sw1=0.0122 dir_mmd=0.00160 ang_err=33.92deg cr_sw1=0.0321
+
+Wrote 9 rows -> rebuttal_experiments\raw_results\E3_angular\E10_piv_d64.csv

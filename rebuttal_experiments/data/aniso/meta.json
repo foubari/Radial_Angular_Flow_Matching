@@ -1,0 +1,14 @@
+{
+  "base": "gaussian (light-tailed)",
+  "dim": 32,
+  "N": 50000,
+  "kappas": [
+    1,
+    3,
+    10,
+    30,
+    100,
+    300
+  ],
+  "A": "U diag(logspace(1,kappa)) V^T, fixed U,V (seed 42)"
+}
