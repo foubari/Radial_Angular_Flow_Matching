@@ -22,17 +22,17 @@ Files: `diagnostics/latent_geometry.json`, `tables/latent_geometry.md`, `figures
 | global ‖z‖ (196608-d) | 505.0 | 8.2 | **0.0162** | −0.13 | −0.17 |
 | per-token (768-d) | 31.5 | 1.2 | **0.0385** | 0.14 | 0.21 |
 
-- Between-class radius std 5.74 ≈ within-class 5.68 → **no meaningful class-conditional radial structure**.
+- Between-class radius std 5.74 vs within-class 5.68 on this **N=2000** subset → **no strong per-class radial signal is visible, but the subset is too small to firmly rule out class-conditional radial structure** (10 Imagenette classes only; not the 1000-class ImageNet). Treat as suggestive, not conclusive.
 - Decoder radius-sensitivity: PSNR ≈36 dB at ±10% radius, ≈28–31 dB at ±25%, 20–27 dB at ±50% — the decoder *is* radius-sensitive, but the actual latent radial spread is tiny.
 
-### Conclusion (honest, non-cherry-picked)
+### Conclusion (honest, non-cherry-picked) — a latent-geometry DIAGNOSTIC, not a trained comparison
 The RAE/DINOv2-B Stage-2 latent is **effectively near-fixed-radius** (global-norm CoV ≈ **1.6%**, per-token ≈ 3.9%,
-near-Gaussian, no class-radial structure). By the pre-registered decision rule this is a **fixed-radius / angular-only
-regime**: RAFM's empirical radial matching has almost nothing to correct, so RAFM is expected to **reduce to the
-fixed-radius spherical baseline** here. This is a scientifically meaningful *neutral* result — it confirms RAFM behaves
-correctly (reduces to angular flow) when the representation is already fixed-radius, and it means a heavy CIFAR/ImageNet
-RAFM-vs-SFM run on this latent would (expensively) confirm a **tie**, not a RAFM win. We do **not** manufacture a radial
-advantage.
+near-Gaussian). This is a **latent-geometry diagnostic indicating there is very little room for radial matching to help**
+on this representation — the empirical radial law is almost a point mass, so RAFM's matched-radial source has almost
+nothing to correct relative to a fixed-radius prior. **We do NOT yet claim RAFM empirically equals fixed-radius spherical
+flow on DINO/RAE** — that would require actually training and comparing both on this latent, which we have not done here.
+The diagnostic only predicts *limited headroom*; confirming a tie would need the trained four-way (compute-gated). We do
+**not** manufacture a radial advantage.
 
 ### Recommendation
 - Report DINO/RAE as a **fixed-radius control** (RAFM ≡ spherical flow) — directly answers the reviewer.
@@ -54,38 +54,73 @@ DC-AE (`mit-han-lab/dc-ae-f32c32-sana-1.0`), latent **[32,8,8] = 2048-d**, Image
 matched-radial (RAFM) *can* add value over fixed-radius spherical flow, and where the four-way comparison is
 scientifically informative. **Regime map:** RAE/DINO ≈ fixed-radius (RAFM≡SFM); DC-AE = non-degenerate (RAFM testable).
 
-## Phase 5 result — four-way source/path comparison on the DC-AE latent
-Files: `fourway/fourway_dcae.md`, `fourway/raw/*/seed_8925/metrics.json`, `figures/phase5_fourway.png`.
-Pure rafm-library MLP flow (3×256, matched budget 10k steps, batch 2048) on the **centered** DC-AE
-latent (train-mean centered, no leakage); 13394 imagenette latents, random 60/20/20; N_gen=5000.
-**These are latent-distribution metrics (radial/sliced/directional W1), NOT image FID-50k** (FID needs
-a full class-conditional generator + heavy compute; see limitations).
+## Phase 5 result — four-way source/path comparison on the DC-AE latent (3 seeds)
+Files: `fourway/fourway_dcae.md`, `fourway/radial_floor.json`, `fourway/raw/*/seed_*/metrics.json`,
+`figures/phase5_fourway.png`, decoded grids `figures/samples/*.png`, `fourway/fid_small.md`.
+Pure rafm-library MLP flow (3×256, matched budget 10k steps, batch 2048) on the **train-mean-centered** DC-AE
+latent; 13394 imagenette latents, random 60/20/20; N_gen=5000; **3 seeds (mean±std)**.
+**Latent-distribution metrics (radial/sliced/directional W1), NOT image FID-50k.** Irreducible radial-W1 floor of any
+empirical-radial source (this split): **train/val 0.190, train/test 0.512**.
 
-| method | source | path | radial_w1 | sliced_w1 | dir_sw1 | cr_sw1 |
-|---|---|---|---|---|---|---|
-| gaussian_euclidean | N(0,I) | Euclid | 22.0 | 0.428 | 0.0020 | 0.203 |
-| matched_euclidean | eCDF radial | Euclid | 19.6 | 0.370 | 0.0015 | 0.149 |
-| fixed_spherical (SFM) | fixed R0 | spherical | 9.10 | 0.154 | 0.0015 | 0.152 |
-| **rafm_empirical (RAFM)** | eCDF radial | spherical | **0.53** | **0.108** | **0.0010** | **0.106** |
+| method | source | path | radial_w1 | sliced_w1 | dir_sw1 (norm-dir) | cr_sw1 (common-radial) | ks_stat |
+|---|---|---|---|---|---|---|---|
+| gaussian_euclidean | N(0,I) | Euclid | 23.95±1.44 | 0.463±0.026 | 0.0023 | 0.238 | 0.804 |
+| matched_euclidean | eCDF radial | Euclid | 19.23±0.55 | 0.368±0.005 | 0.0015 | 0.145 | 0.545 |
+| fixed_spherical (SFM) | fixed R0 | spherical | 9.10±0.00 | 0.128±0.019 | 0.0012 | 0.128 | 0.535 |
+| **rafm_empirical (RAFM)** | eCDF radial | spherical | **0.67±0.11** | **0.116±0.006** | 0.0012 | 0.124 | **0.037** |
 
-**Finding (positive, non-degenerate regime):** on the DC-AE latent (radial CoV 12%), **RAFM is clearly best**.
-The decisive isolation — RAFM vs `fixed_spherical` (both use the spherical geodesic path; RAFM only adds the
-matched-radial source) — gives radial_w1 **0.53 vs 9.10 (~17×)** and sliced_w1 **0.108 vs 0.154**. `fixed_spherical`'s
-radial_w1 ≈ 0.8·std(radius) ≈ 9.5, exactly the error of a point-mass-at-R0 radial law, confirming the mechanism:
-fixing the radius cannot represent a non-degenerate radial distribution, whereas matched-radial (RAFM) can.
-So **when radial variability is meaningful, empirical radial matching improves over fixed-radius spherical flow.**
+**Finding (positive, non-degenerate regime), and where the gain comes from — precisely:**
+- RAFM is best overall. Its radial_w1 (0.67±0.11) essentially reaches the **train/test radial floor (0.512)** — i.e. RAFM
+  attains the best achievable radial given the source; its KS (0.037) is ~15× better than any other method.
+- The decisive isolation **RAFM vs `fixed_spherical`** (both spherical geodesic path; RAFM only adds the matched-radial
+  source): the win is **almost entirely radial** — radial_w1 **0.67 vs 9.10 (~14×)**, KS **0.037 vs 0.535**. On the
+  **direction-only metrics they are tied** (dir_sw1 0.0012 vs 0.0012; cr_sw1 0.124 vs 0.128) — as expected, since both use
+  the same angular flow. Global sliced_w1 is ~tied (0.116 vs 0.128). `fixed_spherical`'s radial_w1 = 9.10 ≈ 0.8·std(radius),
+  exactly the error of a point-mass-at-R0 radial law.
+- **Honest reading:** matching the empirical radial law (RAFM) helps specifically on the **radial axis** of a non-degenerate
+  latent; the shared spherical path governs the directional/angular quality (RAFM = SFM there). So the value of RAFM over
+  fixed-radius spherical flow is *radial fidelity*, not better directions.
+
+### Small-sample image FID (decoded) — sanity check, NOT FID-50k
+Files: `fourway/fid_small.md`, `figures/samples/*.png` (fixed-order uncurated grids). Generated latents were un-centered,
+reshaped to [32,8,8], DC-AE-decoded, and scored with a **torchvision-InceptionV3-feature FID vs Imagenette val, N≈2000/method
+(relative across methods only; NOT the canonical clean-fid Inception, NOT FID-50k).**
+
+| gaussian_eucl | matched_eucl | fixed_spherical | **RAFM** | decoder rFID floor |
+|---|---|---|---|---|
+| 300.7 | 322.1 | 309.7 | **294.2** | **21.3** |
+
+**Crucial honest caveat:** the DC-AE **decoder is good** (rFID floor 21.3, decoding real latents), but **all four small-MLP flows
+decode to poor images (~300, ~14× the floor)** — the toy 3×256 MLP is the generation bottleneck, not the source/path choice.
+RAFM is marginally best (294 vs 310/301/322) but the **image-FID differences between methods are small**: RAFM's clear
+*latent-radial* advantage (radial 0.67 vs 9.10) **does not translate into a meaningful image-FID gain at this model scale.**
+Testing whether the radial advantage yields better *images* requires a real generator (LightningDiT/DiT, prompt Phase 4),
+which is compute-gated. Do not over-read the ~294 number.
+
+### RAE geometry: one global sphere, token-wise, or product? (Phase 2b)
+Files: `diagnostics/rae_sphere_geometry.json`, `tables/rae_sphere_geometry.md`. Global-norm CoV 0.0162; pooled per-token CoV
+0.0385; within-image cross-token CoV 0.0345; per-position CoV (across images) 0.032 (max 0.035); between-position mean-radius
+rel-std 0.021. **Verdict: a product of ~identical near-fixed-radius per-token spheres (per-token LayerNorm), which — because
+the 256 positions sit on nearly the same radius (2% spread) — is also ≈ a single global fixed-radius sphere.** Both the global
+(flattened) view used by RAFM and the token-wise view are near-degenerate radially, consistent with the Phase-2 gate.
 
 ## Regime-level conclusion (the scientific answer the reviewer asked for)
-- **Fixed-radius latent (RAE/DINOv2-B, global CoV 1.6%):** RAFM has ~nothing to correct and **reduces to the
-  spherical / angular-only baseline** (expected tie; do not claim a win).
-- **Non-degenerate latent (DC-AE, global CoV 12%):** RAFM's matched-radial source **substantially improves** over
-  both Euclidean FM and fixed-radius spherical flow (radial ~17× better than fixed-spherical, best on all metrics).
-This directly answers: RAFM correctly reduces to angular flow when the representation is already fixed-radius, and
-adds real value when the radial law is non-degenerate.
+- **Fixed-radius latent (RAE/DINOv2-B, global CoV 1.6%):** a **latent-geometry diagnostic** shows the radial law is
+  almost a point mass → **limited headroom for radial matching**. Whether RAFM exactly ties fixed-radius spherical flow
+  here is **not yet demonstrated** (both would have to be trained on this latent — not done).
+- **Non-degenerate latent (DC-AE, global CoV 12%):** *trained and compared* — RAFM's matched-radial source
+  **substantially improves** over both Euclidean FM and fixed-radius spherical flow (radial ~17× better than
+  fixed-spherical, best on all latent metrics).
+This supports: matched-radial adds real value when the radial law is non-degenerate (shown on DC-AE), while on a
+near-fixed-radius representation (DINO/RAE) the diagnostic predicts little to gain — a claim about *geometry*, pending a
+trained confirmation of the tie.
 
 ## Claims that must NOT be made
-- Do not claim RAFM beats spherical flow on DINO/RAE latents (the latent is ~fixed-radius; expect a tie).
+- Do NOT claim RAFM empirically equals (or beats) fixed-radius spherical flow on DINO/RAE **unless both are trained and
+  compared** on that latent. The current DINO/RAE result is a **geometry diagnostic** (limited radial headroom), not a
+  trained comparison.
 - Do not present a small-sample or subset result as ImageNet-1K / FID-50k.
+- Do not over-read the N=2000 per-class radius statistic (too small for a firm class-conditional conclusion).
 
 ## Status vs prompt phases
 Phase 0 (rebuttal integration) ✓ · Phase 1 (env + upstream RAE load validated) ✓ · Phase 2 (latent geometry) ✓ →

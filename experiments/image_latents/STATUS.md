@@ -11,3 +11,9 @@ Branch iclr-image-experiments. Env: .venv_img (transformers 4.56.2, torch 2.6). 
 
 Downloads done: RAE code (pinned), DINOv2-B decoder+stats (1.6GB, gitignored), Imagenette-320 val (gitignored).
 System dgm_tire env untouched (transformers still 4.44).
+
+## 3-seed four-way + extras (done)
+- 3-seed DC-AE four-way: RAFM radial 0.67+-0.11 (~floor 0.512), fixed_spherical 9.10; win is radial (KS 0.037 vs 0.535), directions tied. fourway/fourway_dcae.md + radial_floor.json.
+- RAE geometry (Phase 2b): product of ~identical near-fixed-radius token spheres ~= single global sphere. tables/rae_sphere_geometry.md.
+- Small-sample FID (labeled, torchvision-Inception, N~2000): RAFM 294 (best) but all ~300 vs decoder floor 21 -> toy MLP is bottleneck; radial advantage doesn't reach image FID at this scale. fourway/fid_small.md, figures/samples/*.png.
+- Report reframed: DINO/RAE = geometry diagnostic (not trained tie); class claim weakened.

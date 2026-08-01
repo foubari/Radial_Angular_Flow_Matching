@@ -1,0 +1,6 @@
+{
+  "radial_w1_train_val": 0.19,
+  "radial_w1_train_test": 0.5121,
+  "test_norm_mean": 101.13259887695312,
+  "test_norm_std": 12.062100410461426
+}

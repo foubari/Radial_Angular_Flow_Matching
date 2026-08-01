@@ -3,7 +3,7 @@
     "lr": 0.001,
     "batch_size": 2048,
     "n_train_steps": 10000,
-    "log_every": 500,
+    "log_every": 1000,
     "ckpt_every": 10000,
     "device": "cuda",
     "solver": "rk4",
@@ -17,5 +17,5 @@
     }
   },
   "seed": 8925,
-  "start_time": "2026-08-01T02:40:20"
+  "start_time": "2026-08-01T13:56:28"
 }

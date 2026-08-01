@@ -1,0 +1,21 @@
+{
+  "gaussian_euclidean": {
+    "fid_small": 300.69,
+    "n": 2000
+  },
+  "matched_euclidean": {
+    "fid_small": 322.08,
+    "n": 2000
+  },
+  "fixed_spherical": {
+    "fid_small": 309.7,
+    "n": 2000
+  },
+  "rafm_empirical": {
+    "fid_small": 294.24,
+    "n": 2000
+  },
+  "_decoder_rFID_floor": {
+    "fid_small": 21.34
+  }
+}

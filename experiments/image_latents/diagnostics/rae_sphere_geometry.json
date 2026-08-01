@@ -1,0 +1,18 @@
+{
+  "n_images": 2000,
+  "global_norm": {
+    "mean": 504.98638916015625,
+    "std": 8.181487083435059,
+    "cov": 0.016201401129364967
+  },
+  "token_norm_pooled": {
+    "mean": 31.542417526245117,
+    "std": 1.214492678642273,
+    "cov": 0.03850347548723221
+  },
+  "within_image_cross_token_cov": 0.03450329601764679,
+  "per_position_cov_mean": 0.03199700638651848,
+  "per_position_cov_max": 0.03536906838417053,
+  "between_position_mean_radius_rel_std": 0.02133961021900177,
+  "geometry_verdict": "product of ~identical near-fixed-radius token spheres (\u2248 single global fixed-radius sphere)"
+}

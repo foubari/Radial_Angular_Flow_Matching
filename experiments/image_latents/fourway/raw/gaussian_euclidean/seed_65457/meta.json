@@ -10,12 +10,12 @@
     "nfe": 128,
     "hidden_dim": 256,
     "n_layers": 3,
-    "path": "spherical",
+    "path": "euclidean",
     "dataset": {
       "name": "dcae",
       "dim": 2048
     }
   },
-  "seed": 8925,
-  "start_time": "2026-08-01T13:57:37"
+  "seed": 65457,
+  "start_time": "2026-08-01T14:07:41"
 }
