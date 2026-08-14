@@ -1,0 +1,11 @@
+{
+  "n_images": 400,
+  "n_tokens": 25600,
+  "corr_tokenRadius_vs": {
+    "edge": -0.182,
+    "contrast": 0.213,
+    "brightness": 0.133,
+    "recon_err": -0.25
+  },
+  "note": "per-token correlation of token-radius with local image properties (pooled over tokens & images)"
+}

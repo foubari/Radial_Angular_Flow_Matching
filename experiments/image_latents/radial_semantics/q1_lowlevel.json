@@ -1,0 +1,32 @@
+{
+  "n": 3000,
+  "pearson_corr_radius_vs": {
+    "brightness": 0.181,
+    "contrast": 0.435,
+    "white_frac": 0.578,
+    "black_frac": 0.326,
+    "flat_extreme_frac": 0.7,
+    "border_std": 0.088,
+    "color_sat": 0.099
+  },
+  "low_vs_high_radius_decile": {
+    "low_radius_mean": {
+      "brightness": 0.459,
+      "contrast": 0.173,
+      "white_frac": 0.016,
+      "black_frac": 0.026,
+      "flat_extreme_frac": 0.042,
+      "border_std": 0.158,
+      "color_sat": 0.113
+    },
+    "high_radius_mean": {
+      "brightness": 0.557,
+      "contrast": 0.277,
+      "white_frac": 0.311,
+      "black_frac": 0.174,
+      "flat_extreme_frac": 0.485,
+      "border_std": 0.186,
+      "color_sat": 0.144
+    }
+  }
+}

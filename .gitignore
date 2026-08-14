@@ -82,3 +82,20 @@ experiments/image_latents/dit/eval/
 # transient run logs
 experiments/image_latents/**/*.log
 experiments/image_latents/logs_*.txt
+third_party/SiT/
+
+# --- session-generated artifacts (large / regenerable) ---
+experiments/poc_audio/data/
+experiments/poc_audio/runs*/
+experiments/poc_audio/eval*/
+experiments/poc_audio/_smoke*/
+experiments/image_latents/dit_sit/
+experiments/image_latents/dit/eval*/
+experiments/image_latents/dit/runs*/
+experiments/image_latents/dit/ckpts/
+experiments/image_latents/dit/samples/
+experiments/image_latents/figures/
+experiments/image_latents/radial_semantics/*.npy
+experiments/image_latents/radial_semantics/*.npz
+**/gen_*/
+*.wav

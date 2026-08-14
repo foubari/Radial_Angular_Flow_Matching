@@ -19,3 +19,4 @@ git clone https://github.com/bytetriper/RAE third_party/RAE && (cd third_party/R
 #   then: pip install transformers==4.56.2 timm==0.9.16 omegaconf==2.3.0
 ```
 Encoder auto-downloaded by transformers: facebook/dinov2-with-registers-base.
+| SiT | https://github.com/willisma/SiT | cbde832a40b153ccc79603412409da9c9b0c568c | official DiT/velocity backbone (models.py SiT class) for DC-AE flow matching |

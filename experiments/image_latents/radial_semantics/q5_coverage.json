@@ -1,0 +1,34 @@
+{
+  "gaussian_euclidean": {
+    "tail_NN_dist_mean": 55.456,
+    "tail_NN_dist_median": 56.773,
+    "mid_NN_dist_mean": 54.167,
+    "tail_coverage": 0.0433,
+    "tail_recall": 0.0627,
+    "tail_density": 0.6603
+  },
+  "matched_euclidean": {
+    "tail_NN_dist_mean": 54.656,
+    "tail_NN_dist_median": 56.175,
+    "mid_NN_dist_mean": 53.385,
+    "tail_coverage": 0.0425,
+    "tail_recall": 0.0627,
+    "tail_density": 0.7311
+  },
+  "fixed_spherical": {
+    "tail_NN_dist_mean": 54.535,
+    "tail_NN_dist_median": 56.958,
+    "mid_NN_dist_mean": 53.256,
+    "tail_coverage": 0.0478,
+    "tail_recall": 0.1522,
+    "tail_density": 0.6961
+  },
+  "rafm": {
+    "tail_NN_dist_mean": 55.324,
+    "tail_NN_dist_median": 56.989,
+    "mid_NN_dist_mean": 54.096,
+    "tail_coverage": 0.0425,
+    "tail_recall": 0.0754,
+    "tail_density": 0.7018
+  }
+}

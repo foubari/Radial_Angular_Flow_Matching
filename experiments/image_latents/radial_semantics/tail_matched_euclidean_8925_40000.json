@@ -1,0 +1,15 @@
+{
+  "method": "matched_euclidean",
+  "step": 40000,
+  "seed": 8925,
+  "n": 3000,
+  "tail_coverage_gt_q95": 0.016,
+  "target_0.05": 0.05,
+  "tail_coverage_gt_q99": 0.0006666666666666666,
+  "target_0.01": 0.01,
+  "pit_mean": 0.35311554726368155,
+  "pit_std": 0.27630410793138827,
+  "pit_target_mean": 0.5,
+  "gen_radius_mean": 39.459808349609375,
+  "data_radius_mean": 41.8759765625
+}
