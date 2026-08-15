@@ -36,13 +36,13 @@ def build(method, latents, labels, split_seed):
     else:
         train=data[tr]
     src=GaussianSource() if method=="gaussian_euclidean" else RadialEmpiricalSource(mode="ecdf").fit(train)
-    path=SphericalGeodesicPath() if method in ("fixed_spherical","rafm") else EuclideanPath()
+    path=SphericalGeodesicPath() if method in ("fixed_spherical","rafm","angular_rafm") else EuclideanPath()
     return dict(tr=tr,va=va,te=te,mu=mu,data=data,train=train,src=src,path=path,
-                spherical=method in ("fixed_spherical","rafm"),R0=R0)
+                spherical=method in ("fixed_spherical","rafm","angular_rafm"),R0=R0)
 
 def main():
     ap=argparse.ArgumentParser()
-    ap.add_argument("--method",required=True,choices=["gaussian_euclidean","matched_euclidean","fixed_spherical","rafm"])
+    ap.add_argument("--method",required=True,choices=["gaussian_euclidean","matched_euclidean","fixed_spherical","rafm","angular_rafm"])
     ap.add_argument("--out",default="experiments/image_latents/dit_sit")
     ap.add_argument("--latents",default="experiments/image_latents/data/dcae_latents_scaled.pt")
     ap.add_argument("--labels",default="experiments/image_latents/data/dcae_labels.pt")
@@ -88,6 +88,8 @@ def main():
             R=x1.norm(dim=1,keepdim=True); u0=torch.randn(n,D,device=dev); x0=R*u0/u0.norm(dim=1,keepdim=True)
         t=torch.rand(n,device=dev)
         xt=st["path"].sample_path(x0,x1,t); ut=st["path"].conditional_vector_field(x0,x1,t)
+        if a.method=="angular_rafm":                                       # scale-free angular target A=ut/||xt||
+            ut=ut/xt.norm(dim=1,keepdim=True).clamp(min=1e-8)
         with torch.autocast("cuda",dtype=torch.bfloat16):
             v=model(xt.reshape(n,32,8,8),t,y).reshape(n,-1)
             loss=((v.float()-ut)**2).sum(-1).mean()

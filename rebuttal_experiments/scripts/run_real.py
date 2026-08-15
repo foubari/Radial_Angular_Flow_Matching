@@ -33,6 +33,7 @@ METHODS = [
     ("gaussian_fm", "gaussian", "euclidean"),
     ("source_only_empirical", "radial_empirical", "euclidean"),
     ("rafm_empirical", "radial_empirical", "spherical_geodesic"),
+    ("angular_rafm", "radial_empirical", "spherical_geodesic"),   # scale-free angular target
 ]
 
 
@@ -80,11 +81,14 @@ def main():
             set_all_seeds(seed)
             run_dir = Path(args.out) / args.name / mname / f"seed_{seed}"
             run_dir.mkdir(parents=True, exist_ok=True)
+            if (run_dir / "metrics.json").exists():   # resumable: skip completed runs
+                print(f"  seed={seed} skip (metrics.json exists)", flush=True); continue
             cfg = {"lr": 1e-3, "batch_size": args.batch, "n_train_steps": args.steps,
                    "log_every": 200, "ckpt_every": 5000, "device": device,
                    "solver": "rk4", "nfe": args.nfe, "hidden_dim": args.hidden_dim,
                    "n_layers": args.n_layers, "arch": args.arch, "split": args.split,
                    "path": pkind, "source": skind, "n_gen_samples": n_gen,
+                   "angular": (mname == "angular_rafm"),
                    "dataset": {"name": args.name, "dim": ds.dim}}
             if args.arch == "resmlp":
                 from lib.resmlp import ResidualMLP

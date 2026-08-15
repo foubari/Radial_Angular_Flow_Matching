@@ -1,0 +1,22 @@
+% requires: \newcommand{\std}[1]{{\scriptsize$\pm$#1}}
+% \newcommand{\good}[1]{\textcolor{teal}{#1}} \newcommand{\bad}[1]{\textcolor{red}{#1}}
+\begin{table}[t]\centering
+\caption{Standard RAFM vs Angular RAFM ablation across all domains. $\Delta$ is Angular minus standard on the domain's headline metric (green favours Angular).}
+\label{tab:ablation}
+\small
+\begin{tabular}{llrrl}
+\toprule
+Setting & RAFM (std) & \textbf{Angular} & $\Delta$ & \\
+\midrule
+\multicolumn{5}{l}{\emph{Tabular / synthetic --- Sliced $W_1$ (overall) $\downarrow$}} \\
+\quad PIV & 0.025\std{0.001} & 0.034\std{0.003} & \bad{+0.009} & \\
+\quad Weather & 0.081\std{0.009} & 0.076\std{0.008} & \good{-0.005} & \\
+\quad Finance & 0.057\std{0.006} & 0.055\std{0.003} & \good{-0.002} & \\
+\quad Student-$t$ d16 & 0.268\std{0.039} & 0.250\std{0.021} & \good{-0.019} & \\
+\multicolumn{5}{l}{\emph{DC-AE --- FID $\downarrow$}} \\
+\quad ImageNette & 174.51\std{1.16} & 147.34\std{0.92} & \good{-27.2} & \\
+\multicolumn{5}{l}{\emph{AudioMNIST --- digit accuracy $\uparrow$}} \\
+\quad AudioMNIST & 0.711\std{0.014} & 0.764\std{0.025} & \good{+0.053} & \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,85 @@
+{
+  "FM/RAFM/Angular MLP d49 (Finance)": {
+    "params": 45873,
+    "flops_per_forward": 90880.0,
+    "batch": 4096,
+    "steps": 10000,
+    "ms_per_iter": null,
+    "train_iter_flops": 1116733440.0,
+    "total_train_flops": 11167334400000.0,
+    "wallclock_train_s": null,
+    "sampler": "RK4 128 steps=512 evals (baselines) / 512 steps=2048 evals (Angular runs)",
+    "note": ""
+  },
+  "FM/RAFM/Angular MLP d96 (Weather)": {
+    "params": 57952,
+    "flops_per_forward": 114944.0,
+    "batch": 2048,
+    "steps": 10000,
+    "ms_per_iter": null,
+    "train_iter_flops": 706215936.0,
+    "total_train_flops": 7062159360000.0,
+    "wallclock_train_s": null,
+    "sampler": "RK4 128 steps=512 evals (baselines) / 512 steps=2048 evals (Angular runs)",
+    "note": ""
+  },
+  "FM/RAFM/Angular MLP d64 (PIV)": {
+    "params": 49728,
+    "flops_per_forward": 98560.0,
+    "batch": 4096,
+    "steps": 10000,
+    "ms_per_iter": null,
+    "train_iter_flops": 1211105280.0,
+    "total_train_flops": 12111052800000.0,
+    "wallclock_train_s": null,
+    "sampler": "RK4 128 steps=512 evals (baselines) / 512 steps=2048 evals (Angular runs)",
+    "note": ""
+  },
+  "ResMLP 256x4 (Weather big)": {
+    "params": 576096,
+    "flops_per_forward": 1147392.0,
+    "batch": 2048,
+    "steps": 10000,
+    "ms_per_iter": null,
+    "train_iter_flops": 7049576448.0,
+    "total_train_flops": 70495764480000.0,
+    "wallclock_train_s": null,
+    "sampler": "RK4 512 steps=2048 evals",
+    "note": ""
+  },
+  "MSGM (Finance d49)": {
+    "params": 45873,
+    "flops_per_forward": 90880.0,
+    "batch": 4096,
+    "steps": 10000,
+    "ms_per_iter": 1800.0,
+    "measured_train_s_per_seed": "18000-20000",
+    "slowdown_vs_rafm": "~525x",
+    "sampler": "RK4 Stratonovich",
+    "note": "Per-step cost dominated NOT by the MLP but by the multiplicative-noise SDE: dense (dim,dim,dim) generator G -> O(batch*dim^3) drift/diffusion, wrapped in sliced-score-matching (autograd.grad create_graph=True -> double backward). Cost scales with dim^3."
+  },
+  "DiT-SiT (DC-AE image)": {
+    "params": 32515616,
+    "flops_per_forward": 2743369728.0,
+    "batch": 64,
+    "steps": 40000,
+    "ms_per_iter": 83.0,
+    "train_iter_flops": 526726987776.0,
+    "total_train_flops": 2.106907951104e+16,
+    "wallclock_train_s": 3320.0,
+    "sampler": "RK4 25 steps=100 evals (all methods, matched)",
+    "note": "linear-attn MACs approximate"
+  },
+  "UNet ch96 (AudioMNIST)": {
+    "params": 27896802,
+    "flops_per_forward": 53713157376.0,
+    "batch": 32,
+    "steps": 24000,
+    "ms_per_iter": null,
+    "train_iter_flops": 5156463108096.0,
+    "total_train_flops": 1.23755114594304e+17,
+    "wallclock_train_s": null,
+    "sampler": "RK4 (see audio_eval nfe)",
+    "note": "conv MACs"
+  }
+}

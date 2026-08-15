@@ -40,3 +40,7 @@ methods:
   - name: rafm_empirical
     source: radial_empirical_ecdf
     path: spherical_geodesic
+  - name: angular_rafm
+    source: radial_empirical_ecdf
+    path: spherical_geodesic
+    angular: true

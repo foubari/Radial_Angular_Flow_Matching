@@ -40,10 +40,11 @@ def build_real_ref(img_root, n, size=256, seed=1):
     print(f"[real] built {len(ps)} ref imgs -> {REAL_DIR}",flush=True)
 
 @torch.no_grad()
-def rk4_sample(model, x0, y, spherical, nfe=50):
+def rk4_sample(model, x0, y, spherical, nfe=50, angular=False):
     dev=x0.device; x=x0; n=x0.shape[0]; dt=1.0/nfe
     def v(xx,tt):
         out=model(xx.reshape(n,32,8,8),torch.full((n,),tt,device=dev),y).reshape(n,-1)
+        if angular: out=xx.norm(dim=1,keepdim=True).clamp(min=1e-8)*out    # reconstruct v=||x||*A
         return _project_tangent(out,xx) if spherical else out
     for i in range(nfe):
         t0=i*dt
@@ -74,7 +75,7 @@ def incep_features(img_dir, dev, bs=128):
 
 def main():
     ap=argparse.ArgumentParser()
-    ap.add_argument("--method",required=True,choices=["gaussian_euclidean","matched_euclidean","fixed_spherical","rafm"])
+    ap.add_argument("--method",required=True,choices=["gaussian_euclidean","matched_euclidean","fixed_spherical","rafm","angular_rafm"])
     ap.add_argument("--run_root",default="experiments/image_latents/dit_sit")
     ap.add_argument("--step",type=int,default=40000); ap.add_argument("--n",type=int,default=5000)
     ap.add_argument("--real_n",type=int,default=5000); ap.add_argument("--nfe",type=int,default=25)  # RK4 nfe25=100 fn-evals, ample for a trained flow; identical across all evals -> fair
@@ -104,7 +105,7 @@ def main():
     # sample in minibatches
     gen=[]
     for i in range(0,a.n,512):
-        gen.append(rk4_sample(model,x0[i:i+512],y[i:i+512],st["spherical"],a.nfe).cpu())
+        gen.append(rk4_sample(model,x0[i:i+512],y[i:i+512],st["spherical"],a.nfe,a.method=="angular_rafm").cpu())
     genlat=torch.cat(gen)
     # --- latent metrics vs test ---
     rm=radial_metrics(genlat,test); rw1=float(rm["radial_w1"]); ks=float(rm["ks_stat"])

@@ -50,6 +50,7 @@ class Sampler:
             self.project_tangent = (cfg.get("path") == "spherical_geodesic")
         else:
             self.project_tangent = project_tangent
+        self.angular = cfg.get("angular", False)   # if True, model predicts A; reconstruct v=||x||*A
         self.device = cfg.get("device", "cpu")
         if self.device == "auto":
             self.device = "cuda" if torch.cuda.is_available() else "cpu"
@@ -89,6 +90,8 @@ class Sampler:
 
     def _v(self, x: Tensor, t: Tensor) -> Tensor:
         v = self.model(x, t)
+        if self.angular:
+            v = x.norm(dim=-1, keepdim=True).clamp(min=1e-8) * v   # reconstruct velocity from angular target
         if self.project_tangent:
             v = _project_tangent(v, x)
         return v

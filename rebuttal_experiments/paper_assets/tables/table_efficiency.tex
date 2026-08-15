@@ -1,0 +1,18 @@
+\begin{table}[t]\centering
+\caption{Model complexity and compute. FLOPs from analytic MAC counting (Linear/Conv2d). Training compute $=3\times$ forward FLOPs (fwd+bwd) $\times$ batch $\times$ steps. RK4 sampling: $n$ nominal steps $=4n$ model evaluations. FM, standard RAFM and Angular RAFM share the \emph{same} network and per-step cost (Angular adds only a scalar norm+multiply). MSGM is $\sim$525$\times$ slower for the reason in the note.}
+\label{tab:efficiency}
+\small
+\begin{tabular}{lrrrl}
+\toprule
+Model & Params & FLOPs/fwd & Train FLOPs & Sampling \\
+\midrule
+FM/RAFM/Angular MLP d49 (Finance) & 45.87K & 90.88K & 11.17T & RK4 128 steps=512 evals (baselines) / 512 steps=2048 evals (Angular runs) \\
+FM/RAFM/Angular MLP d96 (Weather) & 57.95K & 114.94K & 7.06T & RK4 128 steps=512 evals (baselines) / 512 steps=2048 evals (Angular runs) \\
+FM/RAFM/Angular MLP d64 (PIV) & 49.73K & 98.56K & 12.11T & RK4 128 steps=512 evals (baselines) / 512 steps=2048 evals (Angular runs) \\
+ResMLP 256x4 (Weather big) & 576.10K & 1.15M & 70.50T & RK4 512 steps=2048 evals \\
+MSGM (Finance d49) & 45.87K & 90.88K & -- & RK4 Stratonovich \\
+DiT-SiT (DC-AE image) & 32.52M & 2.74G & 21.07P & RK4 25 steps=100 evals (all methods, matched) \\
+UNet ch96 (AudioMNIST) & 27.90M & 53.71G & 123.76P & RK4 (see audio_eval nfe) \\
+\bottomrule
+\end{tabular}
+\end{table}

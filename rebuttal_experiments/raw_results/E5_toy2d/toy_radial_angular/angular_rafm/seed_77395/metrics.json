@@ -1,0 +1,22 @@
+{
+  "radial_w1": NaN,
+  "ks_stat": 0.017100006341934204,
+  "q950_err": NaN,
+  "q990_err": NaN,
+  "q995_err": NaN,
+  "tail_exc_95": 0.005200001597404524,
+  "tail_exc_99": 0.0016000002995133489,
+  "sliced_w1": NaN,
+  "mmd": NaN,
+  "angular_sw_bin0": 0.1773160696029663,
+  "angular_sw_bin1": 0.25958892703056335,
+  "angular_sw_bin2": 0.2904302775859833,
+  "angular_sw_bin3": 0.38702526688575745,
+  "angular_sw_mean": 0.2785901352763176,
+  "nan_rate": 0.000699999975040555,
+  "exploding_norm_rate": 0.0,
+  "invalid_rate": 0.000699999975040555,
+  "nfe": 512,
+  "sample_time_s": 0.24270224571228027,
+  "total_train_time_s": 68.24342775344849
+}

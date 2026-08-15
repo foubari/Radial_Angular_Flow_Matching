@@ -1,0 +1,18 @@
+% requires: \newcommand{\std}[1]{{\scriptsize$\pm$#1}}
+\begin{table}[t]\centering
+\caption{Main synthetic benchmark (Student-$t$, $d{=}16$, dof$=3$, correlated; 3 seeds). Oracle rows use the true radial law.}
+\label{tab:synthetic}
+\small
+\begin{tabular}{lrrrr}
+\toprule
+Method & Radial $W_1$ $\downarrow$ & Radial KS $\downarrow$ & Sliced $W_1$ $\downarrow$ & Angular SW $\downarrow$ \\
+\midrule
+Gaussian FM & 1.731\std{0.398} & 0.073\std{0.024} & 0.420\std{0.020} & 0.015\std{0.001} \\
+Source-only & 0.398\std{0.052} & 0.018\std{0.004} & 0.309\std{0.035} & 0.015\std{0.000} \\
+Source-only (oracle) & 0.443\std{0.136} & 0.017\std{0.004} & 0.338\std{0.043} & 0.015\std{0.001} \\
+RAFM (oracle) & 0.287\std{0.071} & 0.013\std{0.002} & 0.276\std{0.039} & 0.014\std{0.001} \\
+RAFM (std) & 0.261\std{0.008} & 0.013\std{0.001} & 0.268\std{0.039} & 0.013\std{0.001} \\
+\textbf{Angular RAFM} & 0.467\std{0.059} & 0.013\std{0.001} & 0.250\std{0.021} & 0.011\std{0.001} \\
+\bottomrule
+\end{tabular}
+\end{table}

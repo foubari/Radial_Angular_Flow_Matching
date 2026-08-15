@@ -1,0 +1,19 @@
+angular: true
+arch: mlp
+batch_size: 4096
+ckpt_every: 5000
+dataset:
+  dim: 49
+  name: finance_ff49
+device: cuda
+hidden_dim: 128
+log_every: 200
+lr: 0.001
+n_gen_samples: 2871
+n_layers: 3
+n_train_steps: 10000
+nfe: 512
+path: spherical_geodesic
+solver: rk4
+source: radial_empirical
+split: chrono
