@@ -1,0 +1,15 @@
+{
+  "std_velocity_target_norm": {
+    "mean": 3.5658,
+    "std": 2.6364,
+    "cov": 0.7394
+  },
+  "angular_target_norm": {
+    "mean": 1.5706,
+    "std": 0.0079,
+    "cov": 0.005
+  },
+  "corr(radius, ||u_t||)": 1.0,
+  "corr(radius, ||u_t||/||x_t||)": -0.012,
+  "note": "std-vel target norm scales with radius (high corr, high CoV) -> difficulty varies with amplitude; angular target norm ~radius-free (low corr) -> scale-free"
+}

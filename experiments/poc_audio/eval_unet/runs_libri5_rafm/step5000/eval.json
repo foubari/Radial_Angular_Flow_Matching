@@ -1,0 +1,26 @@
+{
+  "method": "rafm",
+  "step": 5000,
+  "n": 300,
+  "energy": {
+    "radial_w1": 0.1848,
+    "ks": 0.068,
+    "cov_gt_q90": 0.0767,
+    "cov_gt_q95": 0.02,
+    "cov_gt_q99": 0.0067,
+    "cov_lt_q10": 0.0967,
+    "pit_mean": 0.4709,
+    "gen_energy_mean": 2.141,
+    "data_energy_mean": 2.325
+  },
+  "content": {
+    "digit_acc": 0.053,
+    "mean_confidence": 0.375,
+    "acc_by_energy": {
+      "low_energy": 0.08,
+      "mid_energy": 0.04,
+      "high_energy": 0.04
+    },
+    "word_presence": 0.01
+  }
+}

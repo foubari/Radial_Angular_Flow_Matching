@@ -1,0 +1,55 @@
+{
+  "real_median_radius": 1.284,
+  "gain_levels": {
+    "q10": 0.786,
+    "q50": 1.284,
+    "q90": 4.725
+  },
+  "1.1_gain_invariance_real_acc": {
+    "q10": 0.939,
+    "q50": 0.939,
+    "q90": 0.939
+  },
+  "1.2_radius_controlled": {
+    "gaussian_euclidean": {
+      "acc_natural": 0.79,
+      "acc_common_radius(Rmed)": 0.79,
+      "acc_empirical_radii": 0.79,
+      "acc_by_orig_energy_quantile": {
+        "lo": 0.712,
+        "mid": 0.828,
+        "hi": 0.83
+      }
+    },
+    "matched_euclidean": {
+      "acc_natural": 0.772,
+      "acc_common_radius(Rmed)": 0.772,
+      "acc_empirical_radii": 0.772,
+      "acc_by_orig_energy_quantile": {
+        "lo": 0.718,
+        "mid": 0.796,
+        "hi": 0.802
+      }
+    },
+    "fixed_spherical": {
+      "acc_natural": 0.865,
+      "acc_common_radius(Rmed)": 0.865,
+      "acc_empirical_radii": 0.865,
+      "acc_by_orig_energy_quantile": {
+        "lo": 0.825,
+        "mid": 0.847,
+        "hi": 0.922
+      }
+    },
+    "rafm": {
+      "acc_natural": 0.766,
+      "acc_common_radius(Rmed)": 0.766,
+      "acc_empirical_radii": 0.766,
+      "acc_by_orig_energy_quantile": {
+        "lo": 0.738,
+        "mid": 0.78,
+        "hi": 0.78
+      }
+    }
+  }
+}
