@@ -1,0 +1,229 @@
+{
+  "protocol": {
+    "batch_size": 256,
+    "train_steps": 10000,
+    "n_gen_samples": 10000,
+    "solver": "rk4",
+    "rk4_steps": 128,
+    "nfe": 512,
+    "seeds": [
+      8925,
+      77395,
+      65457
+    ]
+  },
+  "PIV_d64": {
+    "status": "protocol-matched (rerun)",
+    "dataset": {
+      "n_train": 598,
+      "n_test": 201,
+      "dim": 64,
+      "split": "split_seed=0 (exp1 PIVDataset _make_splits)",
+      "train_md5": "5d0d421eb0c3c5c9e9b4d16bf12c28ab",
+      "test_md5": "62bd077c8ad2246a60a479149425473e"
+    },
+    "RAFM_Ang": {
+      "per_seed": {
+        "radial_w1": {
+          "65457": 0.04565,
+          "77395": 0.04899,
+          "8925": 0.05002
+        },
+        "ks_stat": {
+          "65457": 0.04322,
+          "77395": 0.04932,
+          "8925": 0.04818
+        },
+        "sliced_w1": {
+          "65457": 0.03079,
+          "77395": 0.02471,
+          "8925": 0.02819
+        },
+        "total_train_time_s": {
+          "65457": 42.93965,
+          "77395": 42.31964,
+          "8925": 43.81353
+        }
+      },
+      "mean_std": {
+        "radial_w1": {
+          "mean": 0.04822,
+          "std": 0.00187,
+          "n": 3
+        },
+        "ks_stat": {
+          "mean": 0.04691,
+          "std": 0.00265,
+          "n": 3
+        },
+        "sliced_w1": {
+          "mean": 0.0279,
+          "std": 0.00249,
+          "n": 3
+        },
+        "total_train_time_s": {
+          "mean": 43.02427,
+          "std": 0.61281,
+          "n": 3
+        }
+      },
+      "nfe_stored": 512
+    },
+    "RAFM_Vel_ref": {
+      "per_seed": {
+        "radial_w1": {
+          "65457": 0.04565,
+          "77395": 0.04899,
+          "8925": 0.05002
+        },
+        "ks_stat": {
+          "65457": 0.04322,
+          "77395": 0.04932,
+          "8925": 0.04818
+        },
+        "sliced_w1": {
+          "65457": 0.03025,
+          "77395": 0.02335,
+          "8925": 0.02825
+        },
+        "total_train_time_s": {
+          "65457": 35.7195,
+          "77395": 35.6925,
+          "8925": 36.112
+        }
+      },
+      "mean_std": {
+        "radial_w1": {
+          "mean": 0.04822,
+          "std": 0.00187,
+          "n": 3
+        },
+        "ks_stat": {
+          "mean": 0.04691,
+          "std": 0.00265,
+          "n": 3
+        },
+        "sliced_w1": {
+          "mean": 0.02728,
+          "std": 0.0029,
+          "n": 3
+        },
+        "total_train_time_s": {
+          "mean": 35.84133,
+          "std": 0.19171,
+          "n": 3
+        }
+      },
+      "nfe_stored": 512
+    }
+  },
+  "PIV_d256": {
+    "status": "protocol-matched (already run; protocol verified)",
+    "dataset": {
+      "n_train": 598,
+      "n_test": 201,
+      "dim": 256,
+      "split": "split_seed=0 (exp1 PIVDataset _make_splits)",
+      "train_md5": "8c997feba59290785fcb915a64eecc29",
+      "test_md5": "7ef7ee53bb00810bffb1442e26ff6bdd"
+    },
+    "RAFM_Ang": {
+      "per_seed": {
+        "radial_w1": {
+          "65457": 0.03865,
+          "77395": 0.03555,
+          "8925": 0.03696
+        },
+        "ks_stat": {
+          "65457": 0.05828,
+          "77395": 0.05936,
+          "8925": 0.05596
+        },
+        "sliced_w1": {
+          "65457": 0.0231,
+          "77395": 0.02234,
+          "8925": 0.02262
+        },
+        "total_train_time_s": {
+          "65457": 67.65989,
+          "77395": 65.08598,
+          "8925": 63.77769
+        }
+      },
+      "mean_std": {
+        "radial_w1": {
+          "mean": 0.03705,
+          "std": 0.00127,
+          "n": 3
+        },
+        "ks_stat": {
+          "mean": 0.05787,
+          "std": 0.00142,
+          "n": 3
+        },
+        "sliced_w1": {
+          "mean": 0.02268,
+          "std": 0.00032,
+          "n": 3
+        },
+        "total_train_time_s": {
+          "mean": 65.50785,
+          "std": 1.61273,
+          "n": 3
+        }
+      },
+      "nfe_stored": 512
+    },
+    "RAFM_Vel_ref": {
+      "per_seed": {
+        "radial_w1": {
+          "65457": 0.03865,
+          "77395": 0.03555,
+          "8925": 0.03696
+        },
+        "ks_stat": {
+          "65457": 0.05828,
+          "77395": 0.05936,
+          "8925": 0.05596
+        },
+        "sliced_w1": {
+          "65457": 0.02359,
+          "77395": 0.02083,
+          "8925": 0.02812
+        },
+        "total_train_time_s": {
+          "65457": 35.4525,
+          "77395": 35.306,
+          "8925": 35.479
+        }
+      },
+      "mean_std": {
+        "radial_w1": {
+          "mean": 0.03705,
+          "std": 0.00127,
+          "n": 3
+        },
+        "ks_stat": {
+          "mean": 0.05787,
+          "std": 0.00142,
+          "n": 3
+        },
+        "sliced_w1": {
+          "mean": 0.02418,
+          "std": 0.00301,
+          "n": 3
+        },
+        "total_train_time_s": {
+          "mean": 35.4125,
+          "std": 0.07608,
+          "n": 3
+        }
+      },
+      "nfe_stored": 512
+    }
+  },
+  "StudentT_d16_d32": {
+    "status": "BLOCKED - not run",
+    "reason": "Table-1 Student-t realization is not recoverable: StudentT._generate draws z from the UNSEEDED global torch RNG (only the mixing matrix A is seeded, matrix_seed=42); exp1_main_benchmark does not seed before dataset construction; no dataset .pt was cached. Two fresh processes give different test-set md5 (dea8f374... vs 250e7363...), same A (eb934f15...). Per instruction, stopped rather than evaluate on an incompatible realization."
+  }
+}
