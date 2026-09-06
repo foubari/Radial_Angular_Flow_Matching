@@ -19,3 +19,7 @@ methods:
     source: radial_empirical_ecdf
     path: spherical_geodesic
 # NOTE: radial_oracle is NOT applicable to PIV (real dataset, analytic CDF unknown)
+  - name: angular_rafm
+    source: radial_empirical_ecdf
+    path: spherical_geodesic
+    angular: true
