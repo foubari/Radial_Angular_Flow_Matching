@@ -1,0 +1,2 @@
+angular_rafm seed=8925 on aniso_k100
+host=SHADOW-G9VUEQO5 device=cuda

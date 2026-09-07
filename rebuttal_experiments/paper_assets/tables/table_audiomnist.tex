@@ -1,0 +1,17 @@
+% requires: \newcommand{\std}[1]{{\scriptsize$\pm$#1}}
+\begin{table}[t]\centering
+\caption{AudioMNIST (reversible complex-STFT, UNet flow, 24k steps, 3 seeds). Digit accuracy is content; energy KS is calibration.}
+\label{tab:audio}
+\small
+\begin{tabular}{lrrrrr}
+\toprule
+Method & Digit acc.\,$\uparrow$ & Energy KS\,$\downarrow$ & cov$>$q95 & cov$>$q99 & PIT \\
+\midrule
+Gaussian FM & 0.734\std{0.004} & 0.117\std{0.008} & 0.059\std{0.004} & 0.019\std{0.003} & 0.487\std{0.004} \\
+Matched-Eucl. & 0.750\std{0.018} & 0.095\std{0.010} & 0.040\std{0.001} & 0.012\std{0.000} & 0.450\std{0.005} \\
+Fixed-spherical & 0.810\std{0.013} & 0.592\std{0.000} & 0.000\std{0.000} & 0.000\std{0.000} & 0.592\std{0.000} \\
+RAFM (std) & 0.711\std{0.014} & 0.022\std{0.000} & 0.050\std{0.000} & 0.015\std{0.000} & 0.492\std{0.000} \\
+\textbf{Angular RAFM} & 0.764\std{0.025} & 0.022\std{0.000} & 0.050\std{0.000} & 0.015\std{0.000} & 0.492\std{0.000} \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,15 @@
+{
+  "method": "gaussian_euclidean",
+  "step": 40000,
+  "seed": 8925,
+  "n": 3000,
+  "tail_coverage_gt_q95": 0.006,
+  "target_0.05": 0.05,
+  "tail_coverage_gt_q99": 0.0006666666666666666,
+  "target_0.01": 0.01,
+  "pit_mean": 0.22986567164179106,
+  "pit_std": 0.24427877395096176,
+  "pit_target_mean": 0.5,
+  "gen_radius_mean": 37.324432373046875,
+  "data_radius_mean": 41.8759765625
+}

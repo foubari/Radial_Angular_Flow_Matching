@@ -1,0 +1,22 @@
+{
+  "spatial_nonuniformity_token_norm_CoV": {
+    "mean": 0.15767227113246918,
+    "median": 0.15212112665176392,
+    "p10": 0.11618272215127945,
+    "p90": 0.207480326294899
+  },
+  "class_accuracy_from": {
+    "global_norm_1d": 0.16529850746268657,
+    "channel_norms_32d": 0.4623134328358209,
+    "token_norms_64d": 0.23470149253731343,
+    "unit_direction_2048d": 0.616044776119403,
+    "full_latent_2048d": 0.610820895522388
+  },
+  "chance": 0.1,
+  "variance": {
+    "total_latent_var": 1763.71533203125,
+    "global_radius_var": 24.1981143951416,
+    "radius_fraction_of_total_var": 0.0137
+  },
+  "note": "global radius carries a tiny fraction of latent variance and ~chance class info; direction (radius removed) carries the class info -> decoder-relevant info is LOCAL/directional, not the single global norm"
+}

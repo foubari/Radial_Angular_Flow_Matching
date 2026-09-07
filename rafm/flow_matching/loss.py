@@ -14,6 +14,7 @@ def cfm_loss(
     source,
     x1: Tensor,
     device: str = "cpu",
+    angular: bool = False,
 ) -> Tensor:
     """Compute one CFM loss batch.
 
@@ -55,6 +56,9 @@ def cfm_loss(
 
     # Predict
     v_pred = model(x_t, t)
+
+    if angular:  # scale-free angular target A = u_t / ||x_t||; velocity reconstructed as ||x||*A at sampling
+        u_t = u_t / x_t.norm(dim=-1, keepdim=True).clamp(min=1e-8)
 
     return ((v_pred - u_t) ** 2).sum(dim=-1).mean()
 

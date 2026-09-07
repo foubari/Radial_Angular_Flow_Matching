@@ -1,0 +1,35 @@
+% requires: \newcommand{\std}[1]{{\scriptsize$\pm$#1}}
+\begin{table}[t]\centering
+\caption{Synthetic sweeps (appendix): standard vs Angular RAFM, mean$\pm$std over 3 seeds. $^\dagger$ marks aggregates over $<3$ finite seeds (Angular $d{=}2$ instability).}
+\label{tab:sweeps}
+\small
+\begin{tabular}{lrrrrrr}
+\toprule
+Setting & \multicolumn{2}{c}{Radial $W_1$} & \multicolumn{2}{c}{Sliced $W_1$} & \multicolumn{2}{c}{Angular SW} \\
+& std & Ang. & std & Ang. & std & Ang. \\
+\midrule
+\multicolumn{7}{l}{\emph{Dimension sweep (Student-$t$, dof 3)}} \\
+\quad $d$$=$2 & 0.134\std{0.170} & 0.020\std{0.012}$^\dagger$ & 0.467\std{0.103} & 0.220\std{0.064}$^\dagger$ & 0.809\std{0.022} & 0.529\std{0.221} \\
+\quad $d$$=$8 & 0.150\std{0.007} & 0.343\std{0.016} & 0.172\std{0.014} & 0.167\std{0.029} & 0.016\std{0.001} & 0.014\std{0.002} \\
+\quad $d$$=$16 & 0.190\std{0.018} & 0.216\std{0.041} & 0.245\std{0.012} & 0.206\std{0.019} & 0.013\std{0.000} & 0.011\std{0.000} \\
+\quad $d$$=$32 & 0.435\std{0.065} & 0.696\std{0.047} & 0.430\std{0.052} & 0.377\std{0.023} & 0.011\std{0.000} & 0.010\std{0.001} \\
+\quad $d$$=$64 & 0.982\std{0.121} & 0.629\std{0.111} & 0.840\std{0.174} & 0.606\std{0.052} & 0.010\std{0.002} & 0.007\std{0.000} \\
+\quad $d$$=$128 & 0.850\std{0.040} & 1.473\std{0.032} & 1.007\std{0.030} & 0.949\std{0.049} & 0.006\std{0.000} & 0.005\std{0.000} \\
+\quad $d$$=$256 & 2.703\std{0.138} & 2.397\std{0.199} & 1.241\std{0.057} & 1.251\std{0.086} & 0.004\std{0.000} & 0.004\std{0.000} \\
+\multicolumn{7}{l}{\emph{Tail sweep (Student-$t$, $d{=}16$)}} \\
+\quad dof$=$1.5 & 4.021\std{1.060} & 5.834\std{0.646} & 2.858\std{0.086} & 2.073\std{0.125} & 0.036\std{0.001} & 0.014\std{0.001} \\
+\quad dof$=$2.0 & 1.069\std{0.204} & 0.705\std{0.130} & 0.884\std{0.067} & 0.422\std{0.049} & 0.023\std{0.001} & 0.012\std{0.001} \\
+\quad dof$=$3.0 & 0.238\std{0.031} & 0.194\std{0.014} & 0.221\std{0.008} & 0.203\std{0.019} & 0.013\std{0.000} & 0.012\std{0.000} \\
+\quad dof$=$5.0 & 0.100\std{0.005} & 0.095\std{0.006} & 0.131\std{0.021} & 0.139\std{0.021} & 0.011\std{0.001} & 0.012\std{0.001} \\
+\quad dof$=$10.0 & 0.156\std{0.008} & 0.079\std{0.007} & 0.120\std{0.013} & 0.114\std{0.007} & 0.012\std{0.000} & 0.011\std{0.000} \\
+\quad dof$=$50.0 & 0.076\std{0.008} & 0.048\std{0.005} & 0.104\std{0.014} & 0.106\std{0.005} & 0.011\std{0.001} & 0.012\std{0.000} \\
+\multicolumn{7}{l}{\emph{Anisotropy sweep (Gaussian base, $d{=}32$)}} \\
+\quad $\kappa$$=$1 & 0.010\std{0.002} & 0.010\std{0.002} & 0.021\std{0.001} & 0.022\std{0.002} & 0.008\std{0.000} & 0.008\std{0.000} \\
+\quad $\kappa$$=$3 & 0.037\std{0.003} & 0.037\std{0.003} & 0.037\std{0.001} & 0.049\std{0.001} & 0.008\std{0.000} & 0.009\std{0.000} \\
+\quad $\kappa$$=$10 & 0.074\std{0.005} & 0.074\std{0.005} & 0.134\std{0.023} & 0.125\std{0.008} & 0.008\std{0.000} & 0.008\std{0.000} \\
+\quad $\kappa$$=$30 & 0.229\std{0.032} & 0.229\std{0.032} & 0.449\std{0.079} & 0.438\std{0.075} & 0.010\std{0.001} & 0.009\std{0.001} \\
+\quad $\kappa$$=$100 & 0.980\std{0.076} & 0.980\std{0.076} & 1.096\std{0.103} & 1.621\std{0.198} & 0.010\std{0.000} & 0.011\std{0.001} \\
+\quad $\kappa$$=$300 & 3.247\std{0.446} & 3.247\std{0.446} & 4.203\std{0.287} & 6.053\std{1.180} & 0.012\std{0.000} & 0.013\std{0.002} \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -32,7 +32,7 @@ SOLVER_ORDER = {"euler": 1, "heun": 2, "rk4": 4}
 NFE_TARGETS = [1, 2, 5, 10, 20, 50, 100]
 
 
-def integrate(model, x0, steps, solver, project, device, record_drift=True):
+def integrate(model, x0, steps, solver, project, device, record_drift=True, angular=False):
     """Fixed-step integrator returning final x and drift stats."""
     dt = 1.0 / steps
     x = x0.clone()
@@ -41,6 +41,8 @@ def integrate(model, x0, steps, solver, project, device, record_drift=True):
 
     def v(x, t):
         vv = model(x, t)
+        if angular:                                        # reconstruct velocity v=||x||*A
+            vv = x.norm(dim=-1, keepdim=True).clamp(min=1e-8) * vv
         return _project_tangent(vv, x) if project else vv
 
     for i in range(steps):
@@ -72,6 +74,7 @@ def main():
     ap.add_argument("--gen_seed", type=int, default=12345)
     ap.add_argument("--dataset_pt", default=None,
                     help="real dataset .pt; if given, use its chronological test/train split (bypasses synthetic factory)")
+    ap.add_argument("--angular", action="store_true", help="angular checkpoint: reconstruct v=||x||*A during sampling")
     args = ap.parse_args()
 
     run_dir = Path(args.run_dir)
@@ -97,7 +100,7 @@ def main():
 
     # source inferred from the METHOD directory name (run_dir.name is "seed_*").
     method_name = run_dir.parent.name
-    src_name = "radial_empirical_ecdf" if "empirical" in method_name else (
+    src_name = "radial_empirical_ecdf" if ("empirical" in method_name or "angular" in method_name) else (
         "radial_oracle" if "oracle" in method_name else "gaussian")
     print(f"[E4] method={method_name} source={src_name} path={args.path}", flush=True)
     source = build_source(src_name, train, dataset)
@@ -116,7 +119,7 @@ def main():
                 t0 = time.time()
                 with torch.no_grad():
                     x, drift_final, drift_max = integrate(
-                        model, x0, steps, solver, project, device)
+                        model, x0, steps, solver, project, device, angular=args.angular)
                 dt_s = time.time() - t0
                 samples = x.cpu()
                 m = {}

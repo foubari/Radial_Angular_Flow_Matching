@@ -1,0 +1,14 @@
+{
+  "std_rafm": {
+    "source_radius_mean": 2.291,
+    "gen_radius_mean": 2.291,
+    "rel_drift_mean_%": 0.0016,
+    "rel_drift_max_%": 0.0417
+  },
+  "angular_rafm": {
+    "source_radius_mean": 2.291,
+    "gen_radius_mean": 2.291,
+    "rel_drift_mean_%": 0.0042,
+    "rel_drift_max_%": 0.0552
+  }
+}

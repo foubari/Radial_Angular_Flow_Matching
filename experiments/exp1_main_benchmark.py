@@ -99,13 +99,16 @@ def run_one_method(method_cfg: dict, dataset, cfg: dict, seed: int, out_base: Pa
 
     run_dir = get_run_dir(out_base, "", "", method_name, seed)
     run_dir.mkdir(parents=True, exist_ok=True)
+    if (run_dir / "metrics.json").exists():           # resumable: skip completed runs
+        print(f"  [{method_name} seed={seed}] skip (metrics.json exists)"); return
 
     from rafm.flow_matching.trainer import Trainer
-    trainer = Trainer(model, path, source, dataset, cfg, seed, run_dir)
+    run_cfg = dict(cfg); run_cfg["angular"] = bool(method_cfg.get("angular", False))  # scale-free angular target
+    trainer = Trainer(model, path, source, dataset, run_cfg, seed, run_dir)
     train_stats = trainer.train()
 
     from rafm.flow_matching.sampler import Sampler
-    sample_cfg = dict(cfg)
+    sample_cfg = dict(run_cfg)
     sample_cfg["path"] = method_cfg.get("path", "euclidean")
     sampler = Sampler(model, source, sample_cfg)
     n_gen = cfg.get("n_gen_samples", 10_000)

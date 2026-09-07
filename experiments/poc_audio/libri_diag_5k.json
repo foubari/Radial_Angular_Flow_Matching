@@ -1,0 +1,19 @@
+{
+  "step": 5000,
+  "n": 300,
+  "nfe_steps": 6,
+  "nfe_model_calls": 24,
+  "target_norm_corr": {
+    "corr_fullvel_radius": 1.0,
+    "corr_angular_radius": 0.006,
+    "fullvel_CoV": 0.724,
+    "angular_CoV": 0.005,
+    "angular_median": 1.571
+  },
+  "radial_drift": {
+    "Matched-Eucl.": 0.0874,
+    "RAFM (std)": 0.00052,
+    "Angular RAFM": 0.00102
+  },
+  "whisper_real_reference": 0.83
+}

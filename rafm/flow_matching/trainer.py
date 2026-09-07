@@ -82,7 +82,8 @@ class Trainer:
             x1 = self._train_data_gpu[idx]
 
             self.optimizer.zero_grad(set_to_none=True)
-            loss = cfm_loss(self.model, self.path, self.source, x1, device=self.device)
+            loss = cfm_loss(self.model, self.path, self.source, x1, device=self.device,
+                            angular=self.cfg.get("angular", False))
             loss.backward()
             self.optimizer.step()
 

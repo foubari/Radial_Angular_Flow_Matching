@@ -1,0 +1,17 @@
+{
+  "corr_radius_rarity_global": -0.042,
+  "corr_within_class": {
+    "n01440764": 0.021,
+    "n02102040": -0.112,
+    "n02979186": -0.107,
+    "n03000684": -0.198,
+    "n03028079": -0.001,
+    "n03394916": 0.052,
+    "n03417042": -0.129,
+    "n03425413": -0.016,
+    "n03445777": -0.022,
+    "n03888257": -0.103
+  },
+  "mean_abs_within_class": 0.076,
+  "interpretation": "~0 => latent radius is UNRELATED to perceptual (DINO) rarity, globally and within class"
+}

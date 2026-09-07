@@ -1,0 +1,15 @@
+{
+  "method": "rafm",
+  "step": 40000,
+  "seed": 8925,
+  "n": 3000,
+  "tail_coverage_gt_q95": 0.04466666666666667,
+  "target_0.05": 0.05,
+  "tail_coverage_gt_q99": 0.008333333333333333,
+  "target_0.01": 0.01,
+  "pit_mean": 0.48422363184079603,
+  "pit_std": 0.2876812464161567,
+  "pit_target_mean": 0.5,
+  "gen_radius_mean": 41.615970611572266,
+  "data_radius_mean": 41.8759765625
+}
