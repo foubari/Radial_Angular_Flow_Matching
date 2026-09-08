@@ -77,6 +77,12 @@ def run_one_method(method_cfg: dict, dataset, cfg: dict, seed: int, out_base: Pa
         run_msgm(dataset, cfg, seed, out_base / method_name / f"seed_{seed}")
         return
 
+    # MSGM-sparse: same baseline, sparse generator (see baselines/msgm_sparse_adapter.py)
+    if method_cfg.get("adapter") == "msgm_sparse":
+        from baselines.msgm_sparse_runner import run_msgm_sparse
+        run_msgm_sparse(dataset, cfg, seed, out_base / method_name / f"seed_{seed}")
+        return
+
     set_all_seeds(seed)
     dim = dataset.dim
     device = cfg.get("device", "auto")

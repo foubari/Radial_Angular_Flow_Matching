@@ -1,0 +1,13 @@
+inherit: defaults.yaml
+
+experiment: exp1_main_benchmark
+dataset:
+  name: piv
+  dim: 256
+  data_root: data/piv   # Requires: python -m rafm.data.prepare_piv --zip dataverse_files.zip --out_dir data/piv --grids 16x16
+
+methods:
+  - name: msgm_sparse
+    adapter: msgm_sparse
+
+output_dir: outputs_msgm_sparse   # isolated: never writes into the paper's outputs/ tree

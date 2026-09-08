@@ -1,0 +1,13 @@
+inherit: defaults.yaml
+
+experiment: exp1_main_benchmark
+dataset:
+  name: piv
+  dim: 16
+  data_root: data/piv   # Set this to your preprocessed PIV directory (see prepare_piv.py)
+
+methods:
+  - name: msgm_sparse
+    adapter: msgm_sparse
+
+output_dir: outputs_msgm_sparse   # isolated: never writes into the paper's outputs/ tree

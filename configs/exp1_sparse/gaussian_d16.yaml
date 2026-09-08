@@ -1,0 +1,14 @@
+inherit: defaults.yaml
+
+experiment: exp1_main_benchmark
+dataset:
+  name: gaussian_aniso
+  dim: 16
+  n_samples: 50000
+  correlated: true
+
+methods:
+  - name: msgm_sparse
+    adapter: msgm_sparse
+
+output_dir: outputs_msgm_sparse   # isolated: never writes into the paper's outputs/ tree

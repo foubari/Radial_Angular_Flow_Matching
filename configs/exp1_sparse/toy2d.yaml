@@ -1,0 +1,14 @@
+inherit: defaults.yaml
+
+experiment: exp1_main_benchmark
+dataset:
+  name: toy_radial_angular
+  dim: 2
+  df: 3.0
+  n_samples: 50000
+
+methods:
+  - name: msgm_sparse
+    adapter: msgm_sparse
+
+output_dir: outputs_msgm_sparse   # isolated: never writes into the paper's outputs/ tree
