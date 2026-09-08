@@ -1,0 +1,170 @@
+{
+  "config": "studentt_d16",
+  "command": [
+    "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-tabular/outputs_msgm_sparse/.venv/bin/python",
+    "-m",
+    "experiments.exp1_main_benchmark",
+    "--config",
+    "configs/exp1_sparse/studentt_d16.yaml",
+    "--method",
+    "msgm_sparse"
+  ],
+  "expected_seeds": [
+    8925,
+    77395,
+    65457
+  ],
+  "started_at": "2026-09-08T15:49:06.034656+00:00",
+  "status": "complete",
+  "seeds": {
+    "8925": {
+      "status": "valid",
+      "validated_at": "2026-09-08T16:28:27.986135+00:00",
+      "run_dir": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-tabular/outputs_msgm_sparse/exp1_main_benchmark/student_t_d16_df3.0_cor/msgm_sparse/seed_8925",
+      "metrics_sha256": "488b923739a3134f4df28fc76f3c62033122342a3a271fd66017af9acd1c07b5",
+      "metrics": {
+        "radial_w1": 0.1656036525964737,
+        "ks_stat": 0.011400043964385986,
+        "q950_err": 0.004331242221994382,
+        "q990_err": 0.016726071489858798,
+        "q995_err": 0.01267384655154937,
+        "tail_exc_95": 0.0005000017583369765,
+        "tail_exc_99": 0.0007000004500150592,
+        "sliced_w1": 0.3669680953025818,
+        "mmd": 0.001071333885192871,
+        "angular_sw_bin0": 0.013329354114830494,
+        "angular_sw_bin1": 0.015628863126039505,
+        "angular_sw_bin2": 0.016897005960345268,
+        "angular_sw_bin3": 0.021084798499941826,
+        "angular_sw_mean": 0.016735005425289273,
+        "nan_rate": 0.0,
+        "exploding_norm_rate": 0.0,
+        "invalid_rate": 0.0,
+        "sample_time_s": 0.24204277992248535,
+        "total_train_time_s": 762.3334457874298
+      },
+      "samples_shape": [
+        10000,
+        16
+      ],
+      "samples_finite": true,
+      "last_logged_step": 10000,
+      "logged_rows": 50,
+      "logged_losses_finite": true
+    },
+    "77395": {
+      "status": "valid",
+      "validated_at": "2026-09-08T16:28:27.995850+00:00",
+      "run_dir": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-tabular/outputs_msgm_sparse/exp1_main_benchmark/student_t_d16_df3.0_cor/msgm_sparse/seed_77395",
+      "metrics_sha256": "f1575322f1931fa7d1dfc47eed0d772902518e3802c43bc60b49a0a61f3bfde2",
+      "metrics": {
+        "radial_w1": 0.2550162076950073,
+        "ks_stat": 0.010600030422210693,
+        "q950_err": 0.023541585846342167,
+        "q990_err": 0.012708303379697505,
+        "q995_err": 0.03725077416934936,
+        "tail_exc_95": 0.005200001597404524,
+        "tail_exc_99": 0.00029999971389771396,
+        "sliced_w1": 0.38642454147338867,
+        "mmd": 0.0012252330780029297,
+        "angular_sw_bin0": 0.012943978421390057,
+        "angular_sw_bin1": 0.01666090078651905,
+        "angular_sw_bin2": 0.019017575308680534,
+        "angular_sw_bin3": 0.01928989216685295,
+        "angular_sw_mean": 0.016978086670860648,
+        "nan_rate": 0.0,
+        "exploding_norm_rate": 0.0,
+        "invalid_rate": 0.0,
+        "sample_time_s": 0.23796677589416504,
+        "total_train_time_s": 755.9350163936615
+      },
+      "samples_shape": [
+        10000,
+        16
+      ],
+      "samples_finite": true,
+      "last_logged_step": 10000,
+      "logged_rows": 50,
+      "logged_losses_finite": true
+    },
+    "65457": {
+      "status": "valid",
+      "validated_at": "2026-09-08T16:28:28.004735+00:00",
+      "run_dir": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-tabular/outputs_msgm_sparse/exp1_main_benchmark/student_t_d16_df3.0_cor/msgm_sparse/seed_65457",
+      "metrics_sha256": "01e80ed12767dc67168ffa9fa701a523ec29c29337edb4b55c68d8d11f2e3b9f",
+      "metrics": {
+        "radial_w1": 0.20963071286678314,
+        "ks_stat": 0.01380002498626709,
+        "q950_err": 0.0051680191652013555,
+        "q990_err": 0.025555746228160515,
+        "q995_err": 0.05258224622604618,
+        "tail_exc_95": 0.001299998909235045,
+        "tail_exc_99": 0.0006000001356005757,
+        "sliced_w1": 0.4020732641220093,
+        "mmd": 0.0012073516845703125,
+        "angular_sw_bin0": 0.01359635591506958,
+        "angular_sw_bin1": 0.015585611574351788,
+        "angular_sw_bin2": 0.017872419208288193,
+        "angular_sw_bin3": 0.022419577464461327,
+        "angular_sw_mean": 0.017368491040542722,
+        "nan_rate": 0.0,
+        "exploding_norm_rate": 0.0,
+        "invalid_rate": 0.0,
+        "sample_time_s": 0.23383021354675293,
+        "total_train_time_s": 752.1420023441315
+      },
+      "samples_shape": [
+        10000,
+        16
+      ],
+      "samples_finite": true,
+      "last_logged_step": 10000,
+      "logged_rows": 50,
+      "logged_losses_finite": true
+    }
+  },
+  "config_metadata": {
+    "hidden_dim": 128,
+    "n_layers": 3,
+    "premodule": null,
+    "lr": 0.001,
+    "batch_size": 256,
+    "n_train_steps": 10000,
+    "log_every": 200,
+    "ckpt_every": 5000,
+    "solver": "rk4",
+    "nfe": 128,
+    "n_gen_samples": 10000,
+    "n_seeds": 3,
+    "base_seed": 42,
+    "device": "auto",
+    "split_seed": 0,
+    "train_frac": 0.6,
+    "val_frac": 0.2,
+    "n_projections_sw": 500,
+    "n_projections_angular": 200,
+    "n_angular_bins": 4,
+    "norm_exploding_factor": 100,
+    "output_dir": "outputs_msgm_sparse",
+    "figures_dir": "figures",
+    "experiment": "exp1_main_benchmark",
+    "dataset": {
+      "name": "student_t",
+      "dim": 16,
+      "df": 3.0,
+      "n_samples": 50000,
+      "correlated": true
+    },
+    "methods": [
+      {
+        "name": "msgm_sparse",
+        "adapter": "msgm_sparse"
+      }
+    ]
+  },
+  "dataset_output_name": "student_t_d16_df3.0_cor",
+  "updated_at": "2026-09-08T16:28:28.011883+00:00",
+  "child_pid": 1029234,
+  "child_returncode": 0,
+  "finished_at": "2026-09-08T16:28:28.011139+00:00"
+}

@@ -1,0 +1,168 @@
+{
+  "config": "piv_d256",
+  "command": [
+    "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-tabular/outputs_msgm_sparse/.venv/bin/python",
+    "-m",
+    "experiments.exp1_main_benchmark",
+    "--config",
+    "configs/exp1_sparse/piv_d256.yaml",
+    "--method",
+    "msgm_sparse"
+  ],
+  "expected_seeds": [
+    8925,
+    77395,
+    65457
+  ],
+  "started_at": "2026-09-08T15:56:35.683635+00:00",
+  "status": "complete",
+  "seeds": {
+    "8925": {
+      "status": "valid",
+      "validated_at": "2026-09-08T16:43:39.700244+00:00",
+      "run_dir": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-tabular/outputs_msgm_sparse/exp1_main_benchmark/piv_d256/msgm_sparse/seed_8925",
+      "metrics_sha256": "aba0a88772ee315b1a96123f3cb272c8de770e1cdbb8f0810e84f9f2fe7e268c",
+      "metrics": {
+        "radial_w1": 0.05297444015741348,
+        "ks_stat": 0.07420742511749268,
+        "q950_err": 0.019740368929343086,
+        "q990_err": 0.025933734117116157,
+        "q995_err": 0.05423566025015906,
+        "tail_exc_95": 0.003300000727176622,
+        "tail_exc_99": 0.0030000002682208926,
+        "sliced_w1": 0.03411755710840225,
+        "mmd": 0.010704636573791504,
+        "angular_sw_bin0": 0.01353562343865633,
+        "angular_sw_bin1": 0.016774756833910942,
+        "angular_sw_bin2": 0.013613536022603512,
+        "angular_sw_bin3": 0.01599731482565403,
+        "angular_sw_mean": 0.014980307780206203,
+        "nan_rate": 0.0,
+        "exploding_norm_rate": 0.0,
+        "invalid_rate": 0.0,
+        "sample_time_s": 0.7224693298339844,
+        "total_train_time_s": 940.8043265342712
+      },
+      "samples_shape": [
+        10000,
+        256
+      ],
+      "samples_finite": true,
+      "last_logged_step": 10000,
+      "logged_rows": 50,
+      "logged_losses_finite": true
+    },
+    "77395": {
+      "status": "valid",
+      "validated_at": "2026-09-08T16:43:39.725714+00:00",
+      "run_dir": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-tabular/outputs_msgm_sparse/exp1_main_benchmark/piv_d256/msgm_sparse/seed_77395",
+      "metrics_sha256": "9bfdbd037f2779570d70e19139c32d99f76e81b2c03d71dacd0ba62d7b01dddc",
+      "metrics": {
+        "radial_w1": 0.05321267992258072,
+        "ks_stat": 0.0736074447631836,
+        "q950_err": 0.0013265499323376385,
+        "q990_err": 0.013148910670303297,
+        "q995_err": 0.0513283319274323,
+        "tail_exc_95": 0.0023999989032745805,
+        "tail_exc_99": 0.0013000003620982081,
+        "sliced_w1": 0.036339763551950455,
+        "mmd": 0.010341644287109375,
+        "angular_sw_bin0": 0.014289574697613716,
+        "angular_sw_bin1": 0.016314739361405373,
+        "angular_sw_bin2": 0.014369169250130653,
+        "angular_sw_bin3": 0.014969058334827423,
+        "angular_sw_mean": 0.014985635410994291,
+        "nan_rate": 0.0,
+        "exploding_norm_rate": 0.0,
+        "invalid_rate": 0.0,
+        "sample_time_s": 0.7229185104370117,
+        "total_train_time_s": 942.6871564388275
+      },
+      "samples_shape": [
+        10000,
+        256
+      ],
+      "samples_finite": true,
+      "last_logged_step": 10000,
+      "logged_rows": 50,
+      "logged_losses_finite": true
+    },
+    "65457": {
+      "status": "valid",
+      "validated_at": "2026-09-08T16:43:39.755576+00:00",
+      "run_dir": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-tabular/outputs_msgm_sparse/exp1_main_benchmark/piv_d256/msgm_sparse/seed_65457",
+      "metrics_sha256": "1c63365ad6fbf621b8fea22c2882490e930fb2cbfaaac3b606fcc48dd04afaa6",
+      "metrics": {
+        "radial_w1": 0.0443393774330616,
+        "ks_stat": 0.06763231754302979,
+        "q950_err": 0.008930768344438907,
+        "q990_err": 0.0056208600892915595,
+        "q995_err": 0.04656689538504657,
+        "tail_exc_95": 0.0020000010728835615,
+        "tail_exc_99": 0.0005999996885657222,
+        "sliced_w1": 0.03564536198973656,
+        "mmd": 0.01035773754119873,
+        "angular_sw_bin0": 0.01368215586990118,
+        "angular_sw_bin1": 0.016005339100956917,
+        "angular_sw_bin2": 0.014035371132194996,
+        "angular_sw_bin3": 0.014858086593449116,
+        "angular_sw_mean": 0.014645238174125552,
+        "nan_rate": 0.0,
+        "exploding_norm_rate": 0.0,
+        "invalid_rate": 0.0,
+        "sample_time_s": 0.7227442264556885,
+        "total_train_time_s": 859.6877813339233
+      },
+      "samples_shape": [
+        10000,
+        256
+      ],
+      "samples_finite": true,
+      "last_logged_step": 10000,
+      "logged_rows": 50,
+      "logged_losses_finite": true
+    }
+  },
+  "config_metadata": {
+    "hidden_dim": 128,
+    "n_layers": 3,
+    "premodule": null,
+    "lr": 0.001,
+    "batch_size": 256,
+    "n_train_steps": 10000,
+    "log_every": 200,
+    "ckpt_every": 5000,
+    "solver": "rk4",
+    "nfe": 128,
+    "n_gen_samples": 10000,
+    "n_seeds": 3,
+    "base_seed": 42,
+    "device": "auto",
+    "split_seed": 0,
+    "train_frac": 0.6,
+    "val_frac": 0.2,
+    "n_projections_sw": 500,
+    "n_projections_angular": 200,
+    "n_angular_bins": 4,
+    "norm_exploding_factor": 100,
+    "output_dir": "outputs_msgm_sparse",
+    "figures_dir": "figures",
+    "experiment": "exp1_main_benchmark",
+    "dataset": {
+      "name": "piv",
+      "dim": 256,
+      "data_root": "data/piv"
+    },
+    "methods": [
+      {
+        "name": "msgm_sparse",
+        "adapter": "msgm_sparse"
+      }
+    ]
+  },
+  "dataset_output_name": "piv_d256",
+  "updated_at": "2026-09-08T16:43:39.763768+00:00",
+  "child_pid": 1048917,
+  "child_returncode": 0,
+  "finished_at": "2026-09-08T16:43:39.762954+00:00"
+}

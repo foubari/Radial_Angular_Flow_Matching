@@ -1,0 +1,8 @@
+758516|msgm-tabular-sanity|COMPLETED|0:0|00:43:04|billing=8,cpu=8,gres/gpu:mi210=1,gres/gpu=1,mem=32G,node=1|auh7-4b-gpu-180
+758570|msgm-tab-gaussian_d16|COMPLETED|0:0|00:48:09|billing=8,cpu=8,gres/gpu:mi210=1,gres/gpu=1,mem=32G,node=1|auh7-4b-gpu-055
+758571|msgm-tab-studentt_d16|COMPLETED|0:0|00:45:08|billing=8,cpu=8,gres/gpu:mi210=1,gres/gpu=1,mem=32G,node=1|auh7-4b-gpu-055
+758572|msgm-tab-studentt_d32|FAILED|1:0|00:43:42|billing=8,cpu=8,gres/gpu:mi210=1,gres/gpu=1,mem=32G,node=1|auh7-4b-gpu-055
+758573|msgm-tab-piv_d16|COMPLETED|0:0|00:48:47|billing=8,cpu=8,gres/gpu:mi210=1,gres/gpu=1,mem=32G,node=1|auh7-4b-gpu-055
+758574|msgm-tab-piv_d64|COMPLETED|0:0|00:50:43|billing=8,cpu=8,gres/gpu:mi210=1,gres/gpu=1,mem=32G,node=1|auh7-4b-gpu-055
+758575|msgm-tab-piv_d256|COMPLETED|0:0|01:00:19|billing=8,cpu=8,gres/gpu:mi210=1,gres/gpu=1,mem=32G,node=1|auh7-4b-gpu-055
+758576|msgm-tabular-collect|CANCELLED|0:0|00:00:00||None assigned

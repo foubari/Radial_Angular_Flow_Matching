@@ -1,0 +1,11 @@
+{
+  "status": "incomplete_nonfinite",
+  "archive": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-tabular/outputs_msgm_sparse/msgm_sparse_tabular_raw_results_with_failure.zip",
+  "archive_sha256": "73a562b074ab5de1b6a24a198789bf799a40b3909fb346787395fe048d261b20",
+  "manifest": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-tabular/outputs_msgm_sparse/raw_results_manifest.json",
+  "manifest_sha256": "37690dbce6159cf9a330e5800e3b147ef0845427e8ba6dbe5cd246a3afd6ad0f",
+  "valid_count": 20,
+  "failed_count": 1,
+  "metric_members_count": 21,
+  "byte_identity_verified": true
+}
