@@ -1,0 +1,167 @@
+{
+  "status": "passed",
+  "source_commit": "104f9118b690bb17f6ef7cfb871364a1ed6b8c56",
+  "worktree": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-tabular/outputs_msgm_sparse/_orchestration/publish-intermediate-20260908",
+  "seeds": [
+    8925,
+    77395,
+    65457
+  ],
+  "hardware": {
+    "gpu": "AMD Instinct MI210",
+    "vram_bytes": 68702699520,
+    "torch": "2.7.1+rocm6.3",
+    "torch_file": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.venv/lib/python3.10/site-packages/torch/__init__.py",
+    "hip": "6.3.42131-fa1d09cbd",
+    "hostname": "auh7-4b-gpu-055",
+    "slurm_job_id": "760575",
+    "slurm_job_gpus": "0",
+    "visible_gpu_count": 1
+  },
+  "datasets": {
+    "finance": {
+      "name": "finance_ff49",
+      "dimension": 49,
+      "n_gen": 2871,
+      "input": {
+        "path": "rebuttal_experiments/data/finance/finance_returns_raw.pt",
+        "sha256": "7ce89c88cf8c55c669aa6172fdbfb0c7efe1211cea7ee608bc6c9e139a74d51e",
+        "shape": [
+          14349,
+          49
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "matches_git_blob": true
+      },
+      "split": {
+        "mode": "chrono",
+        "seed": 0,
+        "train": 8609,
+        "val": 2869,
+        "test": 2871
+      },
+      "config": {
+        "lr": 0.001,
+        "batch_size": 4096,
+        "n_train_steps": 10000,
+        "ckpt_every": 1000,
+        "hidden_dim": 128,
+        "device": "cuda",
+        "n_gen_samples": 2871,
+        "n_projections_sw": 500,
+        "n_angular_bins": 4,
+        "nfe": 128,
+        "log_every": 200
+      },
+      "runner_config": {
+        "lr": 0.001,
+        "batch_size": 4096,
+        "n_train_steps": 10000,
+        "ckpt_every": 1000,
+        "hidden_dim": 128,
+        "device": "cuda",
+        "n_gen_samples": 2871,
+        "n_projections_sw": 500,
+        "n_angular_bins": 4
+      },
+      "sampling": {
+        "solver": "rk4_stratonovich",
+        "num_steps": 128,
+        "network_evaluations": 512
+      },
+      "logging_caveat": "Unchanged sparse adapter logs every 200 steps; dense adapter default is 500. Timing overhead is therefore not identical.",
+      "command_args": [
+        "rebuttal_experiments/scripts/run_msgm_sparse_real.py",
+        "--pt",
+        "rebuttal_experiments/data/finance/finance_returns_raw.pt",
+        "--name",
+        "finance_ff49",
+        "--out",
+        "outputs_msgm_sparse/rebuttal/E_finance",
+        "--steps",
+        "10000",
+        "--batch",
+        "4096",
+        "--seeds",
+        "3"
+      ],
+      "run_base": "outputs_msgm_sparse/rebuttal/E_finance/finance_ff49/msgm_sparse"
+    },
+    "weather": {
+      "name": "weather_au_wind",
+      "dimension": 96,
+      "n_gen": 1170,
+      "input": {
+        "path": "rebuttal_experiments/data/weather/weather_au_wind.pt",
+        "sha256": "8c2cf0e1fbc8a62fa1b45e76c5396ae77afc9acf7719ed43a14c2947dca9f361",
+        "shape": [
+          5847,
+          96
+        ],
+        "dtype": "torch.float32",
+        "finite": true,
+        "matches_git_blob": true
+      },
+      "split": {
+        "mode": "chrono",
+        "seed": 0,
+        "train": 3508,
+        "val": 1169,
+        "test": 1170
+      },
+      "config": {
+        "lr": 0.001,
+        "batch_size": 4096,
+        "n_train_steps": 10000,
+        "ckpt_every": 1000,
+        "hidden_dim": 128,
+        "device": "cuda",
+        "n_gen_samples": 1170,
+        "n_projections_sw": 500,
+        "n_angular_bins": 4,
+        "nfe": 128,
+        "log_every": 200
+      },
+      "runner_config": {
+        "lr": 0.001,
+        "batch_size": 4096,
+        "n_train_steps": 10000,
+        "ckpt_every": 1000,
+        "hidden_dim": 128,
+        "device": "cuda",
+        "n_gen_samples": 1170,
+        "n_projections_sw": 500,
+        "n_angular_bins": 4
+      },
+      "sampling": {
+        "solver": "rk4_stratonovich",
+        "num_steps": 128,
+        "network_evaluations": 512
+      },
+      "logging_caveat": "Unchanged sparse adapter logs every 200 steps; dense adapter default is 500. Timing overhead is therefore not identical.",
+      "command_args": [
+        "rebuttal_experiments/scripts/run_msgm_sparse_real.py",
+        "--pt",
+        "rebuttal_experiments/data/weather/weather_au_wind.pt",
+        "--name",
+        "weather_au_wind",
+        "--out",
+        "outputs_msgm_sparse/rebuttal/E_weather",
+        "--steps",
+        "10000",
+        "--batch",
+        "4096",
+        "--seeds",
+        "3"
+      ],
+      "run_base": "outputs_msgm_sparse/rebuttal/E_weather/weather_au_wind/msgm_sparse"
+    }
+  },
+  "verification": "Both original CLI main functions are called with recording callbacks replacing only their training function in this separate preflight process. No model is trained or sampled.",
+  "source_files": {
+    "rebuttal_experiments/scripts/run_msgm_real.py": "25c095a9b329d1f79e40c0b35e3fe60a73c947d136de95c2be547d6e15b02dc2",
+    "rebuttal_experiments/scripts/run_msgm_sparse_real.py": "866dc7403f61773cc40b9423db60a398547d7fc1689022312728fc3d8fb7a711"
+  },
+  "verified_utc": "2026-09-09T11:41:47.348339+00:00"
+}

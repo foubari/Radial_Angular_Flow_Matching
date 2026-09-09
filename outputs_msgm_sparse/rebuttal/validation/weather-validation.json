@@ -1,0 +1,290 @@
+{
+  "status": "complete",
+  "dataset": "weather",
+  "source_commit": "104f9118b690bb17f6ef7cfb871364a1ed6b8c56",
+  "expected_seeds": [
+    8925,
+    77395,
+    65457
+  ],
+  "started_at": "2026-09-09T11:48:34.325143+00:00",
+  "seeds": {
+    "8925": {
+      "status": "valid",
+      "validated_at": "2026-09-09T14:36:30.725164+00:00",
+      "run_dir": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-tabular/outputs_msgm_sparse/_orchestration/publish-intermediate-20260908/outputs_msgm_sparse/rebuttal/E_weather/weather_au_wind/msgm_sparse/seed_8925",
+      "metrics": {
+        "radial_w1": 0.10536395013332367,
+        "ks_stat": 0.03846156597137451,
+        "q950_err": 0.021378439055316004,
+        "q990_err": 0.023220736500296008,
+        "q995_err": 0.00019869071898074547,
+        "tail_exc_95": 0.010683759301900908,
+        "tail_exc_99": 0.006239317134022704,
+        "sliced_w1": 0.13046959042549133,
+        "mmd": 0.005518317222595215,
+        "angular_sw_bin0": 0.018455486744642258,
+        "angular_sw_bin1": 0.01725555770099163,
+        "angular_sw_bin2": 0.018142906948924065,
+        "angular_sw_bin3": 0.02578798122704029,
+        "angular_sw_mean": 0.01991048315539956,
+        "nan_rate": 0.0,
+        "exploding_norm_rate": 0.0,
+        "invalid_rate": 0.0,
+        "sample_time_s": 0.25380587577819824,
+        "total_train_time_s": 3339.651499271393
+      },
+      "metrics_sha256": "d46e1b3260d03944b1ecaf37872e62d3eea7905e4d8b666160727c7454a0a69d",
+      "samples_shape": [
+        1170,
+        96
+      ],
+      "samples_dtype": "torch.float32",
+      "samples_finite": true,
+      "samples_sha256": "2c8d07333cbc4208797230d5df8d0d6f164603c04083df7c73a345863a5f2bb0",
+      "last_logged_step": 10000,
+      "logged_rows": 50,
+      "logged_losses_finite": true,
+      "last_logged_loss": -38.58734130859375,
+      "last_elapsed_s": 3339.639659643173,
+      "train_log_sha256": "62a84240a97a96ae5889fe34ce2932e8bc41da286f858387dc00abdda25277e7"
+    },
+    "77395": {
+      "status": "valid",
+      "validated_at": "2026-09-09T14:36:30.730742+00:00",
+      "run_dir": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-tabular/outputs_msgm_sparse/_orchestration/publish-intermediate-20260908/outputs_msgm_sparse/rebuttal/E_weather/weather_au_wind/msgm_sparse/seed_77395",
+      "metrics": {
+        "radial_w1": 0.1287701278924942,
+        "ks_stat": 0.04017096757888794,
+        "q950_err": 0.039965880667587474,
+        "q990_err": 0.02830085301464686,
+        "q995_err": 0.04659620779716684,
+        "tail_exc_95": 0.018376066535711333,
+        "tail_exc_99": 0.007094017937779418,
+        "sliced_w1": 0.12811264395713806,
+        "mmd": 0.005320191383361816,
+        "angular_sw_bin0": 0.017793811857700348,
+        "angular_sw_bin1": 0.01661476492881775,
+        "angular_sw_bin2": 0.018164025619626045,
+        "angular_sw_bin3": 0.02857200801372528,
+        "angular_sw_mean": 0.020286152604967356,
+        "nan_rate": 0.0,
+        "exploding_norm_rate": 0.0,
+        "invalid_rate": 0.0,
+        "sample_time_s": 0.24069666862487793,
+        "total_train_time_s": 3323.275490760803
+      },
+      "metrics_sha256": "0ca4da2f78e3f3d7940b4ec011142b985bffbbe0281098da4f982d877b6bcb22",
+      "samples_shape": [
+        1170,
+        96
+      ],
+      "samples_dtype": "torch.float32",
+      "samples_finite": true,
+      "samples_sha256": "8b02e5355be0fdf4af94910e57589ff954c7f1f1102e5dc80c8b6016e7cf8345",
+      "last_logged_step": 10000,
+      "logged_rows": 50,
+      "logged_losses_finite": true,
+      "last_logged_loss": -39.05354309082031,
+      "last_elapsed_s": 3323.2631142139435,
+      "train_log_sha256": "591e9b057e56d9ebe11325e7c6e4a1eef743575af30a0ffbc020916c8f01d1f3"
+    },
+    "65457": {
+      "status": "valid",
+      "validated_at": "2026-09-09T14:36:30.737639+00:00",
+      "run_dir": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-tabular/outputs_msgm_sparse/_orchestration/publish-intermediate-20260908/outputs_msgm_sparse/rebuttal/E_weather/weather_au_wind/msgm_sparse/seed_65457",
+      "metrics": {
+        "radial_w1": 0.11944320797920227,
+        "ks_stat": 0.03675210475921631,
+        "q950_err": 0.02018126301665599,
+        "q990_err": 0.009710354733162656,
+        "q995_err": 0.022473481878111212,
+        "tail_exc_95": 0.010683759301900908,
+        "tail_exc_99": 0.0028205129876732737,
+        "sliced_w1": 0.12060033529996872,
+        "mmd": 0.005093693733215332,
+        "angular_sw_bin0": 0.019426193088293076,
+        "angular_sw_bin1": 0.015462120994925499,
+        "angular_sw_bin2": 0.0182192325592041,
+        "angular_sw_bin3": 0.024177629500627518,
+        "angular_sw_mean": 0.01932129403576255,
+        "nan_rate": 0.0,
+        "exploding_norm_rate": 0.0,
+        "invalid_rate": 0.0,
+        "sample_time_s": 0.2411501407623291,
+        "total_train_time_s": 3290.185300350189
+      },
+      "metrics_sha256": "415bbd23c5c4f5c41ebb369ab16b8eb90692b5b5bb32802ee6fce494d8ce1f28",
+      "samples_shape": [
+        1170,
+        96
+      ],
+      "samples_dtype": "torch.float32",
+      "samples_finite": true,
+      "samples_sha256": "9da7851b91b3bb9f4d002ad29223132c30c5f7a689513487cef302dcc9d1f810",
+      "last_logged_step": 10000,
+      "logged_rows": 50,
+      "logged_losses_finite": true,
+      "last_logged_loss": -37.8634033203125,
+      "last_elapsed_s": 3290.1737756729126,
+      "train_log_sha256": "eccb9ba26cb2299bc7720194ee79a04fbd593be463492ee5c83422ef62a224f8"
+    }
+  },
+  "training_progress": {
+    "8925": {
+      "last_logged_step": 10000,
+      "logged_rows": 50,
+      "logged_losses_finite": true,
+      "last_logged_loss": -38.58734130859375,
+      "last_elapsed_s": 3339.639659643173,
+      "train_log_sha256": "62a84240a97a96ae5889fe34ce2932e8bc41da286f858387dc00abdda25277e7"
+    },
+    "77395": {
+      "last_logged_step": 10000,
+      "logged_rows": 50,
+      "logged_losses_finite": true,
+      "last_logged_loss": -39.05354309082031,
+      "last_elapsed_s": 3323.2631142139435,
+      "train_log_sha256": "591e9b057e56d9ebe11325e7c6e4a1eef743575af30a0ffbc020916c8f01d1f3"
+    },
+    "65457": {
+      "last_logged_step": 10000,
+      "logged_rows": 50,
+      "logged_losses_finite": true,
+      "last_logged_loss": -37.8634033203125,
+      "last_elapsed_s": 3290.1737756729126,
+      "train_log_sha256": "eccb9ba26cb2299bc7720194ee79a04fbd593be463492ee5c83422ef62a224f8"
+    }
+  },
+  "validation_limits": [
+    "Metrics are the unchanged runner's original values; finite results do not establish generation quality.",
+    "Training CSV checks cover every logged 200-step record, not every unlogged minibatch or gradient.",
+    "Sparse and dense adapters have different SDE implementations; identical CLI configuration does not prove bit-identical stacks.",
+    "Sparse logging every 200 steps differs from dense logging every 500 steps; timing overhead is not identical.",
+    "Sampling uses 128 RK4 steps, hence 512 network evaluations.",
+    "No failed or partially completed run is automatically retried, resumed, resampled, or repaired."
+  ],
+  "slurm_job_id": "760578",
+  "hostname": "auh7-4b-gpu-055",
+  "gpu_allocation": {
+    "SLURM_JOB_GPUS": "1",
+    "SLURM_STEP_GPUS": null,
+    "ROCR_VISIBLE_DEVICES": "0",
+    "HIP_VISIBLE_DEVICES": null,
+    "CUDA_VISIBLE_DEVICES": null
+  },
+  "preflight_sha256": "c2661aecb96fca41871ff61653481692cd751a687d26cab474a418bfaf2e0394",
+  "dataset_metadata": {
+    "name": "weather_au_wind",
+    "dimension": 96,
+    "n_gen": 1170,
+    "input": {
+      "path": "rebuttal_experiments/data/weather/weather_au_wind.pt",
+      "sha256": "8c2cf0e1fbc8a62fa1b45e76c5396ae77afc9acf7719ed43a14c2947dca9f361",
+      "shape": [
+        5847,
+        96
+      ],
+      "dtype": "torch.float32",
+      "finite": true,
+      "matches_git_blob": true
+    },
+    "split": {
+      "mode": "chrono",
+      "seed": 0,
+      "train": 3508,
+      "val": 1169,
+      "test": 1170
+    },
+    "config": {
+      "lr": 0.001,
+      "batch_size": 4096,
+      "n_train_steps": 10000,
+      "ckpt_every": 1000,
+      "hidden_dim": 128,
+      "device": "cuda",
+      "n_gen_samples": 1170,
+      "n_projections_sw": 500,
+      "n_angular_bins": 4,
+      "nfe": 128,
+      "log_every": 200
+    },
+    "runner_config": {
+      "lr": 0.001,
+      "batch_size": 4096,
+      "n_train_steps": 10000,
+      "ckpt_every": 1000,
+      "hidden_dim": 128,
+      "device": "cuda",
+      "n_gen_samples": 1170,
+      "n_projections_sw": 500,
+      "n_angular_bins": 4
+    },
+    "sampling": {
+      "solver": "rk4_stratonovich",
+      "num_steps": 128,
+      "network_evaluations": 512
+    },
+    "logging_caveat": "Unchanged sparse adapter logs every 200 steps; dense adapter default is 500. Timing overhead is therefore not identical.",
+    "command_args": [
+      "rebuttal_experiments/scripts/run_msgm_sparse_real.py",
+      "--pt",
+      "rebuttal_experiments/data/weather/weather_au_wind.pt",
+      "--name",
+      "weather_au_wind",
+      "--out",
+      "outputs_msgm_sparse/rebuttal/E_weather",
+      "--steps",
+      "10000",
+      "--batch",
+      "4096",
+      "--seeds",
+      "3"
+    ],
+    "run_base": "outputs_msgm_sparse/rebuttal/E_weather/weather_au_wind/msgm_sparse"
+  },
+  "preflight_hardware": {
+    "gpu": "AMD Instinct MI210",
+    "vram_bytes": 68702699520,
+    "torch": "2.7.1+rocm6.3",
+    "torch_file": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.venv/lib/python3.10/site-packages/torch/__init__.py",
+    "hip": "6.3.42131-fa1d09cbd",
+    "hostname": "auh7-4b-gpu-055",
+    "slurm_job_id": "760575",
+    "slurm_job_gpus": "0",
+    "visible_gpu_count": 1
+  },
+  "hardware": {
+    "gpu": "AMD Instinct MI210",
+    "vram_bytes": 68702699520,
+    "torch": "2.7.1+rocm6.3",
+    "torch_file": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.venv/lib/python3.10/site-packages/torch/__init__.py",
+    "hip": "6.3.42131-fa1d09cbd",
+    "hostname": "auh7-4b-gpu-055",
+    "slurm_job_id": "760578",
+    "slurm_job_gpus": "1",
+    "slurm_step_gpus": null,
+    "visible_gpu_count": 1,
+    "gpu_uuid": "34363464-6537-3135-6638-333137313635"
+  },
+  "command": [
+    "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-tabular/outputs_msgm_sparse/.venv/bin/python",
+    "rebuttal_experiments/scripts/run_msgm_sparse_real.py",
+    "--pt",
+    "rebuttal_experiments/data/weather/weather_au_wind.pt",
+    "--name",
+    "weather_au_wind",
+    "--out",
+    "outputs_msgm_sparse/rebuttal/E_weather",
+    "--steps",
+    "10000",
+    "--batch",
+    "4096",
+    "--seeds",
+    "3"
+  ],
+  "worktree": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-tabular/outputs_msgm_sparse/_orchestration/publish-intermediate-20260908",
+  "child_pid": 4129686,
+  "child_returncode": 0,
+  "finished_at": "2026-09-09T14:36:30.926158+00:00"
+}

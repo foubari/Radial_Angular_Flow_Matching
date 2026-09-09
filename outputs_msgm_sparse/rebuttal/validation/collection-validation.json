@@ -1,0 +1,13 @@
+{
+  "status": "complete",
+  "source_commit": "104f9118b690bb17f6ef7cfb871364a1ed6b8c56",
+  "started_at": "2026-09-09T14:38:27.656514+00:00",
+  "slurm_job_id": "760579",
+  "gpu_count": 0,
+  "validated_seed_count": 6,
+  "finished_at": "2026-09-09T14:38:30.245163+00:00",
+  "output_dir": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-tabular/outputs_msgm_sparse/_orchestration/publish-intermediate-20260908/outputs_msgm_sparse/rebuttal",
+  "manifest_sha256": "2a17df7e487db3afb5cc6f74d2a9cc55fe36aa27b9557953a6ec1311c4b2338d",
+  "raw_metric_files": 6,
+  "original_json_bytes_preserved": true
+}

@@ -1,0 +1,290 @@
+{
+  "status": "complete",
+  "dataset": "finance",
+  "source_commit": "104f9118b690bb17f6ef7cfb871364a1ed6b8c56",
+  "expected_seeds": [
+    8925,
+    77395,
+    65457
+  ],
+  "started_at": "2026-09-09T11:46:49.993996+00:00",
+  "seeds": {
+    "8925": {
+      "status": "valid",
+      "validated_at": "2026-09-09T14:20:44.758015+00:00",
+      "run_dir": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-tabular/outputs_msgm_sparse/_orchestration/publish-intermediate-20260908/outputs_msgm_sparse/rebuttal/E_finance/finance_ff49/msgm_sparse/seed_8925",
+      "metrics": {
+        "radial_w1": 1.4970128536224365,
+        "ks_stat": 0.20828983187675476,
+        "q950_err": 0.20286499488199625,
+        "q990_err": 0.25626510021873916,
+        "q995_err": 0.36120433515939854,
+        "tail_exc_95": 0.025966561585664794,
+        "tail_exc_99": 0.008258446576073775,
+        "sliced_w1": 0.18406184017658234,
+        "mmd": 0.011840105056762695,
+        "angular_sw_bin0": 0.014535201713442802,
+        "angular_sw_bin1": 0.01634574681520462,
+        "angular_sw_bin2": 0.017748994752764702,
+        "angular_sw_bin3": 0.02582099661231041,
+        "angular_sw_mean": 0.018612734973430634,
+        "nan_rate": 0.0,
+        "exploding_norm_rate": 0.0,
+        "invalid_rate": 0.0,
+        "sample_time_s": 0.2393174171447754,
+        "total_train_time_s": 3063.019758462906
+      },
+      "metrics_sha256": "93ef42534b95c4a86ce944a4bd8e593275d79854071be4c6c22c35fe43ff7135",
+      "samples_shape": [
+        2871,
+        49
+      ],
+      "samples_dtype": "torch.float32",
+      "samples_finite": true,
+      "samples_sha256": "8e635453827fd1c13104734e86e7000376ce73b528ff22a6a7ada5a613a44f4a",
+      "last_logged_step": 10000,
+      "logged_rows": 50,
+      "logged_losses_finite": true,
+      "last_logged_loss": -10.959190368652344,
+      "last_elapsed_s": 3063.009102344513,
+      "train_log_sha256": "e1d4f89eb16a6cba4adfe4e9eedd95999b67f53d9dbfae0ffd8a0a2853e9751a"
+    },
+    "77395": {
+      "status": "valid",
+      "validated_at": "2026-09-09T14:20:44.764749+00:00",
+      "run_dir": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-tabular/outputs_msgm_sparse/_orchestration/publish-intermediate-20260908/outputs_msgm_sparse/rebuttal/E_finance/finance_ff49/msgm_sparse/seed_77395",
+      "metrics": {
+        "radial_w1": 1.5294655561447144,
+        "ks_stat": 0.21037966012954712,
+        "q950_err": 0.2370210001135315,
+        "q990_err": 0.24179851234799835,
+        "q995_err": 0.3580764025402367,
+        "tail_exc_95": 0.03153953254222874,
+        "tail_exc_99": 0.005820271782577047,
+        "sliced_w1": 0.18186703324317932,
+        "mmd": 0.012850522994995117,
+        "angular_sw_bin0": 0.013308441266417503,
+        "angular_sw_bin1": 0.016106951981782913,
+        "angular_sw_bin2": 0.016707848757505417,
+        "angular_sw_bin3": 0.02630469761788845,
+        "angular_sw_mean": 0.01810698490589857,
+        "nan_rate": 0.0,
+        "exploding_norm_rate": 0.0,
+        "invalid_rate": 0.0,
+        "sample_time_s": 0.24035143852233887,
+        "total_train_time_s": 3046.9957263469696
+      },
+      "metrics_sha256": "84a660cabd6a7459c5d58ba95c32cac99475a6470c672afcb95eb21fd4eba361",
+      "samples_shape": [
+        2871,
+        49
+      ],
+      "samples_dtype": "torch.float32",
+      "samples_finite": true,
+      "samples_sha256": "84024788399044996066fb00e689eabcbb2dc3e3f3fba87ba19ce774fe70b43f",
+      "last_logged_step": 10000,
+      "logged_rows": 50,
+      "logged_losses_finite": true,
+      "last_logged_loss": -11.984783172607422,
+      "last_elapsed_s": 3046.9843983650208,
+      "train_log_sha256": "7ee371767ec533977a78840a43d3decc69680857b81aca7d48f65907a5042341"
+    },
+    "65457": {
+      "status": "valid",
+      "validated_at": "2026-09-09T14:20:44.770439+00:00",
+      "run_dir": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-tabular/outputs_msgm_sparse/_orchestration/publish-intermediate-20260908/outputs_msgm_sparse/rebuttal/E_finance/finance_ff49/msgm_sparse/seed_65457",
+      "metrics": {
+        "radial_w1": 1.4229427576065063,
+        "ks_stat": 0.19714385271072388,
+        "q950_err": 0.18226560688167145,
+        "q990_err": 0.28005947359086486,
+        "q995_err": 0.3597131847406722,
+        "tail_exc_95": 0.027708116173744246,
+        "tail_exc_99": 0.005820271782577047,
+        "sliced_w1": 0.17894521355628967,
+        "mmd": 0.010753989219665527,
+        "angular_sw_bin0": 0.012683374807238579,
+        "angular_sw_bin1": 0.015344107523560524,
+        "angular_sw_bin2": 0.016869746148586273,
+        "angular_sw_bin3": 0.02451380342245102,
+        "angular_sw_mean": 0.0173527579754591,
+        "nan_rate": 0.0,
+        "exploding_norm_rate": 0.0,
+        "invalid_rate": 0.0,
+        "sample_time_s": 0.2393507957458496,
+        "total_train_time_s": 3001.0122056007385
+      },
+      "metrics_sha256": "ffd66bdcfff3d620380bc1220d361810bf835ce56c9d6fac442d4b8e8edb1bc7",
+      "samples_shape": [
+        2871,
+        49
+      ],
+      "samples_dtype": "torch.float32",
+      "samples_finite": true,
+      "samples_sha256": "3fe81fb810cd0d62a6551586c8e68cbcfdcd0a9babd4668d0e5ba5f49e003d46",
+      "last_logged_step": 10000,
+      "logged_rows": 50,
+      "logged_losses_finite": true,
+      "last_logged_loss": -10.749540328979492,
+      "last_elapsed_s": 3001.0008177757263,
+      "train_log_sha256": "033015442bfc5e392b34286b28650f1fc677abc37e1e0c5f1a8022e9f20cb0e6"
+    }
+  },
+  "training_progress": {
+    "8925": {
+      "last_logged_step": 10000,
+      "logged_rows": 50,
+      "logged_losses_finite": true,
+      "last_logged_loss": -10.959190368652344,
+      "last_elapsed_s": 3063.009102344513,
+      "train_log_sha256": "e1d4f89eb16a6cba4adfe4e9eedd95999b67f53d9dbfae0ffd8a0a2853e9751a"
+    },
+    "77395": {
+      "last_logged_step": 10000,
+      "logged_rows": 50,
+      "logged_losses_finite": true,
+      "last_logged_loss": -11.984783172607422,
+      "last_elapsed_s": 3046.9843983650208,
+      "train_log_sha256": "7ee371767ec533977a78840a43d3decc69680857b81aca7d48f65907a5042341"
+    },
+    "65457": {
+      "last_logged_step": 10000,
+      "logged_rows": 50,
+      "logged_losses_finite": true,
+      "last_logged_loss": -10.749540328979492,
+      "last_elapsed_s": 3001.0008177757263,
+      "train_log_sha256": "033015442bfc5e392b34286b28650f1fc677abc37e1e0c5f1a8022e9f20cb0e6"
+    }
+  },
+  "validation_limits": [
+    "Metrics are the unchanged runner's original values; finite results do not establish generation quality.",
+    "Training CSV checks cover every logged 200-step record, not every unlogged minibatch or gradient.",
+    "Sparse and dense adapters have different SDE implementations; identical CLI configuration does not prove bit-identical stacks.",
+    "Sparse logging every 200 steps differs from dense logging every 500 steps; timing overhead is not identical.",
+    "Sampling uses 128 RK4 steps, hence 512 network evaluations.",
+    "No failed or partially completed run is automatically retried, resumed, resampled, or repaired."
+  ],
+  "slurm_job_id": "760577",
+  "hostname": "auh7-4b-gpu-055",
+  "gpu_allocation": {
+    "SLURM_JOB_GPUS": "0",
+    "SLURM_STEP_GPUS": null,
+    "ROCR_VISIBLE_DEVICES": "0",
+    "HIP_VISIBLE_DEVICES": null,
+    "CUDA_VISIBLE_DEVICES": null
+  },
+  "preflight_sha256": "c2661aecb96fca41871ff61653481692cd751a687d26cab474a418bfaf2e0394",
+  "dataset_metadata": {
+    "name": "finance_ff49",
+    "dimension": 49,
+    "n_gen": 2871,
+    "input": {
+      "path": "rebuttal_experiments/data/finance/finance_returns_raw.pt",
+      "sha256": "7ce89c88cf8c55c669aa6172fdbfb0c7efe1211cea7ee608bc6c9e139a74d51e",
+      "shape": [
+        14349,
+        49
+      ],
+      "dtype": "torch.float32",
+      "finite": true,
+      "matches_git_blob": true
+    },
+    "split": {
+      "mode": "chrono",
+      "seed": 0,
+      "train": 8609,
+      "val": 2869,
+      "test": 2871
+    },
+    "config": {
+      "lr": 0.001,
+      "batch_size": 4096,
+      "n_train_steps": 10000,
+      "ckpt_every": 1000,
+      "hidden_dim": 128,
+      "device": "cuda",
+      "n_gen_samples": 2871,
+      "n_projections_sw": 500,
+      "n_angular_bins": 4,
+      "nfe": 128,
+      "log_every": 200
+    },
+    "runner_config": {
+      "lr": 0.001,
+      "batch_size": 4096,
+      "n_train_steps": 10000,
+      "ckpt_every": 1000,
+      "hidden_dim": 128,
+      "device": "cuda",
+      "n_gen_samples": 2871,
+      "n_projections_sw": 500,
+      "n_angular_bins": 4
+    },
+    "sampling": {
+      "solver": "rk4_stratonovich",
+      "num_steps": 128,
+      "network_evaluations": 512
+    },
+    "logging_caveat": "Unchanged sparse adapter logs every 200 steps; dense adapter default is 500. Timing overhead is therefore not identical.",
+    "command_args": [
+      "rebuttal_experiments/scripts/run_msgm_sparse_real.py",
+      "--pt",
+      "rebuttal_experiments/data/finance/finance_returns_raw.pt",
+      "--name",
+      "finance_ff49",
+      "--out",
+      "outputs_msgm_sparse/rebuttal/E_finance",
+      "--steps",
+      "10000",
+      "--batch",
+      "4096",
+      "--seeds",
+      "3"
+    ],
+    "run_base": "outputs_msgm_sparse/rebuttal/E_finance/finance_ff49/msgm_sparse"
+  },
+  "preflight_hardware": {
+    "gpu": "AMD Instinct MI210",
+    "vram_bytes": 68702699520,
+    "torch": "2.7.1+rocm6.3",
+    "torch_file": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.venv/lib/python3.10/site-packages/torch/__init__.py",
+    "hip": "6.3.42131-fa1d09cbd",
+    "hostname": "auh7-4b-gpu-055",
+    "slurm_job_id": "760575",
+    "slurm_job_gpus": "0",
+    "visible_gpu_count": 1
+  },
+  "hardware": {
+    "gpu": "AMD Instinct MI210",
+    "vram_bytes": 68702699520,
+    "torch": "2.7.1+rocm6.3",
+    "torch_file": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.venv/lib/python3.10/site-packages/torch/__init__.py",
+    "hip": "6.3.42131-fa1d09cbd",
+    "hostname": "auh7-4b-gpu-055",
+    "slurm_job_id": "760577",
+    "slurm_job_gpus": "0",
+    "slurm_step_gpus": null,
+    "visible_gpu_count": 1,
+    "gpu_uuid": "34316362-6561-3964-6634-393265623964"
+  },
+  "command": [
+    "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-tabular/outputs_msgm_sparse/.venv/bin/python",
+    "rebuttal_experiments/scripts/run_msgm_sparse_real.py",
+    "--pt",
+    "rebuttal_experiments/data/finance/finance_returns_raw.pt",
+    "--name",
+    "finance_ff49",
+    "--out",
+    "outputs_msgm_sparse/rebuttal/E_finance",
+    "--steps",
+    "10000",
+    "--batch",
+    "4096",
+    "--seeds",
+    "3"
+  ],
+  "worktree": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-tabular/outputs_msgm_sparse/_orchestration/publish-intermediate-20260908",
+  "child_pid": 4124859,
+  "child_returncode": 0,
+  "finished_at": "2026-09-09T14:20:44.961045+00:00"
+}
