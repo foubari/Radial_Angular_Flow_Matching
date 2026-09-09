@@ -20,14 +20,21 @@ The evaluator requires all three original seeds, in order **8925, 1234, 7**,
 using final **EMA step 24000**, UNet base width 96. It checks each run's metadata,
 including fixed-spherical method, non-angular target, split seed 0, 24,000
 training steps, batch 32, AdamW learning rate 0.0002, and EMA 0.999. Missing
-fields are errors; defaults do not establish checkpoint provenance.
+core fields are errors. The recovered legacy metadata omits `ncls` for all
+three seeds and `angular` for seed 8925. The inspected original evaluator
+explicitly defaults these to 10 and false; those resolutions are recorded
+separately while preserving the released files. They establish compatibility,
+not a verified training commit. See [the release audit](audio_release_compatibility.md).
 
 Required explicit paths are the original 12,000-example nominal training file,
 3,000-example external test file, digit classifier, each EMA checkpoint and its
 `meta.json`, and the archived `stage2_3seed.json` aggregate. Place dataset copies
 and generated sample tensors under `/mnt/vast01/users/fouad.oubari/data/`.
-Original metadata/checkpoints must be recovered; the MSGM checkpoints are not
-substitutes. No assets are downloaded or reconstructed by this script.
+Original metadata/checkpoints were recovered from `fixed-spherical-audiomnist-v1`.
+The release verifier checks checkpoints, metadata, logs, and the manifest against
+authenticated GitHub asset digests, plus the embedded manifest checksums; any
+mismatch stops execution. Existing data-v1 tensors are checked in place. No
+assets are downloaded or reconstructed by this evaluator itself.
 
 The evaluator recreates `audio_flow.build`'s 85% training split (10,200 examples)
 and verifies its mean radius against each checkpoint's `R0`. It uses the
@@ -36,6 +43,12 @@ to floating-point normalization error. There is no gain-dependent generation.
 Input SHA-256 hashes, original metadata, recomputed radius, and solver drift are
 recorded. Radius agreement alone is not a substitute for original artifact
 provenance; the reproduced baseline is also compared to its archived metrics.
+The exact split uses a separate CPU `torch.Generator().manual_seed(0)` and
+`torch.randperm(12000)`, then selects the first 10,200 permutation entries.
+The remaining 1,800 rows are internal validation, distinct from the external
+3,000-row test file. Both index vectors are hashed in the evaluation report.
+All three EMA state dictionaries are checked for strict model compatibility
+and finite weights before any original-output generation starts.
 
 Generation uses sample seed **0**, 2,000 samples with 200 per digit in the
 original order, CFG 1, **40 RK4 steps / 160 model evaluations**, tangent velocity
@@ -69,26 +82,59 @@ data.
 
 ## Commands and execution status
 
-Implementation and static review do not authorize an experiment. Run numerical
-evaluation only after the user's approval and on an allocated compute node.
-The `preflight` command checks file presence and JSON metadata without importing
-torch, deserializing tensors, creating output directories, or drawing samples.
-The placeholders below must be replaced with actual original artifact paths.
+The user authorized the recovered-checkpoint fixed-spherical + empirical-gain
+evaluation. Job **763355** completed all three original-seed measurements; this approval
+does not include t-Flow training, tuning, or evaluation. The original checkpoints
+are available and verified, so missing fixed-spherical checkpoints are no longer
+a blocker. All 6,000 paired predictions are unchanged; the historical accuracy
+reproduction guard remains flagged. See [the completed report](../outputs_audio_gain/README.md).
+
+The checkout is `/mnt/vast01/users/fouad.oubari/msgm/rafm-additions`.
+Recovered artifacts are in `inputs/recovered_baselines/`, with
+`ema_24000_seed{8925,1234,7}.pt`, corresponding `meta_seed*.json`, logs, and
+`manifest.json`. The launcher
+[`tools/audio_gain_release_job.sh`](../tools/audio_gain_release_job.sh) uses
+[`tools/evaluate_recovered_audio.py`](../tools/evaluate_recovered_audio.py),
+which verifies release checksums and the source-compatibility audit before
+calling the evaluator. Its interpreter is
+`../msgm-sparse-control/.venv/bin/python`; additional validation dependencies
+are in `tools/validation_deps`.
+
+The recorded submission command was `sbatch --parsable tools/audio_gain_release_job.sh`.
+This evaluation is finished; the command below is a reproducibility record. The exact submitted
+script and job settings are preserved in
+[`submitted_job_763355.sh`](../outputs_audio_gain/release_verification/submitted_job_763355.sh)
+and [`submission_job_763355.json`](../outputs_audio_gain/release_verification/submission_job_763355.json).
+Current execution status is recorded in
+[`execution_status.json`](../outputs_audio_gain/release_verification/execution_status.json).
+
+The completed report directory is
+`outputs_audio_gain/fixed_spherical_empirical_gain_v1_attempt2`.
+The earlier `fixed_spherical_empirical_gain_v1` directory is preserved from
+job 763350, which failed at the first convolution because the MIOpen kernel
+cache was read-only, before producing samples. The retry uses writable per-job
+caches without changing the algorithm, batch, precision, checkpoints, or sampling;
+see [`cache_failure_and_retry.json`](../outputs_audio_gain/release_verification/cache_failure_and_retry.json).
+
+The following **preflight only** command uses the recovered release paths and a
+new prospective report directory. It checks file presence and JSON metadata
+without importing torch, deserializing tensors, creating output directories,
+or drawing samples. Run from the checkout root:
 
 ```bash
-python experiments/poc_audio/audio_empirical_gain.py preflight \
-  --train-file /mnt/vast01/users/fouad.oubari/data/rafm/audio/audiomnist_stft_train.pt \
-  --test-file /mnt/vast01/users/fouad.oubari/data/rafm/audio/audiomnist_stft_test.pt \
-  --classifier /path/to/original/digit_classifier.pt \
-  --reference-aggregate /path/to/original/stage2_3seed.json \
-  --run 8925 /path/to/runs_unet/fixed_spherical/ema_24000.pt /path/to/runs_unet/fixed_spherical/meta.json \
-  --run 1234 /path/to/runs_s1234/fixed_spherical/ema_24000.pt /path/to/runs_s1234/fixed_spherical/meta.json \
-  --run 7 /path/to/runs_s7/fixed_spherical/ema_24000.pt /path/to/runs_s7/fixed_spherical/meta.json \
-  --output-dir /path/to/new/audio_reports/run_001 \
+python3 experiments/poc_audio/audio_empirical_gain.py preflight \
+  --train-file /mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/poc_audio/data/audiomnist_stft_train.pt \
+  --test-file /mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/poc_audio/data/audiomnist_stft_test.pt \
+  --classifier /mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/poc_audio/digit_classifier.pt \
+  --reference-aggregate experiments/poc_audio/stage2_3seed.json \
+  --run 8925 inputs/recovered_baselines/ema_24000_seed8925.pt inputs/recovered_baselines/meta_seed8925.json \
+  --run 1234 inputs/recovered_baselines/ema_24000_seed1234.pt inputs/recovered_baselines/meta_seed1234.json \
+  --run 7 inputs/recovered_baselines/ema_24000_seed7.pt inputs/recovered_baselines/meta_seed7.json \
+  --output-dir outputs_audio_gain/preflight_check_only \
   --samples-root /mnt/vast01/users/fouad.oubari/data/tflow/audio_gain
 ```
 
-After approval, change `preflight` to `evaluate` in the allocated GPU process.
+The launcher invoked `evaluate` in its allocated GPU process.
 `evaluate` requires `SLURM_JOB_ID` before importing ML libraries or loading any
 tensor; this guard also covers direct calls to the evaluator. Preflight and
 small reusable correctness helpers do not require a Slurm environment.
@@ -118,8 +164,13 @@ Full-precision metrics and exact correct counts are retained in each result's
 and for the legacy-style aggregate (population SD). A mismatch with the
 archived fixed-spherical baseline yields `status="baseline_mismatch"` and a
 nonzero exit status; measured values remain available for investigation and
-are not silently replaced with archived numbers. Only `status="complete"`
-is eligible for adding the new paper row. Existing metrics/assets remain intact.
+are not silently replaced with archived numbers. The renderer requires
+`status="complete"` by default. After a documented audit, its explicit
+`--baseline-discrepancy-note PATH` option can also report a complete three-seed
+`baseline_mismatch` result with a visible discrepancy label. This does not
+convert the evaluator status to success or claim historical reproduction.
+All protocol, finite-metric, checkpoint, and invariance checks still apply.
+Existing metrics/assets remain intact.
 
 The reusable `evaluate_gain_invariance(Y, gains, labels, classifier, test_gains)`
 helper applies the complete control to already-generated outputs from any of
@@ -178,15 +229,56 @@ python experiments/poc_audio/render_gain_results.py \
   --pending --output-dir /path/to/new/pending_audio_assets
 ```
 
-For measured additions, replace `--pending` with
-`--posthoc-result /path/to/evaluation/aggregate.json`. The renderer requires all
+For measured additions, use
+`--posthoc-result outputs_audio_gain/fixed_spherical_empirical_gain_v1_attempt2/aggregate.json`.
+The renderer requires all
 three original seeds, 2,000 samples, the matched protocol, finite measurements,
 checkpoint hashes, passing per-sample/logit/direction/radius checks, exact
-before/after counts, and successful original-baseline reproduction. It derives
+before/after counts, and, by default, successful original-baseline reproduction. It derives
 the plotted means from full-precision per-seed measurements rather than trusting
 supplied aggregate summaries. The scatter uses hollow individual-run markers,
 filled means with population SD error bars, log KS, and linear accuracy. Its
 original RAFM-Ang versus RAFM-Vel comparison remains present.
+
+If all three seeds pass these measurement checks but the evaluator records
+`baseline_mismatch` and `archived_baselines_reproduced=false`, a completed audit
+can be supplied with `--baseline-discrepancy-note`. The note must be a nonempty
+UTF-8 file. Its absolute path, exact content and SHA-256 are saved in
+`reporting_manifest.json`. The gain row and figure legend are marked, the figure
+has a visible disclosure, and both the table caption and `figure2_caption.txt`
+state that original-checkpoint reevaluation differs from the archive. New points
+are actual measurements; the original fixed-spherical, RAFM-Vel and RAFM-Ang
+points and all published table numbers stay unchanged. Missing seeds, changed
+predictions, failed invariance, invalid metrics or mismatched protocols remain
+errors even with the note. The option does not relax t-Flow validation.
+
+After all three seeds finish and the audit note exists, set
+`AUDIO_GAIN_AUDIT_NOTE` to that note's path and render into a new directory:
+
+```bash
+PYTHONPATH="$PWD/tools/validation_deps:$PWD" \
+  ../msgm-sparse-control/.venv/bin/python experiments/poc_audio/render_gain_results.py \
+  --reference-aggregate experiments/poc_audio/stage2_3seed.json \
+  --posthoc-result outputs_audio_gain/fixed_spherical_empirical_gain_v1_attempt2/aggregate.json \
+  --baseline-discrepancy-note "${AUDIO_GAIN_AUDIT_NOTE:?Set this to the completed audit note}" \
+  --output-dir outputs_audio_gain/fixed_spherical_empirical_gain_v1_attempt2/figures_with_discrepancy
+```
+
+Omit the discrepancy-note flag for a result that reproduces the baseline.
+The JSON-only summary command below reports per-seed original/posthoc metrics,
+full-precision means and population SDs, changed-prediction counts, hardware,
+runtime and provenance. It preserves mismatch and failure labels and withholds
+means when a seed is missing or failed:
+
+```bash
+python3 tools/summarize_audio_gain.py \
+  --input outputs_audio_gain/fixed_spherical_empirical_gain_v1_attempt2/aggregate.json \
+  --output-dir outputs_audio_gain/fixed_spherical_empirical_gain_v1_attempt2/comparison
+```
+
+The explicit `--input` selects the active retry; the summary script's default
+still names the preserved first-attempt directory. Neither reporting command
+trains a model or reruns sampling. Their output directories must be new.
 
 The optional `--tflow-result` accepts the actual complete suite condition report:
 `<suite_report>/conditions/audiomnist_stft.json`. It re-inspects all three original
@@ -196,13 +288,16 @@ source parameters, all applicable metrics, and the exact audio protocol. Origina
 per-seed artifacts must remain accessible. When combined with the empirical-gain
 result, training, test and classifier hashes must also agree. Two valid seeds,
 missing metrics, a changed artifact or an unsupported custom score envelope
-cannot produce a new row. No t-Flow experiment has been completed yet.
+cannot produce a new row. t-Flow training, tuning and evaluation remain
+unapproved; the fixed-spherical checkpoint-evaluation authorization does not
+extend to them.
 
 Outputs include the standalone replacement Table 5, Figure 2 PDF/PNG, an
 unchanged historical Table 6 (1,200 real-classifier validation examples;
 1,500 radius-replacement examples), and a separate table of the new complete
 2,000-sample gain checks. `reporting_manifest.json` records source hashes and
-whether assets are a pending preview or measured additions. Complete-sample
+whether assets are a pending preview, measured additions, or measured additions
+with an audited baseline discrepancy. Complete-sample
 Gaussian, matched-source, RAFM-Vel, and RAFM-Ang controls remain missing until
 their original generated outputs are supplied to the generic invariance helper
 or their original checkpoints are explicitly supplied through `--reference-run`.

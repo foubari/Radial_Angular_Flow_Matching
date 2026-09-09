@@ -1,0 +1,8 @@
+JobID|State|ExitCode|Start|End|Elapsed|ElapsedRaw|NodeList|AllocTRES
+763350|FAILED|1:0|2026-09-10T02:31:21|2026-09-10T02:35:47|00:04:26|266|auh7-3b-gpu-019|billing=4,cpu=4,gres/gpu:mi210=1,gres/gpu=1,mem=32G,node=1
+763350.batch|FAILED|1:0|2026-09-10T02:31:21|2026-09-10T02:35:47|00:04:26|266|auh7-3b-gpu-019|cpu=4,gres/gpu:mi210=1,gres/gpu=1,mem=32G,node=1
+763350.extern|COMPLETED|0:0|2026-09-10T02:31:21|2026-09-10T02:35:47|00:04:26|266|auh7-3b-gpu-019|billing=4,cpu=4,gres/gpu:mi210=1,gres/gpu=1,mem=32G,node=1
+763355|FAILED|1:0|2026-09-10T02:37:40|2026-09-10T03:24:43|00:47:03|2823|auh7-3b-gpu-019|billing=4,cpu=4,gres/gpu:mi210=1,gres/gpu=1,mem=32G,node=1
+763355.batch|FAILED|1:0|2026-09-10T02:37:40|2026-09-10T03:24:43|00:47:03|2823|auh7-3b-gpu-019|cpu=4,gres/gpu:mi210=1,gres/gpu=1,mem=32G,node=1
+763355.extern|COMPLETED|0:0|2026-09-10T02:37:40|2026-09-10T03:24:43|00:47:03|2823|auh7-3b-gpu-019|billing=4,cpu=4,gres/gpu:mi210=1,gres/gpu=1,mem=32G,node=1
+763355.0|COMPLETED|0:0|2026-09-10T02:52:29|2026-09-10T02:52:30|00:00:01|1|auh7-3b-gpu-019|cpu=1,gres/gpu:mi210=1,gres/gpu=1,mem=32G,node=1

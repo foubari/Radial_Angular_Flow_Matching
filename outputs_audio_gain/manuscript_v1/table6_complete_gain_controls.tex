@@ -1,0 +1,12 @@
+% New measured 2,000-sample checks; distinct from historical Table 6.
+\begin{table}[t]\centering\small
+\begin{tabular}{lrrrrrr}
+\toprule
+Method & Seed & Clips & Correct before/after & Changed predictions & Max direction error & Max relative radius error \\
+\midrule
+Fixed spherical & 8925 & 2000 & 1605/1605 & 0 & 1.53e-07 & 1.48e-07 \\
+Fixed spherical & 1234 & 2000 & 1601/1601 & 0 & 1.45e-07 & 1.42e-07 \\
+Fixed spherical & 7 & 2000 & 1634/1634 & 0 & 1.53e-07 & 1.54e-07 \\
+\bottomrule\end{tabular}
+\caption{Complete-sample independent empirical-gain checks using direct normalized-STFT classification. Every generated clip is checked; all logits pass the stated numerical tolerance. Only methods with original artifacts and complete three-seed measurements are included; historical Table 6 results are not substituted.}
+\label{tab:audio-complete-gain-controls}\end{table}

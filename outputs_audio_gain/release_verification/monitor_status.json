@@ -1,0 +1,16 @@
+{
+  "status": "stopped_after_successful_download_and_verification",
+  "release": "fixed-spherical-audiomnist-v1",
+  "authenticated_as": "foubari",
+  "polling_active": false,
+  "all_required_assets_verified": true,
+  "data_v1_assets_verified": true,
+  "evaluation_job_id": "763355",
+  "training_or_tflow_jobs_started": false,
+  "evaluation_job_ids": [
+    "763350",
+    "763355"
+  ],
+  "evaluation_measurements": "complete_all_three_seeds",
+  "historical_reproduction": "baseline_mismatch"
+}

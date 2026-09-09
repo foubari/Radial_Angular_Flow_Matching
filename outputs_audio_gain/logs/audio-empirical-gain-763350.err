@@ -1,0 +1,31 @@
+MIOpen Error: /long_pathname_so_that_rpms_can_package_the_debug_info/src/MLOpen/src/include/miopen/kern_db.hpp:183: Internal error while accessing SQLite database: attempt to write a readonly database
+Traceback (most recent call last):
+  File "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/tools/evaluate_recovered_audio.py", line 71, in <module>
+    main()
+  File "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/tools/evaluate_recovered_audio.py", line 58, in main
+    audio.evaluate(args, shared, runs, reference)
+  File "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/experiments/poc_audio/audio_empirical_gain.py", line 464, in evaluate
+    y, labels, initial_radius = generate_original(model, fixed, "fixed_spherical", False, device, args.batch_size)
+  File "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/experiments/poc_audio/audio_empirical_gain.py", line 344, in generate_original
+    y = torch.cat([rk4_original(model, x0[i:i + batch_size], labels[i:i + batch_size], state["spherical"], angular)
+  File "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/experiments/poc_audio/audio_empirical_gain.py", line 344, in <listcomp>
+    y = torch.cat([rk4_original(model, x0[i:i + batch_size], labels[i:i + batch_size], state["spherical"], angular)
+  File "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/experiments/poc_audio/audio_empirical_gain.py", line 321, in rk4_original
+    k1 = velocity(x, t0)
+  File "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/experiments/poc_audio/audio_empirical_gain.py", line 314, in velocity
+    out = model(xx.reshape(n, 2, FREQ, FRAMES), torch.full((n,), tt, device=dev), labels).reshape(n, -1)
+  File "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/experiments/poc_audio/audio_flow.py", line 84, in forward
+    c=s.temb(timestep_embed(t))+s.yemb(y); h=s.inp(x); skips=[]; sizes=[]
+  File "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.venv/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 554, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.venv/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 549, in _conv_forward
+    return F.conv2d(
+RuntimeError: miopenStatusInternalError

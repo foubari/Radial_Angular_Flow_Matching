@@ -1,0 +1,85 @@
+{
+  "status": "measured_addition_with_baseline_discrepancy",
+  "paper_source": "RAFM_ICLR_2027.pdf, page 26 Table 5; page 8 Figure 2",
+  "paper_sha256": "97f709df2a45e4acf4ba186379c60e9c75120d95e09af782d7a18c8b56d00367",
+  "inputs": {
+    "reference_aggregate": {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/experiments/poc_audio/stage2_3seed.json",
+      "sha256": "db71009221105b750acb9a2a4e5337f382a9cfc6ef9955ed14b6c3d8e4872adc"
+    },
+    "fixed_spher_empirical_gain": {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_audio_gain/fixed_spherical_empirical_gain_v1_attempt2/aggregate.json",
+      "sha256": "5a42958f17e830c9b1e795f8c8ae1169db10122e4b3558cb73cddfb8204d1fb7"
+    }
+  },
+  "plotted_methods": [
+    "gaussian",
+    "matched",
+    "fixed_spher",
+    "std_rafm",
+    "angular_rafm",
+    "fixed_spher_empirical_gain"
+  ],
+  "new_measurements": {
+    "fixed_spher_empirical_gain": {
+      "digit_acc": {
+        "mean": 0.8066666666666666,
+        "std": 0.007352248333370906,
+        "vals": [
+          0.8025,
+          0.8005,
+          0.817
+        ],
+        "n": 3
+      },
+      "energy_KS": {
+        "mean": 0.021833333333333333,
+        "std": 0.0,
+        "vals": [
+          0.021833333333333333,
+          0.021833333333333333,
+          0.021833333333333333
+        ],
+        "n": 3
+      },
+      "cov>q95": {
+        "mean": 0.05,
+        "std": 0.0,
+        "vals": [
+          0.05,
+          0.05,
+          0.05
+        ],
+        "n": 3
+      },
+      "cov>q99": {
+        "mean": 0.0145,
+        "std": 0.0,
+        "vals": [
+          0.0145,
+          0.0145,
+          0.0145
+        ],
+        "n": 3
+      }
+    }
+  },
+  "existing_table_values_preserved": true,
+  "baseline_discrepancy": true,
+  "baseline_discrepancy_note": {
+    "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/docs/audio_gain_reproduction_audit.md",
+    "sha256": "af538449580f3287a51a8a6e2b44c3de951bbcd31fd44467e8ace6ce2bf64945",
+    "content": "All three fixed-spherical checkpoint evaluations reproduced the original generation and classification formulas but did not reproduce the archived rounded digit accuracies. No concrete implementation mismatch was found in the source audit. The cause of the residual accuracy differences remains unresolved. This audit used source inspection, JSON reads, and Python AST comparisons only; it performed no new numerical evaluation, tuning, or retraining.\n\nSlurm job 763355 completed all three original-plus-rescaled evaluations in `outputs_audio_gain/fixed_spherical_empirical_gain_v1_attempt2`. The [final aggregate](../outputs_audio_gain/fixed_spherical_empirical_gain_v1_attempt2/aggregate.json) records `status=\"baseline_mismatch\"` and `archived_baselines_reproduced=false`. After writing every per-seed measurement and the aggregate, the historical-reproduction guard intentionally raises an error and the command exits 1. All measurements and paired invariance checks are complete; the nonzero exit preserves the unresolved historical accuracy discrepancy.\n\n| Training seed | Archived digit accuracy, rounded | Original Y, measured accuracy | Rescaled X, measured accuracy | Changed predictions Y\u2192X | Final status |\n| --- | ---: | ---: | ---: | ---: | --- |\n| 8925 | 0.805 | 0.8025 = 1605/2000 | 0.8025 = 1605/2000 | 0 | Complete; archived accuracy mismatch |\n| 1234 | 0.798 | 0.8005 = 1601/2000 | 0.8005 = 1601/2000 | 0 | Complete; archived accuracy mismatch |\n| 7 | 0.828 | 0.8170 = 1634/2000 | 0.8170 = 1634/2000 | 0 | Complete; archived accuracy mismatch |\n\nThe measured accuracy mean across all three seeds is `0.8066666666666666`, with population standard deviation `0.007352248333370906`, for both original Y and rescaled X: `0.807 \u00b1 0.007` at three decimals. These values come from the aggregate's full-precision per-seed measurements. The separate legacy-rounded aggregation uses `0.803, 0.800, 0.817` and has population standard deviation `0.007408703590297578`; both forms remain available in the result JSON. Across all 6,000 paired predictions, rescaling changes none.\n\nThe [seed-8925 result](../outputs_audio_gain/fixed_spherical_empirical_gain_v1_attempt2/seed_8925/eval.json) preserves both exact count-based accuracy and the legacy Float32 mean. The latter is `0.8025000095367432`, which the original three-decimal rounding rule renders as `0.803`. The archived `0.805` cannot be explained by using exact count-based accuracy instead of the legacy Float32 mean. The historical archive contains rounded values, so it does not establish the original exact correct count or the number of individual predictions that differ from this rerun.\n\nFor every seed, energy KS changes from `0.5923333333333334` to `0.021833333333333333` after independent empirical-gain rescaling. The post-hoc KS mean is therefore `0.021833333333333333` with population standard deviation zero. Original Y matches every archived energy comparison available in `stage2_3seed.json`: rounded KS, coverage above q95 and q99, coverage below q10, and PIT. Fixed-spherical outputs have nearly constant radii; matching these radial summaries does not establish that their generated directions are identical to the historical sample set. Each seed's paired Y\u2192X check passes over all 2,000 samples, with zero changed predictions, unchanged accuracy, and finite logits within tolerance. For seed 8925, the maximum absolute logit difference is `1.7642974853515625e-05`.\n\nThe historical published fixed-spherical row, `0.810 \u00b1 0.013`, remains historical evidence and must not be replaced with the rerun accuracy. Likewise, a new empirical-gain result must use its measured paired accuracy rather than borrowing the historical value. The completed three-seed addition and any figure must make the reproduction discrepancy explicit. No tuning, radius change, retraining, or result substitution is justified by this discrepancy.\n\nThe [source compatibility audit](../outputs_audio_gain/release_verification/source_compatibility.json) compared eight files directly against `git show d3006dc8ee61b2ab6e470115d3f21c778fefcf81:PATH`; every byte comparison passed. These files cover the original model, evaluation, classifier, data preparation, radial source, sphere utilities, tangent projection, and spherical path. Full paired SHA256 values and exact source excerpts are also documented in [audio_release_compatibility.md](audio_release_compatibility.md).\n\n| Compared source file | Comparison |\n| --- | --- |\n| `experiments/poc_audio/audio_flow.py` | Byte-identical |\n| `experiments/poc_audio/audio_eval.py` | Byte-identical |\n| `experiments/poc_audio/audio_classifier.py` | Byte-identical |\n| `experiments/poc_audio/audio_data.py` | Byte-identical |\n| `rafm/sources/radial_empirical.py` | Byte-identical |\n| `rafm/utils/sphere.py` | Byte-identical |\n| `rafm/flow_matching/sampler.py` | Byte-identical |\n| `rafm/paths/spherical_geodesic.py` | Byte-identical |\n\nThe release manifest describes `d3006dc8ee61b2ab6e470115d3f21c778fefcf81` as the checkout holding the recovered artifacts and explicitly says that metadata did not record a training commit. It is **not a verified training commit**. The audit records `artifact_checkout.commit` separately, with `training_commit=null` and `training_commit_verified=false`. Local Git history adds the AudioMNIST scripts and reports together in commit `aa7a032`; it supplies no earlier evaluated-source snapshot proving the exact historical execution.\n\nThe inspected running evaluator has SHA256 `cc2ef04792bdce97157827847b84a77ffc82f5ac95cf484a40ea6213b5498301`, matching job 763355's recorded `evaluator_sha256`. The original `audio_eval.py` SHA256 is `ca4b1f0c788fcd3eef69b4970daf4a2cad540ee3fdcbe987e407f31a2f401004`. The classifier source SHA256 is `7af21994c8e7f428252ed566dbfae8274bf0b3368b96509dd76f7f65136f923a`. The source-audit JSON SHA256 is `bfe98eec3e7ccca6a336a62a93ca01c8c89850297b60b8396f7e994df5bdbe3f`.\n\nThe generation comparison found the following:\n\n- Both evaluators call the same `build(\"fixed_spherical\", ..., 0)`. Original R0 and the ECDF fitted to radius-normalized training tensors are preserved. Neither generation path draws initial radii from test data or replaces them with the post-hoc G.\n- Both reset the CPU and evaluation-GPU RNG to seed 0 before drawing source radii and directions. Original `torch.manual_seed(0)` resets the visible devices; the new code explicitly resets the CPU and allocated GPU inside a restored RNG scope. The job requires exactly one visible GPU. Additional gain and source-replay draws have isolated, restored CPU RNG scopes and occur outside generation.\n- Source sampling draws CPU radius uniforms before CPU sphere directions, then generation draws a separate normalized Gaussian direction tensor on the evaluation GPU. Both paths use `r*u0/u0.norm(...)` in the same order.\n- Both generate 2,000 labels as 200 repetitions of each digit in order 0 through 9. Generation batch size is 128, including the same final partial batch.\n- The RK4 inner velocity function and entire iteration body are AST-identical after renaming `nfe\u2192RK4_STEPS`, `v\u2192velocity`, and `y\u2192labels`. This comparison preserves arithmetic association and multiplication/addition ordering. Both use 40 steps, four model calls per step, the same tangent projection, and no intermediate state renormalization.\n- Both use the same UNet constructor and EMA state dictionary, evaluation mode, and Float32 evaluation path without autocast or compilation. The metadata depth value does not affect UNet construction: `make_model` forwards depth only to `VelNet`.\n\nThe classifier comparison found identical unit-norm STFT preprocessing, input shape `(2000,2,129,63)`, class labels, `Clf` architecture, evaluation mode, and direct full-batch inference. Original evaluation calls `Clf(Y)` twice, once for predictions and once for confidence; the new evaluator stores the first logits and reuses them for both summaries, then separately evaluates X. The classifier uses GroupNorm and per-sample normalization, with no dropout or running-statistics layers. This call-structure difference does not change the specified prediction calculation. Computing X first also leaves Y intact: `apply_gains` uses out-of-place normalization and multiplication. Both evaluators apply `argmax(1)` and the same legacy Float32 accuracy/rounding calculation.\n\nCompute-node verification has already passed for all three EMA checkpoints before generation. The [attempt-2 compatibility report](../outputs_audio_gain/fixed_spherical_empirical_gain_v1_attempt2/compatibility.json), SHA256 `75c49ce2c0c46f0a41831c0cab3fe362de39078fa63f52cfb0343d1bf4f5ecc6`, records strict state-dictionary loads, step 24,000, 27,896,802 parameters, 10 classes, and angular mode false. Missing legacy metadata fields are resolved through the original evaluator's explicit defaults while the original metadata remains unchanged.\n\nThat report also records the verified local CPU split: `torch.Generator().manual_seed(0)` followed by `torch.randperm(12000)`, with the first 10,200 permuted indices used for generator training and the remaining 1,800 internally held out. The external test file contains 3,000 separate examples. The training-index SHA256 is `08a2f65d538cee711cc1dfaf7ec69ecc7ce95dbebe45702839654dbc107c92cd`; the internal held-out-index SHA256 is `79b1cb53ca272949bb52113f6ee99f4e2530f4014788d76ea2370a091233cb92`, both over contiguous little-endian int64 bytes. The empirical-gain ECDF fits raw norms at the generator-training indices only. Recomputed R0 passes comparison with the released `2.2613651752471924` value.\n\nThe supplied [RAFM_ICLR_2027.pdf](/mnt/vast01/users/fouad.oubari/msgm/rafm_review_inputs_20260909.qI0bZo/RAFM_ICLR_2027.pdf), printed page 28, Appendix C.2, reports Python 3.10.19, PyTorch 2.6.0+cu124, CUDA 12.4, and cuDNN 9.1.0. Printed page 29, Appendix C.3, reports Windows 11 and an NVIDIA RTX 2000 Ada Generation GPU with 16 GB memory. C.2 continues on page 29 with Float32 parameters and BF16 autocast during AudioMNIST training. The inspected original evaluation code does not enable autocast; training precision must not be conflated with evaluation precision. The completed execution used Python 3.10.12, PyTorch 2.7.1+rocm6.3, NumPy 2.2.6, and SciPy 1.15.3, as recorded in [environment_packages.json](../outputs_audio_gain/release_verification/environment_packages.json), on an AMD Instinct MI210. The aggregate records HIP version `6.3.42131-fa1d09cbd`. These platform and version differences are possible context for non-identical numerical outputs, **not a demonstrated cause** of the accuracy discrepancies. This audit has not compared identical historical inputs across those environments.\n\nThe precise historical artifacts needed to isolate the remaining discrepancy are:\n\n1. The original per-seed `eval.json` files and exact evaluation commands, including checkpoint step, number of samples, generation batch size, solver steps, class count, classifier path, and seed. The local aggregate establishes the order 8925, 1234, 7 and rounded metrics, but the corresponding fixed-spherical per-seed evaluation files are absent locally.\n2. Original full generated tensors Y with ordered labels, classifier logits and predictions, and exact correct counts. Classifying the same historical Y would separate classifier/output-processing differences from generation differences; comparing individual logits and margins would identify which samples differ.\n3. Original initial tensors x0, or the original CPU radii, GPU direction draws, and RNG states immediately before sampling. These distinguish random-draw differences from integration differences even when both executions specify sample seed 0.\n4. Hashes tying the historical evaluation to the exact EMA checkpoint, classifier checkpoint, nominal training/test tensors, and evaluated source snapshot. Authenticated release hashes establish the recovered files' identity, but do not independently prove which classifier file or source revision produced an earlier rounded report.\n5. The original runtime/package manifest and execution settings, including device, driver, CUDA/cuDNN versions, default dtype, autocast/TF32/determinism settings, and any compilation or backend overrides. These would support a controlled comparison after the original artifacts are available.\n\nThe paired empirical-gain invariance result and the historical reproduction discrepancy are separate measured facts. Preserve both. The completed three-seed evaluation establishes unchanged predictions for all measured Y\u2192X pairs and improved energy fit; it does not establish exact reproduction of historical directions, logits, or the published three-seed accuracy.\n"
+  },
+  "recorded_posthoc_status": "baseline_mismatch",
+  "archived_baselines_reproduced": false,
+  "figure_disclosure": "* Original-checkpoint reevaluation differs from archive; new gain points are measured.\nHistorical points remain unchanged; baseline reproduction is not established.",
+  "figure_caption": "AudioMNIST at 24,000 training steps. Hollow markers show individual training seeds; filled markers and error bars show the mean and population standard deviation. Historical Figure 2 points remain unchanged. RAFM-Ang and RAFM-Vel are separate comparisons. The added fixed-spherical + empirical-gain points are measured from all three original checkpoint seeds. Original-checkpoint reevaluation differs from the archived baseline; the new gain points are actual measurements with this discrepancy disclosed. Baseline reproduction is not established. The audited discrepancy note is preserved in reporting_manifest.json.",
+  "complete_reference_controls": [],
+  "missing_controls": [
+    "Gaussian FM",
+    "Matched source",
+    "RAFM-Vel",
+    "RAFM-Ang"
+  ]
+}

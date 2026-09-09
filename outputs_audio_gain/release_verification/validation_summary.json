@@ -1,0 +1,32 @@
+{
+  "source_syntax": {
+    "status": "passed",
+    "files": [
+      "experiments/poc_audio/audio_empirical_gain.py",
+      "experiments/poc_audio/render_gain_results.py",
+      "tools/verify_audio_release.py",
+      "tools/evaluate_recovered_audio.py",
+      "tools/summarize_audio_gain.py",
+      "tests/test_audio_empirical_gain.py",
+      "tests/test_audio_gain_reporting.py",
+      "tests/test_audio_release_verification.py"
+    ]
+  },
+  "pre_evaluation_compute_tests": {
+    "passed": 39,
+    "artifact": "release_verification/audio_checks.xml",
+    "job_id": "763355"
+  },
+  "updated_discrepancy_renderer_tests": {
+    "passed": 23,
+    "seconds": 0.1,
+    "scope": "JSON-only renderer tests after discrepancy-note option; overlaps earlier renderer tests"
+  },
+  "release_verifier_fixture_tests": {
+    "passed": 9,
+    "scope": "stdlib fixtures include checksum/config/missing-asset rejection"
+  },
+  "all_three_checkpoint_and_split_checks": "fixed_spherical_empirical_gain_v1_attempt2/compatibility.json",
+  "actual_complete_sample_invariance": "passed on all 6000 paired outputs",
+  "historical_accuracy_reproduction": "failed, explicitly retained in raw aggregate and per-seed comparisons"
+}

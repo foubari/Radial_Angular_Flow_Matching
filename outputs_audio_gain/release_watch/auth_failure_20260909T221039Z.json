@@ -1,0 +1,21 @@
+{
+  "checked_at_utc": "2026-09-09T22:10:39.712679+00:00",
+  "repository": "foubari/msgm-sparse-control",
+  "release_tag": "fixed-spherical-audiomnist-v1",
+  "status": "authentication_failed",
+  "monitoring_running": false,
+  "poll_interval_seconds": 60,
+  "requested_max_duration_seconds": 43200,
+  "monitor_started_at": null,
+  "deadline": null,
+  "required_seeds": [
+    8925,
+    1234,
+    7
+  ],
+  "failure": "gh auth status: You are not logged into any GitHub hosts. No usable environment token or configured repository credentials found.",
+  "download_started": false,
+  "evaluation_started": false,
+  "tflow_jobs_started": false,
+  "data_policy": "Reuse existing data-v1 STFT files unchanged."
+}

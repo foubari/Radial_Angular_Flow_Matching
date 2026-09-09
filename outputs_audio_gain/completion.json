@@ -1,0 +1,36 @@
+{
+  "status": "measurements_complete_with_historical_baseline_discrepancy",
+  "measured_seeds": [
+    8925,
+    1234,
+    7
+  ],
+  "n_original_outputs": 6000,
+  "n_paired_rescaled_outputs": 6000,
+  "prediction_disagreements": 0,
+  "all_invariance_checks_passed": true,
+  "recorded_aggregate_status": "baseline_mismatch",
+  "archived_baselines_reproduced": false,
+  "release_and_data_verification": "passed",
+  "all_three_checkpoints_strictly_loaded_before_generation": true,
+  "actual_evaluation_wall_s": 2683.439820148051,
+  "slurm_job_ids": [
+    "763350",
+    "763355"
+  ],
+  "slurm_exit_codes": {
+    "763350": "1:0 (read-only MIOpen kernel cache, before generation)",
+    "763355": "1:0 (intentional historical reproduction guard after all measurements)"
+  },
+  "slurm_gpu_allocation_seconds": {
+    "763350": 266,
+    "763355": 2823
+  },
+  "training_or_tflow_jobs_started": false,
+  "synthetic_cache_blocker": "Separate, unresolved; no synthetic datasets regenerated",
+  "training_commit": null,
+  "training_commit_verified": false,
+  "release_polling_active": false,
+  "raw_aggregate_sha256": "5a42958f17e830c9b1e795f8c8ae1169db10122e4b3558cb73cddfb8204d1fb7",
+  "updated_utc": "2026-09-09T23:26:23.893839+00:00"
+}

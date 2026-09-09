@@ -1,0 +1,139 @@
+{
+  "source_pdf": "/mnt/vast01/users/fouad.oubari/msgm/rafm_review_inputs_20260909.qI0bZo/RAFM_ICLR_2027.pdf",
+  "pdf_sha256": "97f709df2a45e4acf4ba186379c60e9c75120d95e09af782d7a18c8b56d00367",
+  "printed_page": 26,
+  "tables": [
+    5,
+    6
+  ],
+  "verification": "Visual inspection of rasterized supplied PDF and structured PDF text; all six historical Table 5 rows match renderer constants. Matched-source q95 standard deviation is 0.0013.",
+  "historical_table5_rows": [
+    [
+      "gaussian",
+      "Gaussian FM",
+      [
+        "0.734",
+        "0.004"
+      ],
+      [
+        "0.117",
+        "0.008"
+      ],
+      [
+        "0.0587",
+        "0.0041"
+      ],
+      [
+        "0.0195",
+        "0.0032"
+      ]
+    ],
+    [
+      "matched",
+      "Matched source",
+      [
+        "0.750",
+        "0.018"
+      ],
+      [
+        "0.095",
+        "0.010"
+      ],
+      [
+        "0.0397",
+        "0.0013"
+      ],
+      [
+        "0.0118",
+        "0.0002"
+      ]
+    ],
+    [
+      "fixed_spher",
+      "Fixed spherical",
+      [
+        "0.810",
+        "0.013"
+      ],
+      [
+        "0.592",
+        "0.000"
+      ],
+      [
+        "0.0000",
+        "0.0000"
+      ],
+      [
+        "0.0000",
+        "0.0000"
+      ]
+    ],
+    [
+      "std_rafm",
+      "RAFM-Vel",
+      [
+        "0.711",
+        "0.014"
+      ],
+      [
+        "0.0218",
+        "0.0000"
+      ],
+      [
+        "0.0500",
+        "0.0000"
+      ],
+      [
+        "0.0145",
+        "0.0000"
+      ]
+    ],
+    [
+      "angular_rafm",
+      "RAFM-Ang",
+      [
+        "0.764",
+        "0.025"
+      ],
+      [
+        "0.0218",
+        "0.0000"
+      ],
+      [
+        "0.0500",
+        "0.0000"
+      ],
+      [
+        "0.0145",
+        "0.0000"
+      ]
+    ],
+    [
+      "msgm_sparse",
+      "MSGM (sparse)",
+      [
+        "0.100",
+        "0.000"
+      ],
+      [
+        "0.0340",
+        "0.0000"
+      ],
+      [
+        "0.0465",
+        "0.0000"
+      ],
+      [
+        "0.0105",
+        "0.0000"
+      ]
+    ]
+  ],
+  "historical_table6": {
+    "classifier_validation_n": 1200,
+    "classifier_validation_accuracy": 0.955,
+    "radius_replacement_n": 1500,
+    "reference_checkpoints": 4,
+    "result": "Accuracy unchanged at reported precision"
+  }
+}

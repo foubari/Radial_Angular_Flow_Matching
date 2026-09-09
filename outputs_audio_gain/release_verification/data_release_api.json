@@ -1,0 +1,92 @@
+{
+  "assets": [
+    {
+      "apiUrl": "https://api.github.com/repos/foubari/msgm-sparse-control/releases/assets/550595343",
+      "contentType": "application/octet-stream",
+      "createdAt": "2026-09-08T13:50:29Z",
+      "digest": "sha256:c9ab95b3bcb0049f881a84d180bccbdedf4d25cf6723dc48cafb90e4a0e20209",
+      "downloadCount": 2,
+      "id": "RA_kwDOUSBNfs4g0WsP",
+      "label": "",
+      "name": "audiomnist_stft_test.pt",
+      "size": 195085807,
+      "state": "uploaded",
+      "updatedAt": "2026-09-08T13:51:43Z",
+      "url": "https://github.com/foubari/msgm-sparse-control/releases/download/data-v1/audiomnist_stft_test.pt"
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/foubari/msgm-sparse-control/releases/assets/550595339",
+      "contentType": "application/octet-stream",
+      "createdAt": "2026-09-08T13:50:29Z",
+      "digest": "sha256:d4c0e10dcae8bdb2ad6e7bf05202a42e6a6af3b6fb064e6fc97e12432e0fe7be",
+      "downloadCount": 2,
+      "id": "RA_kwDOUSBNfs4g0WsL",
+      "label": "",
+      "name": "audiomnist_stft_train.pt",
+      "size": 780337846,
+      "state": "uploaded",
+      "updatedAt": "2026-09-08T13:52:51Z",
+      "url": "https://github.com/foubari/msgm-sparse-control/releases/download/data-v1/audiomnist_stft_train.pt"
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/foubari/msgm-sparse-control/releases/assets/550595340",
+      "contentType": "application/octet-stream",
+      "createdAt": "2026-09-08T13:50:29Z",
+      "digest": "sha256:95e17fe21ec2a8644dfb1f4cd00b576c0ab307b333d83f6baa67d67026a1f671",
+      "downloadCount": 2,
+      "id": "RA_kwDOUSBNfs4g0WsM",
+      "label": "",
+      "name": "dcae_labels.pt",
+      "size": 108336,
+      "state": "uploaded",
+      "updatedAt": "2026-09-08T13:50:29Z",
+      "url": "https://github.com/foubari/msgm-sparse-control/releases/download/data-v1/dcae_labels.pt"
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/foubari/msgm-sparse-control/releases/assets/550595341",
+      "contentType": "application/octet-stream",
+      "createdAt": "2026-09-08T13:50:29Z",
+      "digest": "sha256:15088880ca60e69747d4c8bb55eda046d0667475e35ff6d7133e876090d83116",
+      "downloadCount": 2,
+      "id": "RA_kwDOUSBNfs4g0WsN",
+      "label": "",
+      "name": "dcae_latents_scaled.pt",
+      "size": 109724888,
+      "state": "uploaded",
+      "updatedAt": "2026-09-08T13:51:28Z",
+      "url": "https://github.com/foubari/msgm-sparse-control/releases/download/data-v1/dcae_latents_scaled.pt"
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/foubari/msgm-sparse-control/releases/assets/550595342",
+      "contentType": "application/octet-stream",
+      "createdAt": "2026-09-08T13:50:29Z",
+      "digest": "sha256:1c68713e65df8c256bf8dd73edee70ba0e419381258cc46ff497042287946d50",
+      "downloadCount": 2,
+      "id": "RA_kwDOUSBNfs4g0WsO",
+      "label": "",
+      "name": "digit_classifier.pt",
+      "size": 848206,
+      "state": "uploaded",
+      "updatedAt": "2026-09-08T13:50:29Z",
+      "url": "https://github.com/foubari/msgm-sparse-control/releases/download/data-v1/digit_classifier.pt"
+    },
+    {
+      "apiUrl": "https://api.github.com/repos/foubari/msgm-sparse-control/releases/assets/550595364",
+      "contentType": "application/x-tar",
+      "createdAt": "2026-09-08T13:50:30Z",
+      "digest": "sha256:b3ca446a65dab89e35abe3ef5f6cae85c1491dcf410b8e6f396805871a9609e8",
+      "downloadCount": 2,
+      "id": "RA_kwDOUSBNfs4g0Wsk",
+      "label": "",
+      "name": "real_ref.tar",
+      "size": 382269440,
+      "state": "uploaded",
+      "updatedAt": "2026-09-08T13:51:31Z",
+      "url": "https://github.com/foubari/msgm-sparse-control/releases/download/data-v1/real_ref.tar"
+    }
+  ],
+  "name": "MSGM backbone data (v1)",
+  "publishedAt": "2026-09-08T13:50:23Z",
+  "tagName": "data-v1",
+  "url": "https://github.com/foubari/msgm-sparse-control/releases/tag/data-v1"
+}

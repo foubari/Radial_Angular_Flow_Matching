@@ -70,6 +70,87 @@ def test_noncomplete_measurements_cannot_be_plotted(status):
         report.validate_measured(fixture, "fixed_spher_empirical_gain")
 
 
+def audited_note(tmp_path):
+    path = tmp_path / "discrepancy-note.md"
+    path.write_bytes(b"Unit-test audit fixture: checkpoint reevaluation differs from archive.\r\n")
+    return report.discrepancy_note(path)
+
+
+def test_baseline_discrepancy_opt_in_preserves_actual_metrics_and_historical_rows(tmp_path):
+    fixture = measured_fixture()
+    fixture.update(status="baseline_mismatch", archived_baselines_reproduced=False)
+    note = audited_note(tmp_path)
+    measured = report.validate_measured(fixture, "fixed_spher_empirical_gain", baseline_discrepancy_note=note)
+    assert measured["digit_acc"]["vals"] == [.8] * 3
+    text = report.table5_tex({"fixed_spher_empirical_gain": measured}, baseline_discrepancy=True)
+    for _, label, *metrics in report.PUBLISHED:
+        historical_row = label + " & " + " & ".join(f"${mean} \\pm {std}$" for mean, std in metrics)
+        historical_row += " " + chr(92) * 2
+        assert historical_row in text
+    assert "Original-checkpoint reevaluation differs" in text
+    assert "actual new measurements" in text
+    assert "baseline reproduction is not established" in text
+    assert "new gain points are measured" in report.figure_disclosure(True)
+    assert report.figure_disclosure(False) == ""
+
+
+@pytest.mark.parametrize("corruption", ["prediction", "missing_seed", "nonfinite", "protocol", "failed_status", "claimed_reproduction"])
+def test_discrepancy_note_does_not_bypass_scientific_checks(tmp_path, corruption):
+    fixture = measured_fixture()
+    fixture.update(status="baseline_mismatch", archived_baselines_reproduced=False)
+    if corruption == "prediction":
+        fixture["runs"][0]["invariance"]["prediction_disagreements"] = 1
+    elif corruption == "missing_seed":
+        fixture["runs"].pop()
+    elif corruption == "nonfinite":
+        fixture["runs"][0]["posthoc"]["unrounded"]["energy"]["ks"] = float("nan")
+    elif corruption == "protocol":
+        fixture["protocol"]["model_evaluations"] = 40
+    elif corruption == "failed_status":
+        fixture["status"] = "failed"
+    else:
+        fixture["archived_baselines_reproduced"] = True
+    with pytest.raises(ValueError):
+        report.validate_measured(fixture, "fixed_spher_empirical_gain", baseline_discrepancy_note=audited_note(tmp_path))
+
+
+def test_discrepancy_note_is_nonempty_and_hashes_exact_file_bytes(tmp_path):
+    empty = tmp_path / "empty.md"
+    empty.write_text(" \n\t")
+    with pytest.raises(ValueError, match="nonempty"):
+        report.discrepancy_note(empty)
+    note = audited_note(tmp_path)
+    assert note["sha256"] == hashlib.sha256(Path(note["path"]).read_bytes()).hexdigest()
+    note["content"] += "modified"
+    fixture = measured_fixture()
+    fixture.update(status="baseline_mismatch", archived_baselines_reproduced=False)
+    with pytest.raises(ValueError, match="SHA-256"):
+        report.validate_measured(fixture, "fixed_spher_empirical_gain", baseline_discrepancy_note=note)
+
+
+def test_cli_opt_in_saves_audit_note_and_requests_visible_figure_disclosure(tmp_path, monkeypatch):
+    fixture = measured_fixture()
+    fixture.update(status="baseline_mismatch", archived_baselines_reproduced=False)
+    result = tmp_path / "fixture-result.json"
+    result.write_text(json.dumps(fixture))
+    note = audited_note(tmp_path)
+    output = tmp_path / "report"
+    calls = []
+    monkeypatch.setattr(report, "render_scatter", lambda *args, **kwargs: calls.append((args, kwargs)))
+    monkeypatch.setattr(sys, "argv", ["render_gain_results", "--reference-aggregate", str(ROOT / "experiments/poc_audio/stage2_3seed.json"),
+                                     "--posthoc-result", str(result), "--baseline-discrepancy-note", note["path"], "--output-dir", str(output)])
+    report.main()
+    manifest = json.loads((output / "reporting_manifest.json").read_text())
+    assert manifest["status"] == "measured_addition_with_baseline_discrepancy"
+    assert manifest["baseline_discrepancy_note"] == note
+    assert manifest["recorded_posthoc_status"] == "baseline_mismatch"
+    assert manifest["archived_baselines_reproduced"] is False
+    assert calls[0][1]["baseline_discrepancy"] is True
+    assert "baseline reproduction is not established" in manifest["figure_disclosure"]
+    assert (output / "figure2_caption.txt").read_text().strip() == manifest["figure_caption"]
+    assert "Original-checkpoint reevaluation differs" in manifest["figure_caption"]
+
+
 def test_two_seeds_and_changed_predictions_are_rejected():
     fixture = measured_fixture()
     incomplete = copy.deepcopy(fixture)
@@ -173,6 +254,13 @@ def test_actual_suite_condition_report_adds_measured_tflow_without_schema_rewrit
     fixture["n_complete"] = 2
     with pytest.raises(ValueError, match="n_complete"):
         report.validate_measured(fixture, "tflow")
+
+
+def test_discrepancy_opt_in_does_not_relax_tflow_status_checks(tmp_path):
+    fixture = actual_suite_audio_fixture(tmp_path)
+    fixture["status"] = "baseline_mismatch"
+    with pytest.raises(ValueError, match="status"):
+        report.validate_measured(fixture, "tflow", baseline_discrepancy_note=audited_note(tmp_path))
 
 
 def test_suite_condition_requires_original_hashes_and_unchanged_raw_measurements(tmp_path):

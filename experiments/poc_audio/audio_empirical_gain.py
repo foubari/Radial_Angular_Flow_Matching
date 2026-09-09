@@ -11,8 +11,10 @@ import hashlib
 import json
 import math
 import os
+import platform
 from pathlib import Path
 import sys
+import time
 
 SEEDS = (8925, 1234, 7)
 STEP, N_GEN, RK4_STEPS, SAMPLE_SEED = 24000, 2000, 40, 0
@@ -60,13 +62,19 @@ def validate_metadata(meta, seed, method="fixed_spherical", angular=False):
         raise ValueError(f"seed {seed}: metadata must contain an args object")
     expected = {
         "method": method, "seed": seed, "split_seed": 0,
-        "arch": "unet", "ch": 96, "ncls": 10, "angular": angular,
+        "arch": "unet", "ch": 96, "depth": 5,
         "steps": STEP, "batch": 32, "lr": 2e-4, "ema": 0.999,
         "class_dropout": 0.1,
     }
     for key, value in expected.items():
         if key not in args or args[key] != value:
             raise ValueError(f"seed {seed}: metadata {key} must be {value!r}; got {args.get(key)!r}")
+    # Released legacy metadata predates these CLI fields. The original
+    # audio_eval.py explicitly uses meta.get('ncls',10) and
+    # meta.get('angular',False); preserve the raw metadata and report defaults.
+    for key, value, default in (("ncls", 10, 10), ("angular", angular, False)):
+        if args.get(key, default) != value:
+            raise ValueError(f"seed {seed}: incompatible {key}: {args.get(key)!r}")
     if "depth" not in args or meta.get("D") != DIM:
         raise ValueError(f"seed {seed}: missing depth or incorrect STFT dimension")
     radius = meta.get("R0")
@@ -345,6 +353,7 @@ def write_json(path, value):
 def evaluate(args, shared, runs, reference, reference_runs=None):
     require_compute_allocation()
     import torch
+    evaluation_started = time.perf_counter()
     here = Path(__file__).resolve().parent
     sys.path.insert(0, str(here.parents[1]))
     sys.path.insert(0, str(here))
@@ -353,6 +362,8 @@ def evaluate(args, shared, runs, reference, reference_runs=None):
 
     if not args.device.startswith("cuda") or not torch.cuda.is_available():
         raise RuntimeError("evaluation requires a CUDA compute allocation; CPU fallback is disabled")
+    if torch.cuda.device_count() != 1:
+        raise RuntimeError("evaluation requires exactly one visible allocated GPU")
     device = torch.device(args.device)
     training = torch.load(shared["train_file"], map_location="cpu", weights_only=True)
     external = torch.load(shared["test_file"], map_location="cpu", weights_only=True)
@@ -372,6 +383,19 @@ def evaluate(args, shared, runs, reference, reference_runs=None):
     radial = build("rafm", xtr, training["digit"].long(), 0)
     if len(fixed["tr"]) != 10200 or not torch.equal(fixed["tr"], radial["tr"]):
         raise ValueError("unexpected generator training split")
+    expected_permutation = torch.randperm(12000, generator=torch.Generator().manual_seed(0))
+    if not torch.equal(fixed["tr"], expected_permutation[:10200]) or not torch.equal(fixed["te"], expected_permutation[10200:]):
+        raise ValueError("generator split differs from the original local CPU Torch permutation")
+    split_record = {
+        "implementation": "audio_flow.split_idx: local CPU torch.Generator().manual_seed(0), torch.randperm(12000)",
+        "training_count": 10200, "internal_validation_count": 1800, "external_test_count": 3000,
+        "index_encoding": "int64 little-endian contiguous bytes",
+        "training_indices_sha256": hashlib.sha256(fixed["tr"].numpy().astype("<i8").tobytes()).hexdigest(),
+        "internal_validation_indices_sha256": hashlib.sha256(fixed["te"].numpy().astype("<i8").tobytes()).hexdigest(),
+        "training_indices_first16": fixed["tr"][:16].tolist(),
+        "ecdf_fit": "raw generator-training x[training_indices] norms only; torch.quantile linear interpolation",
+        "external_test_role": "energy/tail reference only; never used to fit gains",
+    }
     for seed in SEEDS:
         if not math.isclose(fixed["R0"], runs[seed]["meta"]["R0"], rel_tol=1e-6, abs_tol=1e-7):
             raise ValueError(f"seed {seed}: trained radius does not match the supplied original training data")
@@ -384,6 +408,29 @@ def evaluate(args, shared, runs, reference, reference_runs=None):
     test_gains = external["g"].numpy()
     clf = Clf(ncls=10).to(device).eval()
     clf.load_state_dict(torch.load(shared["classifier"], map_location="cpu", weights_only=True), strict=True)
+    # Verify every EMA before any seed's generation, including strict keys,
+    # tensor shapes, finite weights and the recorded parameter count.
+    compatibility = []
+    for seed in SEEDS:
+        spec, meta = runs[seed], runs[seed]["meta"]
+        checkpoint = torch.load(spec["checkpoint"], map_location="cpu", weights_only=True)
+        if not isinstance(checkpoint, dict) or checkpoint.get("step") != STEP or "ema" not in checkpoint:
+            raise ValueError(f"seed {seed}: requires original EMA step {STEP}")
+        for key, value in checkpoint["ema"].items():
+            if not isinstance(value, torch.Tensor) or not bool(torch.isfinite(value).all()):
+                raise ValueError(f"seed {seed}: invalid/nonfinite EMA tensor {key}")
+        checked_model = make_model(meta["args"]["arch"], meta["args"]["ch"], meta["args"]["depth"], 10)
+        checked_model.load_state_dict(checkpoint["ema"], strict=True)
+        n_params = sum(p.numel() for p in checked_model.parameters())
+        if n_params != meta.get("n_params"):
+            raise ValueError(f"seed {seed}: model parameter count differs from metadata")
+        compatibility.append({"seed": seed, "status": "strict_load_passed", "step": STEP,
+                              "n_params": n_params, "ncls": 10, "angular": False,
+                              "legacy_defaults_used": {key: default for key, default in (("ncls", 10), ("angular", False))
+                                                       if key not in meta["args"]},
+                              "defaults_source": "original audio_eval.py metadata .get fallbacks; raw metadata unchanged"})
+        del checked_model, checkpoint
+    print("All three EMA checkpoints passed strict architecture and finite-weight checks before generation.", flush=True)
     fingerprints = {key: {"path": str(path), "sha256": file_sha256(path)} for key, path in shared.items()}
     source_paths = [Path(__file__), here / "audio_flow.py", here / "audio_classifier.py",
                     here.parents[1] / "rafm/sources/radial_empirical.py",
@@ -393,6 +440,7 @@ def evaluate(args, shared, runs, reference, reference_runs=None):
     sample_output = sample_run_directory(args)
     output.mkdir(parents=True, exist_ok=False)
     sample_output.mkdir(parents=True, exist_ok=False)
+    write_json(output / "compatibility.json", {"status": "passed", "checkpoints": compatibility, "split": split_record})
     paired_gains_path = sample_output / "paired_gains.pt"
     torch.save({"gains": gains, "original_rafm_source_radii": paired_source_radii,
                 "gain_seed": args.gain_seed, "training_indices": radial["tr"],
@@ -408,15 +456,21 @@ def evaluate(args, shared, runs, reference, reference_runs=None):
             raise ValueError(f"seed {seed}: requires the original EMA checkpoint at step {STEP}")
         model = make_model(meta["args"]["arch"], meta["args"]["ch"], meta["args"]["depth"], 10).to(device).eval()
         model.load_state_dict(checkpoint["ema"], strict=True)
+        torch.cuda.synchronize(device)
+        torch.cuda.reset_peak_memory_stats(device)
+        generation_started = time.perf_counter()
+        print(f"seed {seed}: generating {N_GEN} original fixed-spherical samples at {RK4_STEPS} RK4 steps", flush=True)
         with torch.no_grad():
             y, labels, initial_radius = generate_original(model, fixed, "fixed_spherical", False, device, args.batch_size)
+            torch.cuda.synchronize(device)
+            generation_seconds = time.perf_counter() - generation_started
+            comparison_started = time.perf_counter()
             x, logits_before, logits_after, before, after, checks = evaluate_gain_invariance(y, gains, labels, clf, test_gains)
             relative_drift = (y.norm(dim=1) - initial_radius).abs() / initial_radius
             checks["original_solver_radius_drift_mean"] = float(relative_drift.mean())
             checks["original_solver_radius_drift_max"] = float(relative_drift.max())
-        if not checks["passed"]:
-            write_json(output / "failure.json", {"status": "failed", "seed": seed, "invariance": checks})
-            raise RuntimeError(f"seed {seed}: invariance failed; no aggregate is published")
+        torch.cuda.synchronize(device)
+        comparison_seconds = time.perf_counter() - comparison_started
         original_flat = flat_metrics(before)
         comparisons = {metric: {"archived": reference[metric]["vals"][index], "recomputed": original_flat[metric],
                                 "matches": math.isclose(reference[metric]["vals"][index], original_flat[metric], abs_tol=1e-12)}
@@ -425,6 +479,12 @@ def evaluate(args, shared, runs, reference, reference_runs=None):
                "trained_R0": meta["R0"], "recomputed_R0": fixed["R0"],
                "checkpoint": {"path": str(spec["checkpoint"]), "sha256": file_sha256(spec["checkpoint"])},
                "metadata": {"path": str(spec["metadata"]), "sha256": file_sha256(spec["metadata"]), "contents": meta},
+               "resolved_settings": compatibility[index],
+               "runtime": {"generation_s": generation_seconds, "paired_evaluation_s": comparison_seconds,
+                           "peak_gpu_allocated_bytes": torch.cuda.max_memory_allocated(device),
+                           "peak_gpu_reserved_bytes": torch.cuda.max_memory_reserved(device),
+                           "actual_network_evaluations_per_sample": 4 * RK4_STEPS,
+                           "generation_model_calls_total": math.ceil(N_GEN / args.batch_size) * 4 * RK4_STEPS},
                "baseline": before, "posthoc": after, "invariance": checks, "archived_baseline_comparison": comparisons}
         run_dir = output / f"seed_{seed}"
         run_dir.mkdir()
@@ -438,6 +498,13 @@ def evaluate(args, shared, runs, reference, reference_runs=None):
         row["paired_gains"] = paired_gains_artifact
         write_json(run_dir / "eval.json", row)
         rows.append(row)
+        print(f"seed {seed}: accuracy {before['unrounded']['digit_acc']:.4f} -> {after['unrounded']['digit_acc']:.4f}; "
+              f"KS {before['unrounded']['energy']['ks']:.6f} -> {after['unrounded']['energy']['ks']:.6f}; "
+              f"changed predictions {checks['prediction_disagreements']}; generation {generation_seconds:.1f}s", flush=True)
+        if not checks["passed"]:
+            write_json(output / "failure.json", {"status": "failed", "seed": seed, "invariance": checks,
+                                                "measured_result": str(run_dir / "eval.json")})
+            raise RuntimeError(f"seed {seed}: invariance failed; no aggregate is published")
         del model, checkpoint, y, x, logits_before, logits_after
     reference_controls = []
     for spec in reference_runs or []:
@@ -474,6 +541,12 @@ def evaluate(args, shared, runs, reference, reference_runs=None):
     result = {
         "schema_version": 1, "status": "complete" if reference_matches else "baseline_mismatch",
         "method": METHOD, "inputs": fingerprints, "source_sha256": source_fingerprints,
+        "split": split_record, "checkpoint_compatibility": compatibility,
+        "hardware": {"host": platform.node(), "gpu": torch.cuda.get_device_name(device),
+                     "vram_bytes": torch.cuda.get_device_properties(device).total_memory,
+                     "hip_version": torch.version.hip},
+        "runtime": {"total_evaluation_wall_s": time.perf_counter() - evaluation_started,
+                    "scope": "data loading, compatibility checks, three generations, paired evaluation and per-seed serialization"},
         "tensor_artifacts": {"samples_directory": str(sample_output), "paired_gains": paired_gains_artifact},
         "protocol": {"training_seeds": list(SEEDS), "checkpoint_step": STEP, "n_gen": N_GEN,
                      "class_counts": [200] * 10, "sample_seed": SAMPLE_SEED, "gain_seed": args.gain_seed,

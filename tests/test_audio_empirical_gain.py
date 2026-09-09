@@ -42,6 +42,23 @@ def test_refuses_missing_or_fabricated_radius():
             audio.validate_metadata(meta, 8925)
 
 
+def test_original_evaluator_legacy_defaults_preserve_metadata():
+    meta = metadata()
+    del meta["args"]["ncls"]
+    del meta["args"]["angular"]
+    before = json.dumps(meta, sort_keys=True)
+    audio.validate_metadata(meta, 8925)
+    assert json.dumps(meta, sort_keys=True) == before
+
+
+@pytest.mark.parametrize("key,value", [("ncls", 11), ("depth", 4), ("angular", True)])
+def test_explicit_legacy_or_architecture_conflicts_are_refused(key, value):
+    meta = metadata()
+    meta["args"][key] = value
+    with pytest.raises(ValueError):
+        audio.validate_metadata(meta, 8925)
+
+
 def test_preflight_does_not_load_checkpoint_or_create_outputs(tmp_path, monkeypatch):
     def disallow_load(*args, **kwargs):
         raise AssertionError("preflight must not deserialize tensors")

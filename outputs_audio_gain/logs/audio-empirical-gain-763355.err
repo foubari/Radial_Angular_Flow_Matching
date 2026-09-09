@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/tools/evaluate_recovered_audio.py", line 72, in <module>
+    main()
+  File "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/tools/evaluate_recovered_audio.py", line 58, in main
+    audio.evaluate(args, shared, runs, reference)
+  File "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/experiments/poc_audio/audio_empirical_gain.py", line 573, in evaluate
+    raise RuntimeError("original baseline differs from archived rounded metrics; inspect comparisons before using the new row")
+RuntimeError: original baseline differs from archived rounded metrics; inspect comparisons before using the new row

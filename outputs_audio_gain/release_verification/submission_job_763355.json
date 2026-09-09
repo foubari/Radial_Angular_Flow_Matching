@@ -1,0 +1,28 @@
+{
+  "job_id": "763355",
+  "partition": "hermes-2",
+  "gpus_requested": 1,
+  "gpu_type_requested": "mi210",
+  "nodes_requested": 1,
+  "time_limit": "02:00:00",
+  "seeds": [
+    8925,
+    1234,
+    7
+  ],
+  "checkpoint_only": true,
+  "training_or_tflow_jobs": false,
+  "release_verified": true,
+  "training_commit": null,
+  "artifact_checkout_commit": "d3006dc8ee61b2ab6e470115d3f21c778fefcf81",
+  "command": "sbatch --parsable tools/audio_gain_release_job.sh",
+  "source_sha256": {
+    "tools/audio_gain_release_job.sh": "ad15f1b87a812fbe4b4142c604f305e70384d5956d4a6e449115aab950a81402",
+    "tools/evaluate_recovered_audio.py": "b5101863886bae373055f7dbe6292e88c9711c09498949afaa51e330edb6bf0b",
+    "tools/verify_audio_release.py": "3ed0eb2c1f0692571ea89fd92de4938aa11dd03c3fb652e1f172e426b5ae2baf",
+    "experiments/poc_audio/audio_empirical_gain.py": "cc2ef04792bdce97157827847b84a77ffc82f5ac95cf484a40ea6213b5498301"
+  },
+  "retry_of": "763350",
+  "output": "outputs_audio_gain/fixed_spherical_empirical_gain_v1_attempt2",
+  "change": "writable per-job MIOpen performance and kernel caches"
+}

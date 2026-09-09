@@ -1,0 +1,316 @@
+{
+  "schema_version": 1,
+  "status": "verified",
+  "verified_at_utc": "2026-09-09T22:31:01.698298+00:00",
+  "verification_scope": "Offline byte/API/manifest/config consistency; no checkpoint deserialization or model execution",
+  "artifact_dir": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/inputs/recovered_baselines",
+  "verifier_sha256": "3ed0eb2c1f0692571ea89fd92de4938aa11dd03c3fb652e1f172e426b5ae2baf",
+  "artifact_checkout": {
+    "commit": "d3006dc8ee61b2ab6e470115d3f21c778fefcf81",
+    "repository": "github.com/foubari/radial_angular_FM",
+    "branch": "iclr-image-experiments",
+    "note": "meta.json did not record a training commit; this is the current HEAD of the checkout holding the runs (best available)."
+  },
+  "training_commit": null,
+  "training_commit_status": "not recorded in released training metadata",
+  "release_evidence": {
+    "checkpoint_release_api": {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_audio_gain/release_verification/release_api.json",
+      "sha256": "f999a3b11e43943f56796f5a298e024a4a7eea9d6f1446d7811e7e016012612b",
+      "tag": "fixed-spherical-audiomnist-v1",
+      "url": "https://github.com/foubari/msgm-sparse-control/releases/tag/fixed-spherical-audiomnist-v1",
+      "published_at": "2026-09-09T22:10:18Z"
+    },
+    "data_release_api": {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_audio_gain/release_verification/data_release_api.json",
+      "sha256": "8c7237554e6ad70de356c6ef5d89389e55f6d210087d8941a365ac7617a0ff14",
+      "tag": "data-v1",
+      "url": "https://github.com/foubari/msgm-sparse-control/releases/tag/data-v1",
+      "published_at": "2026-09-08T13:50:23Z"
+    },
+    "suite_manifest": {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/configs/tflow/suite_manifest.json",
+      "sha256": "8843df3c762fad4ef4dae61ecde619a7010f62b4d6d6bf8f92c64b884d0e503f"
+    }
+  },
+  "files": {
+    "manifest.json": {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/inputs/recovered_baselines/manifest.json",
+      "status": "verified",
+      "asset_id": "RA_kwDOUSBNfs4hAF5m",
+      "api_url": "https://api.github.com/repos/foubari/msgm-sparse-control/releases/assets/553672294",
+      "download_url": "https://github.com/foubari/msgm-sparse-control/releases/download/fixed-spherical-audiomnist-v1/manifest.json",
+      "api_digest": "sha256:ba40058e1e640de2bd07f2316e87bdad20cec899998c77eda19c8dfe4af8e271",
+      "api_bytes": 5184,
+      "exists": true,
+      "actual_bytes": 5184,
+      "actual_sha256": "ba40058e1e640de2bd07f2316e87bdad20cec899998c77eda19c8dfe4af8e271"
+    },
+    "ema_24000_seed8925.pt": {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/inputs/recovered_baselines/ema_24000_seed8925.pt",
+      "status": "verified",
+      "asset_id": "RA_kwDOUSBNfs4hAF4N",
+      "api_url": "https://api.github.com/repos/foubari/msgm-sparse-control/releases/assets/553672205",
+      "download_url": "https://github.com/foubari/msgm-sparse-control/releases/download/fixed-spherical-audiomnist-v1/ema_24000_seed8925.pt",
+      "api_digest": "sha256:dcee0f4399471b9be91efbb98294627b39a13810b0ed17e922955347bf67542a",
+      "api_bytes": 111653114,
+      "manifest_sha256": "dcee0f4399471b9be91efbb98294627b39a13810b0ed17e922955347bf67542a",
+      "manifest_bytes": 111653114,
+      "exists": true,
+      "actual_bytes": 111653114,
+      "actual_sha256": "dcee0f4399471b9be91efbb98294627b39a13810b0ed17e922955347bf67542a"
+    },
+    "meta_seed8925.json": {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/inputs/recovered_baselines/meta_seed8925.json",
+      "status": "verified",
+      "asset_id": "RA_kwDOUSBNfs4hAF4O",
+      "api_url": "https://api.github.com/repos/foubari/msgm-sparse-control/releases/assets/553672206",
+      "download_url": "https://github.com/foubari/msgm-sparse-control/releases/download/fixed-spherical-audiomnist-v1/meta_seed8925.json",
+      "api_digest": "sha256:0bb6e3621411a5fd393cf6ce0d70419ace339add8bb8deabac1c1b12c4de5c29",
+      "api_bytes": 518,
+      "manifest_sha256": "0bb6e3621411a5fd393cf6ce0d70419ace339add8bb8deabac1c1b12c4de5c29",
+      "exists": true,
+      "actual_bytes": 518,
+      "actual_sha256": "0bb6e3621411a5fd393cf6ce0d70419ace339add8bb8deabac1c1b12c4de5c29"
+    },
+    "train_log_seed8925.json": {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/inputs/recovered_baselines/train_log_seed8925.json",
+      "status": "verified",
+      "asset_id": "RA_kwDOUSBNfs4hAF4v",
+      "api_url": "https://api.github.com/repos/foubari/msgm-sparse-control/releases/assets/553672239",
+      "download_url": "https://github.com/foubari/msgm-sparse-control/releases/download/fixed-spherical-audiomnist-v1/train_log_seed8925.json",
+      "api_digest": "sha256:7250abb50a8f842cb185dbba0ceb10800925b9ce3a5ca42bd69f8f8440b64408",
+      "api_bytes": 2119,
+      "manifest_sha256": "7250abb50a8f842cb185dbba0ceb10800925b9ce3a5ca42bd69f8f8440b64408",
+      "exists": true,
+      "actual_bytes": 2119,
+      "actual_sha256": "7250abb50a8f842cb185dbba0ceb10800925b9ce3a5ca42bd69f8f8440b64408"
+    },
+    "ema_24000_seed1234.pt": {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/inputs/recovered_baselines/ema_24000_seed1234.pt",
+      "status": "verified",
+      "asset_id": "RA_kwDOUSBNfs4hAF4L",
+      "api_url": "https://api.github.com/repos/foubari/msgm-sparse-control/releases/assets/553672203",
+      "download_url": "https://github.com/foubari/msgm-sparse-control/releases/download/fixed-spherical-audiomnist-v1/ema_24000_seed1234.pt",
+      "api_digest": "sha256:2f6919bafb82be433630b62b76f957e764633011f0c5531478c126589139dc2e",
+      "api_bytes": 111653114,
+      "manifest_sha256": "2f6919bafb82be433630b62b76f957e764633011f0c5531478c126589139dc2e",
+      "manifest_bytes": 111653114,
+      "exists": true,
+      "actual_bytes": 111653114,
+      "actual_sha256": "2f6919bafb82be433630b62b76f957e764633011f0c5531478c126589139dc2e"
+    },
+    "meta_seed1234.json": {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/inputs/recovered_baselines/meta_seed1234.json",
+      "status": "verified",
+      "asset_id": "RA_kwDOUSBNfs4hAF4t",
+      "api_url": "https://api.github.com/repos/foubari/msgm-sparse-control/releases/assets/553672237",
+      "download_url": "https://github.com/foubari/msgm-sparse-control/releases/download/fixed-spherical-audiomnist-v1/meta_seed1234.json",
+      "api_digest": "sha256:f0e5e53c2e6f2bc1a052eafa0d1d9bd45e0f219f59906144342297e8a3fa6d07",
+      "api_bytes": 542,
+      "manifest_sha256": "f0e5e53c2e6f2bc1a052eafa0d1d9bd45e0f219f59906144342297e8a3fa6d07",
+      "exists": true,
+      "actual_bytes": 542,
+      "actual_sha256": "f0e5e53c2e6f2bc1a052eafa0d1d9bd45e0f219f59906144342297e8a3fa6d07"
+    },
+    "train_log_seed1234.json": {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/inputs/recovered_baselines/train_log_seed1234.json",
+      "status": "verified",
+      "asset_id": "RA_kwDOUSBNfs4hAF5M",
+      "api_url": "https://api.github.com/repos/foubari/msgm-sparse-control/releases/assets/553672268",
+      "download_url": "https://github.com/foubari/msgm-sparse-control/releases/download/fixed-spherical-audiomnist-v1/train_log_seed1234.json",
+      "api_digest": "sha256:16a282d490fa110f564be09761efe67d33e7e29f15585484cd9723401b2056cc",
+      "api_bytes": 5672,
+      "manifest_sha256": "16a282d490fa110f564be09761efe67d33e7e29f15585484cd9723401b2056cc",
+      "exists": true,
+      "actual_bytes": 5672,
+      "actual_sha256": "16a282d490fa110f564be09761efe67d33e7e29f15585484cd9723401b2056cc"
+    },
+    "ema_24000_seed7.pt": {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/inputs/recovered_baselines/ema_24000_seed7.pt",
+      "status": "verified",
+      "asset_id": "RA_kwDOUSBNfs4hAF4M",
+      "api_url": "https://api.github.com/repos/foubari/msgm-sparse-control/releases/assets/553672204",
+      "download_url": "https://github.com/foubari/msgm-sparse-control/releases/download/fixed-spherical-audiomnist-v1/ema_24000_seed7.pt",
+      "api_digest": "sha256:576e52e9c0e190160d2dcedd4c7adb870e499d54d858c985a67d95c0c7da4dee",
+      "api_bytes": 111653114,
+      "manifest_sha256": "576e52e9c0e190160d2dcedd4c7adb870e499d54d858c985a67d95c0c7da4dee",
+      "manifest_bytes": 111653114,
+      "exists": true,
+      "actual_bytes": 111653114,
+      "actual_sha256": "576e52e9c0e190160d2dcedd4c7adb870e499d54d858c985a67d95c0c7da4dee"
+    },
+    "meta_seed7.json": {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/inputs/recovered_baselines/meta_seed7.json",
+      "status": "verified",
+      "asset_id": "RA_kwDOUSBNfs4hAF4K",
+      "api_url": "https://api.github.com/repos/foubari/msgm-sparse-control/releases/assets/553672202",
+      "download_url": "https://github.com/foubari/msgm-sparse-control/releases/download/fixed-spherical-audiomnist-v1/meta_seed7.json",
+      "api_digest": "sha256:ebff6a48cf6f805a56cdebaaac84a5c7a08b7b60cae221d55450640e38f6bd2d",
+      "api_bytes": 536,
+      "manifest_sha256": "ebff6a48cf6f805a56cdebaaac84a5c7a08b7b60cae221d55450640e38f6bd2d",
+      "exists": true,
+      "actual_bytes": 536,
+      "actual_sha256": "ebff6a48cf6f805a56cdebaaac84a5c7a08b7b60cae221d55450640e38f6bd2d"
+    },
+    "train_log_seed7.json": {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/inputs/recovered_baselines/train_log_seed7.json",
+      "status": "verified",
+      "asset_id": "RA_kwDOUSBNfs4hAF5H",
+      "api_url": "https://api.github.com/repos/foubari/msgm-sparse-control/releases/assets/553672263",
+      "download_url": "https://github.com/foubari/msgm-sparse-control/releases/download/fixed-spherical-audiomnist-v1/train_log_seed7.json",
+      "api_digest": "sha256:707d8fd6b3382cd4db1c4952a837fa461d1ad27d71c35427ff9db2208e6c7c47",
+      "api_bytes": 5683,
+      "manifest_sha256": "707d8fd6b3382cd4db1c4952a837fa461d1ad27d71c35427ff9db2208e6c7c47",
+      "exists": true,
+      "actual_bytes": 5683,
+      "actual_sha256": "707d8fd6b3382cd4db1c4952a837fa461d1ad27d71c35427ff9db2208e6c7c47"
+    }
+  },
+  "data_files": {
+    "audiomnist_stft_train.pt": {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/poc_audio/data/audiomnist_stft_train.pt",
+      "status": "verified",
+      "asset_id": "RA_kwDOUSBNfs4g0WsL",
+      "api_url": "https://api.github.com/repos/foubari/msgm-sparse-control/releases/assets/550595339",
+      "download_url": "https://github.com/foubari/msgm-sparse-control/releases/download/data-v1/audiomnist_stft_train.pt",
+      "api_digest": "sha256:d4c0e10dcae8bdb2ad6e7bf05202a42e6a6af3b6fb064e6fc97e12432e0fe7be",
+      "api_bytes": 780337846,
+      "known_sha256": "d4c0e10dcae8bdb2ad6e7bf05202a42e6a6af3b6fb064e6fc97e12432e0fe7be",
+      "exists": true,
+      "actual_bytes": 780337846,
+      "actual_sha256": "d4c0e10dcae8bdb2ad6e7bf05202a42e6a6af3b6fb064e6fc97e12432e0fe7be"
+    },
+    "audiomnist_stft_test.pt": {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/poc_audio/data/audiomnist_stft_test.pt",
+      "status": "verified",
+      "asset_id": "RA_kwDOUSBNfs4g0WsP",
+      "api_url": "https://api.github.com/repos/foubari/msgm-sparse-control/releases/assets/550595343",
+      "download_url": "https://github.com/foubari/msgm-sparse-control/releases/download/data-v1/audiomnist_stft_test.pt",
+      "api_digest": "sha256:c9ab95b3bcb0049f881a84d180bccbdedf4d25cf6723dc48cafb90e4a0e20209",
+      "api_bytes": 195085807,
+      "known_sha256": "c9ab95b3bcb0049f881a84d180bccbdedf4d25cf6723dc48cafb90e4a0e20209",
+      "exists": true,
+      "actual_bytes": 195085807,
+      "actual_sha256": "c9ab95b3bcb0049f881a84d180bccbdedf4d25cf6723dc48cafb90e4a0e20209"
+    },
+    "digit_classifier.pt": {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/poc_audio/digit_classifier.pt",
+      "status": "verified",
+      "asset_id": "RA_kwDOUSBNfs4g0WsO",
+      "api_url": "https://api.github.com/repos/foubari/msgm-sparse-control/releases/assets/550595342",
+      "download_url": "https://github.com/foubari/msgm-sparse-control/releases/download/data-v1/digit_classifier.pt",
+      "api_digest": "sha256:1c68713e65df8c256bf8dd73edee70ba0e419381258cc46ff497042287946d50",
+      "api_bytes": 848206,
+      "known_sha256": "1c68713e65df8c256bf8dd73edee70ba0e419381258cc46ff497042287946d50",
+      "exists": true,
+      "actual_bytes": 848206,
+      "actual_sha256": "1c68713e65df8c256bf8dd73edee70ba0e419381258cc46ff497042287946d50"
+    }
+  },
+  "metadata": {
+    "8925": {
+      "status": "verified",
+      "exact_embedded_config_match": true,
+      "n_params": 27896802,
+      "R0": 2.2613651752471924,
+      "sigma": 0.01773742499885639,
+      "D": 16254,
+      "args": {
+        "method": "fixed_spherical",
+        "out": "experiments/poc_audio/runs_unet",
+        "data": "experiments/poc_audio/data/audiomnist_stft_train.pt",
+        "steps": 24000,
+        "batch": 32,
+        "arch": "unet",
+        "ch": 96,
+        "depth": 5,
+        "lr": 0.0002,
+        "ckpt_every": 2000,
+        "log_every": 500,
+        "ema": 0.999,
+        "class_dropout": 0.1,
+        "seed": 8925,
+        "split_seed": 0
+      },
+      "log_rows": 48,
+      "last_logged_step": 24000
+    },
+    "1234": {
+      "status": "verified",
+      "exact_embedded_config_match": true,
+      "n_params": 27896802,
+      "R0": 2.2613651752471924,
+      "sigma": 0.01773742499885639,
+      "D": 16254,
+      "args": {
+        "method": "fixed_spherical",
+        "out": "experiments/poc_audio/runs_s1234",
+        "data": "experiments/poc_audio/data/audiomnist_stft_train.pt",
+        "steps": 24000,
+        "batch": 32,
+        "arch": "unet",
+        "ch": 96,
+        "depth": 5,
+        "lr": 0.0002,
+        "ckpt_every": 2000,
+        "log_every": 500,
+        "ema": 0.999,
+        "class_dropout": 0.1,
+        "angular": false,
+        "seed": 1234,
+        "split_seed": 0
+      },
+      "log_rows": 48,
+      "last_logged_step": 24000
+    },
+    "7": {
+      "status": "verified",
+      "exact_embedded_config_match": true,
+      "n_params": 27896802,
+      "R0": 2.2613651752471924,
+      "sigma": 0.01773742499885639,
+      "D": 16254,
+      "args": {
+        "method": "fixed_spherical",
+        "out": "experiments/poc_audio/runs_s7",
+        "data": "experiments/poc_audio/data/audiomnist_stft_train.pt",
+        "steps": 24000,
+        "batch": 32,
+        "arch": "unet",
+        "ch": 96,
+        "depth": 5,
+        "lr": 0.0002,
+        "ckpt_every": 2000,
+        "log_every": 500,
+        "ema": 0.999,
+        "class_dropout": 0.1,
+        "angular": false,
+        "seed": 7,
+        "split_seed": 0
+      },
+      "log_rows": 48,
+      "last_logged_step": 24000
+    }
+  },
+  "blocking_issues": [],
+  "manifest": {
+    "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/inputs/recovered_baselines/manifest.json",
+    "sha256": "ba40058e1e640de2bd07f2316e87bdad20cec899998c77eda19c8dfe4af8e271",
+    "method": "fixed_spherical",
+    "seeds": [
+      8925,
+      7,
+      1234
+    ],
+    "steps": 24000
+  },
+  "required_seeds": [
+    8925,
+    1234,
+    7
+  ],
+  "checkpoint_step": 24000,
+  "verified_release_asset_count": 10,
+  "verified_audio_data_asset_count": 3
+}

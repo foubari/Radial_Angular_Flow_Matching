@@ -1,0 +1,8 @@
+{
+  "samples_directory": "/mnt/vast01/users/fouad.oubari/data/tflow/audio_gain/run_a06c08bd2ba39560c93d7865",
+  "paired_gains": {
+    "path": "/mnt/vast01/users/fouad.oubari/data/tflow/audio_gain/run_a06c08bd2ba39560c93d7865/paired_gains.pt",
+    "sha256": "8bc958c3de4bcdeeb73397711300193b8e7847229d84ca4dfd695dcea5065627",
+    "size_bytes": 155471
+  }
+}

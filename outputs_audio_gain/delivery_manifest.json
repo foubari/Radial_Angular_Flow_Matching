@@ -1,0 +1,307 @@
+{
+  "status": "verified_report_consistency",
+  "scope": "Implementation, audit documents, per-seed results, reports, and manuscript assets. Raw checkpoint/data/tensor hashes are recorded in the included verification and evaluation JSONs.",
+  "visual_review": "Figure 2 PNG inspected: all methods, seed markers, axes, error bars, legend and discrepancy footer visible; Table 5 historical values checked against supplied PDF page 26.",
+  "files": [
+    {
+      "path": "docs/audio_empirical_gain.md",
+      "size_bytes": 19212,
+      "sha256": "e89737032883282dd6c1274ff104c9f07bb63031dec96b43dd76610a081196d2"
+    },
+    {
+      "path": "docs/audio_gain_manuscript_addition.md",
+      "size_bytes": 6212,
+      "sha256": "0615928ee8bbd01f38beb6df600cf16c06e9f96172d1927d70049c6593e43aac"
+    },
+    {
+      "path": "docs/audio_gain_reproduction_audit.md",
+      "size_bytes": 12736,
+      "sha256": "af538449580f3287a51a8a6e2b44c3de951bbcd31fd44467e8ace6ce2bf64945"
+    },
+    {
+      "path": "docs/audio_release_compatibility.md",
+      "size_bytes": 7649,
+      "sha256": "867fc85f477bfa1b2bc7f1141ea6d1635c787046f8bd280b94bff4b8c621ccd4"
+    },
+    {
+      "path": "experiments/poc_audio/audio_empirical_gain.py",
+      "size_bytes": 36548,
+      "sha256": "cc2ef04792bdce97157827847b84a77ffc82f5ac95cf484a40ea6213b5498301"
+    },
+    {
+      "path": "experiments/poc_audio/render_gain_results.py",
+      "size_bytes": 27554,
+      "sha256": "0cdfe490fcb7a58548d66c4ef17aeda1db37808d91340864eef12691ca314151"
+    },
+    {
+      "path": "outputs_audio_gain/.gitignore",
+      "size_bytes": 7,
+      "sha256": "695426e943174af72f2a2391c3f48ed02c52873628e79be9fbf1a117f9ab3d9d"
+    },
+    {
+      "path": "outputs_audio_gain/README.md",
+      "size_bytes": 7267,
+      "sha256": "9596e491fefff0b093f1a8c13cff55e9831bca02f34dc7b701e970c2ebd9f5ee"
+    },
+    {
+      "path": "outputs_audio_gain/comparison_v1/comparison.json",
+      "size_bytes": 51377,
+      "sha256": "7a7ff281e0bcc3edf29d935175a1b7acb5299f8f441b6010e16a0027147f55ac"
+    },
+    {
+      "path": "outputs_audio_gain/comparison_v1/comparison.md",
+      "size_bytes": 10368,
+      "sha256": "29cc819fbdadbe348746bb0bfc5ab26911f23f8b3b23dc1d74b26bd4497b7900"
+    },
+    {
+      "path": "outputs_audio_gain/comparison_v1/table5_audio_gain_comparison.tex",
+      "size_bytes": 1272,
+      "sha256": "f3ccc59a87dcca4edc5f8280f142cc4c50810bb9b5c4cf8e44ca18a6196e956f"
+    },
+    {
+      "path": "outputs_audio_gain/completion.json",
+      "size_bytes": 1222,
+      "sha256": "d15b8a413b561e612e17f5fcd11c647772ea59c05f56527a74eb11096700cb30"
+    },
+    {
+      "path": "outputs_audio_gain/fixed_spherical_empirical_gain_v1/compatibility.json",
+      "size_bytes": 1954,
+      "sha256": "75c49ce2c0c46f0a41831c0cab3fe362de39078fa63f52cfb0343d1bf4f5ecc6"
+    },
+    {
+      "path": "outputs_audio_gain/fixed_spherical_empirical_gain_v1/failure.json",
+      "size_bytes": 5890,
+      "sha256": "bf47fa15899eb3937cdd6139cf38ce2eaa87c7858f10247ef9676bb556478d76"
+    },
+    {
+      "path": "outputs_audio_gain/fixed_spherical_empirical_gain_v1/tensor_artifacts.json",
+      "size_bytes": 356,
+      "sha256": "41e80d17d812cf019dfd89a22f390d670c70fc275fba6fc1ba9d930d865b7340"
+    },
+    {
+      "path": "outputs_audio_gain/fixed_spherical_empirical_gain_v1_attempt2/aggregate.json",
+      "size_bytes": 27959,
+      "sha256": "5a42958f17e830c9b1e795f8c8ae1169db10122e4b3558cb73cddfb8204d1fb7"
+    },
+    {
+      "path": "outputs_audio_gain/fixed_spherical_empirical_gain_v1_attempt2/compatibility.json",
+      "size_bytes": 1954,
+      "sha256": "75c49ce2c0c46f0a41831c0cab3fe362de39078fa63f52cfb0343d1bf4f5ecc6"
+    },
+    {
+      "path": "outputs_audio_gain/fixed_spherical_empirical_gain_v1_attempt2/seed_1234/eval.json",
+      "size_bytes": 5670,
+      "sha256": "cc689c7d84546e78c115a309740d075a45238156f84114f3d84fddf4956cbd5c"
+    },
+    {
+      "path": "outputs_audio_gain/fixed_spherical_empirical_gain_v1_attempt2/seed_7/eval.json",
+      "size_bytes": 5663,
+      "sha256": "771d7d99c0f27a9538c0ee31502539dd5c06d74c0d24f320da00c82e1d0fecff"
+    },
+    {
+      "path": "outputs_audio_gain/fixed_spherical_empirical_gain_v1_attempt2/seed_8925/eval.json",
+      "size_bytes": 5685,
+      "sha256": "4023ec6fe0c4dd339ebfddf0e2ce08a31955c862b3ed335c4d7fbd058264ae95"
+    },
+    {
+      "path": "outputs_audio_gain/fixed_spherical_empirical_gain_v1_attempt2/tensor_artifacts.json",
+      "size_bytes": 356,
+      "sha256": "fe79c0731ba4ade2f4e30c2880869c76cbe20a05041c246d0c673d39c98f153e"
+    },
+    {
+      "path": "outputs_audio_gain/logs/audio-empirical-gain-763350.err",
+      "size_bytes": 3073,
+      "sha256": "7bf83f695bf794313adfc7d9add94c4d6a9a6084f893d640c42feb4971a6375e"
+    },
+    {
+      "path": "outputs_audio_gain/logs/audio-empirical-gain-763350.out",
+      "size_bytes": 392,
+      "sha256": "99604c345b92a856c0501325716f06402c196cbc6623deed8477e49744e81c57"
+    },
+    {
+      "path": "outputs_audio_gain/logs/audio-empirical-gain-763355.err",
+      "size_bytes": 697,
+      "sha256": "a6f7020ba1b32438d8a0408edc00b4164c7a42eec6d137dc073f387e6a16b81a"
+    },
+    {
+      "path": "outputs_audio_gain/logs/audio-empirical-gain-763355.out",
+      "size_bytes": 4854,
+      "sha256": "73fceed87b0c5cf6f5f506eb533753985c931521e39fd7eac043a95ad1b8be0c"
+    },
+    {
+      "path": "outputs_audio_gain/manuscript_v1/figure2_audio_controls.pdf",
+      "size_bytes": 23090,
+      "sha256": "734fcc3a8f452c0a1e6106791ec45f7601dd7c8e3e2001f3836ca8bcc7fa3fbf"
+    },
+    {
+      "path": "outputs_audio_gain/manuscript_v1/figure2_audio_controls.png",
+      "size_bytes": 163063,
+      "sha256": "2d56d6f18b831a77fad74f04befb71c1353043bdfef2c6326827421bd0761c4f"
+    },
+    {
+      "path": "outputs_audio_gain/manuscript_v1/figure2_caption.txt",
+      "size_bytes": 619,
+      "sha256": "b77c5ebf485ce40197fd0c1b07f1fbeab37b2167b8b22799a8cee2f65560e288"
+    },
+    {
+      "path": "outputs_audio_gain/manuscript_v1/reporting_manifest.json",
+      "size_bytes": 15919,
+      "sha256": "44adbc348720f667ca158b98578ee2aec8f6bfc36fe7c843a817acc8ccc66010"
+    },
+    {
+      "path": "outputs_audio_gain/manuscript_v1/table5_audio_with_gain.tex",
+      "size_bytes": 1901,
+      "sha256": "d0fc0f5a5173c5f6869ff6010463cc3b7546b43e31ef5a842e479ad56c9975f8"
+    },
+    {
+      "path": "outputs_audio_gain/manuscript_v1/table6_complete_gain_controls.tex",
+      "size_bytes": 875,
+      "sha256": "82eba29abbfa8a4e0fa5624dd8c9088e362e526987addfe3ac2ab45a6876e648"
+    },
+    {
+      "path": "outputs_audio_gain/manuscript_v1/table6_published_controls.tex",
+      "size_bytes": 593,
+      "sha256": "f27dd1bdca8a7135abb0b0be0326de4a634f15196aea112afafc1368e8bf9769"
+    },
+    {
+      "path": "outputs_audio_gain/release_verification/audio_checks.xml",
+      "size_bytes": 5602,
+      "sha256": "42219af1247b599f52c9eb137d40e4a8d75ca8527b7b994ccf10fe309732762e"
+    },
+    {
+      "path": "outputs_audio_gain/release_verification/cache_failure_and_retry.json",
+      "size_bytes": 697,
+      "sha256": "1dffb1375d1ca1eecd0052615c99e2a0c654c4f6d41c819438625687e21c2692"
+    },
+    {
+      "path": "outputs_audio_gain/release_verification/data_release_api.json",
+      "size_bytes": 3898,
+      "sha256": "8c7237554e6ad70de356c6ef5d89389e55f6d210087d8941a365ac7617a0ff14"
+    },
+    {
+      "path": "outputs_audio_gain/release_verification/environment_packages.json",
+      "size_bytes": 482,
+      "sha256": "435e4fbe68a17fd0a0f7349d03fe59a9ae946fb71095e39290c2dcf5a32e247b"
+    },
+    {
+      "path": "outputs_audio_gain/release_verification/execution_job_763350.json",
+      "size_bytes": 5890,
+      "sha256": "bf47fa15899eb3937cdd6139cf38ce2eaa87c7858f10247ef9676bb556478d76"
+    },
+    {
+      "path": "outputs_audio_gain/release_verification/execution_job_763355.json",
+      "size_bytes": 3760,
+      "sha256": "a7a4ef255669093216181356d4d15e17f3786980c15fd38e3c4c3a632f799f11"
+    },
+    {
+      "path": "outputs_audio_gain/release_verification/execution_status.json",
+      "size_bytes": 3760,
+      "sha256": "a7a4ef255669093216181356d4d15e17f3786980c15fd38e3c4c3a632f799f11"
+    },
+    {
+      "path": "outputs_audio_gain/release_verification/github_asset_checks.json",
+      "size_bytes": 1585,
+      "sha256": "5743a2c9c21d895a41f84a0d9b91830198fdcf856b3f3520b6bedd5f7d27378a"
+    },
+    {
+      "path": "outputs_audio_gain/release_verification/job_submission.json",
+      "size_bytes": 928,
+      "sha256": "61e57a0b2d93a25f11e49cd510d2767c45e243bd8823ef39b6bf157b5d730c3e"
+    },
+    {
+      "path": "outputs_audio_gain/release_verification/monitor_status.json",
+      "size_bytes": 491,
+      "sha256": "48f6e8dc8832befc93672dd944f6cf323131bc6240bd65af0622fcfa5452b5ec"
+    },
+    {
+      "path": "outputs_audio_gain/release_verification/paper_table_audit.json",
+      "size_bytes": 2265,
+      "sha256": "5c9c2ad306882d07d5fb14b8c79344d3036ab327aa73949e49350f20ec43f8e0"
+    },
+    {
+      "path": "outputs_audio_gain/release_verification/release_api.json",
+      "size_bytes": 6624,
+      "sha256": "f999a3b11e43943f56796f5a298e024a4a7eea9d6f1446d7811e7e016012612b"
+    },
+    {
+      "path": "outputs_audio_gain/release_verification/slurm_accounting.txt",
+      "size_bytes": 1099,
+      "sha256": "d8a98435b55450e90ce19ad166c379c5bb43df8bbc8d94dd8a19bf3ee2da58fc"
+    },
+    {
+      "path": "outputs_audio_gain/release_verification/source_compatibility.json",
+      "size_bytes": 29021,
+      "sha256": "bfe98eec3e7ccca6a336a62a93ca01c8c89850297b60b8396f7e994df5bdbe3f"
+    },
+    {
+      "path": "outputs_audio_gain/release_verification/strict_verification.json",
+      "size_bytes": 15348,
+      "sha256": "7b155200fd23ca2f390847f5fa0abf08a59f3ab7da65a9fadc72c04714781d85"
+    },
+    {
+      "path": "outputs_audio_gain/release_verification/strict_verification_compute.json",
+      "size_bytes": 15348,
+      "sha256": "613ff3bda96097e9cbb747befa4f23e2fdcb36202eb577df7c1c119622aefb66"
+    },
+    {
+      "path": "outputs_audio_gain/release_verification/submission_job_763350.json",
+      "size_bytes": 928,
+      "sha256": "61e57a0b2d93a25f11e49cd510d2767c45e243bd8823ef39b6bf157b5d730c3e"
+    },
+    {
+      "path": "outputs_audio_gain/release_verification/submission_job_763355.json",
+      "size_bytes": 1098,
+      "sha256": "b3c3fbdcc8c736f7aab1b7c61289ac2e18a3d596876ae58edfafa007972f8c18"
+    },
+    {
+      "path": "outputs_audio_gain/release_verification/submitted_job_763355.sh",
+      "size_bytes": 1393,
+      "sha256": "ad15f1b87a812fbe4b4142c604f305e70384d5956d4a6e449115aab950a81402"
+    },
+    {
+      "path": "outputs_audio_gain/release_verification/validation_summary.json",
+      "size_bytes": 1202,
+      "sha256": "63d7433ec9074aedf581092cf43035aa1215f48c620bcda4df4e8ad9ca2fda94"
+    },
+    {
+      "path": "outputs_audio_gain/release_watch/auth_failure_20260909T221039Z.json",
+      "size_bytes": 703,
+      "sha256": "2b21e8e25a09bc2c4cf2df060b26521acb9ee965b0df502e8a8d0935db497346"
+    },
+    {
+      "path": "tests/test_audio_empirical_gain.py",
+      "size_bytes": 10098,
+      "sha256": "9ad946663cfe66a7e98df9ad5697e98ee43e7e84940d6832eb2fcf734425facc"
+    },
+    {
+      "path": "tests/test_audio_gain_reporting.py",
+      "size_bytes": 14337,
+      "sha256": "914efcbef07da7dfb65ff2e6484153f8aeee3d26919a650dc45528f634427ade"
+    },
+    {
+      "path": "tests/test_audio_release_verification.py",
+      "size_bytes": 9108,
+      "sha256": "7f7d0d591350b8922cfb28bb14f73a5277f99e2e81652f250ee8a6c5485c9c18"
+    },
+    {
+      "path": "tools/audio_gain_release_job.sh",
+      "size_bytes": 1393,
+      "sha256": "ad15f1b87a812fbe4b4142c604f305e70384d5956d4a6e449115aab950a81402"
+    },
+    {
+      "path": "tools/evaluate_recovered_audio.py",
+      "size_bytes": 3965,
+      "sha256": "b5101863886bae373055f7dbe6292e88c9711c09498949afaa51e330edb6bf0b"
+    },
+    {
+      "path": "tools/summarize_audio_gain.py",
+      "size_bytes": 16060,
+      "sha256": "93735044b614c562e9666ed033799c4cba2d0475020496b8888fddc1934a2018"
+    },
+    {
+      "path": "tools/verify_audio_release.py",
+      "size_bytes": 19561,
+      "sha256": "3ed0eb2c1f0692571ea89fd92de4938aa11dd03c3fb652e1f172e426b5ae2baf"
+    }
+  ]
+}

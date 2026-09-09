@@ -1,0 +1,25 @@
+{
+  "job_id": "763350",
+  "partition": "hermes-2",
+  "gpus_requested": 1,
+  "gpu_type_requested": "mi210",
+  "nodes_requested": 1,
+  "time_limit": "02:00:00",
+  "seeds": [
+    8925,
+    1234,
+    7
+  ],
+  "checkpoint_only": true,
+  "training_or_tflow_jobs": false,
+  "release_verified": true,
+  "training_commit": null,
+  "artifact_checkout_commit": "d3006dc8ee61b2ab6e470115d3f21c778fefcf81",
+  "command": "sbatch --parsable tools/audio_gain_release_job.sh",
+  "source_sha256": {
+    "tools/audio_gain_release_job.sh": "f50d88bef43370a135f27ff5d69d30bb5b053f427bdb11b147fff349426c3eb6",
+    "tools/evaluate_recovered_audio.py": "c4fd524b99a87381b4ed8b5f86d8b4cfbf3172b11c4ad7801b856d250e56dbda",
+    "tools/verify_audio_release.py": "3ed0eb2c1f0692571ea89fd92de4938aa11dd03c3fb652e1f172e426b5ae2baf",
+    "experiments/poc_audio/audio_empirical_gain.py": "cc2ef04792bdce97157827847b84a77ffc82f5ac95cf484a40ea6213b5498301"
+  }
+}

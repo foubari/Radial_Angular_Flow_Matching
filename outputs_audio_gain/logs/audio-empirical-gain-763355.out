@@ -1,0 +1,42 @@
+.......................................                                  [100%]
+39 passed in 3.07s
+All three EMA checkpoints passed strict architecture and finite-weight checks before generation.
+seed 8925: generating 2000 original fixed-spherical samples at 40 RK4 steps
+Params set by AI: DeviceGroupedConvFwdMultipleABD_Xdl_CShuffle<256, 128, 128, 16, OddC, 32, 32, 2, 2, 1, 1, 4, 1, 1, 1>
+Params set by AI: DeviceGroupedConvFwdMultipleABD_Xdl_CShuffle<256, 128, 64, 16, Default, 32, 32, 2, 1, 4, 4, 4, 1, 1, 1>
+Params set by AI: DeviceGroupedConvFwdMultipleABD_Xdl_CShuffle<256, 64, 128, 16, Default, 32, 32, 1, 2, 4, 4, 4, 1, 1, 1>
+Params set by AI: DeviceGroupedConvFwdMultipleABD_Xdl_CShuffle<256, 64, 128, 16, Default, 32, 32, 1, 2, 4, 4, 4, 1, 1, 1>
+Params set by AI: DeviceGroupedConvFwdMultipleABD_Xdl_CShuffle<256, 64, 128, 16, Default, 32, 32, 1, 2, 4, 4, 4, 1, 1, 1>
+Params set by AI: DeviceGroupedConvFwdMultipleABD_Xdl_CShuffle<256, 64, 128, 16, Default, 32, 32, 1, 2, 4, 4, 4, 1, 1, 1>
+Params set by AI: DeviceGroupedConvFwdMultipleABD_Xdl_CShuffle<256, 64, 128, 16, OddC, 32, 32, 1, 2, 4, 4, 4, 1, 1, 1>
+Params set by AI: DeviceGroupedConvFwdMultipleABD_Xdl_CShuffle<256, 64, 128, 16, Default, 32, 32, 1, 2, 4, 4, 4, 1, 1, 1>
+Params set by AI: DeviceGroupedConvFwdMultipleABD_Xdl_CShuffle<256, 64, 128, 16, Default, 32, 32, 1, 2, 4, 4, 4, 1, 1, 1>
+Params set by AI: DeviceGroupedConvFwdMultipleABD_Xdl_CShuffle<256, 64, 128, 16, Default, 32, 32, 1, 2, 4, 4, 4, 1, 1, 1>
+Params set by AI: DeviceGroupedConvFwdMultipleABD_Xdl_CShuffle<256, 64, 128, 16, Default, 32, 32, 1, 2, 4, 4, 4, 1, 1, 1>
+Params set by AI: DeviceGroupedConvFwdMultipleABD_Xdl_CShuffle<256, 128, 64, 16, Default, 32, 32, 2, 1, 4, 4, 4, 1, 1, 1>
+Params set by AI: DeviceGroupedConvFwdMultipleABD_Xdl_CShuffle<256, 128, 64, 16, OddC, 32, 32, 2, 1, 4, 4, 4, 1, 1, 1>
+Params set by AI: DeviceGroupedConvFwdMultipleABD_Xdl_CShuffle<256, 64, 128, 16, Default, 32, 32, 1, 2, 4, 4, 4, 1, 1, 1>
+Params set by AI: DeviceGroupedConvFwdMultipleABD_Xdl_CShuffle_V3<128, 128, 16, 64, Default, 16, 16, 4, 1, 4, 4, 2, 1, 1, BlkGemmPipelineScheduler: Intrawave, BlkGemmPipelineVersion: v2>
+Params set by AI: DeviceGroupedConvFwdMultipleABD_Xdl_CShuffle<256, 128, 128, 16, OddC, 32, 32, 2, 2, 1, 1, 4, 1, 1, 1>
+Params set by AI: DeviceGroupedConvFwdMultipleABD_Xdl_CShuffle<256, 128, 64, 16, Default, 32, 32, 2, 1, 4, 4, 4, 1, 1, 1>
+Params set by AI: DeviceGroupedConvFwdMultipleABD_Xdl_CShuffle<256, 128, 64, 16, OddC, 32, 32, 2, 1, 4, 4, 4, 1, 1, 1>
+Params set by AI: DeviceGroupedConvFwdMultipleABD_Xdl_CShuffle<256, 64, 128, 16, Default, 32, 32, 1, 2, 4, 4, 4, 1, 1, 1>
+Params set by AI: DeviceGroupedConvFwdMultipleABD_Xdl_CShuffle<256, 64, 128, 16, Default, 32, 32, 1, 2, 4, 4, 4, 1, 1, 1>
+Params set by AI: DeviceGroupedConvFwdMultipleABD_Xdl_CShuffle<256, 128, 64, 16, OddC, 32, 32, 2, 1, 4, 4, 4, 1, 1, 1>
+Params set by AI: DeviceGroupedConvFwdMultipleABD_Xdl_CShuffle<256, 64, 128, 16, OddC, 32, 32, 1, 2, 4, 4, 4, 1, 1, 1>
+Params set by AI: DeviceGroupedConvFwdMultipleABD_Xdl_CShuffle<256, 64, 128, 16, Default, 32, 32, 1, 2, 4, 4, 4, 1, 1, 1>
+Params set by AI: DeviceGroupedConvFwdMultipleABD_Xdl_CShuffle<256, 64, 128, 16, Default, 32, 32, 1, 2, 4, 4, 4, 1, 1, 1>
+Params set by AI: DeviceGroupedConvFwdMultipleABD_Xdl_CShuffle<256, 64, 128, 16, Default, 32, 32, 1, 2, 4, 4, 4, 1, 1, 1>
+Params set by AI: DeviceGroupedConvFwdMultipleABD_Xdl_CShuffle<256, 64, 128, 16, Default, 32, 32, 1, 2, 4, 4, 4, 1, 1, 1>
+Params set by AI: DeviceGroupedConvFwdMultipleABD_Xdl_CShuffle<256, 128, 64, 16, OddC, 32, 32, 2, 1, 4, 4, 4, 1, 1, 1>
+Params set by AI: DeviceGroupedConvFwdMultipleABD_Xdl_CShuffle<256, 128, 64, 16, OddC, 32, 32, 2, 1, 4, 4, 4, 1, 1, 1>
+Params set by AI: DeviceGroupedConvFwdMultipleABD_Xdl_CShuffle<256, 64, 128, 16, Default, 32, 32, 1, 2, 4, 4, 4, 1, 1, 1>
+Params set by AI: DeviceGroupedConvFwdMultipleABD_Xdl_CShuffle_V3<128, 128, 16, 64, Default, 16, 16, 4, 1, 4, 4, 2, 1, 1, BlkGemmPipelineScheduler: Intrawave, BlkGemmPipelineVersion: v2>
+Params set by AI: DeviceGroupedConvFwdMultipleABD_Xdl_CShuffle<256, 128, 128, 16, OddC, 32, 32, 2, 2, 1, 1, 4, 1, 1, 1>
+Params set by AI: DeviceGroupedConvFwdMultipleABD_Xdl_CShuffle<256, 128, 128, 16, OddC, 32, 32, 2, 2, 4, 4, 4, 1, 1, 1>
+Params set by AI: DeviceGroupedConvFwdMultipleABD_Xdl_CShuffle<256, 128, 64, 16, OddC, 32, 32, 2, 1, 4, 4, 4, 1, 1, 1>
+seed 8925: accuracy 0.8025 -> 0.8025; KS 0.592333 -> 0.021833; changed predictions 0; generation 917.0s
+seed 1234: generating 2000 original fixed-spherical samples at 40 RK4 steps
+seed 1234: accuracy 0.8005 -> 0.8005; KS 0.592333 -> 0.021833; changed predictions 0; generation 869.8s
+seed 7: generating 2000 original fixed-spherical samples at 40 RK4 steps
+seed 7: accuracy 0.8170 -> 0.8170; KS 0.592333 -> 0.021833; changed predictions 0; generation 870.2s

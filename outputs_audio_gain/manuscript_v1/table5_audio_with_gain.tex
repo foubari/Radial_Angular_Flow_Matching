@@ -1,0 +1,21 @@
+% Original rows: RAFM_ICLR_2027.pdf, page 26 Table 5; page 8 Figure 2
+% PDF SHA256: 97f709df2a45e4acf4ba186379c60e9c75120d95e09af782d7a18c8b56d00367
+% Requires booktabs. New rows are computed from full-precision measured values.
+\begin{table}[t]\centering\small
+\begin{tabular}{lrrrr}
+\toprule
+Method & Digit accuracy $\uparrow$ & Energy KS $\downarrow$ & Mass above $Q_g(0.95)$ & Mass above $Q_g(0.99)$ \\
+\midrule
+Gaussian FM & $0.734 \pm 0.004$ & $0.117 \pm 0.008$ & $0.0587 \pm 0.0041$ & $0.0195 \pm 0.0032$ \\
+Matched source & $0.750 \pm 0.018$ & $0.095 \pm 0.010$ & $0.0397 \pm 0.0013$ & $0.0118 \pm 0.0002$ \\
+Fixed spherical & $0.810 \pm 0.013$ & $0.592 \pm 0.000$ & $0.0000 \pm 0.0000$ & $0.0000 \pm 0.0000$ \\
+RAFM-Vel & $0.711 \pm 0.014$ & $0.0218 \pm 0.0000$ & $0.0500 \pm 0.0000$ & $0.0145 \pm 0.0000$ \\
+RAFM-Ang & $0.764 \pm 0.025$ & $0.0218 \pm 0.0000$ & $0.0500 \pm 0.0000$ & $0.0145 \pm 0.0000$ \\
+MSGM (sparse) & $0.100 \pm 0.000$ & $0.0340 \pm 0.0000$ & $0.0465 \pm 0.0000$ & $0.0105 \pm 0.0000$ \\
+\midrule
+Fixed spherical + empirical gain $^{\dagger}$ & $0.807 \pm 0.007$ & $0.0218 \pm 0.0000$ & $0.0500 \pm 0.0000$ & $0.0145 \pm 0.0000$ \\
+\bottomrule
+\end{tabular}
+\caption{AudioMNIST at 24,000 steps: mean and population standard deviation over three training seeds. Original Table 5 values are retained. RAFM-Ang versus RAFM-Vel remains the angular-target ablation. The added fixed-spherical control draws an independent training-ECDF gain after generation, without retraining or changing the trained radius. $^{\dagger}$Original-checkpoint reevaluation differs from the archived baseline. The added gain row reports actual new measurements with this discrepancy disclosed; historical values remain unchanged and baseline reproduction is not established. The audited discrepancy note is preserved in the reporting manifest.}
+\label{tab:audio-with-empirical-gain}
+\end{table}

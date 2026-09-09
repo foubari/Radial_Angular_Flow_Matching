@@ -1,0 +1,71 @@
+{
+  "status": "passed",
+  "checkpoints": [
+    {
+      "seed": 8925,
+      "status": "strict_load_passed",
+      "step": 24000,
+      "n_params": 27896802,
+      "ncls": 10,
+      "angular": false,
+      "legacy_defaults_used": {
+        "ncls": 10,
+        "angular": false
+      },
+      "defaults_source": "original audio_eval.py metadata .get fallbacks; raw metadata unchanged"
+    },
+    {
+      "seed": 1234,
+      "status": "strict_load_passed",
+      "step": 24000,
+      "n_params": 27896802,
+      "ncls": 10,
+      "angular": false,
+      "legacy_defaults_used": {
+        "ncls": 10
+      },
+      "defaults_source": "original audio_eval.py metadata .get fallbacks; raw metadata unchanged"
+    },
+    {
+      "seed": 7,
+      "status": "strict_load_passed",
+      "step": 24000,
+      "n_params": 27896802,
+      "ncls": 10,
+      "angular": false,
+      "legacy_defaults_used": {
+        "ncls": 10
+      },
+      "defaults_source": "original audio_eval.py metadata .get fallbacks; raw metadata unchanged"
+    }
+  ],
+  "split": {
+    "implementation": "audio_flow.split_idx: local CPU torch.Generator().manual_seed(0), torch.randperm(12000)",
+    "training_count": 10200,
+    "internal_validation_count": 1800,
+    "external_test_count": 3000,
+    "index_encoding": "int64 little-endian contiguous bytes",
+    "training_indices_sha256": "08a2f65d538cee711cc1dfaf7ec69ecc7ce95dbebe45702839654dbc107c92cd",
+    "internal_validation_indices_sha256": "79b1cb53ca272949bb52113f6ee99f4e2530f4014788d76ea2370a091233cb92",
+    "training_indices_first16": [
+      44,
+      445,
+      10971,
+      513,
+      4203,
+      8374,
+      10141,
+      2450,
+      1369,
+      7833,
+      3781,
+      9588,
+      4068,
+      3303,
+      9592,
+      9236
+    ],
+    "ecdf_fit": "raw generator-training x[training_indices] norms only; torch.quantile linear interpolation",
+    "external_test_role": "energy/tail reference only; never used to fit gains"
+  }
+}

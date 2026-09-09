@@ -2,6 +2,8 @@
 
 An explicit --pending preview renders published measurements alone. This module
 imports no ML library and never loads model checkpoints or generated tensors.
+An audited discrepancy note can explicitly permit a complete measured gain
+result whose original-checkpoint reevaluation differs from the archive.
 """
 from __future__ import annotations
 
@@ -182,12 +184,38 @@ def validate_tflow_condition(payload):
     return {metric: stats([row[metric] for row in measured_rows]) for metric in METRICS}
 
 
-def validate_measured(payload, kind):
+def discrepancy_note(path):
+    """Snapshot the supplied audit note; its contents accompany the new figure."""
+    path = Path(path).resolve()
+    contents = path.read_bytes().decode("utf-8")
+    if not contents.strip():
+        raise ValueError("baseline discrepancy note must contain a nonempty audited explanation")
+    return {"path": str(path), "sha256": hashlib.sha256(contents.encode("utf-8")).hexdigest(),
+            "content": contents}
+
+
+def validate_discrepancy_note(note):
+    if not isinstance(note, dict) or not isinstance(note.get("content"), str) or not note["content"].strip():
+        raise ValueError("a nonempty audited baseline discrepancy note is required")
+    if not isinstance(note.get("path"), str) or not Path(note["path"]).is_absolute():
+        raise ValueError("baseline discrepancy note must retain its absolute source path")
+    if note.get("sha256") != hashlib.sha256(note["content"].encode("utf-8")).hexdigest():
+        raise ValueError("baseline discrepancy note content does not match its SHA-256")
+
+
+def validate_measured(payload, kind, baseline_discrepancy_note=None):
     """Reject pending, partial, mismatched, nonfinite, and failed-control results."""
     if kind == "tflow":
         return validate_tflow_condition(payload)
-    if payload.get("status") != "complete" or payload.get("method") != kind:
+    allow_discrepancy = (kind == "fixed_spher_empirical_gain"
+                         and payload.get("status") == "baseline_mismatch"
+                         and baseline_discrepancy_note is not None)
+    if baseline_discrepancy_note is not None:
+        validate_discrepancy_note(baseline_discrepancy_note)
+    if (payload.get("status") != "complete" and not allow_discrepancy) or payload.get("method") != kind:
         raise ValueError(f"{kind}: only a complete measured result is eligible")
+    if allow_discrepancy and payload.get("archived_baselines_reproduced") is not False:
+        raise ValueError("baseline_mismatch must explicitly record that archived baselines were not reproduced")
     protocol = payload.get("protocol", {})
     required = {"training_seeds": list(SEEDS), "checkpoint_step": 24000,
                 "n_gen": 2000, "sample_seed": 0, "model_evaluations": 160}
@@ -210,7 +238,7 @@ def validate_measured(payload, kind):
             raise ValueError(f"{kind}: energy KS must be positive for the logarithmic Figure 2 axis")
         if kind == "fixed_spher_empirical_gain":
             validate_invariance(run)
-    if kind == "fixed_spher_empirical_gain" and payload.get("archived_baselines_reproduced") is not True:
+    if kind == "fixed_spher_empirical_gain" and payload.get("archived_baselines_reproduced") is not True and not allow_discrepancy:
         raise ValueError("original fixed-spherical baselines have not been reproduced")
     if kind == "fixed_spher_empirical_gain":
         validate_reference_controls(payload)
@@ -221,7 +249,7 @@ def cell(mean, std, digits=4):
     return f"${mean:.{digits}f} \\pm {std:.{digits}f}$"
 
 
-def table5_tex(additions, pending=False):
+def table5_tex(additions, pending=False, baseline_discrepancy=False):
     lines = ["% Original rows: " + PAPER_SOURCE, "% PDF SHA256: " + PAPER_SHA256,
              "% Requires booktabs. New rows are computed from full-precision measured values.",
              r"\begin{table}[t]\centering\small", r"\begin{tabular}{lrrrr}", r"\toprule",
@@ -232,7 +260,10 @@ def table5_tex(additions, pending=False):
     if additions:
         lines.append(r"\midrule")
     for key, measured in additions.items():
-        lines.append(STYLE[key][0] + " & " + " & ".join(cell(measured[m]["mean"], measured[m]["std"], 3 if m == "digit_acc" else 4) for m in METRICS) + r" \\")
+        label = STYLE[key][0]
+        if baseline_discrepancy and key == "fixed_spher_empirical_gain":
+            label += r" $^{\dagger}$"
+        lines.append(label + " & " + " & ".join(cell(measured[m]["mean"], measured[m]["std"], 3 if m == "digit_acc" else 4) for m in METRICS) + r" \\")
     if pending:
         lines.extend([r"\midrule", r"Fixed spherical + empirical gain & \multicolumn{4}{c}{Pending evaluation; no new measurements} \\"])
     lines.extend([r"\bottomrule", r"\end{tabular}"])
@@ -240,6 +271,11 @@ def table5_tex(additions, pending=False):
                "Original Table 5 values are retained. RAFM-Ang versus RAFM-Vel remains the angular-target ablation. ")
     caption += ("The empirical-gain control is pending; this is a preview of published measurements."
                 if pending else "The added fixed-spherical control draws an independent training-ECDF gain after generation, without retraining or changing the trained radius.")
+    if baseline_discrepancy:
+        caption += (r" $^{\dagger}$Original-checkpoint reevaluation differs from the archived baseline. "
+                    "The added gain row reports actual new measurements with this discrepancy disclosed; "
+                    "historical values remain unchanged and baseline reproduction is not established. "
+                    "The audited discrepancy note is preserved in the reporting manifest.")
     lines.extend(["\\caption{" + caption + "}", r"\label{tab:audio-with-empirical-gain}", r"\end{table}", ""])
     return "\n".join(lines)
 
@@ -274,13 +310,35 @@ def table6_tex(payload=None):
     return published, "\n".join(lines)
 
 
-def render_scatter(points, output, pending):
+def figure_disclosure(baseline_discrepancy):
+    if not baseline_discrepancy:
+        return ""
+    return ("* Original-checkpoint reevaluation differs from archive; new gain points are measured.\n"
+            "Historical points remain unchanged; baseline reproduction is not established.")
+
+
+def figure_caption(pending=False, baseline_discrepancy=False):
+    caption = ("AudioMNIST at 24,000 training steps. Hollow markers show individual training seeds; "
+               "filled markers and error bars show the mean and population standard deviation. "
+               "Historical Figure 2 points remain unchanged. RAFM-Ang and RAFM-Vel are separate comparisons. ")
+    caption += ("The independent empirical-gain control is pending; no new point is shown."
+                if pending else "The added fixed-spherical + empirical-gain points are measured from all three original checkpoint seeds.")
+    if baseline_discrepancy:
+        caption += (" Original-checkpoint reevaluation differs from the archived baseline; the new gain points "
+                    "are actual measurements with this discrepancy disclosed. Baseline reproduction is not established. "
+                    "The audited discrepancy note is preserved in reporting_manifest.json.")
+    return caption
+
+
+def render_scatter(points, output, pending, baseline_discrepancy=False):
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
     fig, ax = plt.subplots(figsize=(7.2, 4.5))
     for key, metrics in points.items():
         label, color, marker = STYLE[key]
+        if baseline_discrepancy and key == "fixed_spher_empirical_gain":
+            label += " (measured*)"
         ks, accuracy = metrics["energy_KS"], metrics["digit_acc"]
         ax.scatter(ks["vals"], accuracy["vals"], facecolors="none", edgecolors=color,
                    marker=marker, s=62 if marker != "*" else 115, linewidths=1.2, zorder=3)
@@ -294,8 +352,11 @@ def render_scatter(points, output, pending):
     ax.grid(True, alpha=.2)
     ax.spines[["top", "right"]].set_visible(False)
     ax.legend(loc="best", fontsize=8, frameon=False)
-    fig.text(.5, .01, "Hollow: individual training seeds. Filled: mean ± population SD. Upper-left is better.", ha="center", fontsize=8)
-    fig.tight_layout(rect=(0, .03, 1, 1))
+    fig.text(.5, .09 if baseline_discrepancy else .01,
+             "Hollow: individual training seeds. Filled: mean ± population SD. Upper-left is better.", ha="center", fontsize=8)
+    if baseline_discrepancy:
+        fig.text(.5, .012, figure_disclosure(True), ha="center", fontsize=7.5, color="#813719")
+    fig.tight_layout(rect=(0, .13 if baseline_discrepancy else .03, 1, 1))
     basename = "figure2_audio_pending" if pending else "figure2_audio_controls"
     for extension in ("pdf", "png"):
         fig.savefig(output / f"{basename}.{extension}", dpi=250, bbox_inches="tight")
@@ -311,23 +372,26 @@ def main():
     ap.add_argument("--reference-aggregate", type=Path, required=True)
     ap.add_argument("--posthoc-result", type=Path)
     ap.add_argument("--tflow-result", type=Path)
+    ap.add_argument("--baseline-discrepancy-note", type=Path,
+                    help="audited nonempty note permitting a three-seed fixed-gain baseline_mismatch; archived values stay unchanged")
     ap.add_argument("--pending", action="store_true", help="explicit existing-only preview; no new points")
     ap.add_argument("--output-dir", type=Path, required=True)
     args = ap.parse_args()
-    if args.pending and (args.posthoc_result or args.tflow_result):
+    if args.pending and (args.posthoc_result or args.tflow_result or args.baseline_discrepancy_note):
         ap.error("--pending previews contain only published measurements")
     if not args.pending and not args.posthoc_result:
         ap.error("a validated --posthoc-result is required; use --pending for an existing-only preview")
     if args.output_dir.exists():
         ap.error("output directory must be new; existing assets are never overwritten")
     points = published_points(json.loads(args.reference_aggregate.read_text()))
+    note = discrepancy_note(args.baseline_discrepancy_note) if args.baseline_discrepancy_note else None
     additions, payload = {}, None
     inputs = {"reference_aggregate": {"path": str(args.reference_aggregate.resolve()), "sha256": sha256(args.reference_aggregate)}}
     for kind, path in (("fixed_spher_empirical_gain", args.posthoc_result), ("tflow", args.tflow_result)):
         if path is None:
             continue
         data = json.loads(path.read_text())
-        additions[kind] = validate_measured(data, kind)
+        additions[kind] = validate_measured(data, kind, baseline_discrepancy_note=note if kind == "fixed_spher_empirical_gain" else None)
         if kind == "tflow" and data.get("condition_id") == "audiomnist_stft" and payload is not None:
             cfg = data["runs"][0]["config"]
             pins = {"train_file": cfg["data"]["input"], "test_file": cfg["data"]["external_test"],
@@ -338,17 +402,26 @@ def main():
         if kind == "fixed_spher_empirical_gain":
             payload = data
     points.update(additions)
+    baseline_discrepancy = payload is not None and payload.get("status") == "baseline_mismatch"
     args.output_dir.mkdir(parents=True, exist_ok=False)
-    (args.output_dir / "table5_audio_with_gain.tex").write_text(table5_tex(additions, pending=args.pending))
+    (args.output_dir / "table5_audio_with_gain.tex").write_text(table5_tex(additions, pending=args.pending, baseline_discrepancy=baseline_discrepancy))
     published_controls, measured_controls = table6_tex(payload)
     (args.output_dir / "table6_published_controls.tex").write_text(published_controls)
     (args.output_dir / "table6_complete_gain_controls.tex").write_text(measured_controls)
-    render_scatter(points, args.output_dir, args.pending)
+    caption = figure_caption(args.pending, baseline_discrepancy)
+    (args.output_dir / "figure2_caption.txt").write_text(caption + "\n")
+    render_scatter(points, args.output_dir, args.pending, baseline_discrepancy=baseline_discrepancy)
     completed_controls = validate_reference_controls(payload) if payload else {}
-    manifest = {"status": "pending_preview" if args.pending else "measured_addition",
+    manifest = {"status": "pending_preview" if args.pending else "measured_addition_with_baseline_discrepancy" if baseline_discrepancy else "measured_addition",
                 "paper_source": PAPER_SOURCE, "paper_sha256": PAPER_SHA256,
                 "inputs": inputs, "plotted_methods": list(points),
                 "new_measurements": additions, "existing_table_values_preserved": True,
+                "baseline_discrepancy": baseline_discrepancy,
+                "baseline_discrepancy_note": note,
+                "recorded_posthoc_status": payload.get("status") if payload else None,
+                "archived_baselines_reproduced": payload.get("archived_baselines_reproduced") if payload else None,
+                "figure_disclosure": figure_disclosure(baseline_discrepancy),
+                "figure_caption": caption,
                 "complete_reference_controls": list(completed_controls),
                 "missing_controls": [REFERENCE_LABELS[key] for key in REFERENCE_LABELS if key not in completed_controls]}
     (args.output_dir / "reporting_manifest.json").write_text(json.dumps(manifest, indent=2, allow_nan=False) + "\n")

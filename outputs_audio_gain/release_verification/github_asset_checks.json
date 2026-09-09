@@ -1,0 +1,55 @@
+{
+  "status": "passed",
+  "assets": [
+    {
+      "name": "ema_24000_seed1234.pt",
+      "sha256": "2f6919bafb82be433630b62b76f957e764633011f0c5531478c126589139dc2e",
+      "size": 111653114
+    },
+    {
+      "name": "ema_24000_seed7.pt",
+      "sha256": "576e52e9c0e190160d2dcedd4c7adb870e499d54d858c985a67d95c0c7da4dee",
+      "size": 111653114
+    },
+    {
+      "name": "ema_24000_seed8925.pt",
+      "sha256": "dcee0f4399471b9be91efbb98294627b39a13810b0ed17e922955347bf67542a",
+      "size": 111653114
+    },
+    {
+      "name": "manifest.json",
+      "sha256": "ba40058e1e640de2bd07f2316e87bdad20cec899998c77eda19c8dfe4af8e271",
+      "size": 5184
+    },
+    {
+      "name": "meta_seed1234.json",
+      "sha256": "f0e5e53c2e6f2bc1a052eafa0d1d9bd45e0f219f59906144342297e8a3fa6d07",
+      "size": 542
+    },
+    {
+      "name": "meta_seed7.json",
+      "sha256": "ebff6a48cf6f805a56cdebaaac84a5c7a08b7b60cae221d55450640e38f6bd2d",
+      "size": 536
+    },
+    {
+      "name": "meta_seed8925.json",
+      "sha256": "0bb6e3621411a5fd393cf6ce0d70419ace339add8bb8deabac1c1b12c4de5c29",
+      "size": 518
+    },
+    {
+      "name": "train_log_seed1234.json",
+      "sha256": "16a282d490fa110f564be09761efe67d33e7e29f15585484cd9723401b2056cc",
+      "size": 5672
+    },
+    {
+      "name": "train_log_seed7.json",
+      "sha256": "707d8fd6b3382cd4db1c4952a837fa461d1ad27d71c35427ff9db2208e6c7c47",
+      "size": 5683
+    },
+    {
+      "name": "train_log_seed8925.json",
+      "sha256": "7250abb50a8f842cb185dbba0ceb10800925b9ce3a5ca42bd69f8f8440b64408",
+      "size": 2119
+    }
+  ]
+}

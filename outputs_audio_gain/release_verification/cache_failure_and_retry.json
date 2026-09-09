@@ -1,0 +1,12 @@
+{
+  "failed_job": "763350",
+  "failure": "MIOpen readonly kernel-cache SQLite database at first convolution",
+  "all_three_ema_strict_loads_passed": true,
+  "unit_tests_passed": 39,
+  "samples_produced": 0,
+  "failed_outputs_preserved": "outputs_audio_gain/fixed_spherical_empirical_gain_v1",
+  "change": "Set MIOPEN_CUSTOM_CACHE_DIR and MIOPEN_USER_DB_PATH to separate writable per-job directories under outputs_audio_gain/cache",
+  "algorithm_batch_precision_checkpoint_or_sampling_changes": false,
+  "reference": "https://rocm.docs.amd.com/projects/MIOpen/en/docs-7.1.0/conceptual/tuningdb.html#kernel-cache",
+  "retry_output": "outputs_audio_gain/fixed_spherical_empirical_gain_v1_attempt2"
+}

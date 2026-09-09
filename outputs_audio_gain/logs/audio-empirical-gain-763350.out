@@ -1,0 +1,5 @@
+.......................................                                  [100%]
+39 passed in 3.73s
+All three EMA checkpoints passed strict architecture and finite-weight checks before generation.
+seed 8925: generating 2000 original fixed-spherical samples at 40 RK4 steps
+Params set by AI: DeviceGroupedConvFwdMultipleABD_Xdl_CShuffle<256, 128, 128, 16, OddC, 32, 32, 2, 2, 1, 1, 4, 1, 1, 1>

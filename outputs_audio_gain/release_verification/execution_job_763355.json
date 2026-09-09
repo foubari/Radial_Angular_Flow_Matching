@@ -1,0 +1,58 @@
+{
+  "started_utc": "2026-09-09T22:39:55.330608+00:00",
+  "slurm_job_id": "763355",
+  "scope": "three original fixed-spherical checkpoints and independent post-hoc empirical gain only",
+  "training_or_tflow_launched": false,
+  "output": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_audio_gain/fixed_spherical_empirical_gain_v1_attempt2",
+  "argv": [
+    "evaluate",
+    "--train-file",
+    "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/poc_audio/data/audiomnist_stft_train.pt",
+    "--test-file",
+    "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/poc_audio/data/audiomnist_stft_test.pt",
+    "--classifier",
+    "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/poc_audio/digit_classifier.pt",
+    "--reference-aggregate",
+    "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/experiments/poc_audio/stage2_3seed.json",
+    "--output-dir",
+    "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_audio_gain/fixed_spherical_empirical_gain_v1_attempt2",
+    "--run",
+    "8925",
+    "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/inputs/recovered_baselines/ema_24000_seed8925.pt",
+    "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/inputs/recovered_baselines/meta_seed8925.json",
+    "--run",
+    "1234",
+    "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/inputs/recovered_baselines/ema_24000_seed1234.pt",
+    "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/inputs/recovered_baselines/meta_seed1234.json",
+    "--run",
+    "7",
+    "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/inputs/recovered_baselines/ema_24000_seed7.pt",
+    "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/inputs/recovered_baselines/meta_seed7.json"
+  ],
+  "evaluator_sha256": "cc2ef04792bdce97157827847b84a77ffc82f5ac95cf484a40ea6213b5498301",
+  "provenance": {
+    "artifact_checkout": {
+      "repository": "github.com/foubari/radial_angular_FM",
+      "branch": "iclr-image-experiments",
+      "commit": "d3006dc8ee61b2ab6e470115d3f21c778fefcf81",
+      "interpretation": "Checkout holding the recovered runs; source bytes compared with the evaluation worktree."
+    },
+    "training_commit": null,
+    "training_commit_verified": false,
+    "manifest_source_commit_note": "meta.json did not record a training commit; this is the current HEAD of the checkout holding the runs (best available).",
+    "manifest": {
+      "path": "inputs/recovered_baselines/manifest.json",
+      "sha256": "ba40058e1e640de2bd07f2316e87bdad20cec899998c77eda19c8dfe4af8e271"
+    },
+    "release_repository": "foubari/msgm-sparse-control",
+    "release_tag": "fixed-spherical-audiomnist-v1",
+    "full_release_asset_verification_report": "outputs_audio_gain/release_verification/github_asset_checks.json"
+  },
+  "source_compatibility_sha256": "bfe98eec3e7ccca6a336a62a93ca01c8c89850297b60b8396f7e994df5bdbe3f",
+  "status": "failed",
+  "error_type": "RuntimeError",
+  "error": "original baseline differs from archived rounded metrics; inspect comparisons before using the new row",
+  "traceback": "Traceback (most recent call last):\n  File \"/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/tools/evaluate_recovered_audio.py\", line 58, in main\n    audio.evaluate(args, shared, runs, reference)\n  File \"/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/experiments/poc_audio/audio_empirical_gain.py\", line 573, in evaluate\n    raise RuntimeError(\"original baseline differs from archived rounded metrics; inspect comparisons before using the new row\")\nRuntimeError: original baseline differs from archived rounded metrics; inspect comparisons before using the new row\n",
+  "elapsed_wall_s": 2685.73793720454,
+  "updated_utc": "2026-09-09T23:24:41.068544+00:00"
+}

@@ -1,0 +1,487 @@
+{
+  "schema_version": 1,
+  "audit_kind": "static_source_and_released_json_compatibility",
+  "status": "passed",
+  "created_at_utc": "2026-09-09T22:29:48.382360+00:00",
+  "worktree": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions",
+  "provenance": {
+    "artifact_checkout": {
+      "repository": "github.com/foubari/radial_angular_FM",
+      "branch": "iclr-image-experiments",
+      "commit": "d3006dc8ee61b2ab6e470115d3f21c778fefcf81",
+      "interpretation": "Checkout holding the recovered runs; source bytes compared with the evaluation worktree."
+    },
+    "training_commit": null,
+    "training_commit_verified": false,
+    "manifest_source_commit_note": "meta.json did not record a training commit; this is the current HEAD of the checkout holding the runs (best available).",
+    "manifest": {
+      "path": "inputs/recovered_baselines/manifest.json",
+      "sha256": "ba40058e1e640de2bd07f2316e87bdad20cec899998c77eda19c8dfe4af8e271"
+    },
+    "release_repository": "foubari/msgm-sparse-control",
+    "release_tag": "fixed-spherical-audiomnist-v1",
+    "full_release_asset_verification_report": "outputs_audio_gain/release_verification/github_asset_checks.json"
+  },
+  "source_comparison_method": "git show COMMIT:PATH bytes versus current worktree bytes; SHA256 and direct byte equality; no imported project modules",
+  "source_files": [
+    {
+      "path": "experiments/poc_audio/audio_flow.py",
+      "artifact_checkout_sha256": "002401d0933edc1e090279428fbbfcf3d764910b1bf15a9840ba48d36e731dc0",
+      "worktree_sha256": "002401d0933edc1e090279428fbbfcf3d764910b1bf15a9840ba48d36e731dc0",
+      "artifact_bytes": 11781,
+      "worktree_bytes": 11781,
+      "byte_identical": true
+    },
+    {
+      "path": "experiments/poc_audio/audio_eval.py",
+      "artifact_checkout_sha256": "ca4b1f0c788fcd3eef69b4970daf4a2cad540ee3fdcbe987e407f31a2f401004",
+      "worktree_sha256": "ca4b1f0c788fcd3eef69b4970daf4a2cad540ee3fdcbe987e407f31a2f401004",
+      "artifact_bytes": 7385,
+      "worktree_bytes": 7385,
+      "byte_identical": true
+    },
+    {
+      "path": "experiments/poc_audio/audio_classifier.py",
+      "artifact_checkout_sha256": "7af21994c8e7f428252ed566dbfae8274bf0b3368b96509dd76f7f65136f923a",
+      "worktree_sha256": "7af21994c8e7f428252ed566dbfae8274bf0b3368b96509dd76f7f65136f923a",
+      "artifact_bytes": 2839,
+      "worktree_bytes": 2839,
+      "byte_identical": true
+    },
+    {
+      "path": "experiments/poc_audio/audio_data.py",
+      "artifact_checkout_sha256": "db1c5487a7ff6741265d3a3b74462dbe26ee2d8b906aaf9c6314b356bc5daf65",
+      "worktree_sha256": "db1c5487a7ff6741265d3a3b74462dbe26ee2d8b906aaf9c6314b356bc5daf65",
+      "artifact_bytes": 3557,
+      "worktree_bytes": 3557,
+      "byte_identical": true
+    },
+    {
+      "path": "rafm/sources/radial_empirical.py",
+      "artifact_checkout_sha256": "efcd2ff006d18ddf39b54bf33026b040b0c1badf9ec5b26edaefec7fb6d4d84e",
+      "worktree_sha256": "efcd2ff006d18ddf39b54bf33026b040b0c1badf9ec5b26edaefec7fb6d4d84e",
+      "artifact_bytes": 3690,
+      "worktree_bytes": 3690,
+      "byte_identical": true
+    },
+    {
+      "path": "rafm/utils/sphere.py",
+      "artifact_checkout_sha256": "83d29211579a819576f5a80564328c83c0868d1d351803ae9335720a23c59dfb",
+      "worktree_sha256": "83d29211579a819576f5a80564328c83c0868d1d351803ae9335720a23c59dfb",
+      "artifact_bytes": 5500,
+      "worktree_bytes": 5500,
+      "byte_identical": true
+    },
+    {
+      "path": "rafm/flow_matching/sampler.py",
+      "artifact_checkout_sha256": "6b3e79a81e2ce982e5467b8ca563decc457f2cd16f9e919c626f710ece224de0",
+      "worktree_sha256": "6b3e79a81e2ce982e5467b8ca563decc457f2cd16f9e919c626f710ece224de0",
+      "artifact_bytes": 5018,
+      "worktree_bytes": 5018,
+      "byte_identical": true
+    },
+    {
+      "path": "rafm/paths/spherical_geodesic.py",
+      "artifact_checkout_sha256": "aa1211671c19332718f97973e451d59b1c6bb00169f21a40ab22718a2a511e77",
+      "worktree_sha256": "aa1211671c19332718f97973e451d59b1c6bb00169f21a40ab22718a2a511e77",
+      "artifact_bytes": 1750,
+      "worktree_bytes": 1750,
+      "byte_identical": true
+    }
+  ],
+  "released_metadata": [
+    {
+      "seed": 8925,
+      "path": "inputs/recovered_baselines/meta_seed8925.json",
+      "sha256": "0bb6e3621411a5fd393cf6ce0d70419ace339add8bb8deabac1c1b12c4de5c29",
+      "manifest_config_sha256": "0bb6e3621411a5fd393cf6ce0d70419ace339add8bb8deabac1c1b12c4de5c29",
+      "sha256_matches_manifest": true,
+      "metadata_matches_embedded_manifest_config": true,
+      "R0": 2.2613651752471924,
+      "D": 16254,
+      "n_params_recorded": 27896802,
+      "resolved_settings": {
+        "ncls": {
+          "value": 10,
+          "present_in_original_metadata": false,
+          "resolution": "original audio_eval default for absent legacy field",
+          "evidence": [
+            {
+              "path": "experiments/poc_audio/audio_eval.py",
+              "first_line": 43,
+              "last_line": 43,
+              "excerpt": "    model=make_model(meta.get(\"arch\",\"velnet\"),meta.get(\"ch\",64),meta.get(\"depth\",5),meta.get(\"ncls\",10)).to(dev).eval()",
+              "file_sha256": "ca4b1f0c788fcd3eef69b4970daf4a2cad540ee3fdcbe987e407f31a2f401004"
+            },
+            {
+              "path": "experiments/poc_audio/audio_flow.py",
+              "first_line": 101,
+              "last_line": 102,
+              "excerpt": "def make_model(arch,ch,depth,ncls=10):\n    return UNetVel(ch=ch,ncls=ncls) if arch==\"unet\" else VelNet(ch=ch,K=depth,ncls=ncls)",
+              "file_sha256": "002401d0933edc1e090279428fbbfcf3d764910b1bf15a9840ba48d36e731dc0"
+            },
+            {
+              "path": "experiments/poc_audio/audio_flow.py",
+              "first_line": 124,
+              "last_line": 124,
+              "excerpt": "    ap.add_argument(\"--ncls\",type=int,default=10)   # conditioning classes (digits=10, words=N)",
+              "file_sha256": "002401d0933edc1e090279428fbbfcf3d764910b1bf15a9840ba48d36e731dc0"
+            }
+          ]
+        },
+        "angular": {
+          "value": false,
+          "present_in_original_metadata": false,
+          "resolution": "original audio_eval default for absent legacy field",
+          "evidence": [
+            {
+              "path": "experiments/poc_audio/audio_eval.py",
+              "first_line": 42,
+              "last_line": 42,
+              "excerpt": "    angular=bool(meta.get(\"angular\",False))",
+              "file_sha256": "ca4b1f0c788fcd3eef69b4970daf4a2cad540ee3fdcbe987e407f31a2f401004"
+            },
+            {
+              "path": "experiments/poc_audio/audio_flow.py",
+              "first_line": 122,
+              "last_line": 122,
+              "excerpt": "    ap.add_argument(\"--angular\",action=\"store_true\")  # predict A=v/||x_t||; reconstruct v=||x||*A at sampling",
+              "file_sha256": "002401d0933edc1e090279428fbbfcf3d764910b1bf15a9840ba48d36e731dc0"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "seed": 1234,
+      "path": "inputs/recovered_baselines/meta_seed1234.json",
+      "sha256": "f0e5e53c2e6f2bc1a052eafa0d1d9bd45e0f219f59906144342297e8a3fa6d07",
+      "manifest_config_sha256": "f0e5e53c2e6f2bc1a052eafa0d1d9bd45e0f219f59906144342297e8a3fa6d07",
+      "sha256_matches_manifest": true,
+      "metadata_matches_embedded_manifest_config": true,
+      "R0": 2.2613651752471924,
+      "D": 16254,
+      "n_params_recorded": 27896802,
+      "resolved_settings": {
+        "ncls": {
+          "value": 10,
+          "present_in_original_metadata": false,
+          "resolution": "original audio_eval default for absent legacy field",
+          "evidence": [
+            {
+              "path": "experiments/poc_audio/audio_eval.py",
+              "first_line": 43,
+              "last_line": 43,
+              "excerpt": "    model=make_model(meta.get(\"arch\",\"velnet\"),meta.get(\"ch\",64),meta.get(\"depth\",5),meta.get(\"ncls\",10)).to(dev).eval()",
+              "file_sha256": "ca4b1f0c788fcd3eef69b4970daf4a2cad540ee3fdcbe987e407f31a2f401004"
+            },
+            {
+              "path": "experiments/poc_audio/audio_flow.py",
+              "first_line": 101,
+              "last_line": 102,
+              "excerpt": "def make_model(arch,ch,depth,ncls=10):\n    return UNetVel(ch=ch,ncls=ncls) if arch==\"unet\" else VelNet(ch=ch,K=depth,ncls=ncls)",
+              "file_sha256": "002401d0933edc1e090279428fbbfcf3d764910b1bf15a9840ba48d36e731dc0"
+            },
+            {
+              "path": "experiments/poc_audio/audio_flow.py",
+              "first_line": 124,
+              "last_line": 124,
+              "excerpt": "    ap.add_argument(\"--ncls\",type=int,default=10)   # conditioning classes (digits=10, words=N)",
+              "file_sha256": "002401d0933edc1e090279428fbbfcf3d764910b1bf15a9840ba48d36e731dc0"
+            }
+          ]
+        },
+        "angular": {
+          "value": false,
+          "present_in_original_metadata": true,
+          "resolution": "explicit released metadata",
+          "evidence": [
+            {
+              "path": "experiments/poc_audio/audio_eval.py",
+              "first_line": 42,
+              "last_line": 42,
+              "excerpt": "    angular=bool(meta.get(\"angular\",False))",
+              "file_sha256": "ca4b1f0c788fcd3eef69b4970daf4a2cad540ee3fdcbe987e407f31a2f401004"
+            },
+            {
+              "path": "experiments/poc_audio/audio_flow.py",
+              "first_line": 122,
+              "last_line": 122,
+              "excerpt": "    ap.add_argument(\"--angular\",action=\"store_true\")  # predict A=v/||x_t||; reconstruct v=||x||*A at sampling",
+              "file_sha256": "002401d0933edc1e090279428fbbfcf3d764910b1bf15a9840ba48d36e731dc0"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "seed": 7,
+      "path": "inputs/recovered_baselines/meta_seed7.json",
+      "sha256": "ebff6a48cf6f805a56cdebaaac84a5c7a08b7b60cae221d55450640e38f6bd2d",
+      "manifest_config_sha256": "ebff6a48cf6f805a56cdebaaac84a5c7a08b7b60cae221d55450640e38f6bd2d",
+      "sha256_matches_manifest": true,
+      "metadata_matches_embedded_manifest_config": true,
+      "R0": 2.2613651752471924,
+      "D": 16254,
+      "n_params_recorded": 27896802,
+      "resolved_settings": {
+        "ncls": {
+          "value": 10,
+          "present_in_original_metadata": false,
+          "resolution": "original audio_eval default for absent legacy field",
+          "evidence": [
+            {
+              "path": "experiments/poc_audio/audio_eval.py",
+              "first_line": 43,
+              "last_line": 43,
+              "excerpt": "    model=make_model(meta.get(\"arch\",\"velnet\"),meta.get(\"ch\",64),meta.get(\"depth\",5),meta.get(\"ncls\",10)).to(dev).eval()",
+              "file_sha256": "ca4b1f0c788fcd3eef69b4970daf4a2cad540ee3fdcbe987e407f31a2f401004"
+            },
+            {
+              "path": "experiments/poc_audio/audio_flow.py",
+              "first_line": 101,
+              "last_line": 102,
+              "excerpt": "def make_model(arch,ch,depth,ncls=10):\n    return UNetVel(ch=ch,ncls=ncls) if arch==\"unet\" else VelNet(ch=ch,K=depth,ncls=ncls)",
+              "file_sha256": "002401d0933edc1e090279428fbbfcf3d764910b1bf15a9840ba48d36e731dc0"
+            },
+            {
+              "path": "experiments/poc_audio/audio_flow.py",
+              "first_line": 124,
+              "last_line": 124,
+              "excerpt": "    ap.add_argument(\"--ncls\",type=int,default=10)   # conditioning classes (digits=10, words=N)",
+              "file_sha256": "002401d0933edc1e090279428fbbfcf3d764910b1bf15a9840ba48d36e731dc0"
+            }
+          ]
+        },
+        "angular": {
+          "value": false,
+          "present_in_original_metadata": true,
+          "resolution": "explicit released metadata",
+          "evidence": [
+            {
+              "path": "experiments/poc_audio/audio_eval.py",
+              "first_line": 42,
+              "last_line": 42,
+              "excerpt": "    angular=bool(meta.get(\"angular\",False))",
+              "file_sha256": "ca4b1f0c788fcd3eef69b4970daf4a2cad540ee3fdcbe987e407f31a2f401004"
+            },
+            {
+              "path": "experiments/poc_audio/audio_flow.py",
+              "first_line": 122,
+              "last_line": 122,
+              "excerpt": "    ap.add_argument(\"--angular\",action=\"store_true\")  # predict A=v/||x_t||; reconstruct v=||x||*A at sampling",
+              "file_sha256": "002401d0933edc1e090279428fbbfcf3d764910b1bf15a9840ba48d36e731dc0"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "legacy_default_policy": {
+    "preserve_released_metadata_bytes": true,
+    "record_resolutions_separately": true,
+    "allowed_absent_fields": {
+      "ncls": 10,
+      "angular": false
+    },
+    "reject_conflicting_explicit_values": true,
+    "scope": "Evaluation compatibility with original audio_eval defaults; not proof of an unrecorded training commit."
+  },
+  "split": {
+    "nominal_training_file": "audiomnist_stft_train.pt",
+    "nominal_training_count": 12000,
+    "external_test_file": "audiomnist_stft_test.pt",
+    "external_test_count": 3000,
+    "counts_provenance": "audio_data.py:43 generation configuration; tensor counts must be checked on compute before evaluation.",
+    "split_seed": 0,
+    "generator": "torch.Generator() on CPU; local generator, independent of global RNG",
+    "algorithm": "g = torch.Generator().manual_seed(0); p = torch.randperm(n, generator=g); ntr = int(n*0.85); tr=p[:ntr]; te=p[ntr:]",
+    "generator_training_count": 10200,
+    "internal_held_out_count": 1800,
+    "internal_te_meaning": "Remainder of nominal training file after permutation; distinct from external test file.",
+    "training_indices_numerically_recomputed_by_this_audit": false,
+    "evidence": [
+      {
+        "path": "experiments/poc_audio/audio_flow.py",
+        "first_line": 20,
+        "last_line": 22,
+        "excerpt": "def split_idx(n,seed=0):\n    g=torch.Generator().manual_seed(seed); p=torch.randperm(n,generator=g)\n    ntr=int(n*0.85); return p[:ntr],p[ntr:]",
+        "file_sha256": "002401d0933edc1e090279428fbbfcf3d764910b1bf15a9840ba48d36e731dc0"
+      },
+      {
+        "path": "experiments/poc_audio/audio_flow.py",
+        "first_line": 104,
+        "last_line": 112,
+        "excerpt": "def build(method,x,labels,split_seed):\n    tr,te=split_idx(len(x),split_seed); R0=float(x[tr].norm(dim=1).mean())\n    sigma=R0/math.sqrt(D)                                   # moment-matched gaussian scale\n    if method==\"fixed_spherical\":\n        r=x.norm(dim=1,keepdim=True).clamp(min=1e-8); train=(R0*x/r)[tr]\n    else: train=x[tr]\n    src=GaussianSource() if method==\"gaussian_euclidean\" else RadialEmpiricalSource(mode=\"ecdf\").fit(train)\n    path=SphericalGeodesicPath() if method in (\"fixed_spherical\",\"rafm\") else EuclideanPath()\n    return dict(tr=tr,te=te,train=train,src=src,path=path,spherical=method in (\"fixed_spherical\",\"rafm\"),R0=R0,sigma=sigma)",
+        "file_sha256": "002401d0933edc1e090279428fbbfcf3d764910b1bf15a9840ba48d36e731dc0"
+      },
+      {
+        "path": "experiments/poc_audio/audio_eval.py",
+        "first_line": 37,
+        "last_line": 40,
+        "excerpt": "    tr=torch.load(HERE/f\"data/{a.dataset}_train.pt\",map_location=\"cpu\"); xtr=tr[\"x\"].reshape(len(tr[\"x\"]),-1).float()\n    te=torch.load(HERE/f\"data/{a.dataset}_test.pt\",map_location=\"cpu\"); gte=te[\"g\"].numpy()\n    ytr=(tr[\"word\"] if \"word\" in tr else tr[\"digit\"]).long()\n    st=build(a.method,xtr,ytr,0)",
+        "file_sha256": "ca4b1f0c788fcd3eef69b4970daf4a2cad540ee3fdcbe987e407f31a2f401004"
+      },
+      {
+        "path": "experiments/poc_audio/audio_data.py",
+        "first_line": 41,
+        "last_line": 43,
+        "excerpt": "    ds=load_dataset(\"gilkeyio/AudioMNIST\",split=\"train\")\n    n=len(ds); rng=np.random.default_rng(0); perm=rng.permutation(n)\n    ntr,nte=12000,3000; idx={\"train\":perm[:ntr],\"test\":perm[ntr:ntr+nte]}",
+        "file_sha256": "db1c5487a7ff6741265d3a3b74462dbe26ee2d8b906aaf9c6314b356bc5daf65"
+      }
+    ]
+  },
+  "radius_and_gain_source": {
+    "R0_recorded_all_seeds": 2.2613651752471924,
+    "R0_rule": "float(x[tr].norm(dim=1).mean())",
+    "fixed_training_rule": "(R0*x/x.norm(dim=1,keepdim=True).clamp(min=1e-8))[tr]",
+    "fixed_initialization": "Fit the original ECDF to the fixed training tensors; preserve source.sample(...).norm(...) and original ODE initialization.",
+    "rafm_training_rule": "x[tr] without radius normalization",
+    "gain_fit_rule": "torch.norm(raw_generator_training_tensor, dim=-1).cpu()",
+    "mode": "ecdf",
+    "log_radius": false,
+    "gain_sampling_rule": "u=torch.rand(n) on CPU; torch.quantile(training_norms,u) with default linear interpolation; clamp(min=0.0)",
+    "test_or_internal_holdout_gains_used_for_gain_fit": false,
+    "external_test_gain_role": "Evaluation reference distribution and tail thresholds only.",
+    "evidence": [
+      {
+        "path": "experiments/poc_audio/audio_flow.py",
+        "first_line": 104,
+        "last_line": 112,
+        "excerpt": "def build(method,x,labels,split_seed):\n    tr,te=split_idx(len(x),split_seed); R0=float(x[tr].norm(dim=1).mean())\n    sigma=R0/math.sqrt(D)                                   # moment-matched gaussian scale\n    if method==\"fixed_spherical\":\n        r=x.norm(dim=1,keepdim=True).clamp(min=1e-8); train=(R0*x/r)[tr]\n    else: train=x[tr]\n    src=GaussianSource() if method==\"gaussian_euclidean\" else RadialEmpiricalSource(mode=\"ecdf\").fit(train)\n    path=SphericalGeodesicPath() if method in (\"fixed_spherical\",\"rafm\") else EuclideanPath()\n    return dict(tr=tr,te=te,train=train,src=src,path=path,spherical=method in (\"fixed_spherical\",\"rafm\"),R0=R0,sigma=sigma)",
+        "file_sha256": "002401d0933edc1e090279428fbbfcf3d764910b1bf15a9840ba48d36e731dc0"
+      },
+      {
+        "path": "rafm/sources/radial_empirical.py",
+        "first_line": 50,
+        "last_line": 61,
+        "excerpt": "    def fit(self, train_data: Tensor) -> \"RadialEmpiricalSource\":\n        \"\"\"Fit the radial estimator from training data.\n\n        Args:\n            train_data: (n_train, d) \u2014 training samples (NEVER mix with val/test)\n        \"\"\"\n        r = torch.norm(train_data, dim=-1).cpu()  # (n_train,)\n        if self.log_radius:\n            r_fit = torch.log(r + 1e-6)\n        else:\n            r_fit = r\n        self._r_train = r_fit",
+        "file_sha256": "efcd2ff006d18ddf39b54bf33026b040b0c1badf9ec5b26edaefec7fb6d4d84e"
+      },
+      {
+        "path": "rafm/sources/radial_empirical.py",
+        "first_line": 72,
+        "last_line": 93,
+        "excerpt": "    def sample(self, n: int, d: int, device: str = \"cpu\") -> Tensor:\n        \"\"\"Sample n points from the empirical radial source.\"\"\"\n        assert self._r_train is not None, \"Call fit() before sample().\"\n\n        r = self._sample_radii(n, device)  # (n,)\n        u = uniform_on_sphere(n, d, device=device)  # (n, d)\n        return r.view(n, 1) * u\n\n    def sample_radii(self, n: int, device: str = \"cpu\") -> Tensor:\n        \"\"\"Sample only radii (useful for Exp 0 diagnostics).\"\"\"\n        assert self._r_train is not None, \"Call fit() before sample_radii().\"\n        return self._sample_radii(n, device)\n\n    def _sample_radii(self, n: int, device: str) -> Tensor:\n        if self.mode == \"ecdf\":\n            u = torch.rand(n)\n            r_fit = self._r_train\n            r_gen = torch.quantile(r_fit, u)  # inverse-CDF / quantile interpolation\n            if self.log_radius:\n                r_gen = torch.exp(r_gen) - 1e-6\n            # Clamp to non-negative (safety for KDE mode, eCDF always >= 0)\n            r_gen = r_gen.clamp(min=0.0)",
+        "file_sha256": "efcd2ff006d18ddf39b54bf33026b040b0c1badf9ec5b26edaefec7fb6d4d84e"
+      },
+      {
+        "path": "experiments/poc_audio/audio_eval.py",
+        "first_line": 51,
+        "last_line": 58,
+        "excerpt": "    en=gen.norm(dim=1).cpu().numpy()                                        # generated energy\n    # energy / tails\n    q90,q95,q99,q10=[float(np.quantile(gte,q)) for q in (0.90,0.95,0.99,0.10)]\n    pit=np.searchsorted(np.sort(gte),en)/len(gte)\n    energy={\"radial_w1\":round(float(wasserstein_distance(en,gte)),4),\"ks\":round(float(ks_2samp(en,gte).statistic),4),\n        \"cov_gt_q90\":round(float((en>q90).mean()),4),\"cov_gt_q95\":round(float((en>q95).mean()),4),\"cov_gt_q99\":round(float((en>q99).mean()),4),\n        \"cov_lt_q10\":round(float((en<q10).mean()),4),\"pit_mean\":round(float(pit.mean()),4),\n        \"gen_energy_mean\":round(float(en.mean()),3),\"data_energy_mean\":round(float(gte.mean()),3)}",
+        "file_sha256": "ca4b1f0c788fcd3eef69b4970daf4a2cad540ee3fdcbe987e407f31a2f401004"
+      }
+    ]
+  },
+  "rng_and_sampling": {
+    "sample_seed": 0,
+    "gain_seed": 0,
+    "n_gen": 2000,
+    "labels": "torch.arange(10).repeat_interleave(200), same order for all seeds",
+    "source_draw_order": [
+      "CPU radius uniforms",
+      "CPU sphere directions"
+    ],
+    "original_fixed_initialization": "CPU source.sample(n,D).norm(...) followed by separate CUDA torch.randn(n,D) normalized directions; multiply original radii and directions.",
+    "paired_gains": "An isolated CPU seed-0 call to sample_radii reproduces the original RAFM raw ECDF quantile draws because the source draws radii first.",
+    "source_norm_replay": "source.sample(...).norm(...) can differ from the raw quantiles by floating-point sphere normalization; record replay differences, use raw quantiles for the intervention.",
+    "gain_rng_isolation": "Fork and restore the CPU RNG for G; generator sampling has its own restored CPU/CUDA seed-0 RNG scope. No labels, generated directions, test gains, or classifier outputs enter the gain draw.",
+    "integrator": "Original audio_eval RK4 with tangent-projected vector field, 40 steps, 4 calls per step, no intermediate state renormalization.",
+    "rk4_steps": 40,
+    "model_evaluations": 160,
+    "batch_size": 128,
+    "intervention": "After original fixed-spherical generation finishes, compute X=G*Y/||Y||.",
+    "evidence": [
+      {
+        "path": "rafm/sources/radial_empirical.py",
+        "first_line": 72,
+        "last_line": 89,
+        "excerpt": "    def sample(self, n: int, d: int, device: str = \"cpu\") -> Tensor:\n        \"\"\"Sample n points from the empirical radial source.\"\"\"\n        assert self._r_train is not None, \"Call fit() before sample().\"\n\n        r = self._sample_radii(n, device)  # (n,)\n        u = uniform_on_sphere(n, d, device=device)  # (n, d)\n        return r.view(n, 1) * u\n\n    def sample_radii(self, n: int, device: str = \"cpu\") -> Tensor:\n        \"\"\"Sample only radii (useful for Exp 0 diagnostics).\"\"\"\n        assert self._r_train is not None, \"Call fit() before sample_radii().\"\n        return self._sample_radii(n, device)\n\n    def _sample_radii(self, n: int, device: str) -> Tensor:\n        if self.mode == \"ecdf\":\n            u = torch.rand(n)\n            r_fit = self._r_train\n            r_gen = torch.quantile(r_fit, u)  # inverse-CDF / quantile interpolation",
+        "file_sha256": "efcd2ff006d18ddf39b54bf33026b040b0c1badf9ec5b26edaefec7fb6d4d84e"
+      },
+      {
+        "path": "experiments/poc_audio/audio_eval.py",
+        "first_line": 20,
+        "last_line": 29,
+        "excerpt": "def rk4(model,x0,y,spherical,nfe=40,angular=False):\n    dev=x0.device; x=x0; n=x0.shape[0]; dt=1.0/nfe\n    def v(xx,tt):\n        out=model(xx.reshape(n,2,FREQ,FRAMES),torch.full((n,),tt,device=dev),y).reshape(n,-1)\n        if angular: out=xx.norm(dim=1,keepdim=True)*out          # reconstruct v=||x||*A\n        return _project_tangent(out,xx) if spherical else out\n    for i in range(nfe):\n        t0=i*dt; k1=v(x,t0); k2=v(x+dt/2*k1,t0+dt/2); k3=v(x+dt/2*k2,t0+dt/2); k4=v(x+dt*k3,t0+dt)\n        x=x+dt/6*(k1+2*k2+2*k3+k4)\n    return x",
+        "file_sha256": "ca4b1f0c788fcd3eef69b4970daf4a2cad540ee3fdcbe987e407f31a2f401004"
+      },
+      {
+        "path": "experiments/poc_audio/audio_eval.py",
+        "first_line": 32,
+        "last_line": 34,
+        "excerpt": "    ap=argparse.ArgumentParser(); ap.add_argument(\"--method\",required=True); ap.add_argument(\"--step\",type=int,default=24000)\n    ap.add_argument(\"--run_dir\",default=\"runs_unet\"); ap.add_argument(\"--n\",type=int,default=2000); ap.add_argument(\"--nfe\",type=int,default=40); ap.add_argument(\"--sbatch\",type=int,default=128)\n    ap.add_argument(\"--dataset\",default=\"audiomnist_stft\"); ap.add_argument(\"--ncls\",type=int,default=10); ap.add_argument(\"--clf\",default=\"digit_classifier.pt\")",
+        "file_sha256": "ca4b1f0c788fcd3eef69b4970daf4a2cad540ee3fdcbe987e407f31a2f401004"
+      },
+      {
+        "path": "experiments/poc_audio/audio_eval.py",
+        "first_line": 46,
+        "last_line": 50,
+        "excerpt": "    torch.manual_seed(0); y=torch.arange(a.ncls).repeat_interleave(int(np.ceil(a.n/a.ncls)))[:a.n].to(dev)\n    if a.method==\"gaussian_euclidean\": x0=st[\"sigma\"]*torch.randn(a.n,D,device=dev)\n    else:\n        r=st[\"src\"].sample(a.n,D).norm(dim=1,keepdim=True).to(dev); u0=torch.randn(a.n,D,device=dev); x0=r*u0/u0.norm(dim=1,keepdim=True)\n    SB=a.sbatch; gen=torch.cat([rk4(model,x0[i:i+SB],y[i:i+SB],st[\"spherical\"],a.nfe,angular) for i in range(0,a.n,SB)])",
+        "file_sha256": "ca4b1f0c788fcd3eef69b4970daf4a2cad540ee3fdcbe987e407f31a2f401004"
+      }
+    ]
+  },
+  "model": {
+    "architecture": "unet",
+    "ch": 96,
+    "multipliers": [
+      1,
+      2,
+      4
+    ],
+    "ncls": 10,
+    "conditioning_width": 256,
+    "attention_from": 2,
+    "input_shape": [
+      2,
+      129,
+      63
+    ],
+    "D": 16254,
+    "metadata_depth": 5,
+    "unet_uses_depth_argument": false,
+    "depth_evidence": "make_model forwards ch and ncls to UNetVel; depth is forwarded only to VelNet as K.",
+    "n_params_recorded": 27896802,
+    "evidence": [
+      {
+        "path": "experiments/poc_audio/audio_flow.py",
+        "first_line": 17,
+        "last_line": 17,
+        "excerpt": "FREQ,FRAMES=129,63; C_IN=2; D=C_IN*FREQ*FRAMES",
+        "file_sha256": "002401d0933edc1e090279428fbbfcf3d764910b1bf15a9840ba48d36e731dc0"
+      },
+      {
+        "path": "experiments/poc_audio/audio_flow.py",
+        "first_line": 65,
+        "last_line": 74,
+        "excerpt": "class UNetVel(nn.Module):\n    def __init__(s,ch=96,mult=(1,2,4),ncls=10,cond=256,attn_from=2):  # attn only at coarsest level (memory)\n        super().__init__(); chs=[ch*m for m in mult]\n        s.temb=nn.Sequential(nn.Linear(128,cond),nn.SiLU(),nn.Linear(cond,cond)); s.yemb=nn.Embedding(ncls+1,cond)\n        s.inp=nn.Conv2d(C_IN,chs[0],3,padding=1)\n        s.enc=nn.ModuleList(); s.encattn=nn.ModuleList(); s.down=nn.ModuleList()\n        for i,c in enumerate(chs):\n            s.enc.append(nn.ModuleList([RB(c,c,cond),RB(c,c,cond)]))\n            s.encattn.append(nn.ModuleList([Attn(c),Attn(c)]) if i>=attn_from else None)\n            s.down.append(nn.Conv2d(c,chs[min(i+1,len(chs)-1)],3,2,1) if i<len(chs)-1 else None)",
+        "file_sha256": "002401d0933edc1e090279428fbbfcf3d764910b1bf15a9840ba48d36e731dc0"
+      },
+      {
+        "path": "experiments/poc_audio/audio_flow.py",
+        "first_line": 101,
+        "last_line": 102,
+        "excerpt": "def make_model(arch,ch,depth,ncls=10):\n    return UNetVel(ch=ch,ncls=ncls) if arch==\"unet\" else VelNet(ch=ch,K=depth,ncls=ncls)",
+        "file_sha256": "002401d0933edc1e090279428fbbfcf3d764910b1bf15a9840ba48d36e731dc0"
+      }
+    ]
+  },
+  "limits_and_required_runtime_checks": {
+    "checkpoint_deserialized_by_this_audit": false,
+    "model_or_tensor_loaded_by_this_audit": false,
+    "numerical_evaluation_performed_by_this_audit": false,
+    "strict_state_dict_compatibility_verified_by_this_audit": false,
+    "required_before_generation": [
+      "Verify SHA256 of every release asset, including manifest and config/metadata JSON, against authenticated release digests and manifest entries where applicable.",
+      "Strictly load all three checkpoint EMA state dictionaries and classifier state dictionary on compute; reject missing/unexpected keys or shape incompatibility.",
+      "Verify original dataset hashes, tensor shapes, deterministic split, and recomputed R0 against released metadata."
+    ],
+    "required_paired_output_checks": [
+      "Evaluate original Y and gain-rescaled X together using the same complete balanced 2000 labels.",
+      "Require exactly zero changed predictions, identical correct counts and accuracy, finite logits satisfying configured tolerance, unchanged normalized directions, and norms matching G.",
+      "Retain full-precision metrics and legacy-rounded comparisons; fail on invariance failure or unexplained baseline mismatch."
+    ]
+  }
+}
