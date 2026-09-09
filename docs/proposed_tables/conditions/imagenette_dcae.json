@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "method": "tflow",
+  "condition_id": "imagenette_dcae",
+  "status": "pending",
+  "expected_seeds": [
+    8925,
+    1234,
+    7
+  ],
+  "n_expected": 3,
+  "n_complete": 0,
+  "n_failed": 0,
+  "n_pending": 3,
+  "issues": [
+    "suite condition has unresolved input/protocol issues"
+  ],
+  "protocol": "image",
+  "paper_scope": "main_and_appendix",
+  "runs": [
+    {
+      "seed": 8925,
+      "path": "outputs_tflow/imagenette_dcae/seed_8925/result.json",
+      "status": "pending",
+      "issues": [
+        "missing final result.json"
+      ]
+    },
+    {
+      "seed": 1234,
+      "path": "outputs_tflow/imagenette_dcae/seed_1234/result.json",
+      "status": "pending",
+      "issues": [
+        "missing final result.json"
+      ]
+    },
+    {
+      "seed": 7,
+      "path": "outputs_tflow/imagenette_dcae/seed_7/result.json",
+      "status": "pending",
+      "issues": [
+        "missing final result.json"
+      ]
+    }
+  ],
+  "aggregate_full_precision": {},
+  "aggregate": {},
+  "metric_coverage": {},
+  "historical_values_recomputed": false
+}

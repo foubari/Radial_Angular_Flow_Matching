@@ -1,0 +1,10 @@
+# Torch/torchvision are installed separately for the actual accelerator.
+# Prepared environment: torch2.7.1+rocm6.3, torchvision0.22.1+rocm6.3.
+# Do not replace that accelerator build with an implicit CPU/CUDA wheel.
+numpy==2.2.6
+scipy==1.15.3
+timm==1.0.29
+diffusers==0.40.0
+prdc==0.2
+torch-fidelity==0.4.0
+Pillow==12.3.0

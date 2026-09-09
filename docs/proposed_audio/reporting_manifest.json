@@ -1,0 +1,27 @@
+{
+  "status": "pending_preview",
+  "paper_source": "RAFM_ICLR_2027.pdf, page 26 Table 5; page 8 Figure 2",
+  "paper_sha256": "97f709df2a45e4acf4ba186379c60e9c75120d95e09af782d7a18c8b56d00367",
+  "inputs": {
+    "reference_aggregate": {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/experiments/poc_audio/stage2_3seed.json",
+      "sha256": "db71009221105b750acb9a2a4e5337f382a9cfc6ef9955ed14b6c3d8e4872adc"
+    }
+  },
+  "plotted_methods": [
+    "gaussian",
+    "matched",
+    "fixed_spher",
+    "std_rafm",
+    "angular_rafm"
+  ],
+  "new_measurements": {},
+  "existing_table_values_preserved": true,
+  "complete_reference_controls": [],
+  "missing_controls": [
+    "Gaussian FM",
+    "Matched source",
+    "RAFM-Vel",
+    "RAFM-Ang"
+  ]
+}

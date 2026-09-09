@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "condition_id": "student_t_d2_df3.0_cor",
+  "kind": "vector",
+  "protocol_status": "blocked",
+  "blocking_issues": [
+    "synthetic_cache_missing",
+    "vector_batch_conflict"
+  ],
+  "seeds": [
+    8925,
+    77395,
+    65457
+  ],
+  "data": {
+    "input": {
+      "path": null,
+      "sha256": null
+    },
+    "shape": [
+      50000,
+      2
+    ],
+    "split": {
+      "kind": "random",
+      "seed": 0,
+      "n_train": 30000,
+      "n_val": 10000,
+      "n_test": 10000
+    },
+    "transform": "as_cached"
+  },
+  "model": {
+    "kind": "mlp",
+    "hidden_dim": 128,
+    "n_layers": 3
+  },
+  "training": {
+    "steps": 10000,
+    "batch_size": null,
+    "optimizer": "Adam",
+    "lr": 0.001,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0,
+    "gradient_clip": null,
+    "ema": null,
+    "precision": "float32",
+    "batch_rule": "global_torch",
+    "compile": true,
+    "checkpoint_every": 5000,
+    "log_every": 200,
+    "class_dropout": 0.0
+  },
+  "evaluation": {
+    "n_samples": 10000,
+    "model_evaluations": 512,
+    "sample_batch_size": 10000,
+    "sample_seed": null,
+    "metric_seed": 0,
+    "metric_seed_note": "New evaluations use fixed shared projections; historical projection RNG state is unavailable."
+  },
+  "sampler": {
+    "t_min": 0.001,
+    "rho": 7.0,
+    "grid": "power_sigma",
+    "sigma_min": 0.01
+  },
+  "tuning": {
+    "seed": 46021,
+    "nu": [
+      3,
+      5,
+      7
+    ],
+    "scale_multipliers": [
+      0.5,
+      1,
+      2
+    ],
+    "stage1_fraction": 0.05,
+    "continuation_fraction": 0.1,
+    "n_finalists": 2,
+    "validation_generated_samples": 1000,
+    "sample_seed": 61717,
+    "projection_seed": 61719
+  },
+  "provenance": {
+    "paper_sha256": "97f709df2a45e4acf4ba186379c60e9c75120d95e09af782d7a18c8b56d00367",
+    "baseline_commit": "5b89ed5f4af8a47c3b57eb9d595203daafc6d2c4",
+    "source_artifacts": [
+      "rebuttal_experiments/configs/E6_dim2.yaml"
+    ],
+    "cached_input_only": true,
+    "existing_results_unchanged": true
+  },
+  "experiment_launch_status": "requires user approval of run plan"
+}

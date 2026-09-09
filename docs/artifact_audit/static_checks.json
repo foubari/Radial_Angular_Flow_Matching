@@ -1,0 +1,27 @@
+{
+  "status": "passed",
+  "compiled_without_execution": 19,
+  "configuration_count": 28,
+  "training_or_benchmark_launched": false,
+  "files": [
+    "baselines/tflow_core.py",
+    "baselines/tflow_downstream.py",
+    "experiments/poc_audio/audio_empirical_gain.py",
+    "experiments/poc_audio/render_gain_results.py",
+    "experiments/tflow/__init__.py",
+    "experiments/tflow/data.py",
+    "experiments/tflow/prepare_configs.py",
+    "experiments/tflow/render_results.py",
+    "experiments/tflow/run.py",
+    "experiments/tflow/sanity.py",
+    "experiments/tflow/tune.py",
+    "experiments/tflow/validation.py",
+    "tests/test_audio_empirical_gain.py",
+    "tests/test_audio_gain_reporting.py",
+    "tests/test_tflow_core.py",
+    "tests/test_tflow_reporting.py",
+    "tests/test_tflow_runtime.py",
+    "tests/test_tflow_tuning.py",
+    "tests/test_tflow_validation_policy.py"
+  ]
+}

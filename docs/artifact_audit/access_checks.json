@@ -1,0 +1,43 @@
+{
+  "date": "2026-09-10",
+  "scope": "Only the current prompt, supplied manuscript and task-relevant repositories/artifacts",
+  "rafm_fetch": {
+    "repository": "https://github.com/foubari/Radial_Angular_Flow_Matching",
+    "normal_fetch": "HTTP407 cluster proxy",
+    "basic_proxy_fetch": "success; used per-command http.proxyAuthMethod=basic",
+    "global_git_configuration_changed": false,
+    "branches_inspected": ["master", "iclr-image-experiments", "msgm-sparse-tabular"],
+    "releases": 0,
+    "github_workflow_artifacts": 0,
+    "original_spherical_checkpoints_found": false,
+    "original_synthetic_caches_found": false
+  },
+  "github_cli": {
+    "authenticated_session_available": false,
+    "failure": "gh release list requires authentication",
+    "private_msgm_release_lookup": "Anonymous HTTP404; this does not establish that the private release is absent"
+  },
+  "tflow_final_paper": {
+    "url": "https://proceedings.iclr.cc/paper_files/paper/2025/file/1d5b9233ad716a43be5c0d3023cb82d0-Paper-Conference.pdf",
+    "web_reader_failure": "33.6MB content-size limit",
+    "cluster_failure": "HTTP403 from Squid proxy: ERR_ACCESS_DENIED during CONNECT",
+    "final_algorithm_pages_verified": false,
+    "usable_source": "https://arxiv.org/html/2410.14171v2#A2",
+    "verified_official_tflow_code": false,
+    "t_edm_used_as_tflow": false
+  },
+  "sit": {
+    "repository": "https://github.com/willisma/SiT",
+    "commit": "cbde832a40b153ccc79603412409da9c9b0c568c",
+    "path": "/mnt/vast01/users/fouad.oubari/references/SiT-tflow",
+    "status": "cloned and pinned; normal proxy407 then successful per-command Basic proxy fallback",
+    "license": "MIT"
+  },
+  "manuscript": {
+    "pdf_sha256": "97f709df2a45e4acf4ba186379c60e9c75120d95e09af782d7a18c8b56d00367",
+    "visually_inspected_pages": [8, 23, 26, 31, 35],
+    "main_latex_found": false,
+    "historical_results_modified": false
+  },
+  "experiment_jobs_launched": 0
+}

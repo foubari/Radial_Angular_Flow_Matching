@@ -1,0 +1,86 @@
+{
+  "date": "2026-09-10",
+  "status": "passed",
+  "scope": "Implementation preparation, CPU unit checks, untrained backbone interfaces, and read-only cached-input verification; no experiment jobs",
+  "repository": "https://github.com/foubari/Radial_Angular_Flow_Matching",
+  "branch": "experiments/tflow-empirical-gain",
+  "base_commit": "5b89ed5f4af8a47c3b57eb9d595203daafc6d2c4",
+  "torch": "2.7.1+rocm6.3",
+  "gpu_experiment_jobs_launched": 0,
+  "training_tuning_benchmark_or_checkpoint_evaluation_launched": false,
+  "historical_tracked_files_modified": false,
+  "checks": [
+    {
+      "record": "docs/artifact_audit/unit_checks.xml",
+      "suites": [
+        {
+          "name": "pytest",
+          "errors": "0",
+          "failures": "0",
+          "skipped": "0",
+          "tests": "167",
+          "time": "10.808",
+          "timestamp": "2026-09-10T01:15:45.647054+04:00",
+          "hostname": "auh7-3b-gpu-080"
+        }
+      ],
+      "note": "The first suite includes 53 subtests; follow-up tests overlap earlier coverage. Counts are not additive."
+    },
+    {
+      "record": "docs/artifact_audit/final_tuning_checks.xml",
+      "suites": [
+        {
+          "name": "pytest",
+          "errors": "0",
+          "failures": "0",
+          "skipped": "0",
+          "tests": "22",
+          "time": "2.611",
+          "timestamp": "2026-09-10T01:21:39.763576+04:00",
+          "hostname": "auh7-3b-gpu-019"
+        }
+      ],
+      "note": "The first suite includes 53 subtests; follow-up tests overlap earlier coverage. Counts are not additive."
+    },
+    {
+      "record": "docs/artifact_audit/backbone_contract_checks.json",
+      "status": "passed"
+    },
+    {
+      "record": "docs/artifact_audit/cached_input_checks.json",
+      "status": "see record"
+    },
+    {
+      "record": "docs/artifact_audit/static_checks.json",
+      "status": "passed"
+    },
+    {
+      "kind": "JSON-only reporting checks after finite-tail diagnostic correction",
+      "tests": 19,
+      "status": "passed",
+      "elapsed_seconds": 0.11,
+      "executed_by": "suite_inventory review agent",
+      "no_torch_import": true
+    },
+    {
+      "kind": "Visual review",
+      "status": "passed",
+      "asset": "docs/proposed_audio/figure2_audio_pending.png",
+      "note": "Only archived measured points; no pending method point was fabricated."
+    }
+  ],
+  "record_sha256": {
+    "docs/artifact_audit/unit_checks.xml": "f6b569e47f3f411daf5653c58c6c46cb2e384173f91ea9f6c8d9219d05ad1b2e",
+    "docs/artifact_audit/final_tuning_checks.xml": "2f0125922699f4d7dbafb3b5ee0f2ef354b16f87e7cb7d0ea110427f67a0ee11",
+    "docs/artifact_audit/backbone_contract_checks.json": "d47948cce96be305a24e9211e3cf4f036e3b289313f05a16a76a5580bb11d5bd",
+    "docs/artifact_audit/cached_input_checks.json": "d75363321f5c907b08f55b257207feddfc7ba0101b86462bb38c63e6673c66cd",
+    "docs/artifact_audit/static_checks.json": "97acb37b19faeca795fd429cc8a0347ecd74e68c27165ec2cf7e77a38cadd077"
+  },
+  "limitations": [
+    "No GPU learning or trained t-Flow numerical performance validated yet.",
+    "No original fixed-spherical checkpoint recovered or evaluated.",
+    "23 of 28 conditions remain blocked by missing historical inputs or unresolved protocols.",
+    "Final ICLR t-Flow algorithm pages remain inaccessible; equation reproduction currently uses inspected arXiv v2.",
+    "Standalone manuscript assets are pending templates, not completed new results."
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "method": "tflow",
+  "condition_id": "student_t_d8_df3.0_cor",
+  "status": "pending",
+  "expected_seeds": [
+    8925,
+    77395,
+    65457
+  ],
+  "n_expected": 3,
+  "n_complete": 0,
+  "n_failed": 0,
+  "n_pending": 3,
+  "issues": [
+    "suite condition has unresolved input/protocol issues"
+  ],
+  "protocol": "vector",
+  "paper_scope": "appendix",
+  "runs": [
+    {
+      "seed": 8925,
+      "path": "outputs_tflow/student_t_d8_df3.0_cor/seed_8925/result.json",
+      "status": "pending",
+      "issues": [
+        "missing final result.json"
+      ]
+    },
+    {
+      "seed": 77395,
+      "path": "outputs_tflow/student_t_d8_df3.0_cor/seed_77395/result.json",
+      "status": "pending",
+      "issues": [
+        "missing final result.json"
+      ]
+    },
+    {
+      "seed": 65457,
+      "path": "outputs_tflow/student_t_d8_df3.0_cor/seed_65457/result.json",
+      "status": "pending",
+      "issues": [
+        "missing final result.json"
+      ]
+    }
+  ],
+  "aggregate_full_precision": {},
+  "aggregate": {},
+  "metric_coverage": {},
+  "historical_values_recomputed": false
+}

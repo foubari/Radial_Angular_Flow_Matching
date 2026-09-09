@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "method": "tflow",
+  "condition_id": "piv_d64",
+  "status": "pending",
+  "expected_seeds": [
+    8925,
+    77395,
+    65457
+  ],
+  "n_expected": 3,
+  "n_complete": 0,
+  "n_failed": 0,
+  "n_pending": 3,
+  "issues": [],
+  "protocol": "vector",
+  "paper_scope": "main_and_appendix",
+  "runs": [
+    {
+      "seed": 8925,
+      "path": "outputs_tflow/piv_d64/seed_8925/result.json",
+      "status": "pending",
+      "issues": [
+        "missing final result.json"
+      ]
+    },
+    {
+      "seed": 77395,
+      "path": "outputs_tflow/piv_d64/seed_77395/result.json",
+      "status": "pending",
+      "issues": [
+        "missing final result.json"
+      ]
+    },
+    {
+      "seed": 65457,
+      "path": "outputs_tflow/piv_d64/seed_65457/result.json",
+      "status": "pending",
+      "issues": [
+        "missing final result.json"
+      ]
+    }
+  ],
+  "aggregate_full_precision": {},
+  "aggregate": {},
+  "metric_coverage": {},
+  "historical_values_recomputed": false
+}

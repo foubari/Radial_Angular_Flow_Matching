@@ -1,0 +1,1419 @@
+{
+  "schema_version": 1,
+  "method": "tflow",
+  "status": "incomplete",
+  "n_conditions": 28,
+  "n_complete_conditions": 0,
+  "n_expected_runs": 84,
+  "n_complete_runs": 0,
+  "paper": {
+    "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm_review_inputs_20260909.qI0bZo/RAFM_ICLR_2027.pdf",
+    "sha256": "97f709df2a45e4acf4ba186379c60e9c75120d95e09af782d7a18c8b56d00367",
+    "pages": 39,
+    "source_text": "/mnt/vast01/users/fouad.oubari/msgm/rafm_review_inputs_20260909.qI0bZo/paper.txt",
+    "values_final": true,
+    "temporary_comments_or_colors_change_scope": false,
+    "cited_commits": {
+      "original_rafm": "2e659c7",
+      "angular_revision": "f892493",
+      "original_timing": "57d1dbd",
+      "sparse_vector_archive": "1a6d0e6",
+      "sparse_downstream_archive": "e232f93",
+      "sparse_finance_weather_archive": "5b89ed5"
+    }
+  },
+  "conditions": {
+    "student_t_d2_df3.0_cor": {
+      "schema_version": 1,
+      "method": "tflow",
+      "condition_id": "student_t_d2_df3.0_cor",
+      "status": "pending",
+      "expected_seeds": [
+        8925,
+        77395,
+        65457
+      ],
+      "n_expected": 3,
+      "n_complete": 0,
+      "n_failed": 0,
+      "n_pending": 3,
+      "issues": [
+        "suite condition has unresolved input/protocol issues"
+      ],
+      "protocol": "vector",
+      "paper_scope": "appendix",
+      "runs": [
+        {
+          "seed": 8925,
+          "path": "outputs_tflow/student_t_d2_df3.0_cor/seed_8925/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 77395,
+          "path": "outputs_tflow/student_t_d2_df3.0_cor/seed_77395/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 65457,
+          "path": "outputs_tflow/student_t_d2_df3.0_cor/seed_65457/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        }
+      ],
+      "aggregate_full_precision": {},
+      "aggregate": {},
+      "metric_coverage": {},
+      "historical_values_recomputed": false
+    },
+    "student_t_d8_df3.0_cor": {
+      "schema_version": 1,
+      "method": "tflow",
+      "condition_id": "student_t_d8_df3.0_cor",
+      "status": "pending",
+      "expected_seeds": [
+        8925,
+        77395,
+        65457
+      ],
+      "n_expected": 3,
+      "n_complete": 0,
+      "n_failed": 0,
+      "n_pending": 3,
+      "issues": [
+        "suite condition has unresolved input/protocol issues"
+      ],
+      "protocol": "vector",
+      "paper_scope": "appendix",
+      "runs": [
+        {
+          "seed": 8925,
+          "path": "outputs_tflow/student_t_d8_df3.0_cor/seed_8925/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 77395,
+          "path": "outputs_tflow/student_t_d8_df3.0_cor/seed_77395/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 65457,
+          "path": "outputs_tflow/student_t_d8_df3.0_cor/seed_65457/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        }
+      ],
+      "aggregate_full_precision": {},
+      "aggregate": {},
+      "metric_coverage": {},
+      "historical_values_recomputed": false
+    },
+    "student_t_d16_df3.0_cor": {
+      "schema_version": 1,
+      "method": "tflow",
+      "condition_id": "student_t_d16_df3.0_cor",
+      "status": "pending",
+      "expected_seeds": [
+        8925,
+        77395,
+        65457
+      ],
+      "n_expected": 3,
+      "n_complete": 0,
+      "n_failed": 0,
+      "n_pending": 3,
+      "issues": [
+        "suite condition has unresolved input/protocol issues"
+      ],
+      "protocol": "vector",
+      "paper_scope": "main_and_appendix",
+      "runs": [
+        {
+          "seed": 8925,
+          "path": "outputs_tflow/student_t_d16_df3.0_cor/seed_8925/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 77395,
+          "path": "outputs_tflow/student_t_d16_df3.0_cor/seed_77395/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 65457,
+          "path": "outputs_tflow/student_t_d16_df3.0_cor/seed_65457/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        }
+      ],
+      "aggregate_full_precision": {},
+      "aggregate": {},
+      "metric_coverage": {},
+      "historical_values_recomputed": false
+    },
+    "student_t_d32_df3.0_cor": {
+      "schema_version": 1,
+      "method": "tflow",
+      "condition_id": "student_t_d32_df3.0_cor",
+      "status": "pending",
+      "expected_seeds": [
+        8925,
+        77395,
+        65457
+      ],
+      "n_expected": 3,
+      "n_complete": 0,
+      "n_failed": 0,
+      "n_pending": 3,
+      "issues": [
+        "suite condition has unresolved input/protocol issues"
+      ],
+      "protocol": "vector",
+      "paper_scope": "main_and_appendix",
+      "runs": [
+        {
+          "seed": 8925,
+          "path": "outputs_tflow/student_t_d32_df3.0_cor/seed_8925/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 77395,
+          "path": "outputs_tflow/student_t_d32_df3.0_cor/seed_77395/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 65457,
+          "path": "outputs_tflow/student_t_d32_df3.0_cor/seed_65457/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        }
+      ],
+      "aggregate_full_precision": {},
+      "aggregate": {},
+      "metric_coverage": {},
+      "historical_values_recomputed": false
+    },
+    "student_t_d64_df3.0_cor": {
+      "schema_version": 1,
+      "method": "tflow",
+      "condition_id": "student_t_d64_df3.0_cor",
+      "status": "pending",
+      "expected_seeds": [
+        8925,
+        77395,
+        65457
+      ],
+      "n_expected": 3,
+      "n_complete": 0,
+      "n_failed": 0,
+      "n_pending": 3,
+      "issues": [
+        "suite condition has unresolved input/protocol issues"
+      ],
+      "protocol": "vector",
+      "paper_scope": "appendix",
+      "runs": [
+        {
+          "seed": 8925,
+          "path": "outputs_tflow/student_t_d64_df3.0_cor/seed_8925/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 77395,
+          "path": "outputs_tflow/student_t_d64_df3.0_cor/seed_77395/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 65457,
+          "path": "outputs_tflow/student_t_d64_df3.0_cor/seed_65457/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        }
+      ],
+      "aggregate_full_precision": {},
+      "aggregate": {},
+      "metric_coverage": {},
+      "historical_values_recomputed": false
+    },
+    "student_t_d128_df3.0_cor": {
+      "schema_version": 1,
+      "method": "tflow",
+      "condition_id": "student_t_d128_df3.0_cor",
+      "status": "pending",
+      "expected_seeds": [
+        8925,
+        77395,
+        65457
+      ],
+      "n_expected": 3,
+      "n_complete": 0,
+      "n_failed": 0,
+      "n_pending": 3,
+      "issues": [
+        "suite condition has unresolved input/protocol issues"
+      ],
+      "protocol": "vector",
+      "paper_scope": "appendix",
+      "runs": [
+        {
+          "seed": 8925,
+          "path": "outputs_tflow/student_t_d128_df3.0_cor/seed_8925/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 77395,
+          "path": "outputs_tflow/student_t_d128_df3.0_cor/seed_77395/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 65457,
+          "path": "outputs_tflow/student_t_d128_df3.0_cor/seed_65457/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        }
+      ],
+      "aggregate_full_precision": {},
+      "aggregate": {},
+      "metric_coverage": {},
+      "historical_values_recomputed": false
+    },
+    "student_t_d256_df3.0_cor": {
+      "schema_version": 1,
+      "method": "tflow",
+      "condition_id": "student_t_d256_df3.0_cor",
+      "status": "pending",
+      "expected_seeds": [
+        8925,
+        77395,
+        65457
+      ],
+      "n_expected": 3,
+      "n_complete": 0,
+      "n_failed": 0,
+      "n_pending": 3,
+      "issues": [
+        "suite condition has unresolved input/protocol issues"
+      ],
+      "protocol": "vector",
+      "paper_scope": "appendix",
+      "runs": [
+        {
+          "seed": 8925,
+          "path": "outputs_tflow/student_t_d256_df3.0_cor/seed_8925/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 77395,
+          "path": "outputs_tflow/student_t_d256_df3.0_cor/seed_77395/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 65457,
+          "path": "outputs_tflow/student_t_d256_df3.0_cor/seed_65457/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        }
+      ],
+      "aggregate_full_precision": {},
+      "aggregate": {},
+      "metric_coverage": {},
+      "historical_values_recomputed": false
+    },
+    "student_t_d16_df1.5_cor": {
+      "schema_version": 1,
+      "method": "tflow",
+      "condition_id": "student_t_d16_df1.5_cor",
+      "status": "pending",
+      "expected_seeds": [
+        8925,
+        77395,
+        65457
+      ],
+      "n_expected": 3,
+      "n_complete": 0,
+      "n_failed": 0,
+      "n_pending": 3,
+      "issues": [
+        "suite condition has unresolved input/protocol issues"
+      ],
+      "protocol": "vector",
+      "paper_scope": "appendix",
+      "runs": [
+        {
+          "seed": 8925,
+          "path": "outputs_tflow/student_t_d16_df1.5_cor/seed_8925/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 77395,
+          "path": "outputs_tflow/student_t_d16_df1.5_cor/seed_77395/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 65457,
+          "path": "outputs_tflow/student_t_d16_df1.5_cor/seed_65457/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        }
+      ],
+      "aggregate_full_precision": {},
+      "aggregate": {},
+      "metric_coverage": {},
+      "historical_values_recomputed": false
+    },
+    "student_t_d16_df2.0_cor": {
+      "schema_version": 1,
+      "method": "tflow",
+      "condition_id": "student_t_d16_df2.0_cor",
+      "status": "pending",
+      "expected_seeds": [
+        8925,
+        77395,
+        65457
+      ],
+      "n_expected": 3,
+      "n_complete": 0,
+      "n_failed": 0,
+      "n_pending": 3,
+      "issues": [
+        "suite condition has unresolved input/protocol issues"
+      ],
+      "protocol": "vector",
+      "paper_scope": "appendix",
+      "runs": [
+        {
+          "seed": 8925,
+          "path": "outputs_tflow/student_t_d16_df2.0_cor/seed_8925/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 77395,
+          "path": "outputs_tflow/student_t_d16_df2.0_cor/seed_77395/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 65457,
+          "path": "outputs_tflow/student_t_d16_df2.0_cor/seed_65457/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        }
+      ],
+      "aggregate_full_precision": {},
+      "aggregate": {},
+      "metric_coverage": {},
+      "historical_values_recomputed": false
+    },
+    "student_t_d16_df5.0_cor": {
+      "schema_version": 1,
+      "method": "tflow",
+      "condition_id": "student_t_d16_df5.0_cor",
+      "status": "pending",
+      "expected_seeds": [
+        8925,
+        77395,
+        65457
+      ],
+      "n_expected": 3,
+      "n_complete": 0,
+      "n_failed": 0,
+      "n_pending": 3,
+      "issues": [
+        "suite condition has unresolved input/protocol issues"
+      ],
+      "protocol": "vector",
+      "paper_scope": "appendix",
+      "runs": [
+        {
+          "seed": 8925,
+          "path": "outputs_tflow/student_t_d16_df5.0_cor/seed_8925/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 77395,
+          "path": "outputs_tflow/student_t_d16_df5.0_cor/seed_77395/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 65457,
+          "path": "outputs_tflow/student_t_d16_df5.0_cor/seed_65457/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        }
+      ],
+      "aggregate_full_precision": {},
+      "aggregate": {},
+      "metric_coverage": {},
+      "historical_values_recomputed": false
+    },
+    "student_t_d16_df10.0_cor": {
+      "schema_version": 1,
+      "method": "tflow",
+      "condition_id": "student_t_d16_df10.0_cor",
+      "status": "pending",
+      "expected_seeds": [
+        8925,
+        77395,
+        65457
+      ],
+      "n_expected": 3,
+      "n_complete": 0,
+      "n_failed": 0,
+      "n_pending": 3,
+      "issues": [
+        "suite condition has unresolved input/protocol issues"
+      ],
+      "protocol": "vector",
+      "paper_scope": "appendix",
+      "runs": [
+        {
+          "seed": 8925,
+          "path": "outputs_tflow/student_t_d16_df10.0_cor/seed_8925/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 77395,
+          "path": "outputs_tflow/student_t_d16_df10.0_cor/seed_77395/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 65457,
+          "path": "outputs_tflow/student_t_d16_df10.0_cor/seed_65457/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        }
+      ],
+      "aggregate_full_precision": {},
+      "aggregate": {},
+      "metric_coverage": {},
+      "historical_values_recomputed": false
+    },
+    "student_t_d16_df50.0_cor": {
+      "schema_version": 1,
+      "method": "tflow",
+      "condition_id": "student_t_d16_df50.0_cor",
+      "status": "pending",
+      "expected_seeds": [
+        8925,
+        77395,
+        65457
+      ],
+      "n_expected": 3,
+      "n_complete": 0,
+      "n_failed": 0,
+      "n_pending": 3,
+      "issues": [
+        "suite condition has unresolved input/protocol issues"
+      ],
+      "protocol": "vector",
+      "paper_scope": "appendix",
+      "runs": [
+        {
+          "seed": 8925,
+          "path": "outputs_tflow/student_t_d16_df50.0_cor/seed_8925/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 77395,
+          "path": "outputs_tflow/student_t_d16_df50.0_cor/seed_77395/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 65457,
+          "path": "outputs_tflow/student_t_d16_df50.0_cor/seed_65457/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        }
+      ],
+      "aggregate_full_precision": {},
+      "aggregate": {},
+      "metric_coverage": {},
+      "historical_values_recomputed": false
+    },
+    "gaussian_aniso_d16_cor": {
+      "schema_version": 1,
+      "method": "tflow",
+      "condition_id": "gaussian_aniso_d16_cor",
+      "status": "pending",
+      "expected_seeds": [
+        8925,
+        77395,
+        65457
+      ],
+      "n_expected": 3,
+      "n_complete": 0,
+      "n_failed": 0,
+      "n_pending": 3,
+      "issues": [
+        "suite condition has unresolved input/protocol issues"
+      ],
+      "protocol": "vector",
+      "paper_scope": "appendix",
+      "runs": [
+        {
+          "seed": 8925,
+          "path": "outputs_tflow/gaussian_aniso_d16_cor/seed_8925/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 77395,
+          "path": "outputs_tflow/gaussian_aniso_d16_cor/seed_77395/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 65457,
+          "path": "outputs_tflow/gaussian_aniso_d16_cor/seed_65457/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        }
+      ],
+      "aggregate_full_precision": {},
+      "aggregate": {},
+      "metric_coverage": {},
+      "historical_values_recomputed": false
+    },
+    "aniso_k1": {
+      "schema_version": 1,
+      "method": "tflow",
+      "condition_id": "aniso_k1",
+      "status": "pending",
+      "expected_seeds": [
+        8925,
+        77395,
+        65457
+      ],
+      "n_expected": 3,
+      "n_complete": 0,
+      "n_failed": 0,
+      "n_pending": 3,
+      "issues": [
+        "suite condition has unresolved input/protocol issues"
+      ],
+      "protocol": "vector",
+      "paper_scope": "appendix",
+      "runs": [
+        {
+          "seed": 8925,
+          "path": "outputs_tflow/aniso_k1/seed_8925/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 77395,
+          "path": "outputs_tflow/aniso_k1/seed_77395/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 65457,
+          "path": "outputs_tflow/aniso_k1/seed_65457/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        }
+      ],
+      "aggregate_full_precision": {},
+      "aggregate": {},
+      "metric_coverage": {},
+      "historical_values_recomputed": false
+    },
+    "aniso_k3": {
+      "schema_version": 1,
+      "method": "tflow",
+      "condition_id": "aniso_k3",
+      "status": "pending",
+      "expected_seeds": [
+        8925,
+        77395,
+        65457
+      ],
+      "n_expected": 3,
+      "n_complete": 0,
+      "n_failed": 0,
+      "n_pending": 3,
+      "issues": [
+        "suite condition has unresolved input/protocol issues"
+      ],
+      "protocol": "vector",
+      "paper_scope": "appendix",
+      "runs": [
+        {
+          "seed": 8925,
+          "path": "outputs_tflow/aniso_k3/seed_8925/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 77395,
+          "path": "outputs_tflow/aniso_k3/seed_77395/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 65457,
+          "path": "outputs_tflow/aniso_k3/seed_65457/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        }
+      ],
+      "aggregate_full_precision": {},
+      "aggregate": {},
+      "metric_coverage": {},
+      "historical_values_recomputed": false
+    },
+    "aniso_k10": {
+      "schema_version": 1,
+      "method": "tflow",
+      "condition_id": "aniso_k10",
+      "status": "pending",
+      "expected_seeds": [
+        8925,
+        77395,
+        65457
+      ],
+      "n_expected": 3,
+      "n_complete": 0,
+      "n_failed": 0,
+      "n_pending": 3,
+      "issues": [
+        "suite condition has unresolved input/protocol issues"
+      ],
+      "protocol": "vector",
+      "paper_scope": "appendix",
+      "runs": [
+        {
+          "seed": 8925,
+          "path": "outputs_tflow/aniso_k10/seed_8925/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 77395,
+          "path": "outputs_tflow/aniso_k10/seed_77395/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 65457,
+          "path": "outputs_tflow/aniso_k10/seed_65457/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        }
+      ],
+      "aggregate_full_precision": {},
+      "aggregate": {},
+      "metric_coverage": {},
+      "historical_values_recomputed": false
+    },
+    "aniso_k30": {
+      "schema_version": 1,
+      "method": "tflow",
+      "condition_id": "aniso_k30",
+      "status": "pending",
+      "expected_seeds": [
+        8925,
+        77395,
+        65457
+      ],
+      "n_expected": 3,
+      "n_complete": 0,
+      "n_failed": 0,
+      "n_pending": 3,
+      "issues": [
+        "suite condition has unresolved input/protocol issues"
+      ],
+      "protocol": "vector",
+      "paper_scope": "appendix",
+      "runs": [
+        {
+          "seed": 8925,
+          "path": "outputs_tflow/aniso_k30/seed_8925/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 77395,
+          "path": "outputs_tflow/aniso_k30/seed_77395/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 65457,
+          "path": "outputs_tflow/aniso_k30/seed_65457/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        }
+      ],
+      "aggregate_full_precision": {},
+      "aggregate": {},
+      "metric_coverage": {},
+      "historical_values_recomputed": false
+    },
+    "aniso_k100": {
+      "schema_version": 1,
+      "method": "tflow",
+      "condition_id": "aniso_k100",
+      "status": "pending",
+      "expected_seeds": [
+        8925,
+        77395,
+        65457
+      ],
+      "n_expected": 3,
+      "n_complete": 0,
+      "n_failed": 0,
+      "n_pending": 3,
+      "issues": [
+        "suite condition has unresolved input/protocol issues"
+      ],
+      "protocol": "vector",
+      "paper_scope": "appendix",
+      "runs": [
+        {
+          "seed": 8925,
+          "path": "outputs_tflow/aniso_k100/seed_8925/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 77395,
+          "path": "outputs_tflow/aniso_k100/seed_77395/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 65457,
+          "path": "outputs_tflow/aniso_k100/seed_65457/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        }
+      ],
+      "aggregate_full_precision": {},
+      "aggregate": {},
+      "metric_coverage": {},
+      "historical_values_recomputed": false
+    },
+    "aniso_k300": {
+      "schema_version": 1,
+      "method": "tflow",
+      "condition_id": "aniso_k300",
+      "status": "pending",
+      "expected_seeds": [
+        8925,
+        77395,
+        65457
+      ],
+      "n_expected": 3,
+      "n_complete": 0,
+      "n_failed": 0,
+      "n_pending": 3,
+      "issues": [
+        "suite condition has unresolved input/protocol issues"
+      ],
+      "protocol": "vector",
+      "paper_scope": "appendix",
+      "runs": [
+        {
+          "seed": 8925,
+          "path": "outputs_tflow/aniso_k300/seed_8925/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 77395,
+          "path": "outputs_tflow/aniso_k300/seed_77395/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 65457,
+          "path": "outputs_tflow/aniso_k300/seed_65457/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        }
+      ],
+      "aggregate_full_precision": {},
+      "aggregate": {},
+      "metric_coverage": {},
+      "historical_values_recomputed": false
+    },
+    "toy_radial_angular": {
+      "schema_version": 1,
+      "method": "tflow",
+      "condition_id": "toy_radial_angular",
+      "status": "pending",
+      "expected_seeds": [
+        8925,
+        77395,
+        65457
+      ],
+      "n_expected": 3,
+      "n_complete": 0,
+      "n_failed": 0,
+      "n_pending": 3,
+      "issues": [
+        "suite condition has unresolved input/protocol issues"
+      ],
+      "protocol": "vector",
+      "paper_scope": "appendix",
+      "runs": [
+        {
+          "seed": 8925,
+          "path": "outputs_tflow/toy_radial_angular/seed_8925/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 77395,
+          "path": "outputs_tflow/toy_radial_angular/seed_77395/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 65457,
+          "path": "outputs_tflow/toy_radial_angular/seed_65457/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        }
+      ],
+      "aggregate_full_precision": {},
+      "aggregate": {},
+      "metric_coverage": {},
+      "historical_values_recomputed": false
+    },
+    "piv_d16": {
+      "schema_version": 1,
+      "method": "tflow",
+      "condition_id": "piv_d16",
+      "status": "pending",
+      "expected_seeds": [
+        8925,
+        77395,
+        65457
+      ],
+      "n_expected": 3,
+      "n_complete": 0,
+      "n_failed": 0,
+      "n_pending": 3,
+      "issues": [
+        "suite condition has unresolved input/protocol issues"
+      ],
+      "protocol": "vector",
+      "paper_scope": "appendix",
+      "runs": [
+        {
+          "seed": 8925,
+          "path": "outputs_tflow/piv_d16/seed_8925/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 77395,
+          "path": "outputs_tflow/piv_d16/seed_77395/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 65457,
+          "path": "outputs_tflow/piv_d16/seed_65457/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        }
+      ],
+      "aggregate_full_precision": {},
+      "aggregate": {},
+      "metric_coverage": {},
+      "historical_values_recomputed": false
+    },
+    "piv_d32": {
+      "schema_version": 1,
+      "method": "tflow",
+      "condition_id": "piv_d32",
+      "status": "pending",
+      "expected_seeds": [
+        8925,
+        77395,
+        65457
+      ],
+      "n_expected": 3,
+      "n_complete": 0,
+      "n_failed": 0,
+      "n_pending": 3,
+      "issues": [
+        "suite condition has unresolved input/protocol issues"
+      ],
+      "protocol": "vector",
+      "paper_scope": "appendix",
+      "runs": [
+        {
+          "seed": 8925,
+          "path": "outputs_tflow/piv_d32/seed_8925/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 77395,
+          "path": "outputs_tflow/piv_d32/seed_77395/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 65457,
+          "path": "outputs_tflow/piv_d32/seed_65457/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        }
+      ],
+      "aggregate_full_precision": {},
+      "aggregate": {},
+      "metric_coverage": {},
+      "historical_values_recomputed": false
+    },
+    "piv_d64": {
+      "schema_version": 1,
+      "method": "tflow",
+      "condition_id": "piv_d64",
+      "status": "pending",
+      "expected_seeds": [
+        8925,
+        77395,
+        65457
+      ],
+      "n_expected": 3,
+      "n_complete": 0,
+      "n_failed": 0,
+      "n_pending": 3,
+      "issues": [],
+      "protocol": "vector",
+      "paper_scope": "main_and_appendix",
+      "runs": [
+        {
+          "seed": 8925,
+          "path": "outputs_tflow/piv_d64/seed_8925/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 77395,
+          "path": "outputs_tflow/piv_d64/seed_77395/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 65457,
+          "path": "outputs_tflow/piv_d64/seed_65457/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        }
+      ],
+      "aggregate_full_precision": {},
+      "aggregate": {},
+      "metric_coverage": {},
+      "historical_values_recomputed": false
+    },
+    "piv_d256": {
+      "schema_version": 1,
+      "method": "tflow",
+      "condition_id": "piv_d256",
+      "status": "pending",
+      "expected_seeds": [
+        8925,
+        77395,
+        65457
+      ],
+      "n_expected": 3,
+      "n_complete": 0,
+      "n_failed": 0,
+      "n_pending": 3,
+      "issues": [],
+      "protocol": "vector",
+      "paper_scope": "main_and_appendix",
+      "runs": [
+        {
+          "seed": 8925,
+          "path": "outputs_tflow/piv_d256/seed_8925/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 77395,
+          "path": "outputs_tflow/piv_d256/seed_77395/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 65457,
+          "path": "outputs_tflow/piv_d256/seed_65457/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        }
+      ],
+      "aggregate_full_precision": {},
+      "aggregate": {},
+      "metric_coverage": {},
+      "historical_values_recomputed": false
+    },
+    "finance_ff49": {
+      "schema_version": 1,
+      "method": "tflow",
+      "condition_id": "finance_ff49",
+      "status": "pending",
+      "expected_seeds": [
+        8925,
+        77395,
+        65457
+      ],
+      "n_expected": 3,
+      "n_complete": 0,
+      "n_failed": 0,
+      "n_pending": 3,
+      "issues": [],
+      "protocol": "vector",
+      "paper_scope": "main_and_appendix",
+      "runs": [
+        {
+          "seed": 8925,
+          "path": "outputs_tflow/finance_ff49/seed_8925/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 77395,
+          "path": "outputs_tflow/finance_ff49/seed_77395/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 65457,
+          "path": "outputs_tflow/finance_ff49/seed_65457/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        }
+      ],
+      "aggregate_full_precision": {},
+      "aggregate": {},
+      "metric_coverage": {},
+      "historical_values_recomputed": false
+    },
+    "weather_au_wind": {
+      "schema_version": 1,
+      "method": "tflow",
+      "condition_id": "weather_au_wind",
+      "status": "pending",
+      "expected_seeds": [
+        8925,
+        77395,
+        65457
+      ],
+      "n_expected": 3,
+      "n_complete": 0,
+      "n_failed": 0,
+      "n_pending": 3,
+      "issues": [],
+      "protocol": "vector",
+      "paper_scope": "main_and_appendix",
+      "runs": [
+        {
+          "seed": 8925,
+          "path": "outputs_tflow/weather_au_wind/seed_8925/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 77395,
+          "path": "outputs_tflow/weather_au_wind/seed_77395/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 65457,
+          "path": "outputs_tflow/weather_au_wind/seed_65457/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        }
+      ],
+      "aggregate_full_precision": {},
+      "aggregate": {},
+      "metric_coverage": {},
+      "historical_values_recomputed": false
+    },
+    "audiomnist_stft": {
+      "schema_version": 1,
+      "method": "tflow",
+      "condition_id": "audiomnist_stft",
+      "status": "pending",
+      "expected_seeds": [
+        8925,
+        1234,
+        7
+      ],
+      "n_expected": 3,
+      "n_complete": 0,
+      "n_failed": 0,
+      "n_pending": 3,
+      "issues": [],
+      "protocol": "audio",
+      "paper_scope": "main_and_appendix",
+      "runs": [
+        {
+          "seed": 8925,
+          "path": "outputs_tflow/audiomnist_stft/seed_8925/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 1234,
+          "path": "outputs_tflow/audiomnist_stft/seed_1234/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 7,
+          "path": "outputs_tflow/audiomnist_stft/seed_7/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        }
+      ],
+      "aggregate_full_precision": {},
+      "aggregate": {},
+      "metric_coverage": {},
+      "historical_values_recomputed": false
+    },
+    "imagenette_dcae": {
+      "schema_version": 1,
+      "method": "tflow",
+      "condition_id": "imagenette_dcae",
+      "status": "pending",
+      "expected_seeds": [
+        8925,
+        1234,
+        7
+      ],
+      "n_expected": 3,
+      "n_complete": 0,
+      "n_failed": 0,
+      "n_pending": 3,
+      "issues": [
+        "suite condition has unresolved input/protocol issues"
+      ],
+      "protocol": "image",
+      "paper_scope": "main_and_appendix",
+      "runs": [
+        {
+          "seed": 8925,
+          "path": "outputs_tflow/imagenette_dcae/seed_8925/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 1234,
+          "path": "outputs_tflow/imagenette_dcae/seed_1234/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        },
+        {
+          "seed": 7,
+          "path": "outputs_tflow/imagenette_dcae/seed_7/result.json",
+          "status": "pending",
+          "issues": [
+            "missing final result.json"
+          ]
+        }
+      ],
+      "aggregate_full_precision": {},
+      "aggregate": {},
+      "metric_coverage": {},
+      "historical_values_recomputed": false
+    }
+  },
+  "unexpected_condition_artifacts": [],
+  "historical_values_recomputed": false
+}

@@ -1,0 +1,60 @@
+{
+  "purpose": "CPU forward-interface checks with unit-test fixtures; no training or benchmark",
+  "host": "auh7-3b-gpu-080",
+  "torch": "2.7.1+rocm6.3",
+  "checks": [
+    {
+      "kind": "mlp",
+      "parameters": 49728,
+      "shape": [
+        2,
+        64
+      ],
+      "finite": true
+    },
+    {
+      "kind": "audio_unet",
+      "parameters": 27896802,
+      "shape": [
+        1,
+        16254
+      ],
+      "finite": true,
+      "provenance": {
+        "backbone": "UNetVel",
+        "event_shape": [
+          2,
+          129,
+          63
+        ],
+        "source": "experiments/poc_audio/audio_flow.py",
+        "source_sha256": "002401d0933edc1e090279428fbbfcf3d764910b1bf15a9840ba48d36e731dc0",
+        "state_dict_format": "original_unwrapped"
+      }
+    },
+    {
+      "kind": "image_sit",
+      "parameters": 32515616,
+      "shape": [
+        1,
+        2048
+      ],
+      "finite": true,
+      "provenance": {
+        "backbone": "SiT",
+        "repository": "https://github.com/willisma/SiT",
+        "commit": "cbde832a40b153ccc79603412409da9c9b0c568c",
+        "source_sha256": "677cfa2cf5a7db122abd014d6d92d7ac5f39745f571773a6adcc26c7d2f33d89",
+        "license": "MIT",
+        "license_sha256": "cf9b17822d1fcd4ff32ccbe14183386fb3adf6f2ff92dc184130823f7fc28173",
+        "event_shape": [
+          32,
+          8,
+          8
+        ],
+        "state_dict_format": "original_unwrapped"
+      }
+    }
+  ],
+  "status": "passed"
+}

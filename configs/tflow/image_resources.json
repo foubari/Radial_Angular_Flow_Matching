@@ -1,0 +1,13 @@
+{
+  "decoder_path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.cache/huggingface/hub/models--mit-han-lab--dc-ae-f32c32-sana-1.0-diffusers/snapshots/ca69e17e97609e64ce055115a6515215109b1f50",
+  "decoder_files_sha256": {
+    "config.json": "604288647c7e5b7db62d3b1dc771dfee72dacd5f713c9b0b96ae5333a47299ee",
+    "diffusion_pytorch_model.safetensors": "15a4b09e56d95b768a0ec9da50b702e21d920333fc9b3480d66bb5c7fad9d87f"
+  },
+  "inception_weights_path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.cache/torch/hub/checkpoints/weights-inception-2015-12-05-6726825d.pth",
+  "inception_weights_sha256": "6726825d0af5f729cebd5821db510b11b1cfad8faad88a03f1befd49fb9129b2",
+  "expected_reference_sha256": "79064131fa4cad5529be9ba8b37d3da62a2002adb1b011cfc6bdf148b25382b7",
+  "real_n": 3925,
+  "resource_status": "existing_local_files_hashed_without_model_load",
+  "split_status": "still_blocked_requires_original_indices_and_reference_disjointness"
+}

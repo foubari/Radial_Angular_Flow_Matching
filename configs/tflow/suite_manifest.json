@@ -1,0 +1,4336 @@
+{
+  "schema_version": 1,
+  "purpose": "Reviewable full-paper t-Flow experiment inventory; not a launch configuration",
+  "paper": {
+    "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm_review_inputs_20260909.qI0bZo/RAFM_ICLR_2027.pdf",
+    "sha256": "97f709df2a45e4acf4ba186379c60e9c75120d95e09af782d7a18c8b56d00367",
+    "pages": 39,
+    "source_text": "/mnt/vast01/users/fouad.oubari/msgm/rafm_review_inputs_20260909.qI0bZo/paper.txt",
+    "values_final": true,
+    "temporary_comments_or_colors_change_scope": false,
+    "cited_commits": {
+      "original_rafm": "2e659c7",
+      "angular_revision": "f892493",
+      "original_timing": "57d1dbd",
+      "sparse_vector_archive": "1a6d0e6",
+      "sparse_downstream_archive": "e232f93",
+      "sparse_finance_weather_archive": "5b89ed5"
+    }
+  },
+  "audit": {
+    "date": "2026-09-10",
+    "worktree": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions",
+    "commit": "5b89ed5f4af8a47c3b57eb9d595203daafc6d2c4",
+    "remote": "https://github.com/foubari/radial_angular_FM",
+    "scope": "current prompt, paper, relevant source/config/results and byte hashes only",
+    "no_experiments_launched": true,
+    "no_tensor_or_checkpoint_deserialization": false,
+    "visually_checked_pdf_pages": [
+      23,
+      31,
+      35
+    ],
+    "visual_findings": "Figure3 sweep scope,Table13/14 control/projection scope and C.10 downstream counts/reference requirements confirmed against rendered pages.",
+    "cached_tensor_verification": "docs/artifact_audit/cached_input_checks.json; read-only CPU computation, no model checkpoint or experiment",
+    "no_model_checkpoint_loaded": true
+  },
+  "authorization": {
+    "resource_access_and_static_implementation": true,
+    "experiment_launch": false,
+    "requires_explicit_user_experiment_approval": true
+  },
+  "execution_policy": {
+    "allow_regeneration": false,
+    "require_cached_input_sha256": true,
+    "refuse_unresolved_protocol": true,
+    "preserve_existing_results": true,
+    "new_dataset_storage_root": "/mnt/vast01/users/fouad.oubari/data/",
+    "tuning_uses": "validation only; held-out test never selects hyperparameters",
+    "input_identity_note": "A seeded replacement sample is not an exact cached input."
+  },
+  "coverage": {
+    "unique_required_conditions": 28,
+    "main_conditions": 8,
+    "additional_appendix_conditions": 20,
+    "final_model_seeds_per_condition": 3,
+    "full_final_training_runs": 84,
+    "deduplication": "d16df3 belongs to both dimension and tail sweeps; d16df3/d32df3 also main. Deduplication is scientific condition count only: cached identity across historical contexts is unverified; distinct caches require separate comparison contexts."
+  },
+  "tuning_estimate": {
+    "status": "root_selected_proposal_not_user_approved",
+    "nu_candidates": [
+      3,
+      5,
+      7
+    ],
+    "scale_multipliers": [
+      0.5,
+      1,
+      2
+    ],
+    "candidate_count": 9,
+    "tuning_seed": 46021,
+    "reference_scale": "median(train_norm) / sqrt(d * scipy.stats.f.ppf(0.5, d, nu))",
+    "candidate_scale": "reference_scale * scale_multiplier",
+    "first_stage_fraction": 0.05,
+    "first_stage_candidates": 9,
+    "continuation_fraction_total": 0.1,
+    "continuation_candidates": 2,
+    "continuation_reuses_stage1_checkpoint": true,
+    "fraction_per_condition": 0.55,
+    "final_seeds_per_condition": 3,
+    "final_restart_from_scratch": true,
+    "early_stopping_final": false,
+    "winner_frozen_before_final_training": true,
+    "selection": "validation CDF-based criterion with fixed shared sliced projections; see root protocol docs",
+    "steps": {
+      "vector": {
+        "stage1": 500,
+        "continuation_total": 1000,
+        "final": 10000
+      },
+      "audio": {
+        "stage1": 1200,
+        "continuation_total": 2400,
+        "final": 24000
+      },
+      "image": {
+        "stage1": 2000,
+        "continuation_total": 4000,
+        "final": 40000
+      }
+    },
+    "formula": "28 * (9*0.05 + 2*(0.10-0.05)) = 15.4 tuning equivalents; 28*3 = 84 final equivalents; total99.4",
+    "tuning_full_run_equivalents": 15.4,
+    "final_full_run_equivalents": 84,
+    "total_full_run_equivalents": 99.4,
+    "notes": [
+      "Nine settings are the Cartesian product nu{3,5,7} x multiplier{0.5,1,2}.",
+      "Model/data selection uses validation only; test never selects hyperparameters.",
+      "Each equivalent uses that condition full training budget; not a GPU-hour estimate.",
+      "Sampling/metrics, source scale fitting, optional diagnostics, failure handling and unresolved-context duplication excluded.",
+      "All experiments await explicit user approval."
+    ]
+  },
+  "protocols": {
+    "vector": {
+      "architecture": {
+        "kind": "MLP",
+        "hidden_dim": 128,
+        "hidden_layers": 3,
+        "activation": "Swish",
+        "time_conditioning": "concatenate scalar t",
+        "class_conditioning": null,
+        "normalization": null,
+        "residual": false,
+        "dropout": 0
+      },
+      "optimizer": {
+        "kind": "Adam",
+        "lr": 0.001,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08,
+        "weight_decay": 0
+      },
+      "schedule": "constant",
+      "ema": null,
+      "gradient_clip": null,
+      "precision": "float32",
+      "train_steps": 10000,
+      "checkpoint_every": 5000,
+      "checkpoint_selection": "final step10000; no test selection",
+      "model_seeds": [
+        8925,
+        77395,
+        65457
+      ],
+      "split_seed": 0,
+      "sampler": {
+        "solver": "rk4",
+        "steps": 128,
+        "actual_nfe": 512,
+        "sample_seed": null,
+        "sample_seed_note": "Historical vector sampling uses current model-seeded RNG state; separate seed not pinned."
+      },
+      "metrics": [
+        "radial_w1",
+        "ks_stat",
+        "q950_err",
+        "q990_err",
+        "q995_err",
+        "tail_exc_95",
+        "tail_exc_99",
+        "sliced_w1",
+        "mmd",
+        "angular_sw_bin0",
+        "angular_sw_bin1",
+        "angular_sw_bin2",
+        "angular_sw_bin3",
+        "angular_sw_mean",
+        "nan_rate",
+        "exploding_norm_rate",
+        "invalid_rate",
+        "nfe",
+        "sample_time_s",
+        "total_train_time_s"
+      ],
+      "metric_protocol": {
+        "sliced_projections": 500,
+        "angular_projections": 200,
+        "radial_bins": 4,
+        "bin_quantiles": "test-set radii",
+        "minimum_bin_samples": 10,
+        "projection_seed": null,
+        "projection_rng_note": "shared within comparison required by paper, archived state unavailable"
+      },
+      "training_batch_replacement": true,
+      "data_augmentation": false,
+      "paper_sections": [
+        "C.4",
+        "C.7",
+        "C.8",
+        "C.9",
+        "C.12"
+      ]
+    },
+    "audio": {
+      "architecture": {
+        "kind": "UNetVel",
+        "base_width": 96,
+        "channel_multipliers": [
+          1,
+          2,
+          4
+        ],
+        "conditioning_dim": 256,
+        "classes": 10,
+        "class_dropout": 0.1,
+        "parameters_approx": 27900000
+      },
+      "optimizer": {
+        "kind": "AdamW",
+        "lr": 0.0002,
+        "betas": [
+          0.9,
+          0.95
+        ],
+        "weight_decay": 0
+      },
+      "batch_size": 32,
+      "train_steps": 24000,
+      "ema": 0.999,
+      "precision": "float32 parameters; bfloat16 training autocast in historical runs",
+      "model_seeds": [
+        8925,
+        1234,
+        7
+      ],
+      "checkpoint_selection": "final EMA at24000",
+      "checkpoint_every": 2000,
+      "sampler": {
+        "solver": "rk4",
+        "steps": 40,
+        "actual_nfe": 160,
+        "sample_seed": 0,
+        "n_generated": 2000,
+        "class_balanced": true,
+        "cfg": 1
+      },
+      "metrics": [
+        "digit_acc",
+        "energy_radial_w1",
+        "energy_ks",
+        "cov_gt_q90",
+        "cov_gt_q95",
+        "cov_gt_q99",
+        "cov_lt_q10",
+        "pit_mean",
+        "accuracy_by_energy_tercile",
+        "training_time_s",
+        "sampling_time_s"
+      ],
+      "paper_sections": [
+        "C.10",
+        "B.4"
+      ]
+    },
+    "image": {
+      "architecture": {
+        "kind": "SiT",
+        "input_channels": 32,
+        "input_size": 8,
+        "patch_size": 1,
+        "hidden_dim": 384,
+        "depth": 12,
+        "heads": 6,
+        "classes": 10,
+        "class_dropout": 0.1,
+        "learn_sigma": false,
+        "parameters_approx": 32500000
+      },
+      "optimizer": {
+        "kind": "AdamW",
+        "lr": 0.0001,
+        "betas": [
+          0.9,
+          0.95
+        ],
+        "weight_decay": 0
+      },
+      "batch_size": 64,
+      "train_steps": 40000,
+      "ema": 0.9999,
+      "precision": "float32 parameters; bfloat16 training autocast in historical runs",
+      "model_seeds": [
+        8925,
+        1234,
+        7
+      ],
+      "checkpoint_selection": "final EMA at40000",
+      "checkpoint_every": 2000,
+      "sampler": {
+        "solver": "rk4",
+        "steps": 25,
+        "actual_nfe": 100,
+        "sample_seed": 0,
+        "n_generated": 3000,
+        "class_balanced": true,
+        "cfg": 1
+      },
+      "metrics": [
+        "fid",
+        "kid",
+        "kid_std",
+        "precision",
+        "recall",
+        "density",
+        "coverage",
+        "radial_w1",
+        "ks",
+        "sliced_w1",
+        "training_time_s",
+        "sampling_time_s"
+      ],
+      "metric_protocol": {
+        "library": "torch-fidelity Inception features + prdc",
+        "prdc_nearest_k": 5,
+        "reference_images": 3925,
+        "kid_subset_size": 1000,
+        "latent_sliced_projections": 200
+      },
+      "paper_sections": [
+        "C.10",
+        "B.4"
+      ]
+    }
+  },
+  "inputs": {
+    "piv16": {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/data/piv/piv_d16.pt",
+      "sha256": "a30a243c46d7095581ce86be562a40ac9f7195d1b55b40374721ce23db14e5e4",
+      "kind": "tensor",
+      "exists": true,
+      "shape": [
+        998,
+        16
+      ],
+      "identity_status": "bytes_pinned; historical-comparison identity requires relevant archived manifest",
+      "regenerate": false
+    },
+    "piv64": {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/data/piv/piv_d64.pt",
+      "sha256": "268aaf1ce26096f76b24ad64db3a397a889a52fc78a98ed523c7f48481e8715e",
+      "kind": "tensor",
+      "exists": true,
+      "shape": [
+        998,
+        64
+      ],
+      "identity_status": "Byte-pinned cache and historical train/test tensor identities verified on CPU",
+      "regenerate": false
+    },
+    "piv256": {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/data/piv/piv_d256.pt",
+      "sha256": "93b25962f33f8c4197356a09200093b363cccad0a9c164a2853642855a8277b4",
+      "kind": "tensor",
+      "exists": true,
+      "shape": [
+        998,
+        256
+      ],
+      "identity_status": "Byte-pinned cache and historical train/test tensor identities verified on CPU",
+      "regenerate": false
+    },
+    "finance": {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/rebuttal_experiments/data/finance/finance_returns_raw.pt",
+      "sha256": "7ce89c88cf8c55c669aa6172fdbfb0c7efe1211cea7ee608bc6c9e139a74d51e",
+      "kind": "tensor",
+      "exists": true,
+      "shape": [
+        14349,
+        49
+      ],
+      "identity_status": "bytes_pinned; historical-comparison identity requires relevant archived manifest",
+      "regenerate": false
+    },
+    "weather": {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/rebuttal_experiments/data/weather/weather_au_wind.pt",
+      "sha256": "8c2cf0e1fbc8a62fa1b45e76c5396ae77afc9acf7719ed43a14c2947dca9f361",
+      "kind": "tensor",
+      "exists": true,
+      "shape": [
+        5847,
+        96
+      ],
+      "identity_status": "bytes_pinned; historical-comparison identity requires relevant archived manifest",
+      "regenerate": false
+    },
+    "audio_train": {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/poc_audio/data/audiomnist_stft_train.pt",
+      "sha256": "d4c0e10dcae8bdb2ad6e7bf05202a42e6a6af3b6fb064e6fc97e12432e0fe7be",
+      "kind": "tensor",
+      "exists": true,
+      "shape": [
+        12000,
+        2,
+        129,
+        63
+      ],
+      "identity_status": "bytes_pinned; historical-comparison identity requires relevant archived manifest",
+      "regenerate": false
+    },
+    "audio_test": {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/poc_audio/data/audiomnist_stft_test.pt",
+      "sha256": "c9ab95b3bcb0049f881a84d180bccbdedf4d25cf6723dc48cafb90e4a0e20209",
+      "kind": "tensor",
+      "exists": true,
+      "shape": [
+        3000,
+        2,
+        129,
+        63
+      ],
+      "identity_status": "bytes_pinned; historical-comparison identity requires relevant archived manifest",
+      "regenerate": false
+    },
+    "audio_classifier": {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/poc_audio/digit_classifier.pt",
+      "sha256": "1c68713e65df8c256bf8dd73edee70ba0e419381258cc46ff497042287946d50",
+      "kind": "metric_checkpoint; do not retrain",
+      "exists": true,
+      "shape": null,
+      "identity_status": "bytes_pinned; historical-comparison identity requires relevant archived manifest",
+      "regenerate": false
+    },
+    "dcae_latents": {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/image_latents/data/dcae_latents_scaled.pt",
+      "sha256": "15088880ca60e69747d4c8bb55eda046d0667475e35ff6d7133e876090d83116",
+      "kind": "tensor",
+      "exists": true,
+      "shape": [
+        13394,
+        2048
+      ],
+      "identity_status": "bytes_pinned; historical-comparison identity requires relevant archived manifest",
+      "regenerate": false
+    },
+    "dcae_labels": {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/image_latents/data/dcae_labels.pt",
+      "sha256": "95e17fe21ec2a8644dfb1f4cd00b576c0ab307b333d83f6baa67d67026a1f671",
+      "kind": "tensor",
+      "exists": true,
+      "shape": [
+        13394
+      ],
+      "identity_status": "bytes_pinned; historical-comparison identity requires relevant archived manifest",
+      "regenerate": false
+    },
+    "dcae_reference": {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/image_latents/dit/eval_std/_real_ref",
+      "kind": "image_directory",
+      "exists": true,
+      "count": 3925,
+      "sha256": null,
+      "identity_status": "All3925 PNGs byte-identical to committed baseline manifest; generator/reference disjointness remains unresolved",
+      "regenerate": false,
+      "reference_verification": {
+        "expected_count": 3925,
+        "actual_count": 3925,
+        "manifest_count": 3925,
+        "byte_identical": true,
+        "manifest_sha256": "869c4daee2671138beedefca756c4bc1b5d7368ba401e9415d12ccadcb045ac5"
+      }
+    }
+  },
+  "benchmarks": [
+    {
+      "id": "student_t_d2_df3.0_cor",
+      "family": "student_t",
+      "dimension": 2,
+      "required": true,
+      "paper_scope": "appendix",
+      "paper_references": [
+        "Figure3",
+        "B.1",
+        "C.5-C.9"
+      ],
+      "protocol": "vector",
+      "input_ids": [],
+      "cached_input_path": null,
+      "input_sha256": null,
+      "split": {
+        "kind": "random_permutation",
+        "seed": 0,
+        "counts": [
+          30000,
+          10000,
+          10000
+        ],
+        "n_total": 50000,
+        "exact_row_indices_path": null
+      },
+      "preprocessing": "Coordinatewise independent Student-t(df), fixed Gaussian mixing matrix seed42; no centering/scaling/whitening. Reuse realized tensors and matrix.",
+      "train_steps": 10000,
+      "batch_size": null,
+      "model_seeds": [
+        8925,
+        77395,
+        65457
+      ],
+      "resolved_protocol": false,
+      "blocking_issue_ids": [
+        "synthetic_cache_missing",
+        "vector_batch_conflict"
+      ],
+      "source_artifacts": [
+        "rebuttal_experiments/configs/E6_dim2.yaml"
+      ],
+      "experiment_launch_authorized": false,
+      "tflow_candidate_config_status": "pending source-policy selection and per-condition protocol resolution",
+      "target_df": 3.0,
+      "comparison_contexts": [
+        "dimension_sweep"
+      ],
+      "paper_batch_size": 256,
+      "batch_size_candidates": [
+        {
+          "value": 256,
+          "provenance": "paper B.1/C.7;f892493 defaults"
+        },
+        {
+          "value": 4096,
+          "provenance": "f892493 E1/E6/E8 YAML;2e659c7 defaults"
+        }
+      ],
+      "n_generated": 10000,
+      "actual_nfe": 512,
+      "cache_identity_between_contexts_verified": false,
+      "tuning": {
+        "seed": 46021,
+        "stage1_steps": 500,
+        "continuation_total_steps": 1000,
+        "candidate_grid_ref": "tuning_estimate",
+        "status": "proposed_pending_experiment_approval"
+      },
+      "planned_tflow_sampler": {
+        "solver": "heun",
+        "steps": 256,
+        "actual_nfe": 512,
+        "t_min": 0.001,
+        "grid": "power_sigma",
+        "rho": 7.0,
+        "sigma_min": 0.01,
+        "status": "prepared numerical convention; awaiting experiment approval"
+      }
+    },
+    {
+      "id": "student_t_d8_df3.0_cor",
+      "family": "student_t",
+      "dimension": 8,
+      "required": true,
+      "paper_scope": "appendix",
+      "paper_references": [
+        "Figure3",
+        "B.1",
+        "C.5-C.9"
+      ],
+      "protocol": "vector",
+      "input_ids": [],
+      "cached_input_path": null,
+      "input_sha256": null,
+      "split": {
+        "kind": "random_permutation",
+        "seed": 0,
+        "counts": [
+          30000,
+          10000,
+          10000
+        ],
+        "n_total": 50000,
+        "exact_row_indices_path": null
+      },
+      "preprocessing": "Coordinatewise independent Student-t(df), fixed Gaussian mixing matrix seed42; no centering/scaling/whitening. Reuse realized tensors and matrix.",
+      "train_steps": 10000,
+      "batch_size": null,
+      "model_seeds": [
+        8925,
+        77395,
+        65457
+      ],
+      "resolved_protocol": false,
+      "blocking_issue_ids": [
+        "synthetic_cache_missing",
+        "vector_batch_conflict"
+      ],
+      "source_artifacts": [
+        "rebuttal_experiments/configs/E6_dim8.yaml"
+      ],
+      "experiment_launch_authorized": false,
+      "tflow_candidate_config_status": "pending source-policy selection and per-condition protocol resolution",
+      "target_df": 3.0,
+      "comparison_contexts": [
+        "dimension_sweep"
+      ],
+      "paper_batch_size": 256,
+      "batch_size_candidates": [
+        {
+          "value": 256,
+          "provenance": "paper B.1/C.7;f892493 defaults"
+        },
+        {
+          "value": 4096,
+          "provenance": "f892493 E1/E6/E8 YAML;2e659c7 defaults"
+        }
+      ],
+      "n_generated": 10000,
+      "actual_nfe": 512,
+      "cache_identity_between_contexts_verified": false,
+      "tuning": {
+        "seed": 46021,
+        "stage1_steps": 500,
+        "continuation_total_steps": 1000,
+        "candidate_grid_ref": "tuning_estimate",
+        "status": "proposed_pending_experiment_approval"
+      },
+      "planned_tflow_sampler": {
+        "solver": "heun",
+        "steps": 256,
+        "actual_nfe": 512,
+        "t_min": 0.001,
+        "grid": "power_sigma",
+        "rho": 7.0,
+        "sigma_min": 0.01,
+        "status": "prepared numerical convention; awaiting experiment approval"
+      }
+    },
+    {
+      "id": "student_t_d16_df3.0_cor",
+      "family": "student_t",
+      "dimension": 16,
+      "required": true,
+      "paper_scope": "main_and_appendix",
+      "paper_references": [
+        "Table1",
+        "Table3",
+        "Table11",
+        "Figure3",
+        "C.5-C.9"
+      ],
+      "protocol": "vector",
+      "input_ids": [],
+      "cached_input_path": null,
+      "input_sha256": null,
+      "split": {
+        "kind": "random_permutation",
+        "seed": 0,
+        "counts": [
+          30000,
+          10000,
+          10000
+        ],
+        "n_total": 50000,
+        "exact_row_indices_path": null
+      },
+      "preprocessing": "Coordinatewise independent Student-t(df), fixed Gaussian mixing matrix seed42; no centering/scaling/whitening. Reuse realized tensors and matrix.",
+      "train_steps": 10000,
+      "batch_size": null,
+      "model_seeds": [
+        8925,
+        77395,
+        65457
+      ],
+      "resolved_protocol": false,
+      "blocking_issue_ids": [
+        "synthetic_cache_missing",
+        "vector_batch_conflict"
+      ],
+      "source_artifacts": [
+        "rebuttal_experiments/configs/E6_dim16.yaml",
+        "rebuttal_experiments/configs/E8_df3.0.yaml",
+        "configs/exp1/studentt_d16.yaml",
+        "rebuttal_experiments/configs/E1_studentt_d16.yaml"
+      ],
+      "experiment_launch_authorized": false,
+      "tflow_candidate_config_status": "pending source-policy selection and per-condition protocol resolution",
+      "target_df": 3.0,
+      "comparison_contexts": [
+        "dimension_sweep",
+        "tail_sweep",
+        "main_and_oracle"
+      ],
+      "paper_batch_size": 256,
+      "batch_size_candidates": [
+        {
+          "value": 256,
+          "provenance": "paper B.1/C.7;f892493 defaults"
+        },
+        {
+          "value": 4096,
+          "provenance": "f892493 E1/E6/E8 YAML;2e659c7 defaults"
+        }
+      ],
+      "n_generated": 10000,
+      "actual_nfe": 512,
+      "cache_identity_between_contexts_verified": false,
+      "tuning": {
+        "seed": 46021,
+        "stage1_steps": 500,
+        "continuation_total_steps": 1000,
+        "candidate_grid_ref": "tuning_estimate",
+        "status": "proposed_pending_experiment_approval"
+      },
+      "planned_tflow_sampler": {
+        "solver": "heun",
+        "steps": 256,
+        "actual_nfe": 512,
+        "t_min": 0.001,
+        "grid": "power_sigma",
+        "rho": 7.0,
+        "sigma_min": 0.01,
+        "status": "prepared numerical convention; awaiting experiment approval"
+      }
+    },
+    {
+      "id": "student_t_d32_df3.0_cor",
+      "family": "student_t",
+      "dimension": 32,
+      "required": true,
+      "paper_scope": "main_and_appendix",
+      "paper_references": [
+        "Table1",
+        "Table3",
+        "Table11",
+        "Figure3",
+        "C.5-C.9"
+      ],
+      "protocol": "vector",
+      "input_ids": [],
+      "cached_input_path": null,
+      "input_sha256": null,
+      "split": {
+        "kind": "random_permutation",
+        "seed": 0,
+        "counts": [
+          30000,
+          10000,
+          10000
+        ],
+        "n_total": 50000,
+        "exact_row_indices_path": null
+      },
+      "preprocessing": "Coordinatewise independent Student-t(df), fixed Gaussian mixing matrix seed42; no centering/scaling/whitening. Reuse realized tensors and matrix.",
+      "train_steps": 10000,
+      "batch_size": null,
+      "model_seeds": [
+        8925,
+        77395,
+        65457
+      ],
+      "resolved_protocol": false,
+      "blocking_issue_ids": [
+        "synthetic_cache_missing",
+        "vector_batch_conflict"
+      ],
+      "source_artifacts": [
+        "rebuttal_experiments/configs/E6_dim32.yaml",
+        "configs/exp1/studentt_d32.yaml",
+        "rebuttal_experiments/configs/E1_studentt_d32.yaml"
+      ],
+      "experiment_launch_authorized": false,
+      "tflow_candidate_config_status": "pending source-policy selection and per-condition protocol resolution",
+      "target_df": 3.0,
+      "comparison_contexts": [
+        "dimension_sweep",
+        "main_and_oracle"
+      ],
+      "paper_batch_size": 256,
+      "batch_size_candidates": [
+        {
+          "value": 256,
+          "provenance": "paper B.1/C.7;f892493 defaults"
+        },
+        {
+          "value": 4096,
+          "provenance": "f892493 E1/E6/E8 YAML;2e659c7 defaults"
+        }
+      ],
+      "n_generated": 10000,
+      "actual_nfe": 512,
+      "cache_identity_between_contexts_verified": false,
+      "tuning": {
+        "seed": 46021,
+        "stage1_steps": 500,
+        "continuation_total_steps": 1000,
+        "candidate_grid_ref": "tuning_estimate",
+        "status": "proposed_pending_experiment_approval"
+      },
+      "planned_tflow_sampler": {
+        "solver": "heun",
+        "steps": 256,
+        "actual_nfe": 512,
+        "t_min": 0.001,
+        "grid": "power_sigma",
+        "rho": 7.0,
+        "sigma_min": 0.01,
+        "status": "prepared numerical convention; awaiting experiment approval"
+      }
+    },
+    {
+      "id": "student_t_d64_df3.0_cor",
+      "family": "student_t",
+      "dimension": 64,
+      "required": true,
+      "paper_scope": "appendix",
+      "paper_references": [
+        "Figure3",
+        "B.1",
+        "C.5-C.9"
+      ],
+      "protocol": "vector",
+      "input_ids": [],
+      "cached_input_path": null,
+      "input_sha256": null,
+      "split": {
+        "kind": "random_permutation",
+        "seed": 0,
+        "counts": [
+          30000,
+          10000,
+          10000
+        ],
+        "n_total": 50000,
+        "exact_row_indices_path": null
+      },
+      "preprocessing": "Coordinatewise independent Student-t(df), fixed Gaussian mixing matrix seed42; no centering/scaling/whitening. Reuse realized tensors and matrix.",
+      "train_steps": 10000,
+      "batch_size": null,
+      "model_seeds": [
+        8925,
+        77395,
+        65457
+      ],
+      "resolved_protocol": false,
+      "blocking_issue_ids": [
+        "synthetic_cache_missing",
+        "vector_batch_conflict"
+      ],
+      "source_artifacts": [
+        "rebuttal_experiments/configs/E6_dim64.yaml"
+      ],
+      "experiment_launch_authorized": false,
+      "tflow_candidate_config_status": "pending source-policy selection and per-condition protocol resolution",
+      "target_df": 3.0,
+      "comparison_contexts": [
+        "dimension_sweep"
+      ],
+      "paper_batch_size": 256,
+      "batch_size_candidates": [
+        {
+          "value": 256,
+          "provenance": "paper B.1/C.7;f892493 defaults"
+        },
+        {
+          "value": 4096,
+          "provenance": "f892493 E1/E6/E8 YAML;2e659c7 defaults"
+        }
+      ],
+      "n_generated": 10000,
+      "actual_nfe": 512,
+      "cache_identity_between_contexts_verified": false,
+      "tuning": {
+        "seed": 46021,
+        "stage1_steps": 500,
+        "continuation_total_steps": 1000,
+        "candidate_grid_ref": "tuning_estimate",
+        "status": "proposed_pending_experiment_approval"
+      },
+      "planned_tflow_sampler": {
+        "solver": "heun",
+        "steps": 256,
+        "actual_nfe": 512,
+        "t_min": 0.001,
+        "grid": "power_sigma",
+        "rho": 7.0,
+        "sigma_min": 0.01,
+        "status": "prepared numerical convention; awaiting experiment approval"
+      }
+    },
+    {
+      "id": "student_t_d128_df3.0_cor",
+      "family": "student_t",
+      "dimension": 128,
+      "required": true,
+      "paper_scope": "appendix",
+      "paper_references": [
+        "Figure3",
+        "B.1",
+        "C.5-C.9"
+      ],
+      "protocol": "vector",
+      "input_ids": [],
+      "cached_input_path": null,
+      "input_sha256": null,
+      "split": {
+        "kind": "random_permutation",
+        "seed": 0,
+        "counts": [
+          30000,
+          10000,
+          10000
+        ],
+        "n_total": 50000,
+        "exact_row_indices_path": null
+      },
+      "preprocessing": "Coordinatewise independent Student-t(df), fixed Gaussian mixing matrix seed42; no centering/scaling/whitening. Reuse realized tensors and matrix.",
+      "train_steps": 10000,
+      "batch_size": null,
+      "model_seeds": [
+        8925,
+        77395,
+        65457
+      ],
+      "resolved_protocol": false,
+      "blocking_issue_ids": [
+        "synthetic_cache_missing",
+        "vector_batch_conflict"
+      ],
+      "source_artifacts": [
+        "rebuttal_experiments/configs/E6_dim128.yaml"
+      ],
+      "experiment_launch_authorized": false,
+      "tflow_candidate_config_status": "pending source-policy selection and per-condition protocol resolution",
+      "target_df": 3.0,
+      "comparison_contexts": [
+        "dimension_sweep"
+      ],
+      "paper_batch_size": 256,
+      "batch_size_candidates": [
+        {
+          "value": 256,
+          "provenance": "paper B.1/C.7;f892493 defaults"
+        },
+        {
+          "value": 4096,
+          "provenance": "f892493 E1/E6/E8 YAML;2e659c7 defaults"
+        }
+      ],
+      "n_generated": 10000,
+      "actual_nfe": 512,
+      "cache_identity_between_contexts_verified": false,
+      "tuning": {
+        "seed": 46021,
+        "stage1_steps": 500,
+        "continuation_total_steps": 1000,
+        "candidate_grid_ref": "tuning_estimate",
+        "status": "proposed_pending_experiment_approval"
+      },
+      "planned_tflow_sampler": {
+        "solver": "heun",
+        "steps": 256,
+        "actual_nfe": 512,
+        "t_min": 0.001,
+        "grid": "power_sigma",
+        "rho": 7.0,
+        "sigma_min": 0.01,
+        "status": "prepared numerical convention; awaiting experiment approval"
+      }
+    },
+    {
+      "id": "student_t_d256_df3.0_cor",
+      "family": "student_t",
+      "dimension": 256,
+      "required": true,
+      "paper_scope": "appendix",
+      "paper_references": [
+        "Figure3",
+        "B.1",
+        "C.5-C.9"
+      ],
+      "protocol": "vector",
+      "input_ids": [],
+      "cached_input_path": null,
+      "input_sha256": null,
+      "split": {
+        "kind": "random_permutation",
+        "seed": 0,
+        "counts": [
+          30000,
+          10000,
+          10000
+        ],
+        "n_total": 50000,
+        "exact_row_indices_path": null
+      },
+      "preprocessing": "Coordinatewise independent Student-t(df), fixed Gaussian mixing matrix seed42; no centering/scaling/whitening. Reuse realized tensors and matrix.",
+      "train_steps": 10000,
+      "batch_size": null,
+      "model_seeds": [
+        8925,
+        77395,
+        65457
+      ],
+      "resolved_protocol": false,
+      "blocking_issue_ids": [
+        "synthetic_cache_missing",
+        "vector_batch_conflict"
+      ],
+      "source_artifacts": [
+        "rebuttal_experiments/configs/E6_dim256.yaml"
+      ],
+      "experiment_launch_authorized": false,
+      "tflow_candidate_config_status": "pending source-policy selection and per-condition protocol resolution",
+      "target_df": 3.0,
+      "comparison_contexts": [
+        "dimension_sweep"
+      ],
+      "paper_batch_size": 256,
+      "batch_size_candidates": [
+        {
+          "value": 256,
+          "provenance": "paper B.1/C.7;f892493 defaults"
+        },
+        {
+          "value": 4096,
+          "provenance": "f892493 E1/E6/E8 YAML;2e659c7 defaults"
+        }
+      ],
+      "n_generated": 10000,
+      "actual_nfe": 512,
+      "cache_identity_between_contexts_verified": false,
+      "tuning": {
+        "seed": 46021,
+        "stage1_steps": 500,
+        "continuation_total_steps": 1000,
+        "candidate_grid_ref": "tuning_estimate",
+        "status": "proposed_pending_experiment_approval"
+      },
+      "planned_tflow_sampler": {
+        "solver": "heun",
+        "steps": 256,
+        "actual_nfe": 512,
+        "t_min": 0.001,
+        "grid": "power_sigma",
+        "rho": 7.0,
+        "sigma_min": 0.01,
+        "status": "prepared numerical convention; awaiting experiment approval"
+      }
+    },
+    {
+      "id": "student_t_d16_df1.5_cor",
+      "family": "student_t",
+      "dimension": 16,
+      "required": true,
+      "paper_scope": "appendix",
+      "paper_references": [
+        "Figure3",
+        "B.1",
+        "C.5-C.9"
+      ],
+      "protocol": "vector",
+      "input_ids": [],
+      "cached_input_path": null,
+      "input_sha256": null,
+      "split": {
+        "kind": "random_permutation",
+        "seed": 0,
+        "counts": [
+          30000,
+          10000,
+          10000
+        ],
+        "n_total": 50000,
+        "exact_row_indices_path": null
+      },
+      "preprocessing": "Coordinatewise independent Student-t(df), fixed Gaussian mixing matrix seed42; no centering/scaling/whitening. Reuse realized tensors and matrix.",
+      "train_steps": 10000,
+      "batch_size": null,
+      "model_seeds": [
+        8925,
+        77395,
+        65457
+      ],
+      "resolved_protocol": false,
+      "blocking_issue_ids": [
+        "synthetic_cache_missing",
+        "vector_batch_conflict"
+      ],
+      "source_artifacts": [
+        "rebuttal_experiments/configs/E8_df1.5.yaml"
+      ],
+      "experiment_launch_authorized": false,
+      "tflow_candidate_config_status": "pending source-policy selection and per-condition protocol resolution",
+      "target_df": 1.5,
+      "comparison_contexts": [
+        "tail_sweep"
+      ],
+      "paper_batch_size": 256,
+      "batch_size_candidates": [
+        {
+          "value": 256,
+          "provenance": "paper B.1/C.7;f892493 defaults"
+        },
+        {
+          "value": 4096,
+          "provenance": "f892493 E1/E6/E8 YAML;2e659c7 defaults"
+        }
+      ],
+      "n_generated": 10000,
+      "actual_nfe": 512,
+      "cache_identity_between_contexts_verified": false,
+      "tuning": {
+        "seed": 46021,
+        "stage1_steps": 500,
+        "continuation_total_steps": 1000,
+        "candidate_grid_ref": "tuning_estimate",
+        "status": "proposed_pending_experiment_approval"
+      },
+      "planned_tflow_sampler": {
+        "solver": "heun",
+        "steps": 256,
+        "actual_nfe": 512,
+        "t_min": 0.001,
+        "grid": "power_sigma",
+        "rho": 7.0,
+        "sigma_min": 0.01,
+        "status": "prepared numerical convention; awaiting experiment approval"
+      }
+    },
+    {
+      "id": "student_t_d16_df2.0_cor",
+      "family": "student_t",
+      "dimension": 16,
+      "required": true,
+      "paper_scope": "appendix",
+      "paper_references": [
+        "Figure3",
+        "B.1",
+        "C.5-C.9"
+      ],
+      "protocol": "vector",
+      "input_ids": [],
+      "cached_input_path": null,
+      "input_sha256": null,
+      "split": {
+        "kind": "random_permutation",
+        "seed": 0,
+        "counts": [
+          30000,
+          10000,
+          10000
+        ],
+        "n_total": 50000,
+        "exact_row_indices_path": null
+      },
+      "preprocessing": "Coordinatewise independent Student-t(df), fixed Gaussian mixing matrix seed42; no centering/scaling/whitening. Reuse realized tensors and matrix.",
+      "train_steps": 10000,
+      "batch_size": null,
+      "model_seeds": [
+        8925,
+        77395,
+        65457
+      ],
+      "resolved_protocol": false,
+      "blocking_issue_ids": [
+        "synthetic_cache_missing",
+        "vector_batch_conflict"
+      ],
+      "source_artifacts": [
+        "rebuttal_experiments/configs/E8_df2.0.yaml"
+      ],
+      "experiment_launch_authorized": false,
+      "tflow_candidate_config_status": "pending source-policy selection and per-condition protocol resolution",
+      "target_df": 2.0,
+      "comparison_contexts": [
+        "tail_sweep"
+      ],
+      "paper_batch_size": 256,
+      "batch_size_candidates": [
+        {
+          "value": 256,
+          "provenance": "paper B.1/C.7;f892493 defaults"
+        },
+        {
+          "value": 4096,
+          "provenance": "f892493 E1/E6/E8 YAML;2e659c7 defaults"
+        }
+      ],
+      "n_generated": 10000,
+      "actual_nfe": 512,
+      "cache_identity_between_contexts_verified": false,
+      "tuning": {
+        "seed": 46021,
+        "stage1_steps": 500,
+        "continuation_total_steps": 1000,
+        "candidate_grid_ref": "tuning_estimate",
+        "status": "proposed_pending_experiment_approval"
+      },
+      "planned_tflow_sampler": {
+        "solver": "heun",
+        "steps": 256,
+        "actual_nfe": 512,
+        "t_min": 0.001,
+        "grid": "power_sigma",
+        "rho": 7.0,
+        "sigma_min": 0.01,
+        "status": "prepared numerical convention; awaiting experiment approval"
+      }
+    },
+    {
+      "id": "student_t_d16_df5.0_cor",
+      "family": "student_t",
+      "dimension": 16,
+      "required": true,
+      "paper_scope": "appendix",
+      "paper_references": [
+        "Figure3",
+        "B.1",
+        "C.5-C.9"
+      ],
+      "protocol": "vector",
+      "input_ids": [],
+      "cached_input_path": null,
+      "input_sha256": null,
+      "split": {
+        "kind": "random_permutation",
+        "seed": 0,
+        "counts": [
+          30000,
+          10000,
+          10000
+        ],
+        "n_total": 50000,
+        "exact_row_indices_path": null
+      },
+      "preprocessing": "Coordinatewise independent Student-t(df), fixed Gaussian mixing matrix seed42; no centering/scaling/whitening. Reuse realized tensors and matrix.",
+      "train_steps": 10000,
+      "batch_size": null,
+      "model_seeds": [
+        8925,
+        77395,
+        65457
+      ],
+      "resolved_protocol": false,
+      "blocking_issue_ids": [
+        "synthetic_cache_missing",
+        "vector_batch_conflict"
+      ],
+      "source_artifacts": [
+        "rebuttal_experiments/configs/E8_df5.0.yaml"
+      ],
+      "experiment_launch_authorized": false,
+      "tflow_candidate_config_status": "pending source-policy selection and per-condition protocol resolution",
+      "target_df": 5.0,
+      "comparison_contexts": [
+        "tail_sweep"
+      ],
+      "paper_batch_size": 256,
+      "batch_size_candidates": [
+        {
+          "value": 256,
+          "provenance": "paper B.1/C.7;f892493 defaults"
+        },
+        {
+          "value": 4096,
+          "provenance": "f892493 E1/E6/E8 YAML;2e659c7 defaults"
+        }
+      ],
+      "n_generated": 10000,
+      "actual_nfe": 512,
+      "cache_identity_between_contexts_verified": false,
+      "tuning": {
+        "seed": 46021,
+        "stage1_steps": 500,
+        "continuation_total_steps": 1000,
+        "candidate_grid_ref": "tuning_estimate",
+        "status": "proposed_pending_experiment_approval"
+      },
+      "planned_tflow_sampler": {
+        "solver": "heun",
+        "steps": 256,
+        "actual_nfe": 512,
+        "t_min": 0.001,
+        "grid": "power_sigma",
+        "rho": 7.0,
+        "sigma_min": 0.01,
+        "status": "prepared numerical convention; awaiting experiment approval"
+      }
+    },
+    {
+      "id": "student_t_d16_df10.0_cor",
+      "family": "student_t",
+      "dimension": 16,
+      "required": true,
+      "paper_scope": "appendix",
+      "paper_references": [
+        "Figure3",
+        "B.1",
+        "C.5-C.9"
+      ],
+      "protocol": "vector",
+      "input_ids": [],
+      "cached_input_path": null,
+      "input_sha256": null,
+      "split": {
+        "kind": "random_permutation",
+        "seed": 0,
+        "counts": [
+          30000,
+          10000,
+          10000
+        ],
+        "n_total": 50000,
+        "exact_row_indices_path": null
+      },
+      "preprocessing": "Coordinatewise independent Student-t(df), fixed Gaussian mixing matrix seed42; no centering/scaling/whitening. Reuse realized tensors and matrix.",
+      "train_steps": 10000,
+      "batch_size": null,
+      "model_seeds": [
+        8925,
+        77395,
+        65457
+      ],
+      "resolved_protocol": false,
+      "blocking_issue_ids": [
+        "synthetic_cache_missing",
+        "vector_batch_conflict"
+      ],
+      "source_artifacts": [
+        "rebuttal_experiments/configs/E8_df10.0.yaml"
+      ],
+      "experiment_launch_authorized": false,
+      "tflow_candidate_config_status": "pending source-policy selection and per-condition protocol resolution",
+      "target_df": 10.0,
+      "comparison_contexts": [
+        "tail_sweep"
+      ],
+      "paper_batch_size": 256,
+      "batch_size_candidates": [
+        {
+          "value": 256,
+          "provenance": "paper B.1/C.7;f892493 defaults"
+        },
+        {
+          "value": 4096,
+          "provenance": "f892493 E1/E6/E8 YAML;2e659c7 defaults"
+        }
+      ],
+      "n_generated": 10000,
+      "actual_nfe": 512,
+      "cache_identity_between_contexts_verified": false,
+      "tuning": {
+        "seed": 46021,
+        "stage1_steps": 500,
+        "continuation_total_steps": 1000,
+        "candidate_grid_ref": "tuning_estimate",
+        "status": "proposed_pending_experiment_approval"
+      },
+      "planned_tflow_sampler": {
+        "solver": "heun",
+        "steps": 256,
+        "actual_nfe": 512,
+        "t_min": 0.001,
+        "grid": "power_sigma",
+        "rho": 7.0,
+        "sigma_min": 0.01,
+        "status": "prepared numerical convention; awaiting experiment approval"
+      }
+    },
+    {
+      "id": "student_t_d16_df50.0_cor",
+      "family": "student_t",
+      "dimension": 16,
+      "required": true,
+      "paper_scope": "appendix",
+      "paper_references": [
+        "Figure3",
+        "B.1",
+        "C.5-C.9"
+      ],
+      "protocol": "vector",
+      "input_ids": [],
+      "cached_input_path": null,
+      "input_sha256": null,
+      "split": {
+        "kind": "random_permutation",
+        "seed": 0,
+        "counts": [
+          30000,
+          10000,
+          10000
+        ],
+        "n_total": 50000,
+        "exact_row_indices_path": null
+      },
+      "preprocessing": "Coordinatewise independent Student-t(df), fixed Gaussian mixing matrix seed42; no centering/scaling/whitening. Reuse realized tensors and matrix.",
+      "train_steps": 10000,
+      "batch_size": null,
+      "model_seeds": [
+        8925,
+        77395,
+        65457
+      ],
+      "resolved_protocol": false,
+      "blocking_issue_ids": [
+        "synthetic_cache_missing",
+        "vector_batch_conflict"
+      ],
+      "source_artifacts": [
+        "rebuttal_experiments/configs/E8_df50.0.yaml"
+      ],
+      "experiment_launch_authorized": false,
+      "tflow_candidate_config_status": "pending source-policy selection and per-condition protocol resolution",
+      "target_df": 50.0,
+      "comparison_contexts": [
+        "tail_sweep"
+      ],
+      "paper_batch_size": 256,
+      "batch_size_candidates": [
+        {
+          "value": 256,
+          "provenance": "paper B.1/C.7;f892493 defaults"
+        },
+        {
+          "value": 4096,
+          "provenance": "f892493 E1/E6/E8 YAML;2e659c7 defaults"
+        }
+      ],
+      "n_generated": 10000,
+      "actual_nfe": 512,
+      "cache_identity_between_contexts_verified": false,
+      "tuning": {
+        "seed": 46021,
+        "stage1_steps": 500,
+        "continuation_total_steps": 1000,
+        "candidate_grid_ref": "tuning_estimate",
+        "status": "proposed_pending_experiment_approval"
+      },
+      "planned_tflow_sampler": {
+        "solver": "heun",
+        "steps": 256,
+        "actual_nfe": 512,
+        "t_min": 0.001,
+        "grid": "power_sigma",
+        "rho": 7.0,
+        "sigma_min": 0.01,
+        "status": "prepared numerical convention; awaiting experiment approval"
+      }
+    },
+    {
+      "id": "gaussian_aniso_d16_cor",
+      "family": "gaussian_control",
+      "dimension": 16,
+      "required": true,
+      "paper_scope": "appendix",
+      "paper_references": [
+        "Table13",
+        "Table14",
+        "C.4-C.9"
+      ],
+      "protocol": "vector",
+      "input_ids": [],
+      "cached_input_path": null,
+      "input_sha256": null,
+      "split": {
+        "kind": "random_permutation",
+        "seed": 0,
+        "counts": [
+          30000,
+          10000,
+          10000
+        ],
+        "n_total": 50000,
+        "exact_row_indices_path": null
+      },
+      "preprocessing": "Gaussian iid base; fixed random Gaussian mixing matrix seed42; no normalization.",
+      "train_steps": 10000,
+      "batch_size": 4096,
+      "model_seeds": [
+        8925,
+        77395,
+        65457
+      ],
+      "resolved_protocol": false,
+      "blocking_issue_ids": [
+        "synthetic_cache_missing"
+      ],
+      "source_artifacts": [
+        "configs/exp1/gaussian_d16.yaml",
+        "rebuttal_experiments/configs/E1_gaussian_d16.yaml"
+      ],
+      "experiment_launch_authorized": false,
+      "tflow_candidate_config_status": "pending source-policy selection and per-condition protocol resolution",
+      "n_generated": 10000,
+      "actual_nfe": 512,
+      "tuning": {
+        "seed": 46021,
+        "stage1_steps": 500,
+        "continuation_total_steps": 1000,
+        "candidate_grid_ref": "tuning_estimate",
+        "status": "proposed_pending_experiment_approval"
+      },
+      "planned_tflow_sampler": {
+        "solver": "heun",
+        "steps": 256,
+        "actual_nfe": 512,
+        "t_min": 0.001,
+        "grid": "power_sigma",
+        "rho": 7.0,
+        "sigma_min": 0.01,
+        "status": "prepared numerical convention; awaiting experiment approval"
+      }
+    },
+    {
+      "id": "aniso_k1",
+      "family": "anisotropy",
+      "dimension": 32,
+      "required": true,
+      "paper_scope": "appendix",
+      "paper_references": [
+        "Figure3",
+        "B.1",
+        "C.5-C.9"
+      ],
+      "protocol": "vector",
+      "input_ids": [],
+      "cached_input_path": null,
+      "input_sha256": null,
+      "split": {
+        "kind": "contiguous_iid_order",
+        "counts": [
+          30000,
+          10000,
+          10000
+        ],
+        "n_total": 50000
+      },
+      "preprocessing": "Raw Gaussian base with fixed seed42 orthogonal QL,QR and singular values logspaced1..kappa; no standardization.",
+      "train_steps": 10000,
+      "batch_size": 4096,
+      "model_seeds": [
+        8925,
+        77395,
+        65457
+      ],
+      "resolved_protocol": false,
+      "blocking_issue_ids": [
+        "aniso_cache_missing"
+      ],
+      "source_artifacts": [
+        "rebuttal_experiments/scripts/gen_aniso.py",
+        "rebuttal_experiments/raw_results/E9_aniso/aniso_k1/"
+      ],
+      "experiment_launch_authorized": false,
+      "tflow_candidate_config_status": "pending source-policy selection and per-condition protocol resolution",
+      "condition_number": 1,
+      "expected_cache_path": "rebuttal_experiments/data/aniso/aniso_gauss_d32_k1.pt",
+      "n_generated": 10000,
+      "actual_nfe": 512,
+      "tuning": {
+        "seed": 46021,
+        "stage1_steps": 500,
+        "continuation_total_steps": 1000,
+        "candidate_grid_ref": "tuning_estimate",
+        "status": "proposed_pending_experiment_approval"
+      },
+      "planned_tflow_sampler": {
+        "solver": "heun",
+        "steps": 256,
+        "actual_nfe": 512,
+        "t_min": 0.001,
+        "grid": "power_sigma",
+        "rho": 7.0,
+        "sigma_min": 0.01,
+        "status": "prepared numerical convention; awaiting experiment approval"
+      }
+    },
+    {
+      "id": "aniso_k3",
+      "family": "anisotropy",
+      "dimension": 32,
+      "required": true,
+      "paper_scope": "appendix",
+      "paper_references": [
+        "Figure3",
+        "B.1",
+        "C.5-C.9"
+      ],
+      "protocol": "vector",
+      "input_ids": [],
+      "cached_input_path": null,
+      "input_sha256": null,
+      "split": {
+        "kind": "contiguous_iid_order",
+        "counts": [
+          30000,
+          10000,
+          10000
+        ],
+        "n_total": 50000
+      },
+      "preprocessing": "Raw Gaussian base with fixed seed42 orthogonal QL,QR and singular values logspaced1..kappa; no standardization.",
+      "train_steps": 10000,
+      "batch_size": 4096,
+      "model_seeds": [
+        8925,
+        77395,
+        65457
+      ],
+      "resolved_protocol": false,
+      "blocking_issue_ids": [
+        "aniso_cache_missing"
+      ],
+      "source_artifacts": [
+        "rebuttal_experiments/scripts/gen_aniso.py",
+        "rebuttal_experiments/raw_results/E9_aniso/aniso_k3/"
+      ],
+      "experiment_launch_authorized": false,
+      "tflow_candidate_config_status": "pending source-policy selection and per-condition protocol resolution",
+      "condition_number": 3,
+      "expected_cache_path": "rebuttal_experiments/data/aniso/aniso_gauss_d32_k3.pt",
+      "n_generated": 10000,
+      "actual_nfe": 512,
+      "tuning": {
+        "seed": 46021,
+        "stage1_steps": 500,
+        "continuation_total_steps": 1000,
+        "candidate_grid_ref": "tuning_estimate",
+        "status": "proposed_pending_experiment_approval"
+      },
+      "planned_tflow_sampler": {
+        "solver": "heun",
+        "steps": 256,
+        "actual_nfe": 512,
+        "t_min": 0.001,
+        "grid": "power_sigma",
+        "rho": 7.0,
+        "sigma_min": 0.01,
+        "status": "prepared numerical convention; awaiting experiment approval"
+      }
+    },
+    {
+      "id": "aniso_k10",
+      "family": "anisotropy",
+      "dimension": 32,
+      "required": true,
+      "paper_scope": "appendix",
+      "paper_references": [
+        "Figure3",
+        "B.1",
+        "C.5-C.9"
+      ],
+      "protocol": "vector",
+      "input_ids": [],
+      "cached_input_path": null,
+      "input_sha256": null,
+      "split": {
+        "kind": "contiguous_iid_order",
+        "counts": [
+          30000,
+          10000,
+          10000
+        ],
+        "n_total": 50000
+      },
+      "preprocessing": "Raw Gaussian base with fixed seed42 orthogonal QL,QR and singular values logspaced1..kappa; no standardization.",
+      "train_steps": 10000,
+      "batch_size": 4096,
+      "model_seeds": [
+        8925,
+        77395,
+        65457
+      ],
+      "resolved_protocol": false,
+      "blocking_issue_ids": [
+        "aniso_cache_missing"
+      ],
+      "source_artifacts": [
+        "rebuttal_experiments/scripts/gen_aniso.py",
+        "rebuttal_experiments/raw_results/E9_aniso/aniso_k10/"
+      ],
+      "experiment_launch_authorized": false,
+      "tflow_candidate_config_status": "pending source-policy selection and per-condition protocol resolution",
+      "condition_number": 10,
+      "expected_cache_path": "rebuttal_experiments/data/aniso/aniso_gauss_d32_k10.pt",
+      "n_generated": 10000,
+      "actual_nfe": 512,
+      "tuning": {
+        "seed": 46021,
+        "stage1_steps": 500,
+        "continuation_total_steps": 1000,
+        "candidate_grid_ref": "tuning_estimate",
+        "status": "proposed_pending_experiment_approval"
+      },
+      "planned_tflow_sampler": {
+        "solver": "heun",
+        "steps": 256,
+        "actual_nfe": 512,
+        "t_min": 0.001,
+        "grid": "power_sigma",
+        "rho": 7.0,
+        "sigma_min": 0.01,
+        "status": "prepared numerical convention; awaiting experiment approval"
+      }
+    },
+    {
+      "id": "aniso_k30",
+      "family": "anisotropy",
+      "dimension": 32,
+      "required": true,
+      "paper_scope": "appendix",
+      "paper_references": [
+        "Figure3",
+        "B.1",
+        "C.5-C.9"
+      ],
+      "protocol": "vector",
+      "input_ids": [],
+      "cached_input_path": null,
+      "input_sha256": null,
+      "split": {
+        "kind": "contiguous_iid_order",
+        "counts": [
+          30000,
+          10000,
+          10000
+        ],
+        "n_total": 50000
+      },
+      "preprocessing": "Raw Gaussian base with fixed seed42 orthogonal QL,QR and singular values logspaced1..kappa; no standardization.",
+      "train_steps": 10000,
+      "batch_size": 4096,
+      "model_seeds": [
+        8925,
+        77395,
+        65457
+      ],
+      "resolved_protocol": false,
+      "blocking_issue_ids": [
+        "aniso_cache_missing"
+      ],
+      "source_artifacts": [
+        "rebuttal_experiments/scripts/gen_aniso.py",
+        "rebuttal_experiments/raw_results/E9_aniso/aniso_k30/"
+      ],
+      "experiment_launch_authorized": false,
+      "tflow_candidate_config_status": "pending source-policy selection and per-condition protocol resolution",
+      "condition_number": 30,
+      "expected_cache_path": "rebuttal_experiments/data/aniso/aniso_gauss_d32_k30.pt",
+      "n_generated": 10000,
+      "actual_nfe": 512,
+      "tuning": {
+        "seed": 46021,
+        "stage1_steps": 500,
+        "continuation_total_steps": 1000,
+        "candidate_grid_ref": "tuning_estimate",
+        "status": "proposed_pending_experiment_approval"
+      },
+      "planned_tflow_sampler": {
+        "solver": "heun",
+        "steps": 256,
+        "actual_nfe": 512,
+        "t_min": 0.001,
+        "grid": "power_sigma",
+        "rho": 7.0,
+        "sigma_min": 0.01,
+        "status": "prepared numerical convention; awaiting experiment approval"
+      }
+    },
+    {
+      "id": "aniso_k100",
+      "family": "anisotropy",
+      "dimension": 32,
+      "required": true,
+      "paper_scope": "appendix",
+      "paper_references": [
+        "Figure3",
+        "B.1",
+        "C.5-C.9"
+      ],
+      "protocol": "vector",
+      "input_ids": [],
+      "cached_input_path": null,
+      "input_sha256": null,
+      "split": {
+        "kind": "contiguous_iid_order",
+        "counts": [
+          30000,
+          10000,
+          10000
+        ],
+        "n_total": 50000
+      },
+      "preprocessing": "Raw Gaussian base with fixed seed42 orthogonal QL,QR and singular values logspaced1..kappa; no standardization.",
+      "train_steps": 10000,
+      "batch_size": 4096,
+      "model_seeds": [
+        8925,
+        77395,
+        65457
+      ],
+      "resolved_protocol": false,
+      "blocking_issue_ids": [
+        "aniso_cache_missing"
+      ],
+      "source_artifacts": [
+        "rebuttal_experiments/scripts/gen_aniso.py",
+        "rebuttal_experiments/raw_results/E9_aniso/aniso_k100/"
+      ],
+      "experiment_launch_authorized": false,
+      "tflow_candidate_config_status": "pending source-policy selection and per-condition protocol resolution",
+      "condition_number": 100,
+      "expected_cache_path": "rebuttal_experiments/data/aniso/aniso_gauss_d32_k100.pt",
+      "n_generated": 10000,
+      "actual_nfe": 512,
+      "tuning": {
+        "seed": 46021,
+        "stage1_steps": 500,
+        "continuation_total_steps": 1000,
+        "candidate_grid_ref": "tuning_estimate",
+        "status": "proposed_pending_experiment_approval"
+      },
+      "planned_tflow_sampler": {
+        "solver": "heun",
+        "steps": 256,
+        "actual_nfe": 512,
+        "t_min": 0.001,
+        "grid": "power_sigma",
+        "rho": 7.0,
+        "sigma_min": 0.01,
+        "status": "prepared numerical convention; awaiting experiment approval"
+      }
+    },
+    {
+      "id": "aniso_k300",
+      "family": "anisotropy",
+      "dimension": 32,
+      "required": true,
+      "paper_scope": "appendix",
+      "paper_references": [
+        "Figure3",
+        "B.1",
+        "C.5-C.9"
+      ],
+      "protocol": "vector",
+      "input_ids": [],
+      "cached_input_path": null,
+      "input_sha256": null,
+      "split": {
+        "kind": "contiguous_iid_order",
+        "counts": [
+          30000,
+          10000,
+          10000
+        ],
+        "n_total": 50000
+      },
+      "preprocessing": "Raw Gaussian base with fixed seed42 orthogonal QL,QR and singular values logspaced1..kappa; no standardization.",
+      "train_steps": 10000,
+      "batch_size": 4096,
+      "model_seeds": [
+        8925,
+        77395,
+        65457
+      ],
+      "resolved_protocol": false,
+      "blocking_issue_ids": [
+        "aniso_cache_missing"
+      ],
+      "source_artifacts": [
+        "rebuttal_experiments/scripts/gen_aniso.py",
+        "rebuttal_experiments/raw_results/E9_aniso/aniso_k300/"
+      ],
+      "experiment_launch_authorized": false,
+      "tflow_candidate_config_status": "pending source-policy selection and per-condition protocol resolution",
+      "condition_number": 300,
+      "expected_cache_path": "rebuttal_experiments/data/aniso/aniso_gauss_d32_k300.pt",
+      "n_generated": 10000,
+      "actual_nfe": 512,
+      "tuning": {
+        "seed": 46021,
+        "stage1_steps": 500,
+        "continuation_total_steps": 1000,
+        "candidate_grid_ref": "tuning_estimate",
+        "status": "proposed_pending_experiment_approval"
+      },
+      "planned_tflow_sampler": {
+        "solver": "heun",
+        "steps": 256,
+        "actual_nfe": 512,
+        "t_min": 0.001,
+        "grid": "power_sigma",
+        "rho": 7.0,
+        "sigma_min": 0.01,
+        "status": "prepared numerical convention; awaiting experiment approval"
+      }
+    },
+    {
+      "id": "toy_radial_angular",
+      "family": "toy2d",
+      "dimension": 2,
+      "required": true,
+      "paper_scope": "appendix",
+      "paper_references": [
+        "Table12",
+        "Table14",
+        "Figure5",
+        "C.5-C.9"
+      ],
+      "protocol": "vector",
+      "input_ids": [],
+      "cached_input_path": null,
+      "input_sha256": null,
+      "split": {
+        "kind": "random_permutation",
+        "seed": 0,
+        "counts": [
+          30000,
+          10000,
+          10000
+        ],
+        "n_total": 50000,
+        "exact_row_indices_path": null
+      },
+      "preprocessing": "Radius=abs(StudentT3),scale1;4 equally weighted modes centered at multiples of pi/2; normal angular noise SD1/sqrt5.",
+      "train_steps": 10000,
+      "batch_size": 4096,
+      "model_seeds": [
+        8925,
+        77395,
+        65457
+      ],
+      "resolved_protocol": false,
+      "blocking_issue_ids": [
+        "synthetic_cache_missing"
+      ],
+      "source_artifacts": [
+        "configs/exp1/toy2d.yaml",
+        "rebuttal_experiments/configs/E5_toy2d.yaml"
+      ],
+      "experiment_launch_authorized": false,
+      "tflow_candidate_config_status": "pending source-policy selection and per-condition protocol resolution",
+      "n_generated": 10000,
+      "actual_nfe": 512,
+      "tuning": {
+        "seed": 46021,
+        "stage1_steps": 500,
+        "continuation_total_steps": 1000,
+        "candidate_grid_ref": "tuning_estimate",
+        "status": "proposed_pending_experiment_approval"
+      },
+      "planned_tflow_sampler": {
+        "solver": "heun",
+        "steps": 256,
+        "actual_nfe": 512,
+        "t_min": 0.001,
+        "grid": "power_sigma",
+        "rho": 7.0,
+        "sigma_min": 0.01,
+        "status": "prepared numerical convention; awaiting experiment approval"
+      }
+    },
+    {
+      "id": "piv_d16",
+      "family": "piv",
+      "dimension": 16,
+      "required": true,
+      "paper_scope": "appendix",
+      "paper_references": [
+        "Table13",
+        "Table14",
+        "C.5-C.9"
+      ],
+      "protocol": "vector",
+      "input_ids": [
+        "piv16"
+      ],
+      "cached_input_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/data/piv/piv_d16.pt",
+      "input_sha256": "a30a243c46d7095581ce86be562a40ac9f7195d1b55b40374721ce23db14e5e4",
+      "split": {
+        "kind": "random_permutation",
+        "seed": 0,
+        "n_total": 998,
+        "counts": [
+          598,
+          199,
+          201
+        ]
+      },
+      "preprocessing": "Native740x545 vorticity via numpy.gradient with unit spacing; uniform grid subsampling; flatten row-major; divide2.5; full-data mean centering; re-center after truncation. No fresh preprocessing.",
+      "train_steps": 10000,
+      "batch_size": null,
+      "model_seeds": [
+        8925,
+        77395,
+        65457
+      ],
+      "resolved_protocol": false,
+      "blocking_issue_ids": [
+        "vector_batch_conflict"
+      ],
+      "source_artifacts": [
+        "configs/exp1/piv_d16.yaml",
+        "rafm/data/prepare_piv.py"
+      ],
+      "experiment_launch_authorized": false,
+      "tflow_candidate_config_status": "pending source-policy selection and per-condition protocol resolution",
+      "paper_batch_size": 256,
+      "batch_size_candidates": [
+        {
+          "value": 256,
+          "provenance": "paper C.7;f892493 defaults"
+        },
+        {
+          "value": 4096,
+          "provenance": "2e659c7 defaults;E10 d64 YAML"
+        }
+      ],
+      "native_grid": "first16 coordinates; native representation identity must be retained",
+      "n_generated": 10000,
+      "actual_nfe": 512,
+      "scope_note": null,
+      "tuning": {
+        "seed": 46021,
+        "stage1_steps": 500,
+        "continuation_total_steps": 1000,
+        "candidate_grid_ref": "tuning_estimate",
+        "status": "proposed_pending_experiment_approval"
+      },
+      "planned_tflow_sampler": {
+        "solver": "heun",
+        "steps": 256,
+        "actual_nfe": 512,
+        "t_min": 0.001,
+        "grid": "power_sigma",
+        "rho": 7.0,
+        "sigma_min": 0.01,
+        "status": "prepared numerical convention; awaiting experiment approval"
+      }
+    },
+    {
+      "id": "piv_d32",
+      "family": "piv",
+      "dimension": 32,
+      "required": true,
+      "paper_scope": "appendix",
+      "paper_references": [
+        "C.5"
+      ],
+      "protocol": "vector",
+      "input_ids": [],
+      "cached_input_path": null,
+      "input_sha256": null,
+      "split": {
+        "kind": "random_permutation",
+        "seed": 0,
+        "n_total": 998,
+        "counts": [
+          598,
+          199,
+          201
+        ]
+      },
+      "preprocessing": "Native740x545 vorticity via numpy.gradient with unit spacing; uniform grid subsampling; flatten row-major; divide2.5; full-data mean centering; re-center after truncation. No fresh preprocessing.",
+      "train_steps": 10000,
+      "batch_size": null,
+      "model_seeds": [
+        8925,
+        77395,
+        65457
+      ],
+      "resolved_protocol": false,
+      "blocking_issue_ids": [
+        "vector_batch_conflict",
+        "piv32_identity_missing"
+      ],
+      "source_artifacts": [
+        "configs/exp1/piv_d32.yaml",
+        "rafm/data/prepare_piv.py"
+      ],
+      "experiment_launch_authorized": false,
+      "tflow_candidate_config_status": "pending source-policy selection and per-condition protocol resolution",
+      "paper_batch_size": 256,
+      "batch_size_candidates": [
+        {
+          "value": 256,
+          "provenance": "paper C.7;f892493 defaults"
+        },
+        {
+          "value": 4096,
+          "provenance": "2e659c7 defaults;E10 d64 YAML"
+        }
+      ],
+      "native_grid": [
+        8,
+        4
+      ],
+      "n_generated": 10000,
+      "actual_nfe": 512,
+      "scope_note": "d32 is explicitly listed as used in C.5; no separate numeric table row found.",
+      "tuning": {
+        "seed": 46021,
+        "stage1_steps": 500,
+        "continuation_total_steps": 1000,
+        "candidate_grid_ref": "tuning_estimate",
+        "status": "proposed_pending_experiment_approval"
+      },
+      "planned_tflow_sampler": {
+        "solver": "heun",
+        "steps": 256,
+        "actual_nfe": 512,
+        "t_min": 0.001,
+        "grid": "power_sigma",
+        "rho": 7.0,
+        "sigma_min": 0.01,
+        "status": "prepared numerical convention; awaiting experiment approval"
+      }
+    },
+    {
+      "id": "piv_d64",
+      "family": "piv",
+      "dimension": 64,
+      "required": true,
+      "paper_scope": "main_and_appendix",
+      "paper_references": [
+        "Table1",
+        "Table3",
+        "Table14",
+        "C.5-C.9"
+      ],
+      "protocol": "vector",
+      "input_ids": [
+        "piv64"
+      ],
+      "cached_input_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/data/piv/piv_d64.pt",
+      "input_sha256": "268aaf1ce26096f76b24ad64db3a397a889a52fc78a98ed523c7f48481e8715e",
+      "split": {
+        "kind": "random_permutation",
+        "seed": 0,
+        "n_total": 998,
+        "counts": [
+          598,
+          199,
+          201
+        ]
+      },
+      "preprocessing": "Native740x545 vorticity via numpy.gradient with unit spacing; uniform grid subsampling; flatten row-major; divide2.5; full-data mean centering; re-center after truncation. No fresh preprocessing.",
+      "train_steps": 10000,
+      "batch_size": 256,
+      "model_seeds": [
+        8925,
+        77395,
+        65457
+      ],
+      "resolved_protocol": true,
+      "blocking_issue_ids": [],
+      "source_artifacts": [
+        "configs/exp1/piv_d64.yaml",
+        "rafm/data/prepare_piv.py",
+        "rebuttal_experiments/configs/E10_piv_d64.yaml",
+        "rebuttal_experiments/RAFM_ANG_TABLE1_completion.json",
+        "outputs/exp1_main_benchmark/piv_d64/angular_rafm/"
+      ],
+      "experiment_launch_authorized": false,
+      "tflow_candidate_config_status": "pending source-policy selection and per-condition protocol resolution",
+      "paper_batch_size": 256,
+      "batch_size_candidates": [],
+      "native_grid": [
+        8,
+        8
+      ],
+      "n_generated": 10000,
+      "actual_nfe": 512,
+      "scope_note": null,
+      "tuning": {
+        "seed": 46021,
+        "stage1_steps": 500,
+        "continuation_total_steps": 1000,
+        "candidate_grid_ref": "tuning_estimate",
+        "status": "proposed_pending_experiment_approval"
+      },
+      "resolution_evidence": "Protocol-matched completion JSON gives batch256,seed0 random598/199/201 split,10000 samples and512 evaluations; per-seed output metrics agree with paper Tables1/3.",
+      "historical_split_hashes": {
+        "n_train": 598,
+        "n_test": 201,
+        "dim": 64,
+        "split": "split_seed=0 (exp1 PIVDataset _make_splits)",
+        "train_md5": "5d0d421eb0c3c5c9e9b4d16bf12c28ab",
+        "test_md5": "62bd077c8ad2246a60a479149425473e"
+      },
+      "historical_input_identity_next_check": "PASSED: both split tensor hashes match the archived completion record",
+      "historical_references": {
+        "source": "rebuttal_experiments/RAFM_ANG_TABLE1_completion.json",
+        "rafm_empirical": {
+          "radial_w1": {
+            "mean": 0.04822,
+            "std": 0.00187,
+            "n": 3
+          },
+          "ks_stat": {
+            "mean": 0.04691,
+            "std": 0.00265,
+            "n": 3
+          },
+          "sliced_w1": {
+            "mean": 0.02728,
+            "std": 0.0029,
+            "n": 3
+          },
+          "total_train_time_s": {
+            "mean": 35.84133,
+            "std": 0.19171,
+            "n": 3
+          }
+        },
+        "angular_rafm": {
+          "radial_w1": {
+            "mean": 0.04822,
+            "std": 0.00187,
+            "n": 3
+          },
+          "ks_stat": {
+            "mean": 0.04691,
+            "std": 0.00265,
+            "n": 3
+          },
+          "sliced_w1": {
+            "mean": 0.0279,
+            "std": 0.00249,
+            "n": 3
+          },
+          "total_train_time_s": {
+            "mean": 43.02427,
+            "std": 0.61281,
+            "n": 3
+          }
+        }
+      },
+      "planned_tflow_sampler": {
+        "solver": "heun",
+        "steps": 256,
+        "actual_nfe": 512,
+        "t_min": 0.001,
+        "grid": "power_sigma",
+        "rho": 7.0,
+        "sigma_min": 0.01,
+        "status": "prepared numerical convention; awaiting experiment approval"
+      },
+      "input_verification": {
+        "id": "piv_d64",
+        "shape": [
+          998,
+          64
+        ],
+        "counts": {
+          "train": 598,
+          "val": 199,
+          "test": 201
+        },
+        "finite": true,
+        "input_sha256": "268aaf1ce26096f76b24ad64db3a397a889a52fc78a98ed523c7f48481e8715e",
+        "historical_tensor_identity": {
+          "train": {
+            "actual_md5": "5d0d421eb0c3c5c9e9b4d16bf12c28ab",
+            "expected_md5": "5d0d421eb0c3c5c9e9b4d16bf12c28ab",
+            "matches": true
+          },
+          "test": {
+            "actual_md5": "62bd077c8ad2246a60a479149425473e",
+            "expected_md5": "62bd077c8ad2246a60a479149425473e",
+            "matches": true
+          }
+        }
+      }
+    },
+    {
+      "id": "piv_d256",
+      "family": "piv",
+      "dimension": 256,
+      "required": true,
+      "paper_scope": "main_and_appendix",
+      "paper_references": [
+        "Table1",
+        "Table3",
+        "Table14",
+        "C.5-C.9"
+      ],
+      "protocol": "vector",
+      "input_ids": [
+        "piv256"
+      ],
+      "cached_input_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/data/piv/piv_d256.pt",
+      "input_sha256": "93b25962f33f8c4197356a09200093b363cccad0a9c164a2853642855a8277b4",
+      "split": {
+        "kind": "random_permutation",
+        "seed": 0,
+        "n_total": 998,
+        "counts": [
+          598,
+          199,
+          201
+        ]
+      },
+      "preprocessing": "Native740x545 vorticity via numpy.gradient with unit spacing; uniform grid subsampling; flatten row-major; divide2.5; full-data mean centering; re-center after truncation. No fresh preprocessing.",
+      "train_steps": 10000,
+      "batch_size": 256,
+      "model_seeds": [
+        8925,
+        77395,
+        65457
+      ],
+      "resolved_protocol": true,
+      "blocking_issue_ids": [],
+      "source_artifacts": [
+        "configs/exp1/piv_d256.yaml",
+        "rafm/data/prepare_piv.py",
+        "rebuttal_experiments/RAFM_ANG_TABLE1_completion.json",
+        "outputs/exp1_main_benchmark/piv_d256/angular_rafm/"
+      ],
+      "experiment_launch_authorized": false,
+      "tflow_candidate_config_status": "pending source-policy selection and per-condition protocol resolution",
+      "paper_batch_size": 256,
+      "batch_size_candidates": [],
+      "native_grid": [
+        16,
+        16
+      ],
+      "n_generated": 10000,
+      "actual_nfe": 512,
+      "scope_note": null,
+      "tuning": {
+        "seed": 46021,
+        "stage1_steps": 500,
+        "continuation_total_steps": 1000,
+        "candidate_grid_ref": "tuning_estimate",
+        "status": "proposed_pending_experiment_approval"
+      },
+      "resolution_evidence": "Protocol-matched completion JSON gives batch256,seed0 random598/199/201 split,10000 samples and512 evaluations; per-seed output metrics agree with paper Tables1/3.",
+      "historical_split_hashes": {
+        "n_train": 598,
+        "n_test": 201,
+        "dim": 256,
+        "split": "split_seed=0 (exp1 PIVDataset _make_splits)",
+        "train_md5": "8c997feba59290785fcb915a64eecc29",
+        "test_md5": "7ef7ee53bb00810bffb1442e26ff6bdd"
+      },
+      "historical_input_identity_next_check": "PASSED: both split tensor hashes match the archived completion record",
+      "historical_references": {
+        "source": "rebuttal_experiments/RAFM_ANG_TABLE1_completion.json",
+        "rafm_empirical": {
+          "radial_w1": {
+            "mean": 0.03705,
+            "std": 0.00127,
+            "n": 3
+          },
+          "ks_stat": {
+            "mean": 0.05787,
+            "std": 0.00142,
+            "n": 3
+          },
+          "sliced_w1": {
+            "mean": 0.02418,
+            "std": 0.00301,
+            "n": 3
+          },
+          "total_train_time_s": {
+            "mean": 35.4125,
+            "std": 0.07608,
+            "n": 3
+          }
+        },
+        "angular_rafm": {
+          "radial_w1": {
+            "mean": 0.03705,
+            "std": 0.00127,
+            "n": 3
+          },
+          "ks_stat": {
+            "mean": 0.05787,
+            "std": 0.00142,
+            "n": 3
+          },
+          "sliced_w1": {
+            "mean": 0.02268,
+            "std": 0.00032,
+            "n": 3
+          },
+          "total_train_time_s": {
+            "mean": 65.50785,
+            "std": 1.61273,
+            "n": 3
+          }
+        }
+      },
+      "planned_tflow_sampler": {
+        "solver": "heun",
+        "steps": 256,
+        "actual_nfe": 512,
+        "t_min": 0.001,
+        "grid": "power_sigma",
+        "rho": 7.0,
+        "sigma_min": 0.01,
+        "status": "prepared numerical convention; awaiting experiment approval"
+      },
+      "input_verification": {
+        "id": "piv_d256",
+        "shape": [
+          998,
+          256
+        ],
+        "counts": {
+          "train": 598,
+          "val": 199,
+          "test": 201
+        },
+        "finite": true,
+        "input_sha256": "93b25962f33f8c4197356a09200093b363cccad0a9c164a2853642855a8277b4",
+        "historical_tensor_identity": {
+          "train": {
+            "actual_md5": "8c997feba59290785fcb915a64eecc29",
+            "expected_md5": "8c997feba59290785fcb915a64eecc29",
+            "matches": true
+          },
+          "test": {
+            "actual_md5": "7ef7ee53bb00810bffb1442e26ff6bdd",
+            "expected_md5": "7ef7ee53bb00810bffb1442e26ff6bdd",
+            "matches": true
+          }
+        }
+      }
+    },
+    {
+      "id": "finance_ff49",
+      "family": "finance",
+      "dimension": 49,
+      "required": true,
+      "paper_scope": "main_and_appendix",
+      "paper_references": [
+        "Table1",
+        "Table7",
+        "Table10",
+        "Table15",
+        "C.5-C.9"
+      ],
+      "protocol": "vector",
+      "input_ids": [
+        "finance"
+      ],
+      "cached_input_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/rebuttal_experiments/data/finance/finance_returns_raw.pt",
+      "input_sha256": "7ce89c88cf8c55c669aa6172fdbfb0c7efe1211cea7ee608bc6c9e139a74d51e",
+      "split": {
+        "kind": "chronological",
+        "n_total": 14349,
+        "counts": [
+          8609,
+          2869,
+          2871
+        ],
+        "index_ranges": [
+          [
+            0,
+            8609
+          ],
+          [
+            8609,
+            11478
+          ],
+          [
+            11478,
+            14349
+          ]
+        ]
+      },
+      "preprocessing": "Kenneth French49 industry daily value-weighted returns; dates1969-07-01..2026-05-29; drop sentinel rows; percent/100; train-only coordinate mean/std.",
+      "train_steps": 10000,
+      "batch_size": 4096,
+      "model_seeds": [
+        8925,
+        77395,
+        65457
+      ],
+      "resolved_protocol": true,
+      "blocking_issue_ids": [],
+      "source_artifacts": [
+        "rebuttal_experiments/scripts/prep_finance.py",
+        "rebuttal_experiments/data/finance/finance_meta.json",
+        "rebuttal_experiments/scripts/run_real.py"
+      ],
+      "experiment_launch_authorized": false,
+      "tflow_candidate_config_status": "pending source-policy selection and per-condition protocol resolution",
+      "n_generated": 2871,
+      "actual_nfe": 512,
+      "tuning": {
+        "seed": 46021,
+        "stage1_steps": 500,
+        "continuation_total_steps": 1000,
+        "candidate_grid_ref": "tuning_estimate",
+        "status": "proposed_pending_experiment_approval"
+      },
+      "historical_references": {
+        "gaussian_fm": {
+          "artifact_glob": "rebuttal_experiments/raw_results/E_finance/finance_ff49/gaussian_fm/seed_*/metrics.json",
+          "metrics": {
+            "radial_w1": {
+              "mean": 1.4179160992304485,
+              "std": 0.11320217613495118,
+              "n": 3
+            },
+            "ks_stat": {
+              "mean": 0.2183908224105835,
+              "std": 0.008961797240667294,
+              "n": 3
+            },
+            "q950_err": {
+              "mean": 0.16276070617149702,
+              "std": 0.034337534996171974,
+              "n": 3
+            },
+            "q990_err": {
+              "mean": 0.19031103155958362,
+              "std": 0.055917138001013736,
+              "n": 3
+            },
+            "q995_err": {
+              "mean": 0.3108320950353081,
+              "std": 0.03915417538414477,
+              "n": 3
+            },
+            "tail_exc_95": {
+              "mean": 0.021554626400272097,
+              "std": 0.005338239668210372,
+              "n": 3
+            },
+            "tail_exc_99": {
+              "mean": 0.006168582389752079,
+              "std": 0.0013032593295878201,
+              "n": 3
+            },
+            "sliced_w1": {
+              "mean": 0.1941066433986028,
+              "std": 0.017993250313453574,
+              "n": 3
+            },
+            "mmd": {
+              "mean": 0.011700789133707682,
+              "std": 0.0019103602146261659,
+              "n": 3
+            },
+            "angular_sw_bin0": {
+              "mean": 0.015456747884551683,
+              "std": 0.0009039173884749787,
+              "n": 3
+            },
+            "angular_sw_bin1": {
+              "mean": 0.022281912465890247,
+              "std": 0.0026213871696593974,
+              "n": 3
+            },
+            "angular_sw_bin2": {
+              "mean": 0.025565562148888905,
+              "std": 0.0027210052356892605,
+              "n": 3
+            },
+            "angular_sw_bin3": {
+              "mean": 0.030917443335056305,
+              "std": 0.005130582546751665,
+              "n": 3
+            },
+            "angular_sw_mean": {
+              "mean": 0.023555416458596785,
+              "std": 0.0025055509622204457,
+              "n": 3
+            },
+            "nan_rate": {
+              "mean": 0.0,
+              "std": 0.0,
+              "n": 3
+            },
+            "exploding_norm_rate": {
+              "mean": 0.0,
+              "std": 0.0,
+              "n": 3
+            },
+            "invalid_rate": {
+              "mean": 0.0,
+              "std": 0.0,
+              "n": 3
+            },
+            "nfe": {
+              "mean": 512,
+              "std": 0.0,
+              "n": 3
+            },
+            "sample_time_s": {
+              "mean": 0.1641660531361898,
+              "std": 0.010037158527546074,
+              "n": 3
+            },
+            "total_train_time_s": {
+              "mean": 17.605399052302044,
+              "std": 0.07839935455786438,
+              "n": 3
+            }
+          },
+          "paper_alignment": "Sliced-W1 means/std match Table1 and Tables7/8 at displayed precision."
+        },
+        "source_only_empirical": {
+          "artifact_glob": "rebuttal_experiments/raw_results/E_finance/finance_ff49/source_only_empirical/seed_*/metrics.json",
+          "metrics": {
+            "radial_w1": {
+              "mean": 1.7067527373631795,
+              "std": 0.03982912288460388,
+              "n": 3
+            },
+            "ks_stat": {
+              "mean": 0.24602346618970236,
+              "std": 0.0009141943457729462,
+              "n": 3
+            },
+            "q950_err": {
+              "mean": 0.21013819420220567,
+              "std": 0.01040649348670845,
+              "n": 3
+            },
+            "q990_err": {
+              "mean": 0.25998188113100346,
+              "std": 0.02210885255789374,
+              "n": 3
+            },
+            "q995_err": {
+              "mean": 0.34978264534373593,
+              "std": 0.02286335935711773,
+              "n": 3
+            },
+            "tail_exc_95": {
+              "mean": 0.028636944045623187,
+              "std": 0.0017142489746413895,
+              "n": 3
+            },
+            "tail_exc_99": {
+              "mean": 0.0069813073985278695,
+              "std": 0.0004344197488730029,
+              "n": 3
+            },
+            "sliced_w1": {
+              "mean": 0.20757105449835458,
+              "std": 0.004458526175280951,
+              "n": 3
+            },
+            "mmd": {
+              "mean": 0.013120174407958984,
+              "std": 0.0004220000206854063,
+              "n": 3
+            },
+            "angular_sw_bin0": {
+              "mean": 0.015630109856526058,
+              "std": 0.000239543234010846,
+              "n": 3
+            },
+            "angular_sw_bin1": {
+              "mean": 0.019356417780121166,
+              "std": 0.0020136368325782243,
+              "n": 3
+            },
+            "angular_sw_bin2": {
+              "mean": 0.02355370173851649,
+              "std": 0.00121923838962029,
+              "n": 3
+            },
+            "angular_sw_bin3": {
+              "mean": 0.023635638256867725,
+              "std": 0.0019532129577166457,
+              "n": 3
+            },
+            "angular_sw_mean": {
+              "mean": 0.02054396690800786,
+              "std": 0.0006095879687619545,
+              "n": 3
+            },
+            "nan_rate": {
+              "mean": 0.0,
+              "std": 0.0,
+              "n": 3
+            },
+            "exploding_norm_rate": {
+              "mean": 0.0,
+              "std": 0.0,
+              "n": 3
+            },
+            "invalid_rate": {
+              "mean": 0.0,
+              "std": 0.0,
+              "n": 3
+            },
+            "nfe": {
+              "mean": 512,
+              "std": 0.0,
+              "n": 3
+            },
+            "sample_time_s": {
+              "mean": 0.1743315060933431,
+              "std": 0.008660513752043774,
+              "n": 3
+            },
+            "total_train_time_s": {
+              "mean": 18.87702973683675,
+              "std": 0.11996569320600792,
+              "n": 3
+            }
+          },
+          "paper_alignment": "Sliced-W1 means/std match Table1 and Tables7/8 at displayed precision."
+        },
+        "rafm_empirical": {
+          "artifact_glob": "rebuttal_experiments/raw_results/E_finance/finance_ff49/rafm_empirical/seed_*/metrics.json",
+          "metrics": {
+            "radial_w1": {
+              "mean": 1.4228712717692058,
+              "std": 0.040060101240167574,
+              "n": 3
+            },
+            "ks_stat": {
+              "mean": 0.200278639793396,
+              "std": 0.0028009605353919837,
+              "n": 3
+            },
+            "q950_err": {
+              "mean": 0.2007290472233147,
+              "std": 0.00989118517607117,
+              "n": 3
+            },
+            "q990_err": {
+              "mean": 0.2759007230798766,
+              "std": 0.006505630203411952,
+              "n": 3
+            },
+            "q995_err": {
+              "mean": 0.3812473564369636,
+              "std": 0.021138650458613368,
+              "n": 3
+            },
+            "tail_exc_95": {
+              "mean": 0.02770811555286253,
+              "std": 0.0010253987335594869,
+              "n": 3
+            },
+            "tail_exc_99": {
+              "mean": 0.007213514521718034,
+              "std": 0.0007524370768593535,
+              "n": 3
+            },
+            "sliced_w1": {
+              "mean": 0.17405100663503012,
+              "std": 0.002642642397018992,
+              "n": 3
+            },
+            "mmd": {
+              "mean": 0.009795904159545898,
+              "std": 0.000595266220920305,
+              "n": 3
+            },
+            "angular_sw_bin0": {
+              "mean": 0.013993396423757076,
+              "std": 0.0005182178831555269,
+              "n": 3
+            },
+            "angular_sw_bin1": {
+              "mean": 0.016355942003428936,
+              "std": 0.0008047755859905771,
+              "n": 3
+            },
+            "angular_sw_bin2": {
+              "mean": 0.019317522644996643,
+              "std": 0.00045322688211741605,
+              "n": 3
+            },
+            "angular_sw_bin3": {
+              "mean": 0.019362142930428188,
+              "std": 0.0006922057899258296,
+              "n": 3
+            },
+            "angular_sw_mean": {
+              "mean": 0.017257251000652712,
+              "std": 0.000332420818979873,
+              "n": 3
+            },
+            "nan_rate": {
+              "mean": 0.0,
+              "std": 0.0,
+              "n": 3
+            },
+            "exploding_norm_rate": {
+              "mean": 0.0,
+              "std": 0.0,
+              "n": 3
+            },
+            "invalid_rate": {
+              "mean": 0.0,
+              "std": 0.0,
+              "n": 3
+            },
+            "nfe": {
+              "mean": 512,
+              "std": 0.0,
+              "n": 3
+            },
+            "sample_time_s": {
+              "mean": 0.2643342812856038,
+              "std": 0.019293091257031905,
+              "n": 3
+            },
+            "total_train_time_s": {
+              "mean": 34.68763033548991,
+              "std": 0.07114708207948423,
+              "n": 3
+            }
+          },
+          "paper_alignment": "Sliced-W1 means/std match Table1 and Tables7/8 at displayed precision."
+        },
+        "angular_rafm": {
+          "artifact_glob": "rebuttal_experiments/raw_results/E_finance/finance_ff49/angular_rafm/seed_*/metrics.json",
+          "metrics": {
+            "radial_w1": {
+              "mean": 1.4228713909784954,
+              "std": 0.0400601492851931,
+              "n": 3
+            },
+            "ks_stat": {
+              "mean": 0.200278639793396,
+              "std": 0.0028009605353919837,
+              "n": 3
+            },
+            "q950_err": {
+              "mean": 0.20072902580330332,
+              "std": 0.009891124745949262,
+              "n": 3
+            },
+            "q990_err": {
+              "mean": 0.27590077616612957,
+              "std": 0.006505616995329937,
+              "n": 3
+            },
+            "q995_err": {
+              "mean": 0.38124737588565244,
+              "std": 0.021138677876243347,
+              "n": 3
+            },
+            "tail_exc_95": {
+              "mean": 0.02770811555286253,
+              "std": 0.0010253987335594869,
+              "n": 3
+            },
+            "tail_exc_99": {
+              "mean": 0.007213514521718034,
+              "std": 0.0007524370768593535,
+              "n": 3
+            },
+            "sliced_w1": {
+              "mean": 0.17211718360582987,
+              "std": 0.003710375606457084,
+              "n": 3
+            },
+            "mmd": {
+              "mean": 0.009528160095214844,
+              "std": 0.0004618467685701128,
+              "n": 3
+            },
+            "angular_sw_bin0": {
+              "mean": 0.012745410203933716,
+              "std": 0.0009863506972186595,
+              "n": 3
+            },
+            "angular_sw_bin1": {
+              "mean": 0.01681779945890109,
+              "std": 0.00024918257384112054,
+              "n": 3
+            },
+            "angular_sw_bin2": {
+              "mean": 0.02033783122897148,
+              "std": 0.0012813682877515044,
+              "n": 3
+            },
+            "angular_sw_bin3": {
+              "mean": 0.018911985059579212,
+              "std": 0.00024932157772855515,
+              "n": 3
+            },
+            "angular_sw_mean": {
+              "mean": 0.017203256487846375,
+              "std": 0.0005695301228288327,
+              "n": 3
+            },
+            "nan_rate": {
+              "mean": 0.0,
+              "std": 0.0,
+              "n": 3
+            },
+            "exploding_norm_rate": {
+              "mean": 0.0,
+              "std": 0.0,
+              "n": 3
+            },
+            "invalid_rate": {
+              "mean": 0.0,
+              "std": 0.0,
+              "n": 3
+            },
+            "nfe": {
+              "mean": 512,
+              "std": 0.0,
+              "n": 3
+            },
+            "sample_time_s": {
+              "mean": 0.26750961939493817,
+              "std": 0.0020786301944468065,
+              "n": 3
+            },
+            "total_train_time_s": {
+              "mean": 43.02235643068949,
+              "std": 0.24660490976074956,
+              "n": 3
+            }
+          },
+          "paper_alignment": "Sliced-W1 means/std match Table1 and Tables7/8 at displayed precision."
+        },
+        "msgm": {
+          "artifact_glob": "rebuttal_experiments/raw_results/E_finance/finance_ff49/msgm/seed_*/metrics.json",
+          "metrics": {
+            "radial_w1": {
+              "mean": 1.4167540073394775,
+              "std": 0.03348049387385352,
+              "n": 3
+            },
+            "ks_stat": {
+              "mean": 0.19749216238657633,
+              "std": 0.005876722272878974,
+              "n": 3
+            },
+            "q950_err": {
+              "mean": 0.19920861197553796,
+              "std": 0.00737604278430843,
+              "n": 3
+            },
+            "q990_err": {
+              "mean": 0.25497271539128935,
+              "std": 0.01994346730022802,
+              "n": 3
+            },
+            "q995_err": {
+              "mean": 0.37514708070901304,
+              "std": 0.017743413242140807,
+              "n": 3
+            },
+            "tail_exc_95": {
+              "mean": 0.02840473738809431,
+              "std": 0.0007524367175938889,
+              "n": 3
+            },
+            "tail_exc_99": {
+              "mean": 0.007329618083313116,
+              "std": 0.0001641952314475854,
+              "n": 3
+            },
+            "sliced_w1": {
+              "mean": 0.182006965080897,
+              "std": 0.00289837887090601,
+              "n": 3
+            },
+            "mmd": {
+              "mean": 0.012433966000874838,
+              "std": 0.0004583922383452003,
+              "n": 3
+            },
+            "angular_sw_bin0": {
+              "mean": 0.013821053318679333,
+              "std": 0.0009078689326975338,
+              "n": 3
+            },
+            "angular_sw_bin1": {
+              "mean": 0.016008796480794747,
+              "std": 0.0005725324121431261,
+              "n": 3
+            },
+            "angular_sw_bin2": {
+              "mean": 0.01782180741429329,
+              "std": 0.0006998264233565591,
+              "n": 3
+            },
+            "angular_sw_bin3": {
+              "mean": 0.030224548031886418,
+              "std": 0.0015579821259389408,
+              "n": 3
+            },
+            "angular_sw_mean": {
+              "mean": 0.019469051311413448,
+              "std": 0.00040646453861298303,
+              "n": 3
+            },
+            "nan_rate": {
+              "mean": 0.0,
+              "std": 0.0,
+              "n": 3
+            },
+            "exploding_norm_rate": {
+              "mean": 0.0,
+              "std": 0.0,
+              "n": 3
+            },
+            "invalid_rate": {
+              "mean": 0.0,
+              "std": 0.0,
+              "n": 3
+            },
+            "sample_time_s": {
+              "mean": 1.4828577836354573,
+              "std": 0.01025789195976988,
+              "n": 3
+            },
+            "total_train_time_s": {
+              "mean": 18657.99478149414,
+              "std": 463.2156202331459,
+              "n": 3
+            }
+          },
+          "paper_alignment": "Sliced-W1 means/std match Table1 and Tables7/8 at displayed precision."
+        }
+      },
+      "planned_tflow_sampler": {
+        "solver": "heun",
+        "steps": 256,
+        "actual_nfe": 512,
+        "t_min": 0.001,
+        "grid": "power_sigma",
+        "rho": 7.0,
+        "sigma_min": 0.01,
+        "status": "prepared numerical convention; awaiting experiment approval"
+      },
+      "input_verification": {
+        "id": "finance_ff49",
+        "shape": [
+          14349,
+          49
+        ],
+        "counts": {
+          "train": 8609,
+          "val": 2869,
+          "test": 2871
+        },
+        "finite": true,
+        "input_sha256": "7ce89c88cf8c55c669aa6172fdbfb0c7efe1211cea7ee608bc6c9e139a74d51e"
+      }
+    },
+    {
+      "id": "weather_au_wind",
+      "family": "weather",
+      "dimension": 96,
+      "required": true,
+      "paper_scope": "main_and_appendix",
+      "paper_references": [
+        "Table1",
+        "Table8",
+        "Table15",
+        "Figure5",
+        "C.5-C.9"
+      ],
+      "protocol": "vector",
+      "input_ids": [
+        "weather"
+      ],
+      "cached_input_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/rebuttal_experiments/data/weather/weather_au_wind.pt",
+      "input_sha256": "8c2cf0e1fbc8a62fa1b45e76c5396ae77afc9acf7719ed43a14c2947dca9f361",
+      "split": {
+        "kind": "chronological",
+        "n_total": 5847,
+        "counts": [
+          3508,
+          1169,
+          1170
+        ],
+        "index_ranges": [
+          [
+            0,
+            3508
+          ],
+          [
+            3508,
+            4677
+          ],
+          [
+            4677,
+            5847
+          ]
+        ]
+      },
+      "preprocessing": "ERA5 WeatherBench2 Australia lat[-45,-10],lon[110,155],10m u/v wind; every16th6h step; dates1959-01-01..2023-01-09; flatten; train-only mean/std.",
+      "train_steps": 10000,
+      "batch_size": 2048,
+      "model_seeds": [
+        8925,
+        77395,
+        65457
+      ],
+      "resolved_protocol": true,
+      "blocking_issue_ids": [],
+      "source_artifacts": [
+        "rebuttal_experiments/scripts/prep_weather.py",
+        "rebuttal_experiments/data/weather/weather_meta.json",
+        "rebuttal_experiments/scripts/run_real.py"
+      ],
+      "experiment_launch_authorized": false,
+      "tflow_candidate_config_status": "pending source-policy selection and per-condition protocol resolution",
+      "n_generated": 1170,
+      "actual_nfe": 512,
+      "tuning": {
+        "seed": 46021,
+        "stage1_steps": 500,
+        "continuation_total_steps": 1000,
+        "candidate_grid_ref": "tuning_estimate",
+        "status": "proposed_pending_experiment_approval"
+      },
+      "historical_references": {
+        "gaussian_fm": {
+          "artifact_glob": "rebuttal_experiments/raw_results/E_weather/weather_au_wind/gaussian_fm/seed_*/metrics.json",
+          "metrics": {
+            "radial_w1": {
+              "mean": 0.1785541077454885,
+              "std": 0.031077562820033294,
+              "n": 3
+            },
+            "ks_stat": {
+              "mean": 0.04415954649448395,
+              "std": 0.010168980769406352,
+              "n": 3
+            },
+            "q950_err": {
+              "mean": 0.01815405477478556,
+              "std": 0.008556617261657164,
+              "n": 3
+            },
+            "q990_err": {
+              "mean": 0.1015601169362481,
+              "std": 0.019354774494405345,
+              "n": 3
+            },
+            "q995_err": {
+              "mean": 0.09710550984630216,
+              "std": 0.041930816223867684,
+              "n": 3
+            },
+            "tail_exc_95": {
+              "mean": 0.011253563811381614,
+              "std": 0.004750238467001227,
+              "n": 3
+            },
+            "tail_exc_99": {
+              "mean": 0.020769231418768557,
+              "std": 0.0012087303465032739,
+              "n": 3
+            },
+            "sliced_w1": {
+              "mean": 0.08542089909315109,
+              "std": 0.007490354574025002,
+              "n": 3
+            },
+            "mmd": {
+              "mean": 0.002669850985209147,
+              "std": 0.0006694573670755276,
+              "n": 3
+            },
+            "angular_sw_bin0": {
+              "mean": 0.015791450006266434,
+              "std": 0.0009621852476366062,
+              "n": 3
+            },
+            "angular_sw_bin1": {
+              "mean": 0.01537473468730847,
+              "std": 0.0009421228526685316,
+              "n": 3
+            },
+            "angular_sw_bin2": {
+              "mean": 0.01404318492859602,
+              "std": 0.0007572204334381351,
+              "n": 3
+            },
+            "angular_sw_bin3": {
+              "mean": 0.014611056384940943,
+              "std": 0.001504161956278493,
+              "n": 3
+            },
+            "angular_sw_mean": {
+              "mean": 0.014955106501777967,
+              "std": 0.0001485970579383627,
+              "n": 3
+            },
+            "nan_rate": {
+              "mean": 0.0,
+              "std": 0.0,
+              "n": 3
+            },
+            "exploding_norm_rate": {
+              "mean": 0.0,
+              "std": 0.0,
+              "n": 3
+            },
+            "invalid_rate": {
+              "mean": 0.0,
+              "std": 0.0,
+              "n": 3
+            },
+            "nfe": {
+              "mean": 512,
+              "std": 0.0,
+              "n": 3
+            },
+            "sample_time_s": {
+              "mean": 0.16083192825317383,
+              "std": 0.005918424803710204,
+              "n": 3
+            },
+            "total_train_time_s": {
+              "mean": 17.632848978042603,
+              "std": 0.06975116673542014,
+              "n": 3
+            }
+          },
+          "paper_alignment": "Sliced-W1 means/std match Table1 and Tables7/8 at displayed precision."
+        },
+        "source_only_empirical": {
+          "artifact_glob": "rebuttal_experiments/raw_results/E_weather/weather_au_wind/source_only_empirical/seed_*/metrics.json",
+          "metrics": {
+            "radial_w1": {
+              "mean": 0.37969522674878436,
+              "std": 0.037137304887984994,
+              "n": 3
+            },
+            "ks_stat": {
+              "mean": 0.08376068373521169,
+              "std": 0.017805697173706194,
+              "n": 3
+            },
+            "q950_err": {
+              "mean": 0.060516528453962694,
+              "std": 0.015796984430281054,
+              "n": 3
+            },
+            "q990_err": {
+              "mean": 0.14804646311851036,
+              "std": 0.02038803861737312,
+              "n": 3
+            },
+            "q995_err": {
+              "mean": 0.16889817491585904,
+              "std": 0.04404472986652719,
+              "n": 3
+            },
+            "tail_exc_95": {
+              "mean": 0.02749288032452261,
+              "std": 0.007461994343668511,
+              "n": 3
+            },
+            "tail_exc_99": {
+              "mean": 0.03729344819982846,
+              "std": 0.00528411278788887,
+              "n": 3
+            },
+            "sliced_w1": {
+              "mean": 0.09444381793340047,
+              "std": 0.006961945967652212,
+              "n": 3
+            },
+            "mmd": {
+              "mean": 0.0030045906702677407,
+              "std": 0.00047538052372554895,
+              "n": 3
+            },
+            "angular_sw_bin0": {
+              "mean": 0.016769574023783207,
+              "std": 0.0009349030553763362,
+              "n": 3
+            },
+            "angular_sw_bin1": {
+              "mean": 0.01571065963556369,
+              "std": 0.00042571659915970923,
+              "n": 3
+            },
+            "angular_sw_bin2": {
+              "mean": 0.014287351941068968,
+              "std": 0.0010524635827073273,
+              "n": 3
+            },
+            "angular_sw_bin3": {
+              "mean": 0.013192298201223215,
+              "std": 0.001379026281947453,
+              "n": 3
+            },
+            "angular_sw_mean": {
+              "mean": 0.01498997095040977,
+              "std": 0.0006447141776688162,
+              "n": 3
+            },
+            "nan_rate": {
+              "mean": 0.0,
+              "std": 0.0,
+              "n": 3
+            },
+            "exploding_norm_rate": {
+              "mean": 0.0,
+              "std": 0.0,
+              "n": 3
+            },
+            "invalid_rate": {
+              "mean": 0.0,
+              "std": 0.0,
+              "n": 3
+            },
+            "nfe": {
+              "mean": 512,
+              "std": 0.0,
+              "n": 3
+            },
+            "sample_time_s": {
+              "mean": 0.1544955571492513,
+              "std": 0.005787409769526037,
+              "n": 3
+            },
+            "total_train_time_s": {
+              "mean": 18.591402053833008,
+              "std": 0.045267878371580875,
+              "n": 3
+            }
+          },
+          "paper_alignment": "Sliced-W1 means/std match Table1 and Tables7/8 at displayed precision."
+        },
+        "rafm_empirical": {
+          "artifact_glob": "rebuttal_experiments/raw_results/E_weather/weather_au_wind/rafm_empirical/seed_*/metrics.json",
+          "metrics": {
+            "radial_w1": {
+              "mean": 0.08726943532625835,
+              "std": 0.00477424467514635,
+              "n": 3
+            },
+            "ks_stat": {
+              "mean": 0.0330484410127004,
+              "std": 0.0017562448125893913,
+              "n": 3
+            },
+            "q950_err": {
+              "mean": 0.012157240792301809,
+              "std": 0.008803422968324847,
+              "n": 3
+            },
+            "q990_err": {
+              "mean": 0.02769117849884218,
+              "std": 0.00422132314042356,
+              "n": 3
+            },
+            "q995_err": {
+              "mean": 0.008280260936254145,
+              "std": 0.002365051346556332,
+              "n": 3
+            },
+            "tail_exc_95": {
+              "mean": 0.006980055818955148,
+              "std": 0.004750236754052717,
+              "n": 3
+            },
+            "tail_exc_99": {
+              "mean": 0.007948718741536132,
+              "std": 0.0006978602839835361,
+              "n": 3
+            },
+            "sliced_w1": {
+              "mean": 0.07455926388502121,
+              "std": 0.0044606616051016,
+              "n": 3
+            },
+            "mmd": {
+              "mean": 0.001908699671427409,
+              "std": 0.0003782581242094542,
+              "n": 3
+            },
+            "angular_sw_bin0": {
+              "mean": 0.01452292532970508,
+              "std": 0.0005473664518013036,
+              "n": 3
+            },
+            "angular_sw_bin1": {
+              "mean": 0.012453035451471806,
+              "std": 0.0005592129146083703,
+              "n": 3
+            },
+            "angular_sw_bin2": {
+              "mean": 0.013432123077412447,
+              "std": 0.0004302095215386556,
+              "n": 3
+            },
+            "angular_sw_bin3": {
+              "mean": 0.013280985256036123,
+              "std": 0.0017439135105949252,
+              "n": 3
+            },
+            "angular_sw_mean": {
+              "mean": 0.013422267278656363,
+              "std": 0.0005374047616399026,
+              "n": 3
+            },
+            "nan_rate": {
+              "mean": 0.0,
+              "std": 0.0,
+              "n": 3
+            },
+            "exploding_norm_rate": {
+              "mean": 0.0,
+              "std": 0.0,
+              "n": 3
+            },
+            "invalid_rate": {
+              "mean": 0.0,
+              "std": 0.0,
+              "n": 3
+            },
+            "nfe": {
+              "mean": 512,
+              "std": 0.0,
+              "n": 3
+            },
+            "sample_time_s": {
+              "mean": 0.26333196957906085,
+              "std": 0.022142113210089066,
+              "n": 3
+            },
+            "total_train_time_s": {
+              "mean": 36.14265751838684,
+              "std": 1.7660961356082414,
+              "n": 3
+            }
+          },
+          "paper_alignment": "Sliced-W1 means/std match Table1 and Tables7/8 at displayed precision."
+        },
+        "angular_rafm": {
+          "artifact_glob": "rebuttal_experiments/raw_results/E_weather/weather_au_wind/angular_rafm/seed_*/metrics.json",
+          "metrics": {
+            "radial_w1": {
+              "mean": 0.08726943532625835,
+              "std": 0.004774271186311916,
+              "n": 3
+            },
+            "ks_stat": {
+              "mean": 0.0330484410127004,
+              "std": 0.0017562448125893913,
+              "n": 3
+            },
+            "q950_err": {
+              "mean": 0.012157265417953124,
+              "std": 0.008803447836418937,
+              "n": 3
+            },
+            "q990_err": {
+              "mean": 0.027691109710111975,
+              "std": 0.004221194708687983,
+              "n": 3
+            },
+            "q995_err": {
+              "mean": 0.0082801520407598,
+              "std": 0.002364969963072174,
+              "n": 3
+            },
+            "tail_exc_95": {
+              "mean": 0.006980055818955148,
+              "std": 0.004750236754052717,
+              "n": 3
+            },
+            "tail_exc_99": {
+              "mean": 0.007948718741536132,
+              "std": 0.0006978602839835361,
+              "n": 3
+            },
+            "sliced_w1": {
+              "mean": 0.07946214824914932,
+              "std": 0.011440104537865496,
+              "n": 3
+            },
+            "mmd": {
+              "mean": 0.002377589543660482,
+              "std": 0.0008398547857600821,
+              "n": 3
+            },
+            "angular_sw_bin0": {
+              "mean": 0.014328209993739923,
+              "std": 0.0009962180186893878,
+              "n": 3
+            },
+            "angular_sw_bin1": {
+              "mean": 0.01285540871322155,
+              "std": 0.0007749012661367704,
+              "n": 3
+            },
+            "angular_sw_bin2": {
+              "mean": 0.014328856952488422,
+              "std": 0.0016821776938546842,
+              "n": 3
+            },
+            "angular_sw_bin3": {
+              "mean": 0.01492618148525556,
+              "std": 0.0031067032505459782,
+              "n": 3
+            },
+            "angular_sw_mean": {
+              "mean": 0.014109664286176363,
+              "std": 0.001175297655511216,
+              "n": 3
+            },
+            "nan_rate": {
+              "mean": 0.0,
+              "std": 0.0,
+              "n": 3
+            },
+            "exploding_norm_rate": {
+              "mean": 0.0,
+              "std": 0.0,
+              "n": 3
+            },
+            "invalid_rate": {
+              "mean": 0.0,
+              "std": 0.0,
+              "n": 3
+            },
+            "nfe": {
+              "mean": 512,
+              "std": 0.0,
+              "n": 3
+            },
+            "sample_time_s": {
+              "mean": 0.25714929898579914,
+              "std": 0.0032360160200172027,
+              "n": 3
+            },
+            "total_train_time_s": {
+              "mean": 43.90221087137858,
+              "std": 0.40193096674105644,
+              "n": 3
+            }
+          },
+          "paper_alignment": "Sliced-W1 means/std match Table1 and Tables7/8 at displayed precision."
+        },
+        "msgm": {
+          "artifact_glob": "rebuttal_experiments/raw_results/E_weather/weather_au_wind/msgm/seed_*/metrics.json",
+          "metrics": {
+            "radial_w1": {
+              "mean": 0.09868395825227101,
+              "std": 0.028214452430655023,
+              "n": 3
+            },
+            "ks_stat": {
+              "mean": 0.033048431078592934,
+              "std": 0.009293165503235187,
+              "n": 3
+            },
+            "q950_err": {
+              "mean": 0.028382737684383288,
+              "std": 0.007420024180318103,
+              "n": 3
+            },
+            "q990_err": {
+              "mean": 0.01904131668966939,
+              "std": 0.005520622389967278,
+              "n": 3
+            },
+            "q995_err": {
+              "mean": 0.013014732122963377,
+              "std": 0.00907012711220046,
+              "n": 3
+            },
+            "tail_exc_95": {
+              "mean": 0.017521366352836337,
+              "std": 0.0030419033268583415,
+              "n": 3
+            },
+            "tail_exc_99": {
+              "mean": 0.003390313833951941,
+              "std": 0.0021319987987493405,
+              "n": 3
+            },
+            "sliced_w1": {
+              "mean": 0.11993639171123505,
+              "std": 0.0029191004409963523,
+              "n": 3
+            },
+            "mmd": {
+              "mean": 0.004187107086181641,
+              "std": 0.0001716152599429612,
+              "n": 3
+            },
+            "angular_sw_bin0": {
+              "mean": 0.018543919548392296,
+              "std": 0.0006622519900307381,
+              "n": 3
+            },
+            "angular_sw_bin1": {
+              "mean": 0.01717078189055125,
+              "std": 0.0012684198089797098,
+              "n": 3
+            },
+            "angular_sw_bin2": {
+              "mean": 0.01698438636958599,
+              "std": 0.0011424087517263367,
+              "n": 3
+            },
+            "angular_sw_bin3": {
+              "mean": 0.02208598020176093,
+              "std": 0.0008180850258135486,
+              "n": 3
+            },
+            "angular_sw_mean": {
+              "mean": 0.018696267002572615,
+              "std": 0.0003105748920294303,
+              "n": 3
+            },
+            "nan_rate": {
+              "mean": 0.0,
+              "std": 0.0,
+              "n": 3
+            },
+            "exploding_norm_rate": {
+              "mean": 0.0,
+              "std": 0.0,
+              "n": 3
+            },
+            "invalid_rate": {
+              "mean": 0.0,
+              "std": 0.0,
+              "n": 3
+            },
+            "sample_time_s": {
+              "mean": 2.515824874242147,
+              "std": 0.04418089167128844,
+              "n": 3
+            },
+            "total_train_time_s": {
+              "mean": 20085.23186937968,
+              "std": 563.9313146268265,
+              "n": 3
+            }
+          },
+          "paper_alignment": "Sliced-W1 means/std match Table1 and Tables7/8 at displayed precision."
+        }
+      },
+      "planned_tflow_sampler": {
+        "solver": "heun",
+        "steps": 256,
+        "actual_nfe": 512,
+        "t_min": 0.001,
+        "grid": "power_sigma",
+        "rho": 7.0,
+        "sigma_min": 0.01,
+        "status": "prepared numerical convention; awaiting experiment approval"
+      },
+      "input_verification": {
+        "id": "weather_au_wind",
+        "shape": [
+          5847,
+          96
+        ],
+        "counts": {
+          "train": 3508,
+          "val": 1169,
+          "test": 1170
+        },
+        "finite": true,
+        "input_sha256": "8c2cf0e1fbc8a62fa1b45e76c5396ae77afc9acf7719ed43a14c2947dca9f361"
+      }
+    },
+    {
+      "id": "audiomnist_stft",
+      "family": "audio",
+      "dimension": 16254,
+      "required": true,
+      "paper_scope": "main_and_appendix",
+      "paper_references": [
+        "Figure2",
+        "Figure4",
+        "Table5",
+        "Table6",
+        "C.10"
+      ],
+      "protocol": "audio",
+      "input_ids": [
+        "audio_train",
+        "audio_test",
+        "audio_classifier"
+      ],
+      "cached_input_path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/poc_audio/data/audiomnist_stft_train.pt",
+      "input_sha256": "d4c0e10dcae8bdb2ad6e7bf05202a42e6a6af3b6fb064e6fc97e12432e0fe7be",
+      "split": {
+        "kind": "nested_fixed_random",
+        "source_selection_seed": 0,
+        "nominal_train": 12000,
+        "external_test": 3000,
+        "generator_split_seed": 0,
+        "generator_train": 10200,
+        "generator_validation": 1800,
+        "generator_split_fraction": 0.85
+      },
+      "preprocessing": "16kHz to8kHz;pad/center-crop8000 samples;Hann STFT FFT256/hop128;2x129x63 real/imag;unit direction times independent gain mixture(.6*lognormal(log1,.25)+.4*lognormal(log4,.25)),clip min.1;gain seeds1(train),2(test);no centering.",
+      "train_steps": 24000,
+      "batch_size": 32,
+      "model_seeds": [
+        8925,
+        1234,
+        7
+      ],
+      "resolved_protocol": true,
+      "blocking_issue_ids": [],
+      "source_artifacts": [
+        "experiments/poc_audio/audio_data.py",
+        "experiments/poc_audio/audio_flow.py",
+        "experiments/poc_audio/audio_eval.py",
+        "experiments/poc_audio/launch_stage2_seeds.bat",
+        "experiments/poc_audio/stage2_3seed.json"
+      ],
+      "experiment_launch_authorized": false,
+      "tflow_candidate_config_status": "pending source-policy selection and per-condition protocol resolution",
+      "n_generated": 2000,
+      "actual_nfe": 160,
+      "tuning": {
+        "seed": 46021,
+        "stage1_steps": 1200,
+        "continuation_total_steps": 2400,
+        "candidate_grid_ref": "tuning_estimate",
+        "status": "proposed_pending_experiment_approval"
+      },
+      "planned_tflow_sampler": {
+        "solver": "heun",
+        "steps": 80,
+        "actual_nfe": 160,
+        "t_min": 0.001,
+        "grid": "power_sigma",
+        "rho": 7.0,
+        "sigma_min": 0.01,
+        "status": "prepared numerical convention; awaiting experiment approval"
+      },
+      "input_verification": {
+        "id": "audiomnist_stft",
+        "shape": [
+          12000,
+          16254
+        ],
+        "counts": {
+          "train": 10200,
+          "val": 1800,
+          "test": 3000
+        },
+        "finite": true,
+        "input_sha256": "d4c0e10dcae8bdb2ad6e7bf05202a42e6a6af3b6fb064e6fc97e12432e0fe7be"
+      }
+    },
+    {
+      "id": "imagenette_dcae",
+      "family": "image",
+      "dimension": 2048,
+      "required": true,
+      "paper_scope": "main_and_appendix",
+      "paper_references": [
+        "Table2",
+        "Table4",
+        "Table9",
+        "Figure6",
+        "Figure7",
+        "C.10"
+      ],
+      "protocol": "image",
+      "input_ids": [
+        "dcae_latents",
+        "dcae_labels",
+        "dcae_reference"
+      ],
+      "cached_input_path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/image_latents/data/dcae_latents_scaled.pt",
+      "input_sha256": "15088880ca60e69747d4c8bb55eda046d0667475e35ff6d7133e876090d83116",
+      "split": {
+        "kind": null,
+        "paper_requirement": "generator training/test/reference disjoint;reference=3925 official-validation images",
+        "exact_row_indices_path": null,
+        "retained_code_candidate": {
+          "kind": "random_permutation_over_combined_official_train_and_val",
+          "seed": 0,
+          "n_total": 13394,
+          "counts": [
+            8036,
+            2678,
+            2680
+          ],
+          "accepted": false
+        }
+      },
+      "preprocessing": "Frozen mit-han-lab/dc-ae-f32c32-sana-1.0-diffusers;Resize256/CenterCrop256 RGB[-1,1];32x8x8 latent;cached scale.41407;center by exact generator-training mean;decoder reverses center/scale.",
+      "train_steps": 40000,
+      "batch_size": 64,
+      "model_seeds": [
+        8925,
+        1234,
+        7
+      ],
+      "resolved_protocol": false,
+      "blocking_issue_ids": [
+        "image_split_conflict",
+        "historical_eval_provenance"
+      ],
+      "source_artifacts": [
+        "experiments/image_latents/scripts/extract_dcae_latents.py",
+        "experiments/image_latents/dit/dit_train_sit.py",
+        "experiments/image_latents/dit/dit_eval_sit.py",
+        "experiments/image_latents/dit/eval_phaseB.bat",
+        "experiments/image_latents/launch_angular_dit.bat",
+        "experiments/image_latents/results_phaseB.json"
+      ],
+      "experiment_launch_authorized": false,
+      "tflow_candidate_config_status": "pending source-policy selection and per-condition protocol resolution",
+      "n_generated": 3000,
+      "actual_nfe": 100,
+      "tuning": {
+        "seed": 46021,
+        "stage1_steps": 2000,
+        "continuation_total_steps": 4000,
+        "candidate_grid_ref": "tuning_estimate",
+        "status": "proposed_pending_experiment_approval"
+      },
+      "planned_tflow_sampler": {
+        "solver": "heun",
+        "steps": 50,
+        "actual_nfe": 100,
+        "t_min": 0.001,
+        "grid": "power_sigma",
+        "rho": 7.0,
+        "sigma_min": 0.01,
+        "status": "prepared numerical convention; awaiting experiment approval"
+      }
+    }
+  ],
+  "issues": [
+    {
+      "id": "synthetic_cache_missing",
+      "severity": "blocking",
+      "summary": "Exact realized Student-t, Gaussian control and Toy2D tensors are not present in the audited input locations. Their constructors generate new values before the experiment runner sets the model seed. Reconstructing from matrix/split seeds does not recover historical data.",
+      "evidence": [
+        "rafm/data/student_t.py",
+        "rafm/data/gaussian_aniso.py",
+        "rafm/data/toy_radial_angular.py",
+        "experiments/exp1_main_benchmark.py",
+        "paper C.5-C.8"
+      ],
+      "resolution": "Obtain the exact archived data, splits and mixing matrices for each reported comparison; do not regenerate."
+    },
+    {
+      "id": "aniso_cache_missing",
+      "severity": "blocking",
+      "summary": "All six expected aniso_gauss_d32_k{k}.pt inputs are missing; only meta.json is retained.",
+      "evidence": [
+        "rebuttal_experiments/scripts/gen_aniso.py",
+        "rebuttal_experiments/data/aniso/meta.json",
+        "paper B.1/C.5"
+      ],
+      "resolution": "Obtain original cached files; generator seed42 is not authorization to regenerate."
+    },
+    {
+      "id": "vector_batch_conflict",
+      "severity": "blocking",
+      "summary": "Paper B.1/C.7 specifies batch256 for Student-t and PIV. Commit2e659c7 defaults are4096; f892493 defaults are256 but E1/E6/E8/E10 YAMLs remain4096. The specific archived comparison configuration is unresolved. Later PIV d64/d256 completion metadata resolves their main comparisons to256; those two conditions are no longer blocked by this issue.",
+      "evidence": [
+        "2e659c7:configs/defaults.yaml",
+        "f892493:configs/defaults.yaml",
+        "f892493:rebuttal_experiments/configs/E6_dim16.yaml",
+        "paper C.1/C.7"
+      ],
+      "resolution": "Identify exact cached-data/config/result grouping for the reported values. Do not silently substitute a default; paper target is256."
+    },
+    {
+      "id": "piv32_identity_missing",
+      "severity": "blocking",
+      "summary": "Paper C.5 lists native8x4 PIV d32; piv_d32.pt is absent. d16 backing storage is not verified provenance for this input.",
+      "evidence": [
+        "paper C.5, p33",
+        "data/piv/piv_d16.pt",
+        "configs/exp1/piv_d32.yaml"
+      ],
+      "resolution": "Obtain verified native d32 cached file or authoritative proof of storage identity before materializing any view."
+    },
+    {
+      "id": "piv64_protocol_conflict",
+      "severity": "resolved_archive_selection",
+      "summary": "Historical E10 angular records use chronological split/201 samples, but paper Tables1/3 match later outputs/exp1_main_benchmark/piv_d64 angular records and RAFM_ANG_TABLE1_completion.json:randomseed0,10000 samples,batch256.",
+      "evidence": [
+        "rebuttal_experiments/scripts/launch_angular_real.bat",
+        "rebuttal_experiments/raw_results/E10_piv/piv_d64/angular_rafm/seed_8925/config.yaml",
+        "paper C.1/C.6/C.9",
+        "rebuttal_experiments/RAFM_ANG_TABLE1_completion.json",
+        "outputs/exp1_main_benchmark/piv_d64/angular_rafm/"
+      ],
+      "resolution": "Use later main-table records and retain E10 as distinct historical context; do not take the E10 aggregate as the paper main row."
+    },
+    {
+      "id": "image_split_conflict",
+      "severity": "blocking",
+      "summary": "Paper C.10 says the3925 official-validation reference images are disjoint from generator training and all FM methods use3000 generated images. Local extraction concatenates official train+val13394 images and trainer random-splits all rows60/20/20. It saves no row-to-image split manifest. Angular launcher requests5000.",
+      "evidence": [
+        "experiments/image_latents/scripts/extract_dcae_latents.py",
+        "experiments/image_latents/dit/dit_train_sit.py",
+        "experiments/image_latents/launch_angular_dit.bat",
+        "experiments/image_latents/dit/eval_phaseB.bat",
+        "paper C.10"
+      ],
+      "resolution": "Obtain exact paper training/validation/test row indices and image mapping, verify reference disjointness, pin3000 FM evaluation count. Do not silently resplit."
+    },
+    {
+      "id": "historical_eval_provenance",
+      "severity": "blocking_comparison_alignment",
+      "summary": "Original downstream per-seed eval JSONs are absent in the audited tree; aggregated JSONs survive. Published vector values also differ from retained generated table TeX.",
+      "evidence": [
+        "experiments/image_latents/results_phaseB.json",
+        "experiments/poc_audio/stage2_3seed.json",
+        "rebuttal_experiments/paper_assets/tables/table_realdata.tex",
+        "paper Tables1-8"
+      ],
+      "resolution": "Recover cited-commit per-seed records or preserve paper values as immutable reported references with explicit unmatched-input provenance."
+    },
+    {
+      "id": "projection_identity_unpinned",
+      "severity": "comparison_limitation",
+      "summary": "Paper C.12 calls for shared projection directions within each comparison but no fixed projection seed; current evaluators draw from method-specific post-training RNG state. Exact old projection arrays/RNG state are absent.",
+      "evidence": [
+        "paper C.12",
+        "rafm/metrics/distributional.py",
+        "experiments/exp1_main_benchmark.py"
+      ],
+      "resolution": "Use documented common new projection arrays across newly evaluated methods; do not claim bit-identical historical projections."
+    },
+    {
+      "id": "stale_nfe_config",
+      "severity": "resolved_interpretation",
+      "summary": "Some angular run configs say nfe512 steps, but final metrics record512 model evaluations; resample_matched_nfe.py resampled at128 RK4 steps without changing YAML.",
+      "evidence": [
+        "rebuttal_experiments/scripts/resample_matched_nfe.py",
+        "rebuttal_experiments/raw_results/E9_aniso/aniso_k1/angular_rafm/seed_8925/metrics.json",
+        "paper C.9"
+      ],
+      "resolution": "Use128 RK4 steps/512 actual evaluations; retain original config and resampling provenance."
+    },
+    {
+      "id": "mmd_bandwidth_unarchived",
+      "severity": "comparison_limitation",
+      "detail": "Paper C.12 describes bandwidth fixed across compared methods; retained compute_mmd selects the median separately from each generated/test concatenation and records no bandwidth. New runs reuse that evaluator unchanged; exact historical common bandwidth cannot be recovered from metrics alone.",
+      "resolution": "Report existing-code median-heuristic MMD and disclose this limitation. A common-bandwidth reevaluation needs original samples and separate evaluation approval."
+    }
+  ],
+  "reported_diagnostics": [
+    {
+      "id": "nfe_drift",
+      "scope": "paper_appendix",
+      "paper": [
+        "Figure5",
+        "B.2",
+        "B.5"
+      ],
+      "benchmarks": [
+        "student_t_d16_df3.0_cor",
+        "piv_d64",
+        "weather_au_wind",
+        "toy_radial_angular"
+      ],
+      "kind": "sampling_only_from_fixed_final_checkpoint",
+      "existing_methods": [
+        "rafm_empirical",
+        "angular_rafm"
+      ],
+      "checkpoint_seed": 8925,
+      "sample_seed": 12345,
+      "solver": "rk4",
+      "actual_nfe": [
+        4,
+        8,
+        20,
+        48,
+        100
+      ],
+      "n_generated": 10000,
+      "script": "rebuttal_experiments/scripts/E4_nfe_solver_sweep.py",
+      "csv_root": "rebuttal_experiments/raw_results/E4_nfe_solver",
+      "metrics": [
+        "drift_final_mean",
+        "drift_final_max",
+        "drift_traj_max_mean",
+        "radial_w1",
+        "ks_stat",
+        "sliced_w1",
+        "angular_sw_mean",
+        "nan_rate"
+      ],
+      "notes": "Paper panel uses RK4+projection. Source broader grid also retains Euler/Heun and projection on/off; not additional trained benchmarks. Preserve toy angular missing curve/failure."
+    },
+    {
+      "id": "projection_ablation",
+      "scope": "paper_appendix",
+      "paper": [
+        "Table14"
+      ],
+      "benchmarks": [
+        "gaussian_aniso_d16_cor",
+        "piv_d16",
+        "piv_d64",
+        "piv_d256",
+        "student_t_d16_df3.0_cor",
+        "student_t_d32_df3.0_cor",
+        "toy_radial_angular"
+      ],
+      "kind": "sampling_only;existing RAFM-Vel with/without tangent projection",
+      "model_seeds": [
+        8925,
+        77395,
+        65457
+      ],
+      "actual_nfe": 512,
+      "n_generated": 10000,
+      "script": "scripts/ablation_no_projection.py",
+      "notes": "Applies to spherical RAFM; do not change t-Flow into a spherical projected model to imitate this ablation. Add t-Flow baseline values only where scientifically meaningful."
+    },
+    {
+      "id": "oracle_source",
+      "scope": "paper_appendix",
+      "paper": [
+        "Table11"
+      ],
+      "benchmarks": [
+        "student_t_d16_df3.0_cor",
+        "student_t_d32_df3.0_cor"
+      ],
+      "kind": "existing empirical/oracle comparison",
+      "notes": "No new dataset; t-Flow baseline reuses corresponding condition. Historical oracle/empirical rows preserved."
+    },
+    {
+      "id": "target_scale",
+      "scope": "paper_appendix",
+      "paper": [
+        "Figure4",
+        "B.2"
+      ],
+      "benchmarks": [
+        "student_t_d16_df3.0_cor",
+        "audiomnist_stft"
+      ],
+      "kind": "geometry diagnostics",
+      "sampled_training_pairs_paper": 40000,
+      "sample_seed_source": 0,
+      "script": "rebuttal_experiments/paper_assets/figs/theory_diagnostics.py",
+      "cached_summary": "rebuttal_experiments/paper_assets/figs/theory_stats.json",
+      "notes": "Current make_audio_fig.py samples20000 pairs; paper says40000. Existing source can regenerate synthetic inputs. No such execution before approval or cache resolution."
+    },
+    {
+      "id": "audio_evaluator_controls",
+      "scope": "paper_appendix",
+      "paper": [
+        "Table6"
+      ],
+      "benchmarks": [
+        "audiomnist_stft"
+      ],
+      "kind": "existing fixed-classifier control",
+      "notes": "Preserve gain-invariance and radius-replacement diagnostics; classifier weights fixed, no retraining."
+    },
+    {
+      "id": "latent_semantics",
+      "scope": "paper_appendix",
+      "paper": [
+        "Table9",
+        "Figure6",
+        "Figure7"
+      ],
+      "benchmarks": [
+        "imagenette_dcae"
+      ],
+      "kind": "existing class/radius/style diagnostics and paired decoded grids",
+      "scripts": [
+        "experiments/image_latents/dit/radial_semantics_cpu.py",
+        "experiments/image_latents/dit/deferred/"
+      ],
+      "notes": "No additional trained benchmark; dataset identity and disjointness blocker applies to any new evaluation."
+    },
+    {
+      "id": "finance_radial_shift",
+      "scope": "paper_appendix",
+      "paper": [
+        "Table10"
+      ],
+      "benchmarks": [
+        "finance_ff49"
+      ],
+      "kind": "train-test radial-shift diagnostic",
+      "notes": "Same chronological Finance input; not a random-split experiment."
+    },
+    {
+      "id": "timing",
+      "scope": "paper_appendix",
+      "paper": [
+        "Tables15",
+        "Table16",
+        "Table17",
+        "Table18",
+        "Table19",
+        "C.13"
+      ],
+      "kind": "runtime profiling of existing data conditions",
+      "notes": "No new accuracy dataset; historical timing hardware/precision/batches differ. Training-equivalent estimate below excludes timing bursts and evaluation cost."
+    }
+  ],
+  "repository_only_variants": [
+    {
+      "id": "finance_random_split",
+      "required": false,
+      "reason": "Repository-only diagnostic; not a reported paper benchmark. Paper Table10 is chronological radial shift.",
+      "source": "rebuttal_experiments/raw_results/E_finance_randomsplit",
+      "candidate_protocol": {
+        "split": "random_seed0",
+        "batch_size": 4096,
+        "train_steps": 10000,
+        "seeds": [
+          8925,
+          77395,
+          65457
+        ]
+      }
+    },
+    {
+      "id": "weather_resmlp",
+      "required": false,
+      "reason": "Repository-only larger-backbone variant; paper Table8 explicitly uses main three-hidden-layer MLP.",
+      "source": "rebuttal_experiments/raw_results/E_weather_bigmodel",
+      "candidate_protocol": {
+        "architecture": "ResMLP width256/four blocks",
+        "batch_size": 2048,
+        "train_steps": 10000,
+        "seeds": [
+          8925,
+          77395,
+          65457
+        ]
+      }
+    },
+    {
+      "id": "gaussian_aniso_d32",
+      "required": false,
+      "reason": "Config exists but no reported paper result identified.",
+      "source": "configs/exp1/gaussian_d32.yaml"
+    },
+    {
+      "id": "sample_efficiency",
+      "required": false,
+      "reason": "No sample-efficiency result is reported in the supplied39-page paper. Repository-only config remains explicit rather than silently omitted.",
+      "source": "configs/exp2/sample_efficiency.yaml",
+      "candidate_protocol": {
+        "dataset": "student_t_d16_df3.0_cor",
+        "pool_samples": 100000,
+        "training_sizes": [
+          500,
+          1000,
+          5000,
+          20000,
+          50000
+        ],
+        "train_steps": 10000,
+        "seeds": [
+          8925,
+          77395,
+          65457
+        ]
+      },
+      "blockers": [
+        "synthetic_cache_missing",
+        "unreported_scope_requires_explicit_selection"
+      ]
+    },
+    {
+      "id": "solver_extended",
+      "required": false,
+      "reason": "Paper Figure5 plots RK4 drift only; retain broader existing Euler/Heun/RK4 CSVs without assuming new t-Flow sweep authorization.",
+      "source": "rebuttal_experiments/scripts/E4_nfe_solver_sweep.py",
+      "requested_nfe_targets": [
+        1,
+        2,
+        5,
+        10,
+        20,
+        50,
+        100
+      ]
+    },
+    {
+      "id": "training_trajectories",
+      "required": false,
+      "reason": "Archived downstream intermediates exist, but headline paper comparisons use final checkpoint. No extra training runs required.",
+      "audio_steps": [
+        12000,
+        18000,
+        24000
+      ],
+      "image_steps": [
+        20000,
+        30000,
+        40000
+      ]
+    }
+  ],
+  "artifacts": {
+    "immutable_paper_reference": "RAFM_ICLR_2027.pdf; values final regardless of colors or temporary notes",
+    "native_vector_results": "rebuttal_experiments/raw_results/<experiment>/<dataset>/<method>/seed_<seed>/{config.yaml,meta.json,metrics.json,train_log.csv}",
+    "native_original_results": "outputs/exp1_main_benchmark/<dataset>/<method>/seed_<seed>/",
+    "aggregate_inputs": [
+      "rebuttal_experiments/master_suite.json",
+      "rebuttal_experiments/master_results.json",
+      "experiments/poc_audio/stage2_3seed.json",
+      "experiments/image_latents/results_phaseB.json"
+    ],
+    "aggregate_scripts": [
+      "rebuttal_experiments/scripts/build_full_suite_report.py",
+      "rebuttal_experiments/scripts/build_master_aggregation.py",
+      "experiments/poc_audio/stage2_aggregate.py",
+      "experiments/image_latents/dit/aggregate_results.py"
+    ],
+    "table_script": "rebuttal_experiments/paper_assets/tables/make_tables.py",
+    "figure_scripts": [
+      "rebuttal_experiments/paper_assets/figs/make_figures.py",
+      "rebuttal_experiments/paper_assets/figs/make_audio_fig.py",
+      "rebuttal_experiments/paper_assets/figs/theory_diagnostics.py",
+      "experiments/image_latents/dit/make_dcae_grid.py"
+    ],
+    "artifact_warning": "Existing table/figure generators read retained aggregates that do not fully match the PDF. Preserve both; do not overwrite published numeric references or regenerate data as a side effect.",
+    "paper_matching_piv": "rebuttal_experiments/RAFM_ANG_TABLE1_completion.json + outputs/exp1_main_benchmark/piv_d{64,256}/angular_rafm/",
+    "new_tflow_renderer": "experiments/tflow/render_results.py",
+    "new_tflow_outputs": [
+      "table1_tflow_addition.tex",
+      "table2_tflow_addition.tex",
+      "table3_tflow_addition.tex",
+      "table4_tflow_addition.tex",
+      "tflow_results.json",
+      "tflow_results.md",
+      "tflow_metrics.csv",
+      "conditions/<condition_id>.json"
+    ]
+  },
+  "sparse_reference_protocol": {
+    "vector_seeds": [
+      8925,
+      77395,
+      65457
+    ],
+    "vector_steps": 10000,
+    "vector_actual_nfe": 512,
+    "synthetic_piv_batch": 256,
+    "finance_batch": 4096,
+    "weather_batch": 4096,
+    "image_n_generated": 5000,
+    "audio_n_generated": 2000,
+    "downstream_actual_nfe": 400,
+    "notes": "Historical sparse results are final. Their unequal image count, Weather batch and downstream NFE/hardware do not change the paper FM target for the new t-Flow baseline."
+  },
+  "metric_key_mapping": {
+    "vector": {
+      "radial Wasserstein1": "radial_w1",
+      "radial KS": "ks_stat",
+      "Sliced Wasserstein1": "sliced_w1",
+      "RBF MMD squared": "mmd",
+      "quantile relative error95/99/99.5%": [
+        "q950_err",
+        "q990_err",
+        "q995_err"
+      ],
+      "absolute tail exceedance error95/99%": [
+        "tail_exc_95",
+        "tail_exc_99"
+      ],
+      "radial-bin angular SW": [
+        "angular_sw_bin0",
+        "angular_sw_bin1",
+        "angular_sw_bin2",
+        "angular_sw_bin3"
+      ],
+      "mean angular SW": "angular_sw_mean",
+      "invalid samples": "invalid_rate",
+      "NaN samples": "nan_rate",
+      "exploding norms": "exploding_norm_rate",
+      "network evaluations": "nfe",
+      "sampling seconds": "sample_time_s",
+      "training seconds": "total_train_time_s"
+    },
+    "audio_native_eval": {
+      "digit accuracy": "content.digit_acc",
+      "energy W1": "energy.radial_w1",
+      "energy KS": "energy.ks",
+      "coverage above q90/q95/q99": [
+        "energy.cov_gt_q90",
+        "energy.cov_gt_q95",
+        "energy.cov_gt_q99"
+      ],
+      "coverage below q10": "energy.cov_lt_q10",
+      "PIT mean": "energy.pit_mean",
+      "digit accuracy by energy": "content.acc_by_energy"
+    },
+    "audio_aggregate": {
+      "digit accuracy": "24000.<method>.digit_acc",
+      "energy KS": "24000.<method>.energy_KS",
+      "coverage q95/q99": [
+        "24000.<method>.cov>q95",
+        "24000.<method>.cov>q99"
+      ],
+      "PIT": "24000.<method>.PIT",
+      "method_names": [
+        "gaussian",
+        "matched",
+        "fixed_spher",
+        "std_rafm",
+        "angular_rafm"
+      ]
+    },
+    "image_native_eval": {
+      "FID": "image.fid",
+      "KID": "image.kid",
+      "KID standard deviation": "image.kid_std",
+      "PRDC": [
+        "image.precision",
+        "image.recall",
+        "image.density",
+        "image.coverage"
+      ],
+      "latent radial W1": "latent.radial_w1",
+      "latent KS": "latent.ks",
+      "latent sliced W1": "latent.sliced_w1"
+    },
+    "image_aggregate": {
+      "path_pattern": "40000/<method>.<metric>.{mean,std,vals}",
+      "method_names": [
+        "gaussian_euclidean",
+        "matched_euclidean",
+        "fixed_spherical",
+        "rafm"
+      ],
+      "angular_location": "per-seed dit_sit_s{seed}/eval_std/angular_rafm/eval_40000.json or master_results.json.dcae.angular_rafm"
+    }
+  }
+}

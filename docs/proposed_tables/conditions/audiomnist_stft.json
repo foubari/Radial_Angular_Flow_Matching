@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "method": "tflow",
+  "condition_id": "audiomnist_stft",
+  "status": "pending",
+  "expected_seeds": [
+    8925,
+    1234,
+    7
+  ],
+  "n_expected": 3,
+  "n_complete": 0,
+  "n_failed": 0,
+  "n_pending": 3,
+  "issues": [],
+  "protocol": "audio",
+  "paper_scope": "main_and_appendix",
+  "runs": [
+    {
+      "seed": 8925,
+      "path": "outputs_tflow/audiomnist_stft/seed_8925/result.json",
+      "status": "pending",
+      "issues": [
+        "missing final result.json"
+      ]
+    },
+    {
+      "seed": 1234,
+      "path": "outputs_tflow/audiomnist_stft/seed_1234/result.json",
+      "status": "pending",
+      "issues": [
+        "missing final result.json"
+      ]
+    },
+    {
+      "seed": 7,
+      "path": "outputs_tflow/audiomnist_stft/seed_7/result.json",
+      "status": "pending",
+      "issues": [
+        "missing final result.json"
+      ]
+    }
+  ],
+  "aggregate_full_precision": {},
+  "aggregate": {},
+  "metric_coverage": {},
+  "historical_values_recomputed": false
+}

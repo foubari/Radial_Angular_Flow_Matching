@@ -1,0 +1,108 @@
+{
+  "kind": "input_verification_only",
+  "host": "auh7-3b-gpu-019",
+  "torch": "2.7.1+rocm6.3",
+  "cases": [
+    {
+      "id": "piv_d64",
+      "shape": [
+        998,
+        64
+      ],
+      "counts": {
+        "train": 598,
+        "val": 199,
+        "test": 201
+      },
+      "finite": true,
+      "input_sha256": "268aaf1ce26096f76b24ad64db3a397a889a52fc78a98ed523c7f48481e8715e",
+      "historical_tensor_identity": {
+        "train": {
+          "actual_md5": "5d0d421eb0c3c5c9e9b4d16bf12c28ab",
+          "expected_md5": "5d0d421eb0c3c5c9e9b4d16bf12c28ab",
+          "matches": true
+        },
+        "test": {
+          "actual_md5": "62bd077c8ad2246a60a479149425473e",
+          "expected_md5": "62bd077c8ad2246a60a479149425473e",
+          "matches": true
+        }
+      }
+    },
+    {
+      "id": "piv_d256",
+      "shape": [
+        998,
+        256
+      ],
+      "counts": {
+        "train": 598,
+        "val": 199,
+        "test": 201
+      },
+      "finite": true,
+      "input_sha256": "93b25962f33f8c4197356a09200093b363cccad0a9c164a2853642855a8277b4",
+      "historical_tensor_identity": {
+        "train": {
+          "actual_md5": "8c997feba59290785fcb915a64eecc29",
+          "expected_md5": "8c997feba59290785fcb915a64eecc29",
+          "matches": true
+        },
+        "test": {
+          "actual_md5": "7ef7ee53bb00810bffb1442e26ff6bdd",
+          "expected_md5": "7ef7ee53bb00810bffb1442e26ff6bdd",
+          "matches": true
+        }
+      }
+    },
+    {
+      "id": "finance_ff49",
+      "shape": [
+        14349,
+        49
+      ],
+      "counts": {
+        "train": 8609,
+        "val": 2869,
+        "test": 2871
+      },
+      "finite": true,
+      "input_sha256": "7ce89c88cf8c55c669aa6172fdbfb0c7efe1211cea7ee608bc6c9e139a74d51e"
+    },
+    {
+      "id": "weather_au_wind",
+      "shape": [
+        5847,
+        96
+      ],
+      "counts": {
+        "train": 3508,
+        "val": 1169,
+        "test": 1170
+      },
+      "finite": true,
+      "input_sha256": "8c2cf0e1fbc8a62fa1b45e76c5396ae77afc9acf7719ed43a14c2947dca9f361"
+    },
+    {
+      "id": "audiomnist_stft",
+      "shape": [
+        12000,
+        16254
+      ],
+      "counts": {
+        "train": 10200,
+        "val": 1800,
+        "test": 3000
+      },
+      "finite": true,
+      "input_sha256": "d4c0e10dcae8bdb2ad6e7bf05202a42e6a6af3b6fb064e6fc97e12432e0fe7be"
+    }
+  ],
+  "fid_reference": {
+    "expected_count": 3925,
+    "actual_count": 3925,
+    "manifest_count": 3925,
+    "byte_identical": true,
+    "manifest_sha256": "869c4daee2671138beedefca756c4bc1b5d7368ba401e9415d12ccadcb045ac5"
+  }
+}
