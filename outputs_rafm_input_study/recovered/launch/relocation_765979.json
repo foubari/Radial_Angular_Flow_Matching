@@ -1,0 +1,16 @@
+{
+  "recorded_utc": "2026-09-10T14:16:49.063903+00:00",
+  "original_job_id": "765979",
+  "old_node": "auh7-3b-gpu-008",
+  "new_node": "auh7-3b-gpu-029",
+  "reason": "Node008 was occupied by another user during final validation; move pending jobs to an idle identical MI210 node without increasing six-GPU concurrency.",
+  "original_submission": "tasks_20260910T141512_44ffbda6.submission.json",
+  "status": "cancelled_before_start_verified",
+  "pending_before_cancel": "765979|PENDING||(Dependency)",
+  "cancel_exit_code": 0,
+  "cancel_stdout": "",
+  "cancel_stderr": "",
+  "cancelled_at_utc": "2026-09-10T14:17:11.165958+00:00",
+  "accounting": "765979_[0-5%6]|CANCELLED by 1273|None|00:00:00|None assigned\n",
+  "verified_utc": "2026-09-10T14:17:29.585592+00:00"
+}

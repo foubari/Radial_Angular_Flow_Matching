@@ -1,0 +1,24 @@
+{
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--partition=hermes-2",
+    "--nodelist=auh7-3b-gpu-029",
+    "--nodes=1",
+    "--ntasks=1",
+    "--cpus-per-task=2",
+    "--gres=none",
+    "--mem=16G",
+    "--time=00:45:00",
+    "--dependency=afterany:765988",
+    "--job-name=rafm-complete-report",
+    "--output=outputs_rafm_input_study/recovered/logs/%x-%j.out",
+    "--error=outputs_rafm_input_study/recovered/logs/%x-%j.err",
+    "tools/complete_rafm_report_job.sh"
+  ],
+  "exit_code": 0,
+  "stdout": "765992",
+  "stderr": "",
+  "submitted_utc": "2026-09-10T14:19:02.878732+00:00",
+  "job_id": "765992"
+}

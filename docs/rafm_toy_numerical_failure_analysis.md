@@ -2,25 +2,36 @@
 
 This audit identifies a concrete numerical defect in the inherited spherical-path
 implementation that can produce extremely large finite angular targets. It does
-not prove which individual training examples caused the four recorded sampling
+not prove which individual training examples caused the recorded sampling
 failures. These are scientific execution failures, not interrupted jobs that can
 be recovered by a scheduler retry. No source changes, model imports, training,
 sampling reruns, or protocol changes were performed for this audit.
 
-## Recorded failures
+## Recorded outcomes
 
-All four runs below completed the prescribed 10,000 updates, saved their final
-checkpoints, and reached evaluation on an AMD Instinct MI210 on
-`auh7-3b-gpu-015` with Torch `2.7.1+rocm6.3`.
+Snapshot: **2026-09-10 14:18:07 UTC**. Of the nine planned toy runs, seven have
+`result.json`: **five failed and two complete**. B/77395 and C/77395 have no
+result or training log at this snapshot; they are not counted as successes or
+failures. The new failure since the initial four-failure audit is **A/77395**.
+All seven runs with results completed the prescribed 10,000 updates, saved
+their final checkpoints, and reached evaluation on an AMD Instinct MI210 on
+`auh7-3b-gpu-015` with Torch `2.7.1+rocm6.3`. This is a timestamped inventory,
+not a claim that the other workers have finished their remaining tasks.
 
-| Arm | Seed | Final logged loss | Maximum logged loss | Training time (s) | Worker stderr |
-| --- | ---: | ---: | ---: | ---: | --- |
-| A | 65457 | 482.3936 | 1.37354027204608e14 | 39.5695 | `rafm_inputs-final-v1-765748_3.err` |
-| B | 65457 | 168674.4375 | 1.37354027204608e14 | 38.7722 | `rafm_inputs-final-v1-765748_4.err` |
-| B | 8925 | 144503.40625 | 3.35599114387456e14 | 39.2212 | `rafm_inputs-final-v1-765748_4.err` |
-| C | 8925 | 131950.75 | 3.35599047278592e14 | 39.2740 | `rafm_inputs-final-v1-765748_5.err` |
+| Arm | Seed | Status | Final logged loss | Maximum logged loss | Training time (s) | Sampling time (s) | Worker stderr |
+| --- | ---: | --- | ---: | ---: | ---: | ---: | --- |
+| A | 8925 | complete | 86.7677078247 | 3.35599047278592e14 | 42.1130 | 0.176053 | `rafm_inputs-final-v1-765748_3.err` |
+| A | 77395 | failed | 53885562880 | 3.61253121818624e14 | 41.0179 | not recorded | `rafm_inputs-final-v1-765748_0.err` |
+| A | 65457 | failed | 482.393615723 | 1.37354027204608e14 | 39.5695 | not recorded | `rafm_inputs-final-v1-765748_3.err` |
+| B | 8925 | failed | 144503.40625 | 3.35599114387456e14 | 39.2212 | not recorded | `rafm_inputs-final-v1-765748_4.err` |
+| B | 77395 | no result yet | — | — | — | — | — |
+| B | 65457 | failed | 168674.4375 | 1.37354027204608e14 | 38.7722 | not recorded | `rafm_inputs-final-v1-765748_4.err` |
+| C | 8925 | failed | 131950.75 | 3.35599047278592e14 | 39.2740 | not recorded | `rafm_inputs-final-v1-765748_5.err` |
+| C | 77395 | no result yet | — | — | — | — | — |
+| C | 65457 | complete | 46839.3515625 | 1.37354043981824e14 | 41.1664 | 0.224587 | `rafm_inputs-final-v1-765748_5.err` |
 
-Each `result.json` records `FloatingPointError: Nonfinite samples in batch
+Each of the five failed `result.json` files records
+`FloatingPointError: Nonfinite samples in batch
 starting at 0` from `experiments/rafm_inputs/run.py:252`. The initial source
 passed its finite check. The original ambient RK4 sampler completed the expected
 512 network calls, after which its single 10,000-sample batch contained nonfinite
@@ -32,10 +43,15 @@ Checkpoints, configuration/data identities, training statistics, training logs,
 and failure tracebacks remain under
 `outputs_rafm_input_study/v1/final/toy_radial_angular/<arm>/seed_<seed>/`.
 Worker stderr remains under `outputs_rafm_input_study/v1/logs/`.
-All saved training loss rows in these four runs are finite. Finiteness alone
+All saved training loss rows in these seven runs are finite. Finiteness alone
 does not establish numerical correctness: the recorded spikes are enormous.
-Successful toy runs also contain similarly large spikes, so the defect is not
-limited to the four runs that eventually produced invalid samples.
+Both completed toy runs also contain spikes of approximately `1e14`. Their
+`complete` status records finite outputs/metrics, not proof that their training
+targets or learned solutions were numerically correct. Neither should be used
+to dismiss the shared numerical concern or to construct a complete three-seed
+toy comparison by dropping failed seeds. Sampling times in the table are
+measured sampling-only times, excluding metric computation; failed runs do not
+have recorded sampling durations.
 
 ## Inherited path behavior
 
@@ -116,12 +132,15 @@ numerical events.
 
 | Preserved `result.json` relative to the toy output root | SHA-256 |
 | --- | --- |
+| `A/seed_8925/result.json` | `eb61c21a8e997e7982de2e49ebef175d7257a7a76f4c444d362e0b3ededa9a4e` |
+| `A/seed_77395/result.json` | `c27e04312515e6d31d0d98c601fc4d363bcbbc7309bef988c07175b0f8704a96` |
 | `A/seed_65457/result.json` | `5cfe2fa04a552eb3d321c58e57ec7919359975d65088156fa1c3dbaa3408284f` |
 | `B/seed_65457/result.json` | `bbdbd06a1246bacb37faeb7c01064068ecfb91a7e63d8b9a30ddf9df45993b00` |
 | `B/seed_8925/result.json` | `272344ab09ebe6e606636eb57fd0820507dd3160716c9ae992cb4b6f55623d9a` |
 | `C/seed_8925/result.json` | `01910570b8387511c139fdf08ff32519320c477adb6c35c723e3375e2bc0b6bc` |
+| `C/seed_65457/result.json` | `d111b7cc28e97ba68de22620512ab21a9ea5628f0666bd2d7a53b75f2d291792` |
 
-The current four failures must remain failures in v1 reporting, with no
+The current five failures must remain failures in v1 reporting, with no
 partial-seed aggregate presented as a complete three-seed comparison. They
 must not be relabeled as scheduler-recoverable: all prescribed training updates
 completed, and an unchanged checkpoint evaluation cannot repair training-target

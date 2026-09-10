@@ -1,0 +1,30 @@
+{
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--partition=hermes-2",
+    "--nodelist=auh7-3b-gpu-008",
+    "--nodes=1",
+    "--ntasks=1",
+    "--cpus-per-task=4",
+    "--gres=gpu:mi210:1",
+    "--mem=32G",
+    "--time=48:00:00",
+    "--array=0-5%6",
+    "--no-requeue",
+    "--job-name=rafm-recovered-final",
+    "--output=/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/recovered/logs/%x-%A_%a.out",
+    "--error=/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/recovered/logs/%x-%A_%a.err",
+    "--dependency=afterany:765748",
+    "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/tools/shared_study_array_job.sh",
+    "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/recovered/launch/tasks_20260910T141512_44ffbda6.json",
+    "814289cc6a1603257a9e4a2ff248498ff40a569f5e1ec31c153ba841a900b3a2",
+    "final"
+  ],
+  "exit_code": 0,
+  "stdout": "765979",
+  "stderr": "",
+  "manifest": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/recovered/launch/tasks_20260910T141512_44ffbda6.json",
+  "manifest_sha256": "814289cc6a1603257a9e4a2ff248498ff40a569f5e1ec31c153ba841a900b3a2",
+  "job_id": "765979"
+}

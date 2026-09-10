@@ -73,10 +73,33 @@ The original 26-condition launch/configuration files remain immutable.
 The additive launcher uses the original per-task executor, exclusive run locks,
 sample auditor, and full source/configuration checksum gates.
 
-The planned recovered array uses at most six single-GPU MI210 workers on
-`auh7-3b-gpu-008`, which became idle after the t-Flow suite. It depends on the
-existing ABC array ending, retaining the six-GPU ABC concurrency limit.
-Short smoke checks run on one compute-node GPU before final submission.
+All six full-batch A/B/C smoke checks and the offline image evaluator check
+passed in GPU job **765955**. Image training peak allocations were 1.72 GiB
+for A and 2.34 GiB for B/C. The 40-validation-row image evaluator used the
+complete original 3,925-image reference and finished in 197.7 seconds, with
+9.30 GiB peak allocation. These are checks, not generator benchmark results.
+
+Array **765988** was submitted at **16:17 Europe/Paris on 2026-09-10**, with
+six single-GPU MI210 workers on `auh7-3b-gpu-029`. Its dependency on existing
+ABC array 765748 retains the six-GPU study concurrency limit. The original
+pending submission 765979 targeted node008, which another user occupied during
+the final checks. Slurm accounting confirms it was cancelled before starting:
+zero runtime and no assigned node. The relocation record and both immutable
+submission manifests are preserved; no experiment was interrupted or duplicated.
+
+The final submitted manifest is
+`outputs_rafm_input_study/recovered/launch/tasks_20260910T141752_da3e0210.json`,
+SHA-256 `76cbb3534bc5182bc65e79580afbe344980ea0c52f2bddee8763905dc1200546`.
+Its source commit is `4064f66`; experimental source bytes remain unchanged
+from the original study. CPU-only aggregation/plot job **765992** depends on
+the recovered array ending. It reports all 252 prescribed A/B/C outcomes
+separately from the existing t-Flow reference results and missing slots.
+
+Conservative planning from the short checks is 1–2 hours training and
+15–30 minutes sampling/evaluation per image model, or about 2.5–5 hours
+for the two image waves after the array starts. These are estimates;
+the first full-run logs will provide measured throughput. Neighboring PIV
+configurations took 30–38 seconds to train, with additional metric time.
 
 Final results continue under
 `outputs_rafm_input_study/v1/final/<condition>/{A,B,C}/seed_<seed>/`.
