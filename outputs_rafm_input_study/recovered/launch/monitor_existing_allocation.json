@@ -1,0 +1,24 @@
+{
+  "created_utc": "2026-09-10T14:48:51.351348+00:00",
+  "command": [
+    "srun",
+    "--jobid=765765",
+    "--overlap",
+    "--exact",
+    "--nodes=1",
+    "--ntasks=1",
+    "--cpus-per-task=1",
+    "--gres=none",
+    "--unbuffered",
+    "/usr/bin/python3",
+    "-B",
+    "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/tools/monitor_recovered_study.py"
+  ],
+  "launcher_pid": 1930724,
+  "existing_cpu_allocation": "765765",
+  "host": "auh7-3b-gpu-015",
+  "cancelled_pending_monitor_job": "766102",
+  "source_sha256": "46a3e070daff4c487ec1b68618871597c3e80464ad81ec07bc5f7605710beca6",
+  "log": "outputs_rafm_input_study/recovered/logs/monitor_existing_765765.log",
+  "reason": "Reuse one CPU within the existing two-core CPU-only TensorBoard allocation; no additional GPU or node reservation, and no process interruption. Dedicated monitor jobs were delayed before program execution."
+}

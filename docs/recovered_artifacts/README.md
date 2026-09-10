@@ -116,17 +116,23 @@ were still in Slurm prolog. The revised provisional overall finish estimate
 is 18:00–19:00 Europe/Paris; full sampling/evaluation time remains unmeasured.
 This estimate is not a reported runtime result.
 
-CPU-only monitor job **766102** records progress every 60 seconds for up to
+CPU-only monitor step **765765.0** records progress every 60 seconds for up to
 eight hours under `outputs_rafm_input_study/recovered/monitor/`. It distinguishes
 allocation/startup from logged updates, records failures explicitly, and
 refreshes the A/B/C comparison once all 18 outcomes and required sample audits
 are terminal. It cannot modify or restart experiments. Final plot/aggregation
 job 765992 remains separately scheduled after the recovery array.
-Monitor 766102 replaces 766022, whose program never started after about
-15 minutes in node029's Slurm prolog. Its cancellation and the move of the
-same one-core service to the existing node015 are recorded under
-`outputs_rafm_input_study/recovered/launch/monitor_relocation_766022.json` and
-`monitor_replacement.submission.json`. No training job was altered.
+The first persistent heartbeat was verified at 16:49 Europe/Paris, reporting
+six logged training tasks and 12 tasks awaiting their worker turn. The monitor
+shares one CPU within the existing two-core CPU-only TensorBoard allocation;
+TensorBoard remains running. No extra GPU or node is reserved.
+
+Dedicated monitor 766022 never started after about 15 minutes in node029's
+Slurm prolog. Its replacement 766102 remained pending for resources on
+node015. Both were cancelled before monitor program execution. The history is
+retained in `monitor_relocation_766022.json`, `monitor_replacement.submission.json`,
+and `monitor_existing_allocation.json` under
+`outputs_rafm_input_study/recovered/launch/`. No training job was altered.
 
 Final results continue under
 `outputs_rafm_input_study/v1/final/<condition>/{A,B,C}/seed_<seed>/`.
