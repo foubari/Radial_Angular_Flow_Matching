@@ -1,0 +1,5 @@
+# Rendering fixtures are deliberately separate from scientific result artifacts.
+**/fixture_seed_records/
+**/fixture_figures/
+**/fixture_report.json
+**/matplotlib_cache/
