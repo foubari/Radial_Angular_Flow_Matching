@@ -5,6 +5,36 @@ condition-sanity and source-commit checks pass. It does not train on a login nod
 or change any experiment configuration. Running it without `--submit` writes a
 reviewable immutable JSON plan and performs no scheduler submission.
 
+## Fresh-process startup correction and attempt history
+
+The first t-Flow arrays, 765731 and 765732, were cancelled after a fresh-child
+ROCm startup failure: `reset_peak_memory_stats` ran before CUDA allocator
+initialization and raised `RuntimeError: Invalid device argument`. The failure
+occurred before any optimizer update. The original `outputs_tflow_full/v1/`
+failures, execution records, logs and successful validation evidence remain
+unchanged.
+
+The corrected launcher uses **`outputs_tflow_full/v2/`** for t-Flow results and
+retains **`outputs_tflow_full/v1/`** as its unit/sanity evidence root. ABC results
+remain in **`outputs_rafm_input_study/v1/`**. Runtime implementation and configuration
+bytes are unchanged, so the exact previously recorded sanity hashes still apply.
+
+Every t-Flow and ABC experiment child now passes through
+`tools/experiment_entrypoint.py`. It applies the existing single-GPU/Slurm guard,
+explicitly initializes CUDA, and dispatches the original module with the same
+arguments. No model, optimizer, RNG seed, precision, loss or solver setting is
+changed. The wrapper is part of the frozen orchestration manifest.
+
+Both studies additionally require two fresh-process public-trainer checks,
+AudioMNIST and the 16-dimensional Gaussian condition, under
+`outputs_tflow_full/v2/entrypoint_checks/`. Each report must identify the current
+configuration, runtime, wrapper and validator hashes and verify initialization
+before training, finite sampling at the prescribed network-call budget, strict
+checkpoint loading and bitwise agreement between resumed and uninterrupted
+training. These are explicitly disposable validation updates, never final models
+or source-selection candidates. Their actual success remains a compute-node gate;
+writing this correction does not assert that they have run or passed.
+
 ## Allocation and task layout
 
 | Study | Node | Tasks | Maximum simultaneous GPUs |
@@ -87,7 +117,7 @@ STUDY_PYTHON=/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.venv/bin/p
 "$STUDY_PYTHON" tools/launch_shared_study.py --study rafm_inputs --submit
 ```
 
-Each invocation writes a new manifest under the study's `v1/launch/` directory.
+Each invocation writes a new manifest under the study's current output-root `launch/` directory.
 `--manifest /absolute/new/path.json` can choose the path; existing manifests are
 never overwritten. A sibling `.submission.json` records exact `sbatch` commands,
 job IDs and submission errors. An atomic
@@ -97,12 +127,12 @@ records also refuse a second full sweep. A claim remains after a submission
 failure so the actual scheduler state can be inspected before any retry.
 
 The scheduler shell uses the immutable manifest path and SHA-256. Each worker
-writes `v1/executions/<job>_<array-index>_worker.json`; every logical task has its
+writes `<output-root>/executions/<job>_<array-index>_worker.json`; every logical task has its
 own `..._task_<logical-index>.json` with commands, timestamps, hardware, source
 identity, status and failures. An exclusive filesystem lock prevents two workers
-from concurrently changing the same condition/arm/seed outputs. Logs are under `v1/logs/`. Separate
+from concurrently changing the same condition/arm/seed outputs. Logs are under `<output-root>/logs/`. Separate
 per-worker MIOpen kernel/performance, Inductor, Triton and plotting directories
-live under `v1/cache/`. Sequential children reuse their worker's compiled kernels
+live under `<output-root>/cache/`. Sequential children reuse their worker's compiled kernels
 without sharing writable caches with another worker.
 
 ## Failures and resumption
@@ -146,3 +176,8 @@ barriers, partial-submission preservation, duplicate submission and atomic claim
 rejection, frozen selection receipt changes, continuation after unrelated logical
 failures, and filesystem lock exclusion. No actual `sbatch` or model execution
 occurred in these tests or the initial dry plan.
+
+The startup correction additionally passed five mocked wrapper/argument/evidence
+checks and four mocked fresh-process gate checks. They establish initialization
+ordering and refusal behavior without executing a model on a login node. GPU
+validation reports are separate evidence and are required before resubmission.

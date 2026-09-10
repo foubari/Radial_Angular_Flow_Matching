@@ -24,8 +24,10 @@ ROOT = Path(__file__).resolve().parents[1]
 PYTHON = ROOT.parent / 'msgm-sparse-control/.venv/bin/python'
 CONFIG_DIR = ROOT / 'configs/rafm_input_study/prepared'
 STUDIES = {
-    'tflow': {'node': 'auh7-3b-gpu-008', 'output': 'outputs_tflow_full/v1'},
-    'rafm_inputs': {'node': 'auh7-3b-gpu-015', 'output': 'outputs_rafm_input_study/v1'},
+    'tflow': {'node': 'auh7-3b-gpu-008', 'output': 'outputs_tflow_full/v2',
+              'evidence': 'outputs_tflow_full/v1'},
+    'rafm_inputs': {'node': 'auh7-3b-gpu-015', 'output': 'outputs_rafm_input_study/v1',
+                    'evidence': 'outputs_rafm_input_study/v1'},
 }
 COMMON_FILES = [
     'baselines/tflow_core.py', 'baselines/tflow_downstream.py',
@@ -44,7 +46,8 @@ ABC_FILES = ['experiments/rafm_inputs/run.py', 'baselines/rafm_input_parameteriz
              'rafm/paths/spherical_geodesic.py', 'rafm/utils/sphere.py',
              'rafm/sources/radial_empirical.py']
 ORCHESTRATION_FILES = ['tools/launch_shared_study.py', 'tools/shared_study_array_job.sh',
-                       'tools/audit_study_samples.py']
+                       'tools/audit_study_samples.py', 'tools/experiment_entrypoint.py',
+                       'tools/validate_tflow_fresh_process.py']
 
 
 def digest(path):
@@ -191,6 +194,30 @@ def sanity_gate(study, output, cfg, implementation_hash):
     return records
 
 
+def entrypoint_gate():
+    """Fresh child initialization and public-trainer resume checks for both studies."""
+    records = []
+    for condition in ('audiomnist_stft', 'gaussian_aniso_d16_cor'):
+        cfg = load(CONFIG_DIR / f'{condition}.json')
+        path = ROOT / 'outputs_tflow_full/v2/entrypoint_checks' / condition / 'check.json'
+        if not path.exists():
+            raise ValueError(f'Missing fresh-process trainer check: {path}')
+        row = load(path)
+        if (row.get('status') != 'passed' or row.get('condition_id') != condition
+                or row.get('config_sha256') != canonical_hash(cfg)
+                or row.get('implementation_sha256') != canonical_hash(runtime_manifest('tflow', cfg))
+                or row.get('entrypoint_sha256') != digest(ROOT / 'tools/experiment_entrypoint.py')
+                or row.get('validator_sha256') != digest(ROOT / 'tools/validate_tflow_fresh_process.py')
+                or any(row.get(key) is not True for key in ('gpu_initialized_before_training',
+                           'checkpoint_load', 'resume_bitwise_identical', 'finite_samples'))
+                or row.get('test_data_used') is not False or row.get('source_selection_performed') is not False
+                or row.get('nfe') != cfg['evaluation']['model_evaluations']
+                or row.get('disposable_optimizer_updates_total') != 12):
+            raise ValueError(f'Fresh-process validation failed or has changed provenance: {path}')
+        records.append(file_record(path))
+    return records
+
+
 def frozen_files(commit, files):
     failures = []
     for name, expected in sorted(files.items()):
@@ -217,6 +244,7 @@ def priority(path):
 def make_plan(args):
     study = args.study
     output = ROOT / STUDIES[study]['output']
+    evidence = ROOT / STUDIES[study]['evidence']
     materialization_path = ROOT / 'configs/rafm_input_study/materialization.json'
     materialization = load(materialization_path)
     configs = sorted(CONFIG_DIR.glob('*.json'), key=priority)
@@ -225,7 +253,7 @@ def make_plan(args):
     commit = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip()
     plan = {'schema_version': 1, 'study': study, 'created_utc': datetime.now(timezone.utc).isoformat(),
             'source_commit': commit, 'repository': str(ROOT), 'python': str(PYTHON),
-            'output_root': str(output), 'partition': 'hermes-2', 'node': STUDIES[study]['node'],
+            'output_root': str(output), 'validation_evidence_root': str(evidence), 'partition': 'hermes-2', 'node': STUDIES[study]['node'],
             'gpus_per_task': 1, 'max_concurrent_tasks': 6, 'cpus_per_task': 4, 'host_memory': '32G',
             'time_limit': args.time_limit, 'requested_suite_conditions': 28,
             'blocked_conditions': materialization['blocked_conditions'],
@@ -234,8 +262,12 @@ def make_plan(args):
             'sampling_audit': {'command': [str(PYTHON), 'tools/audit_study_samples.py', '--result', 'RESULT_JSON']},
             'submitted': False}
     try:
-        plan['launch_gates'] += unit_gate(study, output)
+        plan['launch_gates'] += unit_gate(study, evidence)
     except (ValueError, OSError, ET.ParseError) as exc:
+        plan['blocking_issues'].append(str(exc))
+    try:
+        plan['launch_gates'] += entrypoint_gate()
+    except (ValueError, OSError) as exc:
         plan['blocking_issues'].append(str(exc))
     for name in ORCHESTRATION_FILES:
         if not (ROOT / name).is_file():
@@ -260,7 +292,7 @@ def make_plan(args):
         plan['frozen_files'][str(path.relative_to(ROOT))] = digest(path)
         gates = []
         try:
-            gates = sanity_gate(study, output, cfg, implementation_hash)
+            gates = sanity_gate(study, evidence, cfg, implementation_hash)
         except (ValueError, OSError, KeyError) as exc:
             plan['blocking_issues'].append(str(exc))
         task = {'condition_id': cfg['condition_id'], 'config_path': str(path),
@@ -268,12 +300,12 @@ def make_plan(args):
                 'config': cfg, 'implementation_sha256': implementation_hash,
                 'implementation': implementation, 'sanity_gates': gates}
         if study == 'tflow':
-            command = [str(PYTHON), '-m', 'experiments.tflow.tune', '--config', str(path),
+            command = [str(PYTHON), str(ROOT / 'tools/experiment_entrypoint.py'), '--module', 'experiments.tflow.tune', '--config', str(path),
                        '--output', str(output / 'tuning')]
             plan['tasks'].append({**task, 'index': len(plan['tasks']), 'phase': 'tuning',
                                   'commands': [command]})
             for seed in cfg['seeds']:
-                command = [str(PYTHON), '-m', 'experiments.tflow.run', 'train-evaluate',
+                command = [str(PYTHON), str(ROOT / 'tools/experiment_entrypoint.py'), '--module', 'experiments.tflow.run', 'train-evaluate',
                            '--config', str(path), '--selection', str(output / 'tuning' / path.stem / 'selection.json'),
                            '--seed', str(seed), '--output', str(output / 'final')]
                 final_tasks.append({**task, 'phase': 'final', 'seed': seed, 'commands': [command]})
@@ -282,7 +314,7 @@ def make_plan(args):
             # arms on the same condition before moving to smaller datasets.
             for seed in cfg['seeds']:
                 for arm in ('A', 'B', 'C'):
-                    command = [str(PYTHON), '-m', 'experiments.rafm_inputs.run', 'train-evaluate',
+                    command = [str(PYTHON), str(ROOT / 'tools/experiment_entrypoint.py'), '--module', 'experiments.rafm_inputs.run', 'train-evaluate',
                                '--config', str(path), '--arm', arm, '--seed', str(seed), '--output', str(output)]
                     plan['tasks'].append({**task, 'index': len(plan['tasks']), 'seed': seed, 'arm': arm, 'phase': 'final',
                                           'commands': [command]})
@@ -353,7 +385,7 @@ def submit(plan, manifest_path, manifest_hash):
         command = ['sbatch', '--parsable', '--partition=hermes-2', f'--nodelist={plan["node"]}',
                    '--nodes=1', '--ntasks=1', '--cpus-per-task=4', '--gres=gpu:mi210:1', '--mem=32G',
                    f'--time={plan["time_limit"]}', f'--array=0-{phase["worker_count"] - 1}%6',
-                   '--no-requeue', f'--job-name={plan["study"]}-{phase["name"]}-v1',
+                   '--no-requeue', f'--job-name={plan["study"]}-{phase["name"]}-{output.name}',
                    f'--output={output}/logs/%x-%A_%a.out', f'--error={output}/logs/%x-%A_%a.err']
         if previous_job is not None:
             # A failed tuning condition must not prevent successful conditions'
