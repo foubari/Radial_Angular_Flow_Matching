@@ -1,0 +1,64 @@
+{
+  "manifest": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/recovered/launch/tasks_20260910T153538_4845907e.json",
+  "manifest_sha256": "9c179f2d3686a28af35b60d409ad39f119ba2482d56d89deb76880cc621dca8c",
+  "submitted_utc": "2026-09-10T15:35:39.591951+00:00",
+  "arrays": [
+    {
+      "phase": "tuning",
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--partition=hermes-2",
+        "--nodelist=auh7-3b-gpu-030",
+        "--nodes=1",
+        "--ntasks=1",
+        "--cpus-per-task=4",
+        "--gres=gpu:mi210:1",
+        "--mem=32G",
+        "--time=04:00:00",
+        "--array=0-1%2",
+        "--no-requeue",
+        "--job-name=tflow-recovered-tuning",
+        "--output=/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/recovered/logs/%x-%A_%a.out",
+        "--error=/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/recovered/logs/%x-%A_%a.err",
+        "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/tools/shared_study_array_job.sh",
+        "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/recovered/launch/tasks_20260910T153538_4845907e.json",
+        "9c179f2d3686a28af35b60d409ad39f119ba2482d56d89deb76880cc621dca8c",
+        "tuning"
+      ],
+      "exit_code": 0,
+      "stdout": "766332",
+      "stderr": "",
+      "job_id": "766332"
+    },
+    {
+      "phase": "final",
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--partition=hermes-2",
+        "--nodelist=auh7-3b-gpu-030",
+        "--nodes=1",
+        "--ntasks=1",
+        "--cpus-per-task=4",
+        "--gres=gpu:mi210:1",
+        "--mem=32G",
+        "--time=04:00:00",
+        "--array=0-5%6",
+        "--no-requeue",
+        "--job-name=tflow-recovered-final",
+        "--output=/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/recovered/logs/%x-%A_%a.out",
+        "--error=/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/recovered/logs/%x-%A_%a.err",
+        "--dependency=afterany:766332",
+        "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/tools/shared_study_array_job.sh",
+        "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/recovered/launch/tasks_20260910T153538_4845907e.json",
+        "9c179f2d3686a28af35b60d409ad39f119ba2482d56d89deb76880cc621dca8c",
+        "final"
+      ],
+      "exit_code": 0,
+      "stdout": "766333",
+      "stderr": "",
+      "job_id": "766333"
+    }
+  ]
+}
