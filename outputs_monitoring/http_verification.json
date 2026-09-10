@@ -1,0 +1,80 @@
+{
+  "checked_utc": "2026-09-10T08:56:57.235187+00:00",
+  "http_status": 200,
+  "run_count": 238,
+  "rafm_curves": [
+    {
+      "run": "RAFM_inputs/audiomnist_stft/A_original/seed_1234",
+      "visible_points": 14,
+      "first_step": 500,
+      "last_step": 7000,
+      "source_rows_match": true
+    },
+    {
+      "run": "RAFM_inputs/audiomnist_stft/A_original/seed_8925",
+      "visible_points": 15,
+      "first_step": 500,
+      "last_step": 7500,
+      "source_rows_match": true
+    },
+    {
+      "run": "RAFM_inputs/audiomnist_stft/B_unit_radius/seed_1234",
+      "visible_points": 12,
+      "first_step": 500,
+      "last_step": 6000,
+      "source_rows_match": true
+    },
+    {
+      "run": "RAFM_inputs/audiomnist_stft/B_unit_radius/seed_8925",
+      "visible_points": 14,
+      "first_step": 500,
+      "last_step": 7000,
+      "source_rows_match": true
+    },
+    {
+      "run": "RAFM_inputs/audiomnist_stft/C_unit_no_radius/seed_1234",
+      "visible_points": 12,
+      "first_step": 500,
+      "last_step": 6000,
+      "source_rows_match": true
+    },
+    {
+      "run": "RAFM_inputs/audiomnist_stft/C_unit_no_radius/seed_8925",
+      "visible_points": 13,
+      "first_step": 500,
+      "last_step": 6500,
+      "source_rows_match": true
+    }
+  ],
+  "source_history_verified": true,
+  "live_append_observed": true,
+  "service": {
+    "slurm_job_id": "765765",
+    "host": "auh7-3b-gpu-015",
+    "port": 6010,
+    "session": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_monitoring/sessions/765765",
+    "logdir": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_monitoring/sessions/765765/events",
+    "gpus": 0,
+    "started_utc": "2026-09-10T08:55:06.229042+00:00",
+    "ssh_tunnel_command": "ssh -N -L 6010:auh7-3b-gpu-015:6010 m3",
+    "browser_url": "http://localhost:6010/#scalars",
+    "poll_seconds": 15,
+    "training_files_modified": false
+  },
+  "advanced_runs": [
+    {
+      "run": "RAFM_inputs/audiomnist_stft/B_unit_radius/seed_1234",
+      "previous_last_step": 6000,
+      "new_last_step": 6500
+    },
+    {
+      "run": "RAFM_inputs/audiomnist_stft/B_unit_radius/seed_8925",
+      "previous_last_step": 7000,
+      "new_last_step": 7500
+    }
+  ],
+  "bridge_rows_imported": 2543,
+  "bridge_last_update_utc": "2026-09-10T08:57:13.365096+00:00",
+  "bridge_errors": {},
+  "completed_utc": "2026-09-10T08:57:27.339128+00:00"
+}
