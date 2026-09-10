@@ -1,0 +1,44 @@
+{
+  "created_utc": "2026-09-10T15:40:23.908540+00:00",
+  "reason": "Start independent PIV finals after their own completed source selection, while ImageNette selection continues; configs, source pins, tasks and worker assignments unchanged. At most five GPUs during overlap, within six-GPU cap.",
+  "manifest": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/recovered/launch/tasks_20260910T153538_4845907e.json",
+  "selection": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/piv_d32/selection.json",
+  "selection_sha256": "52a5fbaf46ddeedc6595427f72c36983b9c0f63cb73144a8dbe14f9b34a3b0f9",
+  "previous_dependency": "afterany:766332",
+  "new_dependency": "afterany:766332_1",
+  "commands": [
+    {
+      "command": [
+        "scontrol",
+        "update",
+        "JobId=766333_3",
+        "Dependency=afterany:766332_1"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "scontrol",
+        "update",
+        "JobId=766333_4",
+        "Dependency=afterany:766332_1"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "scontrol",
+        "update",
+        "JobId=766333_5",
+        "Dependency=afterany:766332_1"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ]
+}

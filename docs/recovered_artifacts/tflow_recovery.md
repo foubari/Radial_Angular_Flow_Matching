@@ -57,6 +57,16 @@ duplicate launches; failed attempts remain recorded. Check the submission
 receipts before reusing this command. Results retain the existing paths under
 `outputs_tflow_full/v2/{tuning,final}/{imagenette_dcae,piv_d32}/`.
 
+The actual submission uses tuning array 766332 and final array 766333. After
+PIV source selection completed, only final workers 3–5 had their scheduler
+dependency narrowed to PIV tuning worker 766332_1. This lets the three PIV
+seeds run while ImageNette source selection continues, without changing a task,
+source setting or configuration. The explicit orchestration addendum is
+`outputs_tflow_full/recovered/launch/piv_dependency_release.json`.
+The minutely completion watcher runs as CPU-only step 765765.1 in an existing
+allocation; its separate final report destination is
+`outputs_rafm_input_study/complete_report_tflow/`.
+
 The initial completion estimate is 1.5–2 hours after available compute starts,
 including selection and final evaluation, excluding scheduler/startup delays.
 This is an estimate based partly on the measured matched-backbone A/B/C image

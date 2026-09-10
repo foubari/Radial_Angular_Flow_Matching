@@ -1,0 +1,32 @@
+{
+  "created_utc": "2026-09-10T15:39:42.163449+00:00",
+  "command": [
+    "srun",
+    "--overlap",
+    "--exact",
+    "--jobid=765765",
+    "--nodes=1",
+    "--ntasks=1",
+    "--cpus-per-task=1",
+    "--mem=1G",
+    "--gres=none",
+    "--unbuffered",
+    "/usr/bin/python3",
+    "-B",
+    "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/tools/monitor_recovered_tflow.py",
+    "--manifest",
+    "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/recovered/launch/tasks_20260910T153538_4845907e.json",
+    "--manifest-sha256",
+    "9c179f2d3686a28af35b60d409ad39f119ba2482d56d89deb76880cc621dca8c",
+    "--tuning-job",
+    "766332",
+    "--final-job",
+    "766333"
+  ],
+  "launcher_pid": 2230612,
+  "existing_cpu_allocation": "765765",
+  "host": "auh7-3b-gpu-015",
+  "source_sha256": "104b9446e3ce6c9175943634c798e90fbcf952b51950df7d6f1d997d20901f8b",
+  "log": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/recovered/logs/monitor_existing_765765.log",
+  "reason": "Reuse CPU-only TensorBoard allocation; eight-hour bounded minutely monitoring and final report; no experiment retries or new GPU reservations."
+}
