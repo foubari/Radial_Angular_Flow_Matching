@@ -1,0 +1,129 @@
+{
+  "status": "passed",
+  "verified_at_utc": "2026-09-10T14:00:56.219361+00:00",
+  "release_directory": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/releases/piv-imagenette-provenance-v1_20260910",
+  "assets": {
+    "AUDIT_REPORT.md": {
+      "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/releases/piv-imagenette-provenance-v1_20260910/AUDIT_REPORT.md",
+      "sha256": "06c17e49d01e31aa6ca658208bf78221f741075b35af8c6d536aa9eea4f29e26",
+      "bytes": 2213,
+      "status": "verified"
+    },
+    "audit_result.npz": {
+      "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/releases/piv-imagenette-provenance-v1_20260910/audit_result.npz",
+      "sha256": "06480e5ef211850f65bb6dde3941c15ae4b504e42b87844138470237e2e6e113",
+      "bytes": 2626236,
+      "status": "verified"
+    },
+    "dcae_real_centered.pt": {
+      "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/releases/piv-imagenette-provenance-v1_20260910/dcae_real_centered.pt",
+      "sha256": "848a876bfeb3b1c80ee0d7aae8988355100374a6c2ac318aa6b4cc20a2dbe344",
+      "bytes": 109840830,
+      "status": "verified"
+    },
+    "imagenette_audit.py": {
+      "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/releases/piv-imagenette-provenance-v1_20260910/imagenette_audit.py",
+      "sha256": "a2d4d60038a27b2dd5e694fb5a8e0b554d93dcd595ea85c164cc02bf53aaff2c",
+      "bytes": 4292,
+      "status": "verified"
+    },
+    "manifest.json": {
+      "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/releases/piv-imagenette-provenance-v1_20260910/manifest.json",
+      "sha256": "4a356fe047a8d916dccc1610e238bbb3f4cb021357305a87c04fb9d1d3edef49",
+      "bytes": 8456,
+      "status": "verified"
+    },
+    "manifest_addendum.json": {
+      "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/releases/piv-imagenette-provenance-v1_20260910/manifest_addendum.json",
+      "sha256": "a8049c5ddf64477fc1415c1a5dd4915041e9b0e37efa8468a6f98c21dc6761ef",
+      "bytes": 1918,
+      "status": "verified"
+    },
+    "piv_d16.pt": {
+      "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/releases/piv-imagenette-provenance-v1_20260910/piv_d16.pt",
+      "sha256": "a30a243c46d7095581ce86be562a40ac9f7195d1b55b40374721ce23db14e5e4",
+      "bytes": 128924,
+      "status": "verified"
+    },
+    "piv_d32.pt": {
+      "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/releases/piv-imagenette-provenance-v1_20260910/piv_d32.pt",
+      "sha256": "8437048cf028dafeaf45f61339a323628b8be6df586ee180e45706cbb617d911",
+      "bytes": 128924,
+      "status": "verified"
+    },
+    "provenance_code_and_logs.tar": {
+      "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/releases/piv-imagenette-provenance-v1_20260910/provenance_code_and_logs.tar",
+      "sha256": "9551483c015aec5942c19d5496106ed84e740c39f80633353481a852b29f2fef",
+      "bytes": 30720,
+      "status": "verified"
+    },
+    "radial_quantile_indices.npz": {
+      "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/releases/piv-imagenette-provenance-v1_20260910/radial_quantile_indices.npz",
+      "sha256": "12f3129d04e65e627b17f313810f888c108458829fd319e7a4e059cfcd91f4d4",
+      "bytes": 314416,
+      "status": "verified"
+    },
+    "verified_row_to_filename.csv": {
+      "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/releases/piv-imagenette-provenance-v1_20260910/verified_row_to_filename.csv",
+      "sha256": "1d39c416095c65965a92490aa7a192d32b8b725bc3ba8fa96c9c19fe6a4609cd",
+      "bytes": 1083091,
+      "status": "verified"
+    }
+  },
+  "data_v1_assets": {
+    "dcae_latents_scaled.pt": {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/image_latents/data/dcae_latents_scaled.pt",
+      "sha256": "15088880ca60e69747d4c8bb55eda046d0667475e35ff6d7133e876090d83116",
+      "bytes": 109724888,
+      "status": "verified"
+    },
+    "dcae_labels.pt": {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/image_latents/data/dcae_labels.pt",
+      "sha256": "95e17fe21ec2a8644dfb1f4cd00b576c0ab307b333d83f6baa67d67026a1f671",
+      "bytes": 108336,
+      "status": "verified"
+    }
+  },
+  "archive_members": [
+    {
+      "name": "code_logs/dit_eval.log",
+      "bytes": 5183,
+      "sha256": "78299d2ef0f2bbd07a883cf3ce1923b8421b015a98a9005ee2632ed5f98e20af"
+    },
+    {
+      "name": "code_logs/dit_train_sit.py",
+      "bytes": 7350,
+      "sha256": "300626b1ba4b9bf9bbb204882dc08590e14cc2013f0744bacb8b368867d2950e"
+    },
+    {
+      "name": "code_logs/E3_piv.log",
+      "bytes": 961,
+      "sha256": "7810c21399784a1c1f78c9c2df0e46206351fcc710038a1c508fc0ff4cceea24"
+    },
+    {
+      "name": "code_logs/extract_dcae_latents.py",
+      "bytes": 1318,
+      "sha256": "df10ea03cca270cc1def643d764ec4608e176350c3cef937005a02ab9e32ef42"
+    },
+    {
+      "name": "code_logs/launch_phaseB.bat",
+      "bytes": 1441,
+      "sha256": "4bd79df5989e52c33e45bc14e21e7aee153e890f9c2827ca4623bd9513bf7eb6"
+    },
+    {
+      "name": "code_logs/prepare_piv.py",
+      "bytes": 6773,
+      "sha256": "82d4130e48beaf2376208a7da0141b492b94e336cdb9b8fab1081640b694c9fe"
+    }
+  ],
+  "verification_script_sha256": "451db443b9c45c155bcc80dbe02a2a225b9f2628abeb0886adca220b9f85c65b",
+  "metadata_api_sha256": {
+    "github_release.json": "e3a06be1e533eacb1e3596abcca64d0df2e27b083e8b3f233335c5a31f40080b",
+    "github_data_v1.json": "4e4373e2fe519302ea28e4c65ef99808c105fdd66e996232a8a3ee128fc10802"
+  },
+  "limitations": [
+    "Byte identity verified; tensor/split compatibility requires separate compute-node audit.",
+    "Checkout d3006dc8 is not a verified extraction/training commit.",
+    "FID-reference overlap is retained under the user-authorized existing protocol."
+  ]
+}

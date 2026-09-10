@@ -1,0 +1,219 @@
+{
+  "schema_version": 1,
+  "study_id": "rafm_input_parameterization_v1",
+  "authorization_date": "2026-09-10",
+  "data_root": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/v1",
+  "complete_scope_conditions": 28,
+  "materializable_conditions": [
+    "aniso_k1",
+    "aniso_k10",
+    "aniso_k100",
+    "aniso_k3",
+    "aniso_k30",
+    "aniso_k300",
+    "audiomnist_stft",
+    "finance_ff49",
+    "gaussian_aniso_d16_cor",
+    "imagenette_dcae",
+    "piv_d16",
+    "piv_d256",
+    "piv_d32",
+    "piv_d64",
+    "student_t_d128_df3.0_cor",
+    "student_t_d16_df1.5_cor",
+    "student_t_d16_df10.0_cor",
+    "student_t_d16_df2.0_cor",
+    "student_t_d16_df3.0_cor",
+    "student_t_d16_df5.0_cor",
+    "student_t_d16_df50.0_cor",
+    "student_t_d256_df3.0_cor",
+    "student_t_d2_df3.0_cor",
+    "student_t_d32_df3.0_cor",
+    "student_t_d64_df3.0_cor",
+    "student_t_d8_df3.0_cor",
+    "toy_radial_angular",
+    "weather_au_wind"
+  ],
+  "blocked_conditions": {},
+  "new_synthetic_realizations": [
+    "aniso_k1",
+    "aniso_k10",
+    "aniso_k100",
+    "aniso_k3",
+    "aniso_k30",
+    "aniso_k300",
+    "gaussian_aniso_d16_cor",
+    "student_t_d128_df3.0_cor",
+    "student_t_d16_df1.5_cor",
+    "student_t_d16_df10.0_cor",
+    "student_t_d16_df2.0_cor",
+    "student_t_d16_df3.0_cor",
+    "student_t_d16_df5.0_cor",
+    "student_t_d16_df50.0_cor",
+    "student_t_d256_df3.0_cor",
+    "student_t_d2_df3.0_cor",
+    "student_t_d32_df3.0_cor",
+    "student_t_d64_df3.0_cor",
+    "student_t_d8_df3.0_cor",
+    "toy_radial_angular"
+  ],
+  "per_condition_final_runs": {
+    "A": 3,
+    "B": 3,
+    "C": 3,
+    "tflow": 3
+  },
+  "tflow_additional_tuning": "existing 0.55 full-run equivalents per condition, validation only",
+  "recovered_inventory": {
+    "scope": "New remaining A/B/C only; tFlow references retained, no new tFlow tuning in this continuation",
+    "conditions": [
+      "piv_d32",
+      "imagenette_dcae"
+    ],
+    "source_configs": [
+      {
+        "condition": "aniso_k1",
+        "source": "configs/rafm_input_study/prepared/aniso_k1.json",
+        "sha256": "dc3f2634ea23c5c958f8926c5f9680c535ea95cfe03cde95d99e7573857d1c29"
+      },
+      {
+        "condition": "aniso_k10",
+        "source": "configs/rafm_input_study/prepared/aniso_k10.json",
+        "sha256": "a40c9abcfe5ef3e9f87b6cba323cd7b730e505eb5aa711e76aa9866a894526c5"
+      },
+      {
+        "condition": "aniso_k100",
+        "source": "configs/rafm_input_study/prepared/aniso_k100.json",
+        "sha256": "5b6db9fc0a42b96c9873d000305f116dd9de7822bc0d9bc76e59e07851145515"
+      },
+      {
+        "condition": "aniso_k3",
+        "source": "configs/rafm_input_study/prepared/aniso_k3.json",
+        "sha256": "922c57cd989a2b26368e2705a1591d55656e79ffb2eb15db1d1dd47fcf6cefb6"
+      },
+      {
+        "condition": "aniso_k30",
+        "source": "configs/rafm_input_study/prepared/aniso_k30.json",
+        "sha256": "eb126938a3a656ab61771b89e6c4691f6607e0a35458d7ae451ad8427772405c"
+      },
+      {
+        "condition": "aniso_k300",
+        "source": "configs/rafm_input_study/prepared/aniso_k300.json",
+        "sha256": "a5eddd735090b62961772fd37c4da62693b88ab8d3dbc1e70dc4a5cb7008dcd9"
+      },
+      {
+        "condition": "audiomnist_stft",
+        "source": "configs/rafm_input_study/prepared/audiomnist_stft.json",
+        "sha256": "e597d2d463e94d2bd9c1f45081588c7d83c7beb72517685a22f9672b0b3a945d"
+      },
+      {
+        "condition": "finance_ff49",
+        "source": "configs/rafm_input_study/prepared/finance_ff49.json",
+        "sha256": "f163d0dae25d48d7c9898858e19a7b3840076f19ba33672bbc81eda4c7fd1095"
+      },
+      {
+        "condition": "gaussian_aniso_d16_cor",
+        "source": "configs/rafm_input_study/prepared/gaussian_aniso_d16_cor.json",
+        "sha256": "b160cf7bc1e6fe3a7d72fd463ba0718c82c6b5972a15a609acba371c70601cde"
+      },
+      {
+        "condition": "piv_d16",
+        "source": "configs/rafm_input_study/prepared/piv_d16.json",
+        "sha256": "f823f1fad0debcfd5ca94bd4388484a7db3971c92859e1897cd509fc983708e5"
+      },
+      {
+        "condition": "piv_d256",
+        "source": "configs/rafm_input_study/prepared/piv_d256.json",
+        "sha256": "1f9b51088bdb4d4628a964d3583461d9984ec294b0dc2fbbc2b93b4704c956e6"
+      },
+      {
+        "condition": "piv_d64",
+        "source": "configs/rafm_input_study/prepared/piv_d64.json",
+        "sha256": "65cf88058bcf75657b69e68be7f5f55293f9c0805f4769233499dd358d8e5562"
+      },
+      {
+        "condition": "student_t_d128_df3.0_cor",
+        "source": "configs/rafm_input_study/prepared/student_t_d128_df3.0_cor.json",
+        "sha256": "bb7880b6d36a4aa344bc84f5537302a9a82b813deb0a681881e4f6eb6a48261f"
+      },
+      {
+        "condition": "student_t_d16_df1.5_cor",
+        "source": "configs/rafm_input_study/prepared/student_t_d16_df1.5_cor.json",
+        "sha256": "62937c3fcfb9ef4733e12fe652359a1e119ab1201f4c29abf150f1c5ec8b5df9"
+      },
+      {
+        "condition": "student_t_d16_df10.0_cor",
+        "source": "configs/rafm_input_study/prepared/student_t_d16_df10.0_cor.json",
+        "sha256": "2de532d6618a01ae89a8f34e753eea06f227af2525225be2b824031a02043a07"
+      },
+      {
+        "condition": "student_t_d16_df2.0_cor",
+        "source": "configs/rafm_input_study/prepared/student_t_d16_df2.0_cor.json",
+        "sha256": "e4dfc0d903cc4b90621cbe643f77eae1e9cfec55cada9ca64cd2baf80ef78a92"
+      },
+      {
+        "condition": "student_t_d16_df3.0_cor",
+        "source": "configs/rafm_input_study/prepared/student_t_d16_df3.0_cor.json",
+        "sha256": "78e78363103d217169c9f89a3c02c8241044a23728cba0e1ebddbe1bec931fe1"
+      },
+      {
+        "condition": "student_t_d16_df5.0_cor",
+        "source": "configs/rafm_input_study/prepared/student_t_d16_df5.0_cor.json",
+        "sha256": "f37198ffe49154ad8637d83b42861c66c722b059a7f2b2ac090ed2e93e3cd619"
+      },
+      {
+        "condition": "student_t_d16_df50.0_cor",
+        "source": "configs/rafm_input_study/prepared/student_t_d16_df50.0_cor.json",
+        "sha256": "bcc1aff4b47c36b917de281c07ef3026f44466fff0b89f6d527db63d95337c62"
+      },
+      {
+        "condition": "student_t_d256_df3.0_cor",
+        "source": "configs/rafm_input_study/prepared/student_t_d256_df3.0_cor.json",
+        "sha256": "bef4680a15f0c2e5546ad4585b38b0024c3475cb540fafef5b3384c473dcff0c"
+      },
+      {
+        "condition": "student_t_d2_df3.0_cor",
+        "source": "configs/rafm_input_study/prepared/student_t_d2_df3.0_cor.json",
+        "sha256": "6d447d8c08cd27a82a41f02e6e92d500e8dba67f93972998ec7cafe46e075a00"
+      },
+      {
+        "condition": "student_t_d32_df3.0_cor",
+        "source": "configs/rafm_input_study/prepared/student_t_d32_df3.0_cor.json",
+        "sha256": "d1bbd338aa096e32f6c705c3742b10996f132a6351f9d31d8d9f8167889a3e23"
+      },
+      {
+        "condition": "student_t_d64_df3.0_cor",
+        "source": "configs/rafm_input_study/prepared/student_t_d64_df3.0_cor.json",
+        "sha256": "d285b973e526609206aab9a68e0b5e998fd09907f3ee3012c0aefa1c2c3b776b"
+      },
+      {
+        "condition": "student_t_d8_df3.0_cor",
+        "source": "configs/rafm_input_study/prepared/student_t_d8_df3.0_cor.json",
+        "sha256": "8f8e68b88b2b15de27844be8b03cccb28a592555985d0db4646fc111bf42494f"
+      },
+      {
+        "condition": "toy_radial_angular",
+        "source": "configs/rafm_input_study/prepared/toy_radial_angular.json",
+        "sha256": "9f4129e909c3686a3006f3374615556d36385b94324602b76547a8c21ab47a84"
+      },
+      {
+        "condition": "weather_au_wind",
+        "source": "configs/rafm_input_study/prepared/weather_au_wind.json",
+        "sha256": "8e4bab88012022a6654a4ed828c44860c43c44c93e65551ec4f95aefd7323644"
+      },
+      {
+        "condition": "imagenette_dcae",
+        "source": "configs/rafm_input_study_recovered/prepared/imagenette_dcae.json",
+        "sha256": "834a0cd77262b594191641f1df99a6b0aac4e3b8b34f0bb4e4d3c9d90e9c8f1a"
+      },
+      {
+        "condition": "piv_d32",
+        "source": "configs/rafm_input_study_recovered/prepared/piv_d32.json",
+        "sha256": "8878eec16f7a2506d2e2827dc5e4d9215dcd102a82278a518569e48dc626b3ff"
+      }
+    ],
+    "original_runtime_settings_unchanged": true,
+    "FID_reference_overlap_user_authorized": true,
+    "main_manuscript_changes_deferred": true
+  }
+}

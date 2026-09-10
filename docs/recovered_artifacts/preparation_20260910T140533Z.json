@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "study_id": "rafm_input_parameterization_v1",
+  "status": "complete",
+  "generated_utc": "2026-09-10T14:05:33.503358+00:00",
+  "no_models_run": true,
+  "conditions": [
+    "piv_d32",
+    "imagenette_dcae"
+  ],
+  "rows": [
+    {
+      "condition_id": "piv_d32",
+      "status": "verified",
+      "reused_existing_cache": false,
+      "config": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/configs/rafm_input_study_recovered/prepared/piv_d32.json",
+        "sha256": "8878eec16f7a2506d2e2827dc5e4d9215dcd102a82278a518569e48dc626b3ff",
+        "size_bytes": 11643
+      },
+      "verification": {
+        "original_tensor": {
+          "shape": [
+            998,
+            32
+          ],
+          "dtype": "torch.float32",
+          "sha256_contiguous_bytes": "f3c2581041588366488e3c47af67e1c55df5b6a7f084c9c5b5002ebf826f453f",
+          "md5_contiguous_bytes": "db5ab62c9e0f6a03e59d29340baf9928"
+        },
+        "piv16_original_view_verified": true,
+        "not_truncated_piv64": true,
+        "not_truncated_piv256": true,
+        "preprocessing": "unchanged full-dataset mean subtraction before CPU torch seed-0 split",
+        "native_grid_provenance": {
+          "file": "piv_d32.pt",
+          "bytes": 128924,
+          "sha256": "8437048cf028dafeaf45f61339a323628b8be6df586ee180e45706cbb617d911",
+          "original_path": "data/piv/piv_d32.pt",
+          "shape": [
+            998,
+            32
+          ],
+          "dtype": "float32",
+          "status": "VERIFIED original (contiguous 998x32)",
+          "note": "Genuine d32 grid. VERIFIED d32 != d64[:, :32] and != d256 (different spatial grids; NOT a truncation of d64/d256).",
+          "experiments": "referenced by configs/exp1/piv_d32.yaml, configs/exp0/source_diagnostics.yaml, configs/exp3/runtime.yaml, rebuttal_experiments/configs/E6_dim32.yaml. (Main-benchmark dense MSGM results exist for d16/d64/d256, NOT d32; d32 is used in the dimension-sweep / runtime experiments.)"
+        }
+      },
+      "shared_cache_manifest": {
+        "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/v1/piv_d32/manifest.json",
+        "sha256": "b1bbe36e633af5447134d6a87e83e2b9333fe0d5d9312283d2f9d42aa26c95eb",
+        "size_bytes": 25915
+      }
+    },
+    {
+      "condition_id": "imagenette_dcae",
+      "status": "verified",
+      "reused_existing_cache": false,
+      "config": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/configs/rafm_input_study_recovered/prepared/imagenette_dcae.json",
+        "sha256": "834a0cd77262b594191641f1df99a6b0aac4e3b8b34f0bb4e4d3c9d90e9c8f1a",
+        "size_bytes": 15063
+      },
+      "verification": {
+        "archived_centering_and_runtime_values_bitwise_equal": true,
+        "archived_mean_equals_generator_training_mean_bitwise": true,
+        "split_indices_archived_npz_and_original_cpu_rng_bitwise_equal": true,
+        "split_counts": {
+          "train": 8036,
+          "val": 2678,
+          "test": 2680
+        },
+        "class_labels_archived_npz_csv_and_data_v1_identical": true,
+        "row_mapping": {
+          "n_rows": 13394,
+          "n_unique_filenames": 13394,
+          "reencoded_identity_matches": 13394,
+          "max_l2": 0.0,
+          "mean_l2": 0.0,
+          "encoding_was_run_here": false,
+          "source": {
+            "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/releases/piv-imagenette-provenance-v1_20260910/audit_result.npz",
+            "sha256": "06480e5ef211850f65bb6dde3941c15ae4b504e42b87844138470237e2e6e113",
+            "size_bytes": 2626236
+          },
+          "official_filename_split_counts": {
+            "train": 9469,
+            "val": 3925
+          }
+        },
+        "diagnostic_radius_max_abs_difference": 7.62939453125e-06,
+        "csv_rounded_radius_max_abs_difference": 5.000000000165983e-05,
+        "fid_reference": {
+          "path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/image_latents/dit/eval_std/_real_ref",
+          "count": 3925,
+          "sha256": "79064131fa4cad5529be9ba8b37d3da62a2002adb1b011cfc6bdf148b25382b7",
+          "manifest_digest_algorithm": "SHA256 over sorted filename + NUL + file SHA256 + newline"
+        },
+        "fid_reference_overlap": {
+          "n_reference": 3925,
+          "generator_split_counts": {
+            "train": 2339,
+            "val": 775,
+            "test": 811
+          },
+          "train_fraction": 0.5959235668789808,
+          "definition": "sorted(np.random.default_rng(1).permutation(13394)[:3925]) in verified latent-row order",
+          "evidence": "VM audit report/addendum and supplied CSV; CSV flags, seeded subset and archived split intersections independently checked here",
+          "png_to_jpeg_identity_independently_reverified_here": false,
+          "held_out_reference": false,
+          "authorized_use": "User explicitly authorized the existing reference protocol for this comparison; no reference or manuscript changes"
+        },
+        "archived_preprocessing_mean": {
+          "shape": [
+            2048
+          ],
+          "dtype": "torch.float32",
+          "sha256_contiguous_bytes": "e4a0ee2412a39a56f0e76ea8c1b53f86a34a9cc78fd6fa6d8c7644c7d3ee290e",
+          "md5_contiguous_bytes": "987ec25e10fd8f4c214a2e144dd5ba7f"
+        },
+        "archived_centered_data": {
+          "shape": [
+            13394,
+            2048
+          ],
+          "dtype": "torch.float32",
+          "sha256_contiguous_bytes": "519491dbb4d863c1e88cd6b9451930302582a1844a2908d812d44c2fe97ab463",
+          "md5_contiguous_bytes": "a3ef7f2655df1fddf8e5b77af3512d9a"
+        }
+      },
+      "shared_cache_manifest": {
+        "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/v1/imagenette_dcae/manifest.json",
+        "sha256": "c19527b82b5ee5cfbe519dd643487663bdaa6cf2713b7fcb9cb937a9b43bb0bb",
+        "size_bytes": 33160
+      }
+    }
+  ],
+  "release_verification": {
+    "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/docs/recovered_artifacts/release_verification.json",
+    "sha256": "60b0ebf97086060569eee12966e88511320bbc36908d66110ba53ba0ec02a381",
+    "size_bytes": 5807
+  },
+  "source": {
+    "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/tools/prepare_recovered_study.py",
+    "sha256": "e3d8346225becb39fb5e6789a13430b5ac5528c6c9dca6adb816cac7e4102398",
+    "size_bytes": 27140
+  },
+  "slurm_job_id": "765953",
+  "host": "auh7-3b-gpu-015"
+}

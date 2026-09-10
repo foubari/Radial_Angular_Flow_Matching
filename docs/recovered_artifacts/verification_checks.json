@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "case": "metadata_checksum_mismatch",
+      "status": "passed_rejected",
+      "error": "SHA256 MISMATCH: AUDIT_REPORT.md"
+    },
+    {
+      "case": "missing_required_dataset",
+      "status": "passed_rejected",
+      "error": "Missing downloaded asset: /tmp/release-fail-closed-yy5vomgp/piv_d32.pt"
+    },
+    {
+      "case": "modified_addendum",
+      "status": "passed_rejected",
+      "error": "SHA256 MISMATCH: manifest_addendum.json"
+    }
+  ],
+  "original_assets_unchanged": true
+}

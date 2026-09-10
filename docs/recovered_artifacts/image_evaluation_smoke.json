@@ -1,0 +1,378 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "smoke_only": true,
+  "benchmark_result": false,
+  "no_model_training": true,
+  "no_generator_sampling": true,
+  "generator_network_evaluations": 0,
+  "n_cached_validation_rows": 40,
+  "generated_images_directory": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/recovered_eval_smoke/765955_20260910T140922Z",
+  "output_directory": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/docs/recovered_artifacts/image_evaluation_smoke_765955_20260910T140922Z",
+  "slurm_job_id": "765955",
+  "host": "auh7-3b-gpu-015",
+  "config_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/configs/rafm_input_study_recovered/prepared/imagenette_dcae.json",
+  "config_file_sha256": "834a0cd77262b594191641f1df99a6b0aac4e3b8b34f0bb4e4d3c9d90e9c8f1a",
+  "source_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/tools/check_recovered_image_evaluation.py",
+  "source_sha256": "34108f8befe0599d4a56bf5ca90fa574e33310e09fbcafd74d412aaaba8593f7",
+  "started_utc": "2026-09-10T14:09:22.129977+00:00",
+  "all_image_and_latent_metrics_finite": true,
+  "reference_unchanged": true,
+  "exact_data": {
+    "values": {
+      "shape": [
+        13394,
+        2048
+      ],
+      "dtype": "<f4",
+      "sha256": "519491dbb4d863c1e88cd6b9451930302582a1844a2908d812d44c2fe97ab463"
+    },
+    "preprocessing_mean": {
+      "shape": [
+        2048
+      ],
+      "dtype": "<f4",
+      "sha256": "e4a0ee2412a39a56f0e76ea8c1b53f86a34a9cc78fd6fa6d8c7644c7d3ee290e"
+    },
+    "split_indices": {
+      "train": {
+        "shape": [
+          8036
+        ],
+        "dtype": "<i8",
+        "sha256": "68f42227413797e54ea37f517a2e91c5ada6fa0a663bc8af4e1dcb306f84393d"
+      },
+      "val": {
+        "shape": [
+          2678
+        ],
+        "dtype": "<i8",
+        "sha256": "a5e8f5d079d8874fd8e0bee3088e2842575fe9e7b6a3f87760b7b01f1aea202b"
+      },
+      "test": {
+        "shape": [
+          2680
+        ],
+        "dtype": "<i8",
+        "sha256": "2ae5a1eb2c63eb21d97903c3491234fe3f34a4576cba0c2fdb617dc15b00c57d"
+      }
+    },
+    "splits": {
+      "train": {
+        "shape": [
+          8036,
+          2048
+        ],
+        "dtype": "<f4",
+        "sha256": "620153b279aa4076064d0a786be3040dd47e13c69f98681c634b68b933b295f7"
+      },
+      "val": {
+        "shape": [
+          2678,
+          2048
+        ],
+        "dtype": "<f4",
+        "sha256": "e95a34c945396dd68f350e3c75ef8d16f8d40555950092359e23010551b26bd2"
+      },
+      "test": {
+        "shape": [
+          2680,
+          2048
+        ],
+        "dtype": "<f4",
+        "sha256": "18b67294bcf8fb9701b894fba12e30f09ea345781a99c52903b90d7dc1de3fd5"
+      }
+    },
+    "external_test_loaded": false,
+    "labels": {
+      "shape": [
+        13394
+      ],
+      "dtype": "<i8",
+      "sha256": "7874b0973c0e7e21c0037a80e9eee304727ed882b669a45727f8a1e1de16bfc0"
+    }
+  },
+  "validation_rows": {
+    "shape": [
+      40
+    ],
+    "dtype": "<i8",
+    "sha256": "a454ae3ee3a8c0a1c90b13f4d9d3875c4d8d50cac3efab1c4d5209b30dfb9894"
+  },
+  "latent_reference_split": "validation_only_for_this_smoke",
+  "class_counts": [
+    5,
+    2,
+    3,
+    4,
+    6,
+    5,
+    1,
+    5,
+    7,
+    2
+  ],
+  "hardware": {
+    "host": "auh7-3b-gpu-015",
+    "slurm_job_id": "765955",
+    "python": "3.10.12",
+    "torch": "2.7.1+rocm6.3",
+    "cuda": null,
+    "hip": "6.3.42131-fa1d09cbd",
+    "gpu": "AMD Instinct MI210",
+    "vram_bytes": 68702699520
+  },
+  "peak_memory": {
+    "allocated_bytes": 9988424192,
+    "reserved_bytes": 12683575296
+  },
+  "evaluation_proof": {
+    "method": "tflow",
+    "n": 40,
+    "real_n": 3925,
+    "cfg": 1.0,
+    "latent": {
+      "radial_w1": 0.50584477186203,
+      "ks": 0.08351382613182068,
+      "sliced_w1": 0.23598706722259521
+    },
+    "image": {
+      "fid": 138.76818699214968,
+      "kid": -0.000804438591003418,
+      "kid_std": 0.005742281011954375,
+      "precision": 0.8,
+      "recall": 0.9498089171974522,
+      "density": 0.665,
+      "coverage": 0.032356687898089175
+    },
+    "reference": {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/image_latents/dit/eval_std/_real_ref",
+      "count": 3925,
+      "sha256": "79064131fa4cad5529be9ba8b37d3da62a2002adb1b011cfc6bdf148b25382b7"
+    },
+    "protocol": {
+      "source": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/experiments/image_latents/dit/dit_eval_sit.py",
+      "source_sha256": "103a53a9e53e4e0bad1186793ed52d99b8c8fefaaba031039407559822a22436",
+      "decoder_path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.cache/huggingface/hub/models--mit-han-lab--dc-ae-f32c32-sana-1.0-diffusers/snapshots/ca69e17e97609e64ce055115a6515215109b1f50",
+      "latent_scale": 0.41407,
+      "inception_weights_path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.cache/torch/hub/checkpoints/weights-inception-2015-12-05-6726825d.pth",
+      "inception_weights_sha256": "6726825d0af5f729cebd5821db510b11b1cfad8faad88a03f1befd49fb9129b2",
+      "inception_layer": "2048",
+      "kid_subset_size": 20,
+      "kid_rng_seed": 2020,
+      "prdc_nearest_k": 5,
+      "sliced_projections": 200,
+      "sliced_seed": 0,
+      "generated_image_dir": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/recovered_eval_smoke/765955_20260910T140922Z",
+      "package_versions": {
+        "torch": "2.7.1+rocm6.3",
+        "torchvision": "0.22.1+rocm6.3",
+        "torch-fidelity": "0.4.0",
+        "prdc": "0.2",
+        "diffusers": "0.40.0",
+        "numpy": "2.2.6",
+        "Pillow": "12.3.0"
+      },
+      "precision": "float32",
+      "device": "cuda:0"
+    },
+    "class_counts": {
+      "0": 5,
+      "1": 2,
+      "2": 3,
+      "3": 4,
+      "4": 6,
+      "5": 5,
+      "6": 1,
+      "7": 5,
+      "8": 7,
+      "9": 2
+    }
+  },
+  "smoke_metrics": {
+    "image": {
+      "fid": 138.76818699214968,
+      "kid": -0.000804438591003418,
+      "kid_std": 0.005742281011954375,
+      "precision": 0.8,
+      "recall": 0.9498089171974522,
+      "density": 0.665,
+      "coverage": 0.032356687898089175
+    },
+    "latent": {
+      "radial_w1": 0.50584477186203,
+      "ks": 0.08351382613182068,
+      "sliced_w1": 0.23598706722259521
+    }
+  },
+  "settings_note": "Unchanged decoder feature batches and precision; input consists of cached validation rows, not generator outputs",
+  "original_reference": {
+    "path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/image_latents/dit/eval_std/_real_ref",
+    "count": 3925,
+    "sha256": "79064131fa4cad5529be9ba8b37d3da62a2002adb1b011cfc6bdf148b25382b7"
+  },
+  "decoded_pngs": [
+    {
+      "name": "00000.png",
+      "sha256": "cfc4e3469372cb5db6ba1149f055f2e31bae94de3376882c5b8eef0772796ad1"
+    },
+    {
+      "name": "00001.png",
+      "sha256": "cece7fca557498d3cdbec6933de1e95f1a66f5891021c7e94432ff70397aa588"
+    },
+    {
+      "name": "00002.png",
+      "sha256": "dc530cffd7dac481ef50dda70462c08591266864b0a5e4b7777b5c20a344d43c"
+    },
+    {
+      "name": "00003.png",
+      "sha256": "5479131671b221b648ab15cd2550b89c6786484d676d7b91b28685e7f33c5541"
+    },
+    {
+      "name": "00004.png",
+      "sha256": "5d7a47c5b96fff702408bc6a4eec3412e51cffc910f161a11cf0e6e4bd25138b"
+    },
+    {
+      "name": "00005.png",
+      "sha256": "8ea2eaaa22ef2362650642048a62f9efdacec620cb43821f1bdeba67e15e1c44"
+    },
+    {
+      "name": "00006.png",
+      "sha256": "d4e1df47c3e675ef465b716102cdb9a345ed38687fea9722f4dcd18e89775e2e"
+    },
+    {
+      "name": "00007.png",
+      "sha256": "88e0fcca0351c36b58e181f4e8f76cfe6bb05990a5bf3b4663098df5ea803359"
+    },
+    {
+      "name": "00008.png",
+      "sha256": "a1b5fe1b9bf687359134a366e22b7140cdee04b17224c76bfb90ffaff6d49086"
+    },
+    {
+      "name": "00009.png",
+      "sha256": "b60e3943f480d729aa154374b40f874797f43bcd61f8040c739b68704a66a3e5"
+    },
+    {
+      "name": "00010.png",
+      "sha256": "ae9ba013d67cd4cc5c7156edf89d232382b73460d832a0c8f5471f2edf3c8cb1"
+    },
+    {
+      "name": "00011.png",
+      "sha256": "d635ec3cf4c777ef4500b89397d405b443ab97b28871994deb2e9ef4d15250f3"
+    },
+    {
+      "name": "00012.png",
+      "sha256": "d9a0ce63f358cd0b6a8300b729763e28c61a85d8249d4662dc0d754d7bb96438"
+    },
+    {
+      "name": "00013.png",
+      "sha256": "5c68e9dbf89ca0a1f3fb02d6740b954ff5f9c611e08b59aa69913efe549fe787"
+    },
+    {
+      "name": "00014.png",
+      "sha256": "138ff85b59490ea161c3c1f9433f75570d653d719a30a528e6ffedf3e1f93ee7"
+    },
+    {
+      "name": "00015.png",
+      "sha256": "b96e5fc390d5511b4f4c28cc653ddffa211ddc2723850beb821ac387b72326cc"
+    },
+    {
+      "name": "00016.png",
+      "sha256": "2282cf7d4848ced36d2ed2378738cd2d3f63be6decd48ab777e3432d5ab27f08"
+    },
+    {
+      "name": "00017.png",
+      "sha256": "199d611f3aa3e762af15219bae8306eccd76853bf9fbb473bc4025602c8f1f5f"
+    },
+    {
+      "name": "00018.png",
+      "sha256": "e8510be70c26d7e2c08a9bf60272cba2e020d8dac2fd84466003131f9e60fbc1"
+    },
+    {
+      "name": "00019.png",
+      "sha256": "8db08d5430d84d9d7d59522c58502dd10777eb5d6cf1dffd05613c9cebb750e7"
+    },
+    {
+      "name": "00020.png",
+      "sha256": "aa6cdd055f7cda68116ff3ea8c5b50dfd0cc576ab22147985e947db399710741"
+    },
+    {
+      "name": "00021.png",
+      "sha256": "f11f9a533c46d9ed41b974f02bcd19c36aec9f296d24b55bd589c6561efede91"
+    },
+    {
+      "name": "00022.png",
+      "sha256": "efc83765f906ba44b3931aaadc0028614c8da25c57a52aa8e07e54ed347d5219"
+    },
+    {
+      "name": "00023.png",
+      "sha256": "393db0921a75beb0d2557cb74d00649511fbdaca494f080e66496d0db33a541d"
+    },
+    {
+      "name": "00024.png",
+      "sha256": "a22744056ffa974f59214b3e9d0d12ca42a56008cc33171c62a4dab9ecf8d166"
+    },
+    {
+      "name": "00025.png",
+      "sha256": "922a5173fd3509761fb633f283315d031deb49e8c0533435cce998391f96fe19"
+    },
+    {
+      "name": "00026.png",
+      "sha256": "27637093bd59d7b4a20ecb38eb68967366a2dd27f228f4c675cc62806fbc119b"
+    },
+    {
+      "name": "00027.png",
+      "sha256": "56105bda1421725f7ad595bff4cffd660f8ccfd46b7ee7e9824275a4710f0dde"
+    },
+    {
+      "name": "00028.png",
+      "sha256": "db8636303acd71feecd53845077ad808c8bb1701aff5957cfe8e208475d1fbcc"
+    },
+    {
+      "name": "00029.png",
+      "sha256": "a6237c7be0dd8c020bac3d9a8d5252438e8c03bd52149823990ba76e5c66e1d0"
+    },
+    {
+      "name": "00030.png",
+      "sha256": "e99be24a6c2c939c6372dd8a9b8cb7e3d7bc583332c7b73380c758b3a91accdc"
+    },
+    {
+      "name": "00031.png",
+      "sha256": "388000191e0dfccd7f3e679959ab0e25e07198c602d6a4370801f6a3d8140a93"
+    },
+    {
+      "name": "00032.png",
+      "sha256": "ac61ce33fe55829daae7c159ca84d6515f61811964106504a5b76dffefc0427c"
+    },
+    {
+      "name": "00033.png",
+      "sha256": "329adac336f341107b8ee54a03777d6ffe886f1d35ef144466559137410a0bf0"
+    },
+    {
+      "name": "00034.png",
+      "sha256": "31ccd460dcf9c70b8a3101db8691ed54b4fbf4733d3d3851385c0c19344fcf14"
+    },
+    {
+      "name": "00035.png",
+      "sha256": "6135d84e5f737e1fa27ea21413e60a4bf724145c7e2336a1c403dfdd15f2fe50"
+    },
+    {
+      "name": "00036.png",
+      "sha256": "29a2f25f553ecf5e193fb774ff7991982996b8f094641be701e786b352d4327e"
+    },
+    {
+      "name": "00037.png",
+      "sha256": "5a382ca9166b07f0efe2bf1bc49eca3cf538e5f8f96d007ce58074c8498ffd63"
+    },
+    {
+      "name": "00038.png",
+      "sha256": "ea2fc47b300b5995258f00542687ba3413b3f75044ec4d4d85a341f13e22315f"
+    },
+    {
+      "name": "00039.png",
+      "sha256": "c45024981e978e0e45ae4a155da406cefda7b55af69a08d337db5806ce553e64"
+    }
+  ],
+  "elapsed_s": 197.70642448216677,
+  "finished_utc": "2026-09-10T14:12:39.842674+00:00"
+}

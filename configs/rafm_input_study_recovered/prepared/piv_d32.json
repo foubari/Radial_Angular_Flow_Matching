@@ -1,0 +1,283 @@
+{
+  "schema_version": 1,
+  "condition_id": "piv_d32",
+  "kind": "vector",
+  "protocol_status": "resolved",
+  "blocking_issues": [],
+  "seeds": [
+    8925,
+    77395,
+    65457
+  ],
+  "data": {
+    "input": {
+      "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/releases/piv-imagenette-provenance-v1_20260910/piv_d32.pt",
+      "sha256": "8437048cf028dafeaf45f61339a323628b8be6df586ee180e45706cbb617d911"
+    },
+    "shape": [
+      998,
+      32
+    ],
+    "split": {
+      "kind": "indices",
+      "seed": 0,
+      "n_train": 598,
+      "n_val": 199,
+      "n_test": 201,
+      "file": {
+        "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/v1/piv_d32/split_indices.pt",
+        "sha256": "6e5499988c9d5a213275658a88f8a1a71afd097881710deb0c61859a08b76ece"
+      }
+    },
+    "transform": "piv_recenter"
+  },
+  "model": {
+    "kind": "mlp",
+    "hidden_dim": 128,
+    "n_layers": 3
+  },
+  "training": {
+    "steps": 10000,
+    "batch_size": 256,
+    "optimizer": "Adam",
+    "lr": 0.001,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0,
+    "gradient_clip": null,
+    "ema": null,
+    "precision": "float32",
+    "batch_rule": "global_torch",
+    "compile": true,
+    "checkpoint_every": 5000,
+    "log_every": 200,
+    "class_dropout": 0.0
+  },
+  "evaluation": {
+    "n_samples": 10000,
+    "model_evaluations": 512,
+    "sample_batch_size": 10000,
+    "sample_seed": null,
+    "metric_seed": 0,
+    "metric_seed_note": "Common new seed-0 metric projections across A/B/C and t-Flow; historical projections unavailable."
+  },
+  "sampler": {
+    "t_min": 0.001,
+    "rho": 7.0,
+    "grid": "power_sigma",
+    "sigma_min": 0.01
+  },
+  "tuning": {
+    "seed": 46021,
+    "nu": [
+      3,
+      5,
+      7
+    ],
+    "scale_multipliers": [
+      0.5,
+      1,
+      2
+    ],
+    "stage1_fraction": 0.05,
+    "continuation_fraction": 0.1,
+    "n_finalists": 2,
+    "validation_generated_samples": 1000,
+    "sample_seed": 61717,
+    "projection_seed": 61719
+  },
+  "provenance": {
+    "paper_sha256": "97f709df2a45e4acf4ba186379c60e9c75120d95e09af782d7a18c8b56d00367",
+    "baseline_commit": "5b89ed5f4af8a47c3b57eb9d595203daafc6d2c4",
+    "source_artifacts": [
+      "configs/exp1/piv_d32.yaml",
+      "rafm/data/prepare_piv.py"
+    ],
+    "cached_input_only": true,
+    "existing_results_unchanged": true,
+    "study_id": "rafm_input_parameterization_v1",
+    "historical_result_reuse": false,
+    "comparison_label": "new_matched_runs_on_verified_existing_cache",
+    "original_prepared_config_sha256": "c56ff4ede16ff70e2cc716eb94abc344e03e26e8e9d5be044405b3efe9011da6",
+    "batch_resolution": {
+      "prepared_value": null,
+      "selected_value": 256,
+      "evidence": "Supplied PDF p34 C.7: Student-t/PIV256; Weather2048; other vectors4096; downstream p35 C.10"
+    },
+    "original_split_spec": {
+      "kind": "random",
+      "seed": 0,
+      "n_train": 598,
+      "n_val": 199,
+      "n_test": 201
+    },
+    "generation": null,
+    "shared_preparation_identity_sha256": "39cc6362536d35868f89fe6f50794a685f6e08ed87812e387a9c5a3a913b873c",
+    "recovered_artifacts": {
+      "release": "foubari/msgm-sparse-control/piv-imagenette-provenance-v1",
+      "receipt": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/docs/recovered_artifacts/release_verification.json",
+        "sha256": "60b0ebf97086060569eee12966e88511320bbc36908d66110ba53ba0ec02a381",
+        "size_bytes": 5807
+      },
+      "assets": {
+        "manifest.json": {
+          "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/releases/piv-imagenette-provenance-v1_20260910/manifest.json",
+          "sha256": "4a356fe047a8d916dccc1610e238bbb3f4cb021357305a87c04fb9d1d3edef49",
+          "size_bytes": 8456
+        },
+        "manifest_addendum.json": {
+          "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/releases/piv-imagenette-provenance-v1_20260910/manifest_addendum.json",
+          "sha256": "a8049c5ddf64477fc1415c1a5dd4915041e9b0e37efa8468a6f98c21dc6761ef",
+          "size_bytes": 1918
+        },
+        "AUDIT_REPORT.md": {
+          "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/releases/piv-imagenette-provenance-v1_20260910/AUDIT_REPORT.md",
+          "sha256": "06c17e49d01e31aa6ca658208bf78221f741075b35af8c6d536aa9eea4f29e26",
+          "size_bytes": 2213
+        },
+        "piv_d32.pt": {
+          "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/releases/piv-imagenette-provenance-v1_20260910/piv_d32.pt",
+          "sha256": "8437048cf028dafeaf45f61339a323628b8be6df586ee180e45706cbb617d911",
+          "size_bytes": 128924
+        },
+        "piv_d16.pt": {
+          "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/releases/piv-imagenette-provenance-v1_20260910/piv_d16.pt",
+          "sha256": "a30a243c46d7095581ce86be562a40ac9f7195d1b55b40374721ce23db14e5e4",
+          "size_bytes": 128924
+        },
+        "dcae_real_centered.pt": {
+          "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/releases/piv-imagenette-provenance-v1_20260910/dcae_real_centered.pt",
+          "sha256": "848a876bfeb3b1c80ee0d7aae8988355100374a6c2ac318aa6b4cc20a2dbe344",
+          "size_bytes": 109840830
+        },
+        "radial_quantile_indices.npz": {
+          "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/releases/piv-imagenette-provenance-v1_20260910/radial_quantile_indices.npz",
+          "sha256": "12f3129d04e65e627b17f313810f888c108458829fd319e7a4e059cfcd91f4d4",
+          "size_bytes": 314416
+        },
+        "audit_result.npz": {
+          "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/releases/piv-imagenette-provenance-v1_20260910/audit_result.npz",
+          "sha256": "06480e5ef211850f65bb6dde3941c15ae4b504e42b87844138470237e2e6e113",
+          "size_bytes": 2626236
+        },
+        "verified_row_to_filename.csv": {
+          "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/releases/piv-imagenette-provenance-v1_20260910/verified_row_to_filename.csv",
+          "sha256": "1d39c416095c65965a92490aa7a192d32b8b725bc3ba8fa96c9c19fe6a4609cd",
+          "size_bytes": 1083091
+        },
+        "imagenette_audit.py": {
+          "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/releases/piv-imagenette-provenance-v1_20260910/imagenette_audit.py",
+          "sha256": "a2d4d60038a27b2dd5e694fb5a8e0b554d93dcd595ea85c164cc02bf53aaff2c",
+          "size_bytes": 4292
+        },
+        "provenance_code_and_logs.tar": {
+          "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/releases/piv-imagenette-provenance-v1_20260910/provenance_code_and_logs.tar",
+          "sha256": "9551483c015aec5942c19d5496106ed84e740c39f80633353481a852b29f2fef",
+          "size_bytes": 30720
+        }
+      },
+      "checkout_holding_artifacts": "d3006dc8ee61b2ab6e470115d3f21c778fefcf81 (iclr-image-experiments)",
+      "verified_extraction_or_training_commit": null,
+      "commit_caveat": "Data .pt/.npz files are gitignored and carry no commit stamp. Script commits below are the LATEST commit touching each script, NOT a verified proof that the on-disk artifacts were produced by that exact commit. The exact extraction/training commit is UNVERIFIED.",
+      "archived_members": {
+        "code_logs/dit_eval.log": {
+          "sha256": "78299d2ef0f2bbd07a883cf3ce1923b8421b015a98a9005ee2632ed5f98e20af",
+          "size_bytes": 5183
+        },
+        "code_logs/dit_train_sit.py": {
+          "sha256": "300626b1ba4b9bf9bbb204882dc08590e14cc2013f0744bacb8b368867d2950e",
+          "size_bytes": 7350
+        },
+        "code_logs/E3_piv.log": {
+          "sha256": "7810c21399784a1c1f78c9c2df0e46206351fcc710038a1c508fc0ff4cceea24",
+          "size_bytes": 961
+        },
+        "code_logs/extract_dcae_latents.py": {
+          "sha256": "df10ea03cca270cc1def643d764ec4608e176350c3cef937005a02ab9e32ef42",
+          "size_bytes": 1318
+        },
+        "code_logs/launch_phaseB.bat": {
+          "sha256": "4bd79df5989e52c33e45bc14e21e7aee153e890f9c2827ca4623bd9513bf7eb6",
+          "size_bytes": 1441
+        },
+        "code_logs/prepare_piv.py": {
+          "sha256": "82d4130e48beaf2376208a7da0141b492b94e336cdb9b8fab1081640b694c9fe",
+          "size_bytes": 6773
+        }
+      },
+      "numerical_verification": {
+        "original_tensor": {
+          "shape": [
+            998,
+            32
+          ],
+          "dtype": "torch.float32",
+          "sha256_contiguous_bytes": "f3c2581041588366488e3c47af67e1c55df5b6a7f084c9c5b5002ebf826f453f",
+          "md5_contiguous_bytes": "db5ab62c9e0f6a03e59d29340baf9928"
+        },
+        "piv16_original_view_verified": true,
+        "not_truncated_piv64": true,
+        "not_truncated_piv256": true,
+        "preprocessing": "unchanged full-dataset mean subtraction before CPU torch seed-0 split",
+        "native_grid_provenance": {
+          "file": "piv_d32.pt",
+          "bytes": 128924,
+          "sha256": "8437048cf028dafeaf45f61339a323628b8be6df586ee180e45706cbb617d911",
+          "original_path": "data/piv/piv_d32.pt",
+          "shape": [
+            998,
+            32
+          ],
+          "dtype": "float32",
+          "status": "VERIFIED original (contiguous 998x32)",
+          "note": "Genuine d32 grid. VERIFIED d32 != d64[:, :32] and != d256 (different spatial grids; NOT a truncation of d64/d256).",
+          "experiments": "referenced by configs/exp1/piv_d32.yaml, configs/exp0/source_diagnostics.yaml, configs/exp3/runtime.yaml, rebuttal_experiments/configs/E6_dim32.yaml. (Main-benchmark dense MSGM results exist for d16/d64/d256, NOT d32; d32 is used in the dimension-sweep / runtime experiments.)"
+        }
+      },
+      "authorization": "User authorized recovery, checks and remaining A/B/C runs on 2026-09-10; preserve existing image-reference overlap protocol"
+    }
+  },
+  "experiment_launch_status": "authorized_after_correctness_checks_and_verified_cache",
+  "rafm_sampling_source": {
+    "kind": "radial_empirical_ecdf",
+    "fit_split": "generator_train_only",
+    "implementation": "rafm/sources/radial_empirical.py:RadialEmpiricalSource(mode=ecdf)",
+    "interpolation": "torch.quantile linear, independent uniform radius draw",
+    "log_radius_source": false,
+    "evidence": [
+      "rebuttal_experiments/configs/E1_studentt_d16.yaml",
+      "rebuttal_experiments/configs/E1_gaussian_d16.yaml",
+      "rebuttal_experiments/configs/E5_toy2d.yaml",
+      "rebuttal_experiments/configs/E6_dim16.yaml",
+      "rebuttal_experiments/configs/E8_df3.0.yaml",
+      "rebuttal_experiments/scripts/run_real.py",
+      "experiments/poc_audio/audio_flow.py",
+      "experiments/image_latents/dit/dit_train_sit.py"
+    ],
+    "note": "Explicit angular_rafm entries use empirical ECDF; rafm_oracle is a separate reference method."
+  },
+  "study": {
+    "id": "rafm_input_parameterization_v1",
+    "methods": [
+      "A",
+      "B",
+      "C",
+      "tflow"
+    ],
+    "training_seeds_shared": true,
+    "new_A_rerun": true,
+    "B_C_additional_tuning_steps": 0,
+    "final_checkpoint_selection": "prescribed_final_update_or_final_EMA",
+    "radius_stat_fit_split": "generator_train_only",
+    "authorization": "User authorized full t-Flow and A/B/C study on 2026-09-10, after small correctness runs"
+  },
+  "shared_cache": {
+    "directory": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/v1/piv_d32",
+    "manifest_path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/v1/piv_d32/manifest.json",
+    "manifest_sha256": "b1bbe36e633af5447134d6a87e83e2b9333fe0d5d9312283d2f9d42aa26c95eb"
+  }
+}
