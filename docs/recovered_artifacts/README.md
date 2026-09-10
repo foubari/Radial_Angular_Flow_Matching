@@ -81,11 +81,19 @@ complete original 3,925-image reference and finished in 197.7 seconds, with
 
 Array **765988** was submitted at **16:17 Europe/Paris on 2026-09-10**, with
 six single-GPU MI210 workers on `auh7-3b-gpu-029`. Its dependency on existing
-ABC array 765748 retains the six-GPU study concurrency limit. The original
+ABC array 765748 initially retained the six-GPU study concurrency limit. The original
 pending submission 765979 targeted node008, which another user occupied during
 the final checks. Slurm accounting confirms it was cancelled before starting:
 zero runtime and no assigned node. The relocation record and both immutable
 submission manifests are preserved; no experiment was interrupted or duplicated.
+
+At 16:26 Europe/Paris, all 234 original outcomes (227 complete, seven failed)
+and all six worker command lists were verified terminal. Two allocations
+remained in Slurm cleanup, with no active model processes. The dependency was
+then released; the exact guard evidence and scheduler command are in
+`outputs_rafm_input_study/recovered/launch/dependency_release_765988.json`.
+Slurm allocated exactly six GPUs and 24 CPU cores on node029. Prolog time is
+scheduler startup overhead and must not be counted as measured training time.
 
 The final submitted manifest is
 `outputs_rafm_input_study/recovered/launch/tasks_20260910T141752_da3e0210.json`,

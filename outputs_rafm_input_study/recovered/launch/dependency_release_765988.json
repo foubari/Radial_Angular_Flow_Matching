@@ -1,0 +1,50 @@
+{
+  "recorded_utc": "2026-09-10T14:26:26.883750+00:00",
+  "original_task_count": 234,
+  "complete": 227,
+  "failed": 7,
+  "worker_receipts": [
+    {
+      "path": "outputs_rafm_input_study/v1/executions/765749_0_worker.json",
+      "status": "failed",
+      "ended_utc": "2026-09-10T14:17:37.962943+00:00"
+    },
+    {
+      "path": "outputs_rafm_input_study/v1/executions/765750_1_worker.json",
+      "status": "complete",
+      "ended_utc": "2026-09-10T14:21:06.079067+00:00"
+    },
+    {
+      "path": "outputs_rafm_input_study/v1/executions/765751_2_worker.json",
+      "status": "failed",
+      "ended_utc": "2026-09-10T14:24:11.576040+00:00"
+    },
+    {
+      "path": "outputs_rafm_input_study/v1/executions/765752_3_worker.json",
+      "status": "failed",
+      "ended_utc": "2026-09-10T11:38:54.243718+00:00"
+    },
+    {
+      "path": "outputs_rafm_input_study/v1/executions/765753_4_worker.json",
+      "status": "failed",
+      "ended_utc": "2026-09-10T11:43:10.501973+00:00"
+    },
+    {
+      "path": "outputs_rafm_input_study/v1/executions/765748_5_worker.json",
+      "status": "failed",
+      "ended_utc": "2026-09-10T11:45:11.318694+00:00"
+    }
+  ],
+  "old_scheduler_state": "765751|COMPLETING|auh7-3b-gpu-015\n765750|COMPLETING|auh7-3b-gpu-015",
+  "recovery_before": "765988|PENDING|(Dependency)",
+  "reason": "All234 original prescribed model outcomes and all six worker command lists are terminal. Only Slurm cleanup remains. Release the recovery array with at most six active training jobs, without stopping any job or changing experiment settings.",
+  "command": [
+    "scontrol",
+    "update",
+    "JobId=765988",
+    "Dependency="
+  ],
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": ""
+}
