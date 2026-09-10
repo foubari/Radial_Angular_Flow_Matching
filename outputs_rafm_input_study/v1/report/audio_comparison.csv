@@ -15,7 +15,7 @@ tflow,new matched study arm,incomplete,digit_acc,,,
 tflow,new matched study arm,incomplete,energy_KS,,,
 tflow,new matched study arm,incomplete,cov>q95,,,
 tflow,new matched study arm,incomplete,cov>q99,,,
-fixed_spherical_empirical_gain_reference,"completed checkpoint-based reference, not new A or historical paper value",verified_checkpoint_reference,digit_acc,0.8066666666666666,0.007352248333370906,3
-fixed_spherical_empirical_gain_reference,"completed checkpoint-based reference, not new A or historical paper value",verified_checkpoint_reference,energy_KS,0.021833333333333333,0.0,3
-fixed_spherical_empirical_gain_reference,"completed checkpoint-based reference, not new A or historical paper value",verified_checkpoint_reference,cov>q95,0.05,0.0,3
-fixed_spherical_empirical_gain_reference,"completed checkpoint-based reference, not new A or historical paper value",verified_checkpoint_reference,cov>q99,0.0145,0.0,3
+fixed_spherical_empirical_gain_reference,"checkpoint reference re-evaluated under current backend, not new A or historical paper value",measured_under_current_backend_with_recorded_differences,digit_acc,0.8066666666666666,0.007352248333370906,3
+fixed_spherical_empirical_gain_reference,"checkpoint reference re-evaluated under current backend, not new A or historical paper value",measured_under_current_backend_with_recorded_differences,energy_KS,0.021833333333333333,0.0,3
+fixed_spherical_empirical_gain_reference,"checkpoint reference re-evaluated under current backend, not new A or historical paper value",measured_under_current_backend_with_recorded_differences,cov>q95,0.05,0.0,3
+fixed_spherical_empirical_gain_reference,"checkpoint reference re-evaluated under current backend, not new A or historical paper value",measured_under_current_backend_with_recorded_differences,cov>q99,0.0145,0.0,3

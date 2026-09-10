@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "fixture_only": true,
+  "inspected_png": "fixture_figures/quality_tflow_and_rafm_inputs.png",
+  "findings": "Numeric y-axis labels are visible for the vector, audio, and image panels. The separate current-backend gain reference is labelled, and fixture watermark is visible. No plotting blocker remains.",
+  "scheduler": {
+    "job_id": "765764",
+    "state": "COMPLETED",
+    "exit_code": "0:0",
+    "elapsed": "00:01:53",
+    "allocated_tres": "cpu=2,mem=16G,node=1; no GPU allocation"
+  }
+}

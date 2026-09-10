@@ -1,0 +1,24 @@
+{
+  "run_sha256": "5b25945984fe3502e1361ee5c3ce55ceaf357d2497b9b454d3fc204a68b89966",
+  "total_train_time_s": 32.90013714134693,
+  "training_step": 10000,
+  "final_loss": 14.168872833251953,
+  "timing_kind": "measured",
+  "timing_scope": "training loop including compile, logging, finite checks and checkpoints; excludes data/model setup",
+  "peak_memory": {
+    "allocated_bytes": 98593792,
+    "reserved_bytes": 111149056
+  },
+  "peak_memory_scope": "model, EMA, optimizer, accelerator training data and training loop; maximum across resumes",
+  "n_params": 45873,
+  "hardware": {
+    "host": "auh7-3b-gpu-008",
+    "slurm_job_id": "765759",
+    "python": "3.10.12",
+    "torch": "2.7.1+rocm6.3",
+    "cuda": null,
+    "hip": "6.3.42131-fa1d09cbd",
+    "gpu": "AMD Instinct MI210",
+    "vram_bytes": 68702699520
+  }
+}

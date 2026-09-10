@@ -1,40 +1,84 @@
 {
+  "schema_version": 2,
+  "finalized_after": "collector, plots (if requested), findings",
+  "input_report": {
+    "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/report/report.json",
+    "sha256": "eb5f854e26b5f960799ea46c0b0af3a894f8f92a89e6a9ba7ea703cc3267cd07",
+    "size_bytes": 2790036
+  },
   "files": [
     {
       "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/report/README.md",
-      "sha256": "c92b6b9dfcfb2b5adc1845ec5801fd37be3d6c68ae74b32d9da5e46174fa6c22"
+      "relative_path": "README.md",
+      "sha256": "14e7ab4a62560313bcdf104577036d057f52ce607e1936705d095dbe9d953568",
+      "size_bytes": 18279
     },
     {
       "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/report/aggregate_metrics.csv",
-      "sha256": "4d4c9bd9c2abe3afacb34076a8b86f5e28ef68e57f628f51884b4e90c776a9be"
+      "relative_path": "aggregate_metrics.csv",
+      "sha256": "8aa91e2c1773471ea5cfa63516f97b6b46ac5feb161cb11e5f9752e855b0c1d4",
+      "size_bytes": 10041
     },
     {
       "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/report/audio_comparison.csv",
-      "sha256": "2093ef8a53720a3f69e422b2e83cd05a648ac3808dddc765298e76b3c8983944"
+      "relative_path": "audio_comparison.csv",
+      "sha256": "7b424e654d50aba167fbdc7646fa6358ad462753a091338c603e42771a8fa7f0",
+      "size_bytes": 1738
     },
     {
       "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/report/audio_comparison.tex",
-      "sha256": "1a2a4de22bdfe9b8170c01f5955dcbb3039336fc13b4fc965106314a28d81585"
+      "relative_path": "audio_comparison.tex",
+      "sha256": "1a2a4de22bdfe9b8170c01f5955dcbb3039336fc13b4fc965106314a28d81585",
+      "size_bytes": 590
     },
     {
       "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/report/comparison_table.tex",
-      "sha256": "9cf80ecdc083b2261831df6ca6c493a810327e28a55d11bee11b6b9471c5841b"
+      "relative_path": "comparison_table.tex",
+      "sha256": "d2dc33032708058dba193e3d6b956b4b45ef721af088b37686339c63522119a3",
+      "size_bytes": 5416
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/report/figures/plot_manifest.json",
+      "relative_path": "figures/plot_manifest.json",
+      "sha256": "d2c87338e27c222951b072a1433f819ee96fd5dfbb1e7cec364d74657e662360",
+      "size_bytes": 22371
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/report/findings.json",
+      "relative_path": "findings.json",
+      "sha256": "b9c7c4562964e05cfd35be4cf306f9cc677743eb5e576f2a45a7222b9ea17b95",
+      "size_bytes": 240324
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/report/findings.md",
+      "relative_path": "findings.md",
+      "sha256": "b09d15759a60b025823a3a7c792987005d55f6444735394e5c66b1b7e9e0d58a",
+      "size_bytes": 9244
     },
     {
       "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/report/manuscript_addition.md",
-      "sha256": "43af8fef9ba6225eb8633c9775f1d59b41b1151cb8daf9d3633cd2a674de2b2d"
+      "relative_path": "manuscript_addition.md",
+      "sha256": "43af8fef9ba6225eb8633c9775f1d59b41b1151cb8daf9d3633cd2a674de2b2d",
+      "size_bytes": 1183
     },
     {
       "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/report/paired_deltas.csv",
-      "sha256": "bca6012beba4ed688d4ae16cca355ff19aead1bfe13dcb91a0a0790291a15b56"
+      "relative_path": "paired_deltas.csv",
+      "sha256": "bca6012beba4ed688d4ae16cca355ff19aead1bfe13dcb91a0a0790291a15b56",
+      "size_bytes": 2289
     },
     {
       "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/report/per_seed_metrics.csv",
-      "sha256": "26214ea3df12b6815f8cc521c3d6ab4995c6b218a1de04d0aa47108a7595832f"
+      "relative_path": "per_seed_metrics.csv",
+      "sha256": "ecf5fdd3f989fdbac25f7500da5b570a8a7e8c9c92d35fe2f3113fa2f99405bd",
+      "size_bytes": 149379
     },
     {
       "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/report/report.json",
-      "sha256": "96efb50aaf708c0c699216780b8c085df87c084d0239f434e64fb0f30beb1e4e"
+      "relative_path": "report.json",
+      "sha256": "eb5f854e26b5f960799ea46c0b0af3a894f8f92a89e6a9ba7ea703cc3267cd07",
+      "size_bytes": 2790036
     }
-  ]
+  ],
+  "excluded_ephemeral_files": []
 }

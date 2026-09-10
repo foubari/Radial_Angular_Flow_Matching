@@ -1,0 +1,586 @@
+{
+  "schema_version": 1,
+  "condition_id": "piv_d256",
+  "method": "tflow",
+  "seed": 77395,
+  "stage": "final",
+  "status": "failed",
+  "config": {
+    "schema_version": 1,
+    "condition_id": "piv_d256",
+    "kind": "vector",
+    "protocol_status": "resolved",
+    "blocking_issues": [],
+    "seeds": [
+      8925,
+      77395,
+      65457
+    ],
+    "data": {
+      "input": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/data/piv/piv_d256.pt",
+        "sha256": "93b25962f33f8c4197356a09200093b363cccad0a9c164a2853642855a8277b4"
+      },
+      "shape": [
+        998,
+        256
+      ],
+      "split": {
+        "kind": "indices",
+        "seed": 0,
+        "n_train": 598,
+        "n_val": 199,
+        "n_test": 201,
+        "file": {
+          "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/v1/piv_d256/split_indices.pt",
+          "sha256": "6e5499988c9d5a213275658a88f8a1a71afd097881710deb0c61859a08b76ece"
+        }
+      },
+      "transform": "piv_recenter",
+      "historical_split_hashes": {
+        "n_train": 598,
+        "n_test": 201,
+        "dim": 256,
+        "split": "split_seed=0 (exp1 PIVDataset _make_splits)",
+        "train_md5": "8c997feba59290785fcb915a64eecc29",
+        "test_md5": "7ef7ee53bb00810bffb1442e26ff6bdd"
+      }
+    },
+    "model": {
+      "kind": "mlp",
+      "hidden_dim": 128,
+      "n_layers": 3
+    },
+    "training": {
+      "steps": 10000,
+      "batch_size": 256,
+      "optimizer": "Adam",
+      "lr": 0.001,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "gradient_clip": null,
+      "ema": null,
+      "precision": "float32",
+      "batch_rule": "global_torch",
+      "compile": true,
+      "checkpoint_every": 5000,
+      "log_every": 200,
+      "class_dropout": 0.0
+    },
+    "evaluation": {
+      "n_samples": 10000,
+      "model_evaluations": 512,
+      "sample_batch_size": 10000,
+      "sample_seed": null,
+      "metric_seed": 0,
+      "metric_seed_note": "Common new seed-0 metric projections across A/B/C and t-Flow; historical projections unavailable."
+    },
+    "sampler": {
+      "t_min": 0.001,
+      "rho": 7.0,
+      "grid": "power_sigma",
+      "sigma_min": 0.01
+    },
+    "tuning": {
+      "seed": 46021,
+      "nu": [
+        3,
+        5,
+        7
+      ],
+      "scale_multipliers": [
+        0.5,
+        1,
+        2
+      ],
+      "stage1_fraction": 0.05,
+      "continuation_fraction": 0.1,
+      "n_finalists": 2,
+      "validation_generated_samples": 1000,
+      "sample_seed": 61717,
+      "projection_seed": 61719
+    },
+    "provenance": {
+      "paper_sha256": "97f709df2a45e4acf4ba186379c60e9c75120d95e09af782d7a18c8b56d00367",
+      "baseline_commit": "5b89ed5f4af8a47c3b57eb9d595203daafc6d2c4",
+      "source_artifacts": [
+        "configs/exp1/piv_d256.yaml",
+        "rafm/data/prepare_piv.py",
+        "rebuttal_experiments/RAFM_ANG_TABLE1_completion.json",
+        "outputs/exp1_main_benchmark/piv_d256/angular_rafm/"
+      ],
+      "cached_input_only": true,
+      "existing_results_unchanged": true,
+      "study_id": "rafm_input_parameterization_v1",
+      "historical_result_reuse": false,
+      "comparison_label": "new_matched_runs_on_verified_existing_cache",
+      "original_prepared_config_sha256": "0df121ca34622a90492e19e102303cdda04c3a77bbb71cfbbb110f8d90a807a6",
+      "batch_resolution": {
+        "prepared_value": 256,
+        "selected_value": 256,
+        "evidence": "Supplied PDF p34 C.7: Student-t/PIV256; Weather2048; other vectors4096; downstream p35 C.10"
+      },
+      "original_split_spec": {
+        "kind": "random",
+        "seed": 0,
+        "n_train": 598,
+        "n_val": 199,
+        "n_test": 201
+      },
+      "generation": null,
+      "shared_preparation_identity_sha256": "f8eb066b53aaad284380583fdcc90c4ae8f767f398c0d403d7bc124202a7df06"
+    },
+    "experiment_launch_status": "authorized_after_correctness_checks_and_verified_cache",
+    "rafm_sampling_source": {
+      "kind": "radial_empirical_ecdf",
+      "fit_split": "generator_train_only",
+      "implementation": "rafm/sources/radial_empirical.py:RadialEmpiricalSource(mode=ecdf)",
+      "interpolation": "torch.quantile linear, independent uniform radius draw",
+      "log_radius_source": false,
+      "evidence": [
+        "rebuttal_experiments/configs/E1_studentt_d16.yaml",
+        "rebuttal_experiments/configs/E1_gaussian_d16.yaml",
+        "rebuttal_experiments/configs/E5_toy2d.yaml",
+        "rebuttal_experiments/configs/E6_dim16.yaml",
+        "rebuttal_experiments/configs/E8_df3.0.yaml",
+        "rebuttal_experiments/scripts/run_real.py",
+        "experiments/poc_audio/audio_flow.py",
+        "experiments/image_latents/dit/dit_train_sit.py"
+      ],
+      "note": "Explicit angular_rafm entries use empirical ECDF; rafm_oracle is a separate reference method."
+    },
+    "study": {
+      "id": "rafm_input_parameterization_v1",
+      "methods": [
+        "A",
+        "B",
+        "C",
+        "tflow"
+      ],
+      "training_seeds_shared": true,
+      "new_A_rerun": true,
+      "B_C_additional_tuning_steps": 0,
+      "final_checkpoint_selection": "prescribed_final_update_or_final_EMA",
+      "radius_stat_fit_split": "generator_train_only",
+      "authorization": "User authorized full t-Flow and A/B/C study on 2026-09-10, after small correctness runs"
+    },
+    "shared_cache": {
+      "directory": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/v1/piv_d256",
+      "manifest_path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/v1/piv_d256/manifest.json",
+      "manifest_sha256": "6890d06a90226be468252fa38dc280a2eb3df8afe8f84a996c73619cc06eb077"
+    }
+  },
+  "config_sha256": "d5f331ea2cc67bce2137796fa77bf6288b5de8220e483f14fbf96149e51196d4",
+  "source": {
+    "nu": 3.0,
+    "scale": 0.08311994486347801
+  },
+  "hardware": {
+    "host": "auh7-3b-gpu-008",
+    "slurm_job_id": "765760",
+    "python": "3.10.12",
+    "torch": "2.7.1+rocm6.3",
+    "cuda": null,
+    "hip": "6.3.42131-fa1d09cbd",
+    "gpu": "AMD Instinct MI210",
+    "vram_bytes": 68702699520
+  },
+  "dataset_manifest": {
+    "values": {
+      "shape": [
+        998,
+        256
+      ],
+      "dtype": "<f4",
+      "sha256": "5f5d0a5a04b293d66b793f1948f8d2ca0ca938b2213e6a4769e546a43956bce6"
+    },
+    "preprocessing_mean": {
+      "shape": [
+        256
+      ],
+      "dtype": "<f4",
+      "sha256": "3caf7b0392930638bce874bfc30891ca3520c535924326d16b338e05b7acbd0f"
+    },
+    "split_indices": {
+      "train": {
+        "shape": [
+          598
+        ],
+        "dtype": "<i8",
+        "sha256": "a98d0ee55f839bb21c37dd2d0ae4e81471899724328eaac1dcbb8c347a5785ec"
+      },
+      "val": {
+        "shape": [
+          199
+        ],
+        "dtype": "<i8",
+        "sha256": "61258fd5f5297c49fcf46b7cbd47d5ec5d8d691bf2c08e6ebe320181ff337fb5"
+      },
+      "test": {
+        "shape": [
+          201
+        ],
+        "dtype": "<i8",
+        "sha256": "c0659bc73be9bd29159be6f9ef809f9f15cee12ab8cd41893ba7ac899ec4a4d8"
+      }
+    },
+    "splits": {
+      "train": {
+        "shape": [
+          598,
+          256
+        ],
+        "dtype": "<f4",
+        "sha256": "422acdd34e77fd6f1b65f99a620693403aae1694354a6bea288bf7a03197c859"
+      },
+      "val": {
+        "shape": [
+          199,
+          256
+        ],
+        "dtype": "<f4",
+        "sha256": "2d8c03725ce7ddfba5e54f2cfaa2dba78ca4e5b4f21ed71b0bb6008202635eaf"
+      },
+      "test": {
+        "shape": [
+          201,
+          256
+        ],
+        "dtype": "<f4",
+        "sha256": "784bd958c09243029009bf6e0a0eb6bf9bbc86d6921089706a4fe342f2e598bd"
+      }
+    },
+    "external_test_loaded": false
+  },
+  "peak_memory": {
+    "training": {
+      "allocated_bytes": 90804736,
+      "reserved_bytes": 165675008
+    },
+    "sampling": {
+      "allocated_bytes": 158121984,
+      "reserved_bytes": 245366784
+    },
+    "sampling_and_evaluation": {
+      "allocated_bytes": 158121984,
+      "reserved_bytes": 245366784
+    }
+  },
+  "implementation_sha256": "3297bfee029c574a545cc713f3266c074896b9051fabfbc3c4cea11e5efbcc41",
+  "checkpoint": {
+    "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/final/piv_d256/seed_77395/checkpoint.pt",
+    "sha256": "0ec695552685dd16eb7e45dfb8d77666dbe9acf40c005228cf5a408f86869692",
+    "step": 10000,
+    "run_sha256": "8525a45c51bedba072e9ca08baf7e8d5ae821fa8da1350d65d55a09e301a8298"
+  },
+  "sample_artifact": {
+    "path": "/mnt/vast01/users/fouad.oubari/data/tflow/samples/piv_d256/seed_77395/78d3951b1594f7a279c412ce4ce97048fdc851f93248ff2199979c95c13c9bb0/samples.pt",
+    "sha256": "37c07bb05341c86e1fd09dde45a891b5fe0b3386d0fea4e5cdf150aca924f289"
+  },
+  "sampler": {
+    "nfe": 512,
+    "model_calls_total": 512,
+    "n_batches": 1,
+    "time_grid": [
+      0.001,
+      0.014142839201640722,
+      0.027137192874202465,
+      0.03998446162821301,
+      0.05268603548503403,
+      0.06524329393701911,
+      0.07765760600744209,
+      0.08993033031020159,
+      0.1020628151092906,
+      0.11405639837804626,
+      0.12591240785816993,
+      0.13763216111852128,
+      0.14921696561368747,
+      0.16066811874232645,
+      0.17198690790528537,
+      0.1831746105634955,
+      0.1942324942956416,
+      0.20516181685561163,
+      0.21596382622971655,
+      0.22663976069369418,
+      0.23719084886948782,
+      0.247618309781803,
+      0.25792335291444424,
+      0.26810717826642905,
+      0.27817097640788346,
+      0.28811592853571577,
+      0.2979432065290717,
+      0.3076539730045721,
+      0.3172493813713263,
+      0.32673057588573373,
+      0.3360986917060641,
+      0.3453548549468207,
+      0.3545001827328871,
+      0.36353578325345715,
+      0.3724627558157487,
+      0.3812821908985019,
+      0.38999517020526187,
+      0.3986027667174463,
+      0.4071060447472016,
+      0.415506059990039,
+      0.4238038595772631,
+      0.43200048212818465,
+      0.44009695780212066,
+      0.44809430835018293,
+      0.4559935471668546,
+      0.463795679341355,
+      0.4715017017087937,
+      0.47911260290111635,
+      0.4866293633978336,
+      0.49405295557655104,
+      0.5013843437632801,
+      0.5086244842825451,
+      0.5157743255072822,
+      0.5228348079085277,
+      0.5298068641049021,
+      0.5366914189118848,
+      0.5434893893908832,
+      0.550201684898095,
+      0.5568292071331671,
+      0.563372850187645,
+      0.5698335005932214,
+      0.576212037369778,
+      0.5825093320732246,
+      0.5887262488431342,
+      0.5948636444501743,
+      0.6009223683433368,
+      0.6069032626969646,
+      0.6128071624575787,
+      0.6186348953904979,
+      0.6243872821262667,
+      0.6300651362068743,
+      0.6356692641317785,
+      0.641200465403728,
+      0.6466595325743857,
+      0.6520472512897544,
+      0.6573644003354024,
+      0.6626117516814922,
+      0.667790070527612,
+      0.67290011534741,
+      0.6779426379330298,
+      0.6829183834393552,
+      0.6878280904280527,
+      0.6926724909114234,
+      0.6974523103960578,
+      0.7021682679262973,
+      0.7068210761275007,
+      0.7114114412491179,
+      0.7159400632075708,
+      0.7204076356289388,
+      0.7248148458914581,
+      0.7291623751678211,
+      0.7334508984672912,
+      0.7376810846776227,
+      0.7418535966067925,
+      0.7459690910245402,
+      0.7500282187037188,
+      0.7540316244614571,
+      0.7579799472001318,
+      0.7618738199481536,
+      0.765713869900562,
+      0.7695007184594358,
+      0.7732349812741147,
+      0.7769172682812353,
+      0.78054818374458,
+      0.7841283262947409,
+      0.7876582889685979,
+      0.7911386592486123,
+      0.7945700191019361,
+      0.7979529450193358,
+      0.8012880080539353,
+      0.8045757738597732,
+      0.8078168027301783,
+      0.8110116496359635,
+      0.8141608642634367,
+      0.8172649910522308,
+      0.820324569232953,
+      0.8233401328646535,
+      0.8263122108721126,
+      0.829241327082952,
+      0.8321280002645608,
+      0.8349727441608494,
+      0.8377760675288202,
+      0.8405384741749617,
+      0.8432604629914663,
+      0.8459425279922695,
+      0.8485851583489133,
+      0.8511888384262332,
+      0.853754047817869,
+      0.8562812613816009,
+      0.8587709492745111,
+      0.8612235769879691,
+      0.863639605382445,
+      0.8660194907221478,
+      0.868363684709492,
+      0.8706726345193893,
+      0.8729467828333706,
+      0.8751865678735337,
+      0.8773924234363213,
+      0.8795647789261278,
+      0.8817040593887335,
+      0.8838106855445725,
+      0.8858850738218267,
+      0.887927636389354,
+      0.8899387811894457,
+      0.8919189119704158,
+      0.8938684283190229,
+      0.895787725692724,
+      0.8976771954517624,
+      0.8995372248910859,
+      0.9013681972721038,
+      0.9031704918542723,
+      0.9049444839265199,
+      0.9066905448385039,
+      0.9084090420317041,
+      0.9101003390703534,
+      0.9117647956722019,
+      0.9134027677391217,
+      0.9150146073875447,
+      0.9166006629787421,
+      0.9181612791489389,
+      0.9196967968392687,
+      0.9212075533255669,
+      0.9226938822480037,
+      0.9241561136405563,
+      0.9255945739603214,
+      0.9270095861166698,
+      0.9284014695002405,
+      0.9297705400117767,
+      0.9311171100908048,
+      0.932441488744155,
+      0.9337439815743247,
+      0.935024890807686,
+      0.9362845153225358,
+      0.9375231506769915,
+      0.9387410891367305,
+      0.9399386197025739,
+      0.9411160281379181,
+      0.9422735969960097,
+      0.9434116056470687,
+      0.9445303303052573,
+      0.9456300440554968,
+      0.9467110168801308,
+      0.9477735156854389,
+      0.9488178043279961,
+      0.9498441436408833,
+      0.9508527914597462,
+      0.9518440026487042,
+      0.95281802912611,
+      0.953775119890159,
+      0.9547155210443505,
+      0.9556394758228011,
+      0.9565472246154079,
+      0.9574390049928669,
+      0.9583150517315426,
+      0.9591755968381908,
+      0.9600208695745358,
+      0.9608510964817022,
+      0.9616665014044997,
+      0.9624673055155647,
+      0.963253727339356,
+      0.9640259827760078,
+      0.964784285125037,
+      0.96552884510891,
+      0.9662598708964641,
+      0.9669775681261883,
+      0.967682139929361,
+      0.9683737869530474,
+      0.969052707382955,
+      0.9697190969661483,
+      0.9703731490336246,
+      0.9710150545227478,
+      0.971645001999546,
+      0.9722631776808666,
+      0.9728697654563961,
+      0.9734649469105406,
+      0.9740489013441677,
+      0.9746218057962129,
+      0.9751838350651492,
+      0.9757351617303187,
+      0.9762759561731303,
+      0.9768063865981211,
+      0.9773266190538827,
+      0.9778368174538536,
+      0.9783371435969763,
+      0.9788277571882226,
+      0.9793088158589833,
+      0.9797804751873275,
+      0.9802428887181276,
+      0.9806962079830536,
+      0.9811405825204348,
+      0.9815761598949918,
+      0.9820030857174368,
+      0.9824215036639435,
+      0.9828315554954887,
+      0.9832333810770628,
+      0.9836271183967525,
+      0.9840129035846946,
+      0.9843908709319021,
+      0.9847611529089623,
+      0.9851238801846077,
+      0.9854791816441612,
+      0.9858271844078528,
+      0.9861680138490131,
+      0.9865017936121397,
+      0.9868286456308386,
+      0.9871486901456417,
+      0.9874620457216997,
+      0.987768829266352,
+      0.9880691560465723,
+      0.988363139706292,
+      0.988650892283601,
+      0.9889325242278272,
+      0.9892081444164932,
+      0.989477860172153,
+      0.9897417772791074,
+      0.99,
+      1.0
+    ],
+    "parameters": {
+      "t_min": 0.001,
+      "rho": 7.0,
+      "grid": "power_sigma",
+      "sigma_min": 0.01
+    },
+    "timing_scope": "source draw, Heun, strict finite checks, and CPU sample transfers; excludes metrics"
+  },
+  "metrics": {
+    "radial_w1": 1454.0997314453125,
+    "ks_stat": 1.0,
+    "q950_err": 783.12314501341,
+    "q990_err": 1191.4112414387791,
+    "q995_err": 1440.0417889750356,
+    "tail_exc_95": 0.95,
+    "tail_exc_99": 0.99,
+    "sliced_w1": 72.49027252197266,
+    "mmd": 0.07098174095153809,
+    "angular_sw_bin0": null,
+    "angular_sw_bin1": null,
+    "angular_sw_bin2": null,
+    "angular_sw_bin3": null,
+    "angular_sw_mean": null,
+    "nan_rate": 0.0,
+    "exploding_norm_rate": 0.0,
+    "invalid_rate": 0.0,
+    "inf_rate": 0.0,
+    "nfe": 512,
+    "sample_time_s": 0.5474041812121868,
+    "total_train_time_s": 31.37773833796382,
+    "n_params": 99072
+  },
+  "nonfinite_metric_fields": [
+    "angular_sw_bin0",
+    "angular_sw_bin1",
+    "angular_sw_bin2",
+    "angular_sw_bin3",
+    "angular_sw_mean"
+  ]
+}

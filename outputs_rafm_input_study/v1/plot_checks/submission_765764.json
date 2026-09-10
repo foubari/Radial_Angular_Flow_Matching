@@ -1,0 +1,18 @@
+{
+  "job_id": "765764",
+  "previous_rendering_pass": "765763",
+  "reason": "Verify narrow-range axis presentation fix and all plot branches",
+  "kind": "synthetic_report_plot_fixture_validation",
+  "fixture_only": true,
+  "training_or_benchmark_run": false,
+  "partition": "hermes-2",
+  "node": "auh7-3b-gpu-015",
+  "gpus": 0,
+  "cpus": 2,
+  "memory": "16G",
+  "time_limit": "00:10:00",
+  "source_sha256": {
+    "tools/check_shared_study_plots.py": "65eb0bf07a0d24713e4713440c910ecd89b4a49693bfb6254c076f2f353451df",
+    "tools/plot_shared_study.py": "ac4a8b1c81048e69dbe317429d5054d91c570aa7fd125f2a12508610c7e81bd2"
+  }
+}

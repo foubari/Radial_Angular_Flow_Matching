@@ -1,0 +1,51 @@
+{
+  "status": "complete",
+  "study": "tflow",
+  "task_index": 23,
+  "condition_id": "student_t_d8_df3.0_cor",
+  "phase": "tuning",
+  "arm": null,
+  "seed": null,
+  "source_commit": "f23c8389d16576282143f6fa31918b99c93345bc",
+  "manifest": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/launch/tasks_20260910T080611_91887409.json",
+  "manifest_sha256": "4485325dbc659a74aa875d1a1e69a3061014808d844a5d2ad4f8f04128ef2a92",
+  "slurm_job_id": "765741",
+  "started_utc": "2026-09-10T08:20:28.338300+00:00",
+  "host": "auh7-3b-gpu-008",
+  "commands": [
+    {
+      "phase": "validation_only_tuning",
+      "seed": null,
+      "command": [
+        "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.venv/bin/python",
+        "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/tools/experiment_entrypoint.py",
+        "--module",
+        "experiments.tflow.tune",
+        "--config",
+        "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/configs/rafm_input_study/prepared/student_t_d8_df3.0_cor.json",
+        "--output",
+        "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning"
+      ],
+      "started_utc": "2026-09-10T08:20:34.735369+00:00",
+      "status": "complete",
+      "exit_code": 0,
+      "ended_utc": "2026-09-10T08:21:41.713281+00:00"
+    }
+  ],
+  "run_lock": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/locks/student_t_d8_df3.0_cor_tuning_all_selection.lock",
+  "hardware": {
+    "host": "auh7-3b-gpu-008",
+    "slurm_job_id": "765741",
+    "python": "3.10.12",
+    "torch": "2.7.1+rocm6.3",
+    "cuda": null,
+    "hip": "6.3.42131-fa1d09cbd",
+    "gpu": "AMD Instinct MI210",
+    "vram_bytes": 68702699520
+  },
+  "selection_receipt": {
+    "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/student_t_d8_df3.0_cor/selection_receipt.json",
+    "sha256": "b334dc72ffbffbd6ec0ae942111f94dec48678f1826aba6d6ca04286339c26c9"
+  },
+  "ended_utc": "2026-09-10T08:21:41.730986+00:00"
+}

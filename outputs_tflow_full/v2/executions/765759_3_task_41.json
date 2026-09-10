@@ -1,0 +1,56 @@
+{
+  "status": "failed",
+  "study": "tflow",
+  "task_index": 41,
+  "condition_id": "piv_d64",
+  "phase": "final",
+  "arm": null,
+  "seed": 8925,
+  "source_commit": "f23c8389d16576282143f6fa31918b99c93345bc",
+  "manifest": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/launch/tasks_20260910T080611_91887409.json",
+  "manifest_sha256": "4485325dbc659a74aa875d1a1e69a3061014808d844a5d2ad4f8f04128ef2a92",
+  "slurm_job_id": "765759",
+  "started_utc": "2026-09-10T08:33:15.081311+00:00",
+  "host": "auh7-3b-gpu-008",
+  "commands": [
+    {
+      "phase": "final_train_evaluate",
+      "seed": 8925,
+      "command": [
+        "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.venv/bin/python",
+        "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/tools/experiment_entrypoint.py",
+        "--module",
+        "experiments.tflow.run",
+        "train-evaluate",
+        "--config",
+        "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/configs/rafm_input_study/prepared/piv_d64.json",
+        "--selection",
+        "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/piv_d64/selection.json",
+        "--seed",
+        "8925",
+        "--output",
+        "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/final"
+      ],
+      "started_utc": "2026-09-10T08:33:21.494989+00:00",
+      "status": "failed",
+      "exit_code": 1,
+      "ended_utc": "2026-09-10T08:34:08.582677+00:00"
+    }
+  ],
+  "run_lock": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/locks/piv_d64_final_all_8925.lock",
+  "hardware": {
+    "host": "auh7-3b-gpu-008",
+    "slurm_job_id": "765759",
+    "python": "3.10.12",
+    "torch": "2.7.1+rocm6.3",
+    "cuda": null,
+    "hip": "6.3.42131-fa1d09cbd",
+    "gpu": "AMD Instinct MI210",
+    "vram_bytes": 68702699520
+  },
+  "selection_receipt": {
+    "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/piv_d64/selection_receipt.json",
+    "sha256": "ea79093a67b989bc923b244809550c341ea445f0ec460c19b6e6ff0957753e89"
+  },
+  "ended_utc": "2026-09-10T08:34:08.590362+00:00"
+}

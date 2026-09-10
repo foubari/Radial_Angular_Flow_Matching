@@ -1,0 +1,70 @@
+{
+  "status": "complete",
+  "study": "tflow",
+  "task_index": 89,
+  "condition_id": "student_t_d16_df5.0_cor",
+  "phase": "final",
+  "arm": null,
+  "seed": 8925,
+  "source_commit": "f23c8389d16576282143f6fa31918b99c93345bc",
+  "manifest": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/launch/tasks_20260910T080611_91887409.json",
+  "manifest_sha256": "4485325dbc659a74aa875d1a1e69a3061014808d844a5d2ad4f8f04128ef2a92",
+  "slurm_job_id": "765759",
+  "started_utc": "2026-09-10T08:42:12.543023+00:00",
+  "host": "auh7-3b-gpu-008",
+  "commands": [
+    {
+      "phase": "final_train_evaluate",
+      "seed": 8925,
+      "command": [
+        "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.venv/bin/python",
+        "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/tools/experiment_entrypoint.py",
+        "--module",
+        "experiments.tflow.run",
+        "train-evaluate",
+        "--config",
+        "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/configs/rafm_input_study/prepared/student_t_d16_df5.0_cor.json",
+        "--selection",
+        "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/student_t_d16_df5.0_cor/selection.json",
+        "--seed",
+        "8925",
+        "--output",
+        "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/final"
+      ],
+      "started_utc": "2026-09-10T08:42:19.005693+00:00",
+      "status": "complete",
+      "exit_code": 0,
+      "ended_utc": "2026-09-10T08:43:12.870762+00:00"
+    },
+    {
+      "phase": "independent_sample_audit",
+      "seed": 8925,
+      "command": [
+        "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.venv/bin/python",
+        "tools/audit_study_samples.py",
+        "--result",
+        "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/final/student_t_d16_df5.0_cor/seed_8925/result.json"
+      ],
+      "started_utc": "2026-09-10T08:43:12.876694+00:00",
+      "status": "complete",
+      "exit_code": 0,
+      "ended_utc": "2026-09-10T08:43:20.170392+00:00"
+    }
+  ],
+  "run_lock": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/locks/student_t_d16_df5.0_cor_final_all_8925.lock",
+  "hardware": {
+    "host": "auh7-3b-gpu-008",
+    "slurm_job_id": "765759",
+    "python": "3.10.12",
+    "torch": "2.7.1+rocm6.3",
+    "cuda": null,
+    "hip": "6.3.42131-fa1d09cbd",
+    "gpu": "AMD Instinct MI210",
+    "vram_bytes": 68702699520
+  },
+  "selection_receipt": {
+    "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/student_t_d16_df5.0_cor/selection_receipt.json",
+    "sha256": "467d304c89c05b5a0f41f89bcd12713c246c87d9a5bd10cf72d6a003e578baaf"
+  },
+  "ended_utc": "2026-09-10T08:43:20.178527+00:00"
+}

@@ -1,0 +1,16 @@
+{
+  "job_id": "765763",
+  "previous_failed_job": "765755",
+  "reason": "Current-backend measured reference now explicitly eligible; archival discrepancy preserved",
+  "kind": "synthetic_report_plot_fixture_validation",
+  "fixture_only": true,
+  "training_or_benchmark_run": false,
+  "partition": "hermes-2",
+  "node": "auh7-3b-gpu-015",
+  "gpus": 0,
+  "cpus": 2,
+  "memory": "16G",
+  "time_limit": "00:10:00",
+  "script": "tools/check_shared_study_plots.py",
+  "script_sha256": "82bd2a05516cebe1a31df2faea691739f8c058f06d6c2496b27c96791b6532dd"
+}

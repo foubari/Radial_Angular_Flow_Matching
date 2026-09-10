@@ -1,0 +1,13 @@
+{
+  "job_id": "765755",
+  "kind": "synthetic_report_plot_fixture_validation",
+  "fixture_only": true,
+  "training_or_benchmark_run": false,
+  "partition": "hermes-2",
+  "node": "auh7-3b-gpu-015",
+  "gpus": 0,
+  "cpus": 2,
+  "memory": "16G",
+  "time_limit": "00:10:00",
+  "script": "tools/check_shared_study_plots.py"
+}

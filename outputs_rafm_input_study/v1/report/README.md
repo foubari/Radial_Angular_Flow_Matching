@@ -1,29 +1,29 @@
 # RAFM-Ang input parameterization and t-Flow study
 
-Status: **incomplete**. 0/336 final seeds verified; 0/112 three-seed method groups complete.
+Status: **incomplete**. 16/336 final seeds verified; 3/112 three-seed method groups complete.
 
 Three-seed means use population standard deviation. Missing, failed and incompatible groups have no mean. Training directories do not establish that a scheduler job is currently running.
 
 | Condition | Comparison | A | B | C | t-Flow | Blockers |
 |---|---|---|---|---|---|---|
 | aniso_k1 | new_matched_realization | 0/3 incomplete | 0/3 incomplete | 0/3 incomplete | 0/3 incomplete | — |
-| aniso_k10 | new_matched_realization | 0/3 incomplete | 0/3 incomplete | 0/3 incomplete | 0/3 incomplete | — |
+| aniso_k10 | new_matched_realization | 0/3 incomplete | 0/3 incomplete | 0/3 incomplete | 2/3 incomplete | — |
 | aniso_k100 | new_matched_realization | 0/3 incomplete | 0/3 incomplete | 0/3 incomplete | 0/3 incomplete | — |
-| aniso_k3 | new_matched_realization | 0/3 incomplete | 0/3 incomplete | 0/3 incomplete | 0/3 incomplete | — |
+| aniso_k3 | new_matched_realization | 0/3 incomplete | 0/3 incomplete | 0/3 incomplete | 3/3 complete | — |
 | aniso_k30 | new_matched_realization | 0/3 incomplete | 0/3 incomplete | 0/3 incomplete | 0/3 incomplete | — |
-| aniso_k300 | new_matched_realization | 0/3 incomplete | 0/3 incomplete | 0/3 incomplete | 0/3 incomplete | — |
+| aniso_k300 | new_matched_realization | 0/3 incomplete | 0/3 incomplete | 0/3 incomplete | 3/3 complete | — |
 | audiomnist_stft | new_matched_runs_on_verified_existing_cache | 0/3 incomplete | 0/3 incomplete | 0/3 incomplete | 0/3 incomplete | — |
-| finance_ff49 | new_matched_runs_on_verified_existing_cache | 0/3 incomplete | 0/3 incomplete | 0/3 incomplete | 0/3 incomplete | — |
-| gaussian_aniso_d16_cor | new_matched_realization | 0/3 incomplete | 0/3 incomplete | 0/3 incomplete | 0/3 incomplete | — |
+| finance_ff49 | new_matched_runs_on_verified_existing_cache | 0/3 incomplete | 0/3 incomplete | 0/3 incomplete | 3/3 complete | — |
+| gaussian_aniso_d16_cor | new_matched_realization | 0/3 incomplete | 0/3 incomplete | 0/3 incomplete | 2/3 incomplete | — |
 | imagenette_dcae | new_matched_runs_on_verified_existing_cache | 0/3 incomplete | 0/3 incomplete | 0/3 incomplete | 0/3 incomplete | image_split_conflict, historical_eval_provenance |
 | piv_d16 | new_matched_runs_on_verified_existing_cache | 0/3 incomplete | 0/3 incomplete | 0/3 incomplete | 0/3 incomplete | — |
 | piv_d256 | new_matched_runs_on_verified_existing_cache | 0/3 incomplete | 0/3 incomplete | 0/3 incomplete | 0/3 incomplete | — |
 | piv_d32 | new_matched_runs_on_verified_existing_cache | 0/3 incomplete | 0/3 incomplete | 0/3 incomplete | 0/3 incomplete | piv32_identity_missing |
 | piv_d64 | new_matched_runs_on_verified_existing_cache | 0/3 incomplete | 0/3 incomplete | 0/3 incomplete | 0/3 incomplete | — |
 | student_t_d128_df3.0_cor | new_matched_realization | 0/3 incomplete | 0/3 incomplete | 0/3 incomplete | 0/3 incomplete | — |
-| student_t_d16_df1.5_cor | new_matched_realization | 0/3 incomplete | 0/3 incomplete | 0/3 incomplete | 0/3 incomplete | — |
+| student_t_d16_df1.5_cor | new_matched_realization | 0/3 incomplete | 0/3 incomplete | 0/3 incomplete | 2/3 incomplete | — |
 | student_t_d16_df10.0_cor | new_matched_realization | 0/3 incomplete | 0/3 incomplete | 0/3 incomplete | 0/3 incomplete | — |
-| student_t_d16_df2.0_cor | new_matched_realization | 0/3 incomplete | 0/3 incomplete | 0/3 incomplete | 0/3 incomplete | — |
+| student_t_d16_df2.0_cor | new_matched_realization | 0/3 incomplete | 0/3 incomplete | 0/3 incomplete | 1/3 incomplete | — |
 | student_t_d16_df3.0_cor | new_matched_realization | 0/3 incomplete | 0/3 incomplete | 0/3 incomplete | 0/3 incomplete | — |
 | student_t_d16_df5.0_cor | new_matched_realization | 0/3 incomplete | 0/3 incomplete | 0/3 incomplete | 0/3 incomplete | — |
 | student_t_d16_df50.0_cor | new_matched_realization | 0/3 incomplete | 0/3 incomplete | 0/3 incomplete | 0/3 incomplete | — |
@@ -37,11 +37,21 @@ Three-seed means use population standard deviation. Missing, failed and incompat
 
 ## Failures and compatibility issues
 
-No final-run failure records are present in this snapshot. This does not imply missing runs passed.
+- aniso_k10 / tflow / seed 77395: failed; ["angular_sw_bin3"]; /mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/final/aniso_k10/seed_77395/result.json
+- piv_d256 / tflow / seed 8925: failed; ["angular_sw_bin0", "angular_sw_bin1", "angular_sw_bin2", "angular_sw_bin3", "angular_sw_mean"]; /mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/final/piv_d256/seed_8925/result.json
+- piv_d256 / tflow / seed 77395: failed; ["angular_sw_bin0", "angular_sw_bin1", "angular_sw_bin2", "angular_sw_bin3", "angular_sw_mean"]; /mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/final/piv_d256/seed_77395/result.json
+- piv_d256 / tflow / seed 65457: failed; ["angular_sw_bin0", "angular_sw_bin1", "angular_sw_bin2", "angular_sw_bin3", "angular_sw_mean"]; /mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/final/piv_d256/seed_65457/result.json
+- piv_d64 / tflow / seed 8925: failed; ["angular_sw_bin0", "angular_sw_bin1", "angular_sw_bin2"]; /mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/final/piv_d64/seed_8925/result.json
+- piv_d64 / tflow / seed 77395: failed; ["angular_sw_bin0", "angular_sw_bin1", "angular_sw_bin2"]; /mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/final/piv_d64/seed_77395/result.json
+- piv_d64 / tflow / seed 65457: failed; ["angular_sw_bin0", "angular_sw_bin1", "angular_sw_bin2"]; /mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/final/piv_d64/seed_65457/result.json
+- student_t_d128_df3.0_cor / tflow / seed 8925: failed; ["angular_sw_bin0", "angular_sw_bin1", "angular_sw_bin2", "angular_sw_bin3", "angular_sw_mean"]; /mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/final/student_t_d128_df3.0_cor/seed_8925/result.json
+- student_t_d128_df3.0_cor / tflow / seed 77395: failed; ["angular_sw_bin0", "angular_sw_bin1", "angular_sw_bin2", "angular_sw_bin3", "angular_sw_mean"]; /mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/final/student_t_d128_df3.0_cor/seed_77395/result.json
+- student_t_d128_df3.0_cor / tflow / seed 65457: failed; ["angular_sw_bin0", "angular_sw_bin1", "angular_sw_bin2", "angular_sw_bin3", "angular_sw_mean"]; /mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/final/student_t_d128_df3.0_cor/seed_65457/result.json
 
 ## Preserved implementation and startup failures
 
 - Implementation-check job 765729: 46 passed / 4 failed; Sampler called CUDA peak-memory reset for CPU unit fixtures. Resolution: Guard CUDA peak reset by device.type; CPU peak_memory stays None. Benchmark results affected: False.
+- Implementation-check job 765756: 0 passed / 1 failed; Saved-output classifier check aborted before predictions: MIOpen SQLite kernel cache was read-only. Resolution: Explicit writable per-job MIOpen cache paths in scheduler wrapper; evaluator and settings unchanged. Benchmark results affected: False.
 - Earlier t-Flow attempt /mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v1: cancelled_after_startup_failure; 5 startup candidate failures, 0 observed optimizer updates, 0 checkpoints. These cancelled attempts are separate from current scientific seed outcomes. Resolution: Explicit GPU initialization in common orchestration entrypoint; retain runtime/config bytes and validate actual public trainer in fresh processes before restarting to v2.
 
 Current check results and dated worker/scheduler snapshots are preserved in report.json; this collector makes no live scheduler queries.
@@ -65,7 +75,7 @@ Current check results and dated worker/scheduler snapshots are preserved in repo
 | aniso_k3 | A | sliced_w1 | — | — | — | — |
 | aniso_k3 | B | sliced_w1 | — | — | — | — |
 | aniso_k3 | C | sliced_w1 | — | — | — | — |
-| aniso_k3 | tflow | sliced_w1 | — | — | — | — |
+| aniso_k3 | tflow | sliced_w1 | 0.516602 ± 0.152 | 0.0406922 ± 0.0107 | 33.7746 ± 0.987 | 0.420259 ± 0.000811 |
 | aniso_k30 | A | sliced_w1 | — | — | — | — |
 | aniso_k30 | B | sliced_w1 | — | — | — | — |
 | aniso_k30 | C | sliced_w1 | — | — | — | — |
@@ -73,7 +83,7 @@ Current check results and dated worker/scheduler snapshots are preserved in repo
 | aniso_k300 | A | sliced_w1 | — | — | — | — |
 | aniso_k300 | B | sliced_w1 | — | — | — | — |
 | aniso_k300 | C | sliced_w1 | — | — | — | — |
-| aniso_k300 | tflow | sliced_w1 | — | — | — | — |
+| aniso_k300 | tflow | sliced_w1 | 191.466 ± 20.3 | 0.0689496 ± 0.0053 | 32.3962 ± 1.36 | 0.419076 ± 0.00221 |
 | audiomnist_stft | A | digit_acc | — | — | — | — |
 | audiomnist_stft | B | digit_acc | — | — | — | — |
 | audiomnist_stft | C | digit_acc | — | — | — | — |
@@ -81,7 +91,7 @@ Current check results and dated worker/scheduler snapshots are preserved in repo
 | finance_ff49 | A | sliced_w1 | — | — | — | — |
 | finance_ff49 | B | sliced_w1 | — | — | — | — |
 | finance_ff49 | C | sliced_w1 | — | — | — | — |
-| finance_ff49 | tflow | sliced_w1 | — | — | — | — |
+| finance_ff49 | tflow | sliced_w1 | 5.95169 ± 0.306 | 0.0602774 ± 0.00408 | 33.7253 ± 0.862 | 0.38924 ± 0.00203 |
 | gaussian_aniso_d16_cor | A | sliced_w1 | — | — | — | — |
 | gaussian_aniso_d16_cor | B | sliced_w1 | — | — | — | — |
 | gaussian_aniso_d16_cor | C | sliced_w1 | — | — | — | — |
@@ -169,13 +179,25 @@ Compatibility: **verified_for_prepared_protocol**. Measured fixed-spherical accu
 
 Measured reference accuracy 0.8066667 ± 0.0073522 (population SD), energy KS 0.0218333; 0 changed digit predictions across 6,000 paired outputs. New-run execution compatibility remains separately listed in report.json.
 
+Raw new-evaluator audit status: **compatibility_discrepancy**. Current measured reference: **measured_under_current_backend_with_recorded_differences**.
+
+These are newly measured metrics for the same saved Y/X under the current study backend. Archived metrics and raw audit status remain unchanged. Digit predictions, accuracy, energy KS and coverage rates are identical; PIT, radial W1, logits and near-fixed-radius energy-bin assignments can differ. Only these current-backend values enter new comparisons; no historical training-time comparison.
+
+Measured current-minus-archived differences (each seed/version):
+- Seed 8925 / baseline: {"radial_w1": -2.8125445039606234e-07}; energy-bin accuracies identical: False.
+- Seed 8925 / posthoc: {"PIT": -5.00000000069889e-07, "radial_w1": 1.3611813386299465e-06}; energy-bin accuracies identical: True.
+- Seed 1234 / baseline: {"radial_w1": -1.9796689332274298e-07}; energy-bin accuracies identical: False.
+- Seed 1234 / posthoc: {"PIT": -5.000000000143778e-07, "radial_w1": 1.3399173816042165e-06}; energy-bin accuracies identical: True.
+- Seed 7 / baseline: {"radial_w1": -3.0561288189012714e-07}; energy-bin accuracies identical: False.
+- Seed 7 / posthoc: {"PIT": -5.00000000069889e-07, "radial_w1": 1.4123320579567666e-06}; energy-bin accuracies identical: True.
+
 | Audio method | Role / status | Digit accuracy | Energy KS | Coverage > q95 | Coverage > q99 |
 |---|---|---|---|---|---|
 | A | new matched study arm / incomplete | — | — | — | — |
 | B | new matched study arm / incomplete | — | — | — | — |
 | C | new matched study arm / incomplete | — | — | — | — |
 | tflow | new matched study arm / incomplete | — | — | — | — |
-| fixed_spherical_empirical_gain_reference | completed checkpoint-based reference, not new A or historical paper value / verified_checkpoint_reference | 0.8066667 ± 0.0073522 | 0.0218333 ± 0.0000000 | 0.0500000 ± 0.0000000 | 0.0145000 ± 0.0000000 |
+| fixed_spherical_empirical_gain_reference | checkpoint reference re-evaluated under current backend, not new A or historical paper value / measured_under_current_backend_with_recorded_differences | 0.8066667 ± 0.0073522 | 0.0218333 ± 0.0000000 | 0.0500000 ± 0.0000000 | 0.0145000 ± 0.0000000 |
 
 ## Findings status
 

@@ -1,0 +1,17 @@
+{
+  "status": "failed",
+  "fixture_only": true,
+  "training_or_benchmark_run": false,
+  "gpu_used": false,
+  "host": "auh7-3b-gpu-015",
+  "slurm_job_id": "765755",
+  "script_sha256": "0dbd3585ade028ed6370db3f2686720159ff31652d7230d792d20a2df8efd92c",
+  "plot_source_sha256": "3bb053f9a6dd1967c57e6a3b961d9c4df4e33d5267719f61dca638e55f301e38",
+  "collector_source_sha256": "de1b249f6e1f874f7a31428cc8799af4ad5e8d7d1b2b0768f0abb99477d3d27a",
+  "elapsed_s": 0.5507177859544754,
+  "failure": {
+    "type": "ValueError",
+    "message": "The fixture must exercise four audio methods and the separate verified gain reference",
+    "traceback": "Traceback (most recent call last):\n  File \"/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/tools/check_shared_study_plots.py\", line 177, in check\n    report = build_fixture(output, reporter, helpers)\n  File \"/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/tools/check_shared_study_plots.py\", line 154, in build_fixture\n    raise ValueError('The fixture must exercise four audio methods and the separate verified gain reference')\nValueError: The fixture must exercise four audio methods and the separate verified gain reference\n"
+  }
+}

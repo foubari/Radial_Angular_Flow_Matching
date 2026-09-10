@@ -1,0 +1,8 @@
+{
+  "status": "presentation_issue_identified",
+  "rendering_check_status": "passed",
+  "fixture_only": true,
+  "issue": "Default symlog omitted all numeric y ticks for narrow positive vector/image quality ranges. Underlying rendering, reference provenance, inclusions, omissions, and file checks passed.",
+  "affected_figure": "quality_tflow_and_rafm_inputs",
+  "fix": "Reporting-only linear axes for positive data/errorbar ranges spanning less than a decade; retain symlog for broad or signed ranges."
+}
