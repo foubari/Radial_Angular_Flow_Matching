@@ -1,0 +1,31 @@
+{
+  "job_id": 765765,
+  "role": "Read-only JSONL loss bridge and TensorBoard",
+  "partition": "hermes-2",
+  "node": "auh7-3b-gpu-015",
+  "gpus": 0,
+  "cpus": 2,
+  "memory_gb": 4,
+  "wall_limit_h": 24,
+  "preferred_port": 6010,
+  "fallback_ports": [
+    6011,
+    6012,
+    6013,
+    6014,
+    6015,
+    6016,
+    6017,
+    6018,
+    6019
+  ],
+  "training_modified_or_restarted": false,
+  "environment": "outputs_monitoring/.venv",
+  "requirements": "outputs_monitoring/requirements.lock",
+  "source_sha256": {
+    "tools/loss_tensorboard_bridge.py": "9ae841f91d069c020337b8cf01179b49b5ccc022cf5c19da200c82b4b84a3c06",
+    "tools/loss_tensorboard_job.sh": "681fff646dc2b916161258be2ea2a69be88993232bfcb14546d2ff30bbe2723a",
+    "tools/check_loss_tensorboard_bridge.py": "475ce5678e5bb8d7dfb41311b795f17ef0f9503aa6a3e545449e43b41cbd9aa0"
+  },
+  "submitted_utc": "2026-09-10T08:53:32.959699+00:00"
+}

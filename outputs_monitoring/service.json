@@ -1,0 +1,13 @@
+{
+  "slurm_job_id": "765765",
+  "host": "auh7-3b-gpu-015",
+  "port": 6010,
+  "session": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_monitoring/sessions/765765",
+  "logdir": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_monitoring/sessions/765765/events",
+  "gpus": 0,
+  "started_utc": "2026-09-10T08:55:06.229042+00:00",
+  "ssh_tunnel_command": "ssh -N -L 6010:auh7-3b-gpu-015:6010 m3",
+  "browser_url": "http://localhost:6010/#scalars",
+  "poll_seconds": 15,
+  "training_files_modified": false
+}

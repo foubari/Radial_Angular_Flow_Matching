@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "fixture_data_only": true,
+  "host": "auh7-3b-gpu-015",
+  "slurm_job_id": "765765",
+  "checker_sha256": "475ce5678e5bb8d7dfb41311b795f17ef0f9503aa6a3e545449e43b41cbd9aa0",
+  "bridge_sha256": "9ae841f91d069c020337b8cf01179b49b5ccc022cf5c19da200c82b4b84a3c06",
+  "checks": [
+    "backfill_and_repeated_poll_have_no_duplicate_events",
+    "saved_training_elapsed_time_is_available",
+    "distinct_noise_objective_tag:tFlow/final/toy/seed_8925",
+    "distinct_noise_objective_tag:tFlow/tuning/toy/candidate_00",
+    "angular_run_does_not_expose_noise_loss_tag",
+    "incomplete_final_jsonl_row_is_deferred",
+    "completed_partial_row_is_imported_exactly_once",
+    "decreasing_step_creates_resume_1_and_preserves_original_history",
+    "source_files_preserved",
+    "source_bytes_unchanged_across_all_bridge_polls",
+    "torch_was_not_imported"
+  ],
+  "fixture_source_sha256": {
+    "outputs_rafm_input_study/v1/final/toy/A/seed_8925/training.jsonl": "ee935bca87d94475a329198eaf92c76d12d009349439efa0a64b4e37173c210e",
+    "outputs_tflow_full/v2/final/toy/seed_8925/training.jsonl": "c323df3f7fe59b303fc7787754fdb22d9e765f69f00b0d752502a8a3346b37be",
+    "outputs_tflow_full/v2/tuning/toy/candidate_00/training.jsonl": "84b1d6f24264fef9dcb52973378580aca92547e5a98b89d690a312e3d90a1cec"
+  },
+  "verified_rows": 8,
+  "runtime_s": 0.2955869287252426,
+  "torch_imported": false
+}
