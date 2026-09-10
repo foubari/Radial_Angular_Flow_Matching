@@ -1,0 +1,12 @@
+{
+  "recorded_utc": "2026-09-10T14:45:52.277295+00:00",
+  "cancelled_job": "766022",
+  "old_node": "auh7-3b-gpu-029",
+  "new_node": "auh7-3b-gpu-015",
+  "reason": "CPU-only monitoring process has not started after approximately15minutes in scheduler prolog; move the same one-core service to the already active study node. No experiment job is affected.",
+  "scheduler_before": "JobId=766022 JobName=rafm-recovery-monitor\n   UserId=fouad.oubari(1273) GroupId=llm360(1200) MCS_label=N/A\n   Priority=66666 Nice=0 Account=ifm_fr QOS=ifm_others\n   JobState=RUNNING Reason=Prolog Dependency=(null)\n   Requeue=1 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0\n   RunTime=00:14:39 TimeLimit=08:15:00 TimeMin=N/A\n   SubmitTime=2026-09-10T18:31:12 EligibleTime=2026-09-10T18:31:12\n   AccrueTime=2026-09-10T18:31:12\n   StartTime=2026-09-10T18:31:13 EndTime=2026-09-11T02:46:13 Deadline=N/A\n   PreemptEligibleTime=2026-09-10T18:31:13 PreemptTime=None\n   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-09-10T18:31:13 Scheduler=Backfill\n   Partition=hermes-2 AllocNode:Sid=auh7-3b-cpu-login-001:1830784\n   ReqNodeList=auh7-3b-gpu-029 ExcNodeList=(null)\n   NodeList=auh7-3b-gpu-029\n   BatchHost=auh7-3b-gpu-029\n   NumNodes=1 NumCPUs=1 NumTasks=1 CPUs/Task=1 ReqB:S:C:T=0:0:*:*\n   ReqTRES=cpu=1,mem=1G,node=1,billing=1\n   AllocTRES=cpu=1,mem=1G,node=1,billing=1\n   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*\n   MinCPUsNode=1 MinMemoryNode=1G MinTmpDiskNode=0\n   Features=(null) DelayBoot=00:00:00\n   OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null)\n   Command=(null)\n   WorkDir=/mnt/vast01/users/fouad.oubari/msgm/rafm-additions\n   StdErr=/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/recovered/logs/rafm-recovery-monitor-766022.err\n   StdIn=/dev/null\n   StdOut=/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/recovered/logs/rafm-recovery-monitor-766022.out\n   TresPerTask=cpu=1\n   \n\n",
+  "no_monitor_outputs_present": true,
+  "cancel_exit_code": 0,
+  "cancel_stdout": "",
+  "cancel_stderr": ""
+}
