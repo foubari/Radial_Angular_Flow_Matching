@@ -1,0 +1,154 @@
+{
+  "status": "passed",
+  "purpose": "disposable_public_trainer_validation",
+  "condition_id": "imagenette_dcae",
+  "test_data_used": false,
+  "source_selection_performed": false,
+  "benchmark_metrics_computed": false,
+  "config_sha256": "1e6dca1ffe1ee8ba4e4efc62b7737a1f0e872a1ca050756346772e1d25671e29",
+  "implementation_sha256": "15a2ffd4088bc3f1bf99e2c6bb25cfa06e1d93be71b0d674bb62b3cfc43dfd7d",
+  "entrypoint_sha256": "861639d37f7985a1847d629f4fa74c56467ccf88847497794cabcc3f74c332f3",
+  "validator_sha256": "96368c66615296f01f341f4d9353ef5c3a35e218e75bcd6cf38909153c105989",
+  "original_validator_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/tools/validate_tflow_fresh_process.py",
+  "original_validator_sha256": "14b7a6ded9550caa459925abfc6863e29af0cb1e44f0a88ca98fc627cc7ced27",
+  "adaptations": [
+    "Image condition only",
+    "40 samples instead of vector fallback 128; four per class",
+    "Direct call to existing initialize_accelerator, without changing its whitelist",
+    "Dedicated recovered-entrypoint-check output"
+  ],
+  "hardware": {
+    "host": "auh7-3b-gpu-030",
+    "slurm_job_id": "766324",
+    "python": "3.10.12",
+    "torch": "2.7.1+rocm6.3",
+    "cuda": null,
+    "hip": "6.3.42131-fa1d09cbd",
+    "gpu": "AMD Instinct MI210",
+    "vram_bytes": 68702699520
+  },
+  "gpu_initialized_before_training": true,
+  "batch_size": 64,
+  "precision": "bfloat16_autocast",
+  "ema": 0.9999,
+  "source_policy": "Fixed nu=5 and scale_multiplier=1 training-median calibration; no candidate scoring or validation/test selection",
+  "data_use_note": "Unchanged cached tensor is loaded and public-trainer provenance hashes its splits; held-out rows are not used for optimization, source calibration or quality metrics.",
+  "initial_updates": 4,
+  "resumed_updates": 2,
+  "uninterrupted_updates": 6,
+  "disposable_optimizer_updates_total": 12,
+  "checkpoint_load": true,
+  "resume_bitwise_identical": true,
+  "finite_samples": true,
+  "n_generated": 40,
+  "class_counts": [
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4
+  ],
+  "sample_seed": 61717,
+  "seed": 46021,
+  "nfe": 100,
+  "n_batches": 1,
+  "model_calls_total": 100,
+  "sampler": {
+    "nfe": 100,
+    "n_batches": 1,
+    "model_calls_total": 100,
+    "sample_time_s": 1.1046368405222893,
+    "peak_memory": {
+      "allocated_bytes": 780270080,
+      "reserved_bytes": 1757413376
+    }
+  },
+  "source": {
+    "nu": 5.0,
+    "scale": 0.8464959432819962
+  },
+  "source_calibration": {
+    "nu": 5.0,
+    "scale": 0.8464959432819962,
+    "scale_multiplier": 1.0,
+    "reference_scale": 0.8464959432819962,
+    "training_median_radius": 41.056857143814874
+  },
+  "first_training": {
+    "run_sha256": "398143a84102c8317aa39e4697f18c1595ab6a6d96a75e332ba9a9fddd79b224",
+    "total_train_time_s": 2.6221179962158203,
+    "training_step": 4,
+    "final_loss": 2176.380615234375,
+    "timing_kind": "measured",
+    "timing_scope": "training loop including compile, logging, finite checks and checkpoints; excludes data/model setup",
+    "peak_memory": {
+      "allocated_bytes": 1699508736,
+      "reserved_bytes": 1757413376
+    },
+    "peak_memory_scope": "model, EMA, optimizer, accelerator training data and training loop; maximum across resumes",
+    "n_params": 32515616,
+    "hardware": {
+      "host": "auh7-3b-gpu-030",
+      "slurm_job_id": "766324",
+      "python": "3.10.12",
+      "torch": "2.7.1+rocm6.3",
+      "cuda": null,
+      "hip": "6.3.42131-fa1d09cbd",
+      "gpu": "AMD Instinct MI210",
+      "vram_bytes": 68702699520
+    }
+  },
+  "resumed_training": {
+    "run_sha256": "398143a84102c8317aa39e4697f18c1595ab6a6d96a75e332ba9a9fddd79b224",
+    "total_train_time_s": 2.714144706726074,
+    "training_step": 6,
+    "final_loss": 2502.36376953125,
+    "timing_kind": "measured",
+    "timing_scope": "training loop including compile, logging, finite checks and checkpoints; excludes data/model setup",
+    "peak_memory": {
+      "allocated_bytes": 2211699200,
+      "reserved_bytes": 2271215616
+    },
+    "peak_memory_scope": "model, EMA, optimizer, accelerator training data and training loop; maximum across resumes",
+    "n_params": 32515616,
+    "hardware": {
+      "host": "auh7-3b-gpu-030",
+      "slurm_job_id": "766324",
+      "python": "3.10.12",
+      "torch": "2.7.1+rocm6.3",
+      "cuda": null,
+      "hip": "6.3.42131-fa1d09cbd",
+      "gpu": "AMD Instinct MI210",
+      "vram_bytes": 68702699520
+    }
+  },
+  "uninterrupted_training": {
+    "run_sha256": "398143a84102c8317aa39e4697f18c1595ab6a6d96a75e332ba9a9fddd79b224",
+    "total_train_time_s": 1.2700405940413475,
+    "training_step": 6,
+    "final_loss": 2502.36376953125,
+    "timing_kind": "measured",
+    "timing_scope": "training loop including compile, logging, finite checks and checkpoints; excludes data/model setup",
+    "peak_memory": {
+      "allocated_bytes": 2225592832,
+      "reserved_bytes": 2271215616
+    },
+    "peak_memory_scope": "model, EMA, optimizer, accelerator training data and training loop; maximum across resumes",
+    "n_params": 32515616,
+    "hardware": {
+      "host": "auh7-3b-gpu-030",
+      "slurm_job_id": "766324",
+      "python": "3.10.12",
+      "torch": "2.7.1+rocm6.3",
+      "cuda": null,
+      "hip": "6.3.42131-fa1d09cbd",
+      "gpu": "AMD Instinct MI210",
+      "vram_bytes": 68702699520
+    }
+  }
+}

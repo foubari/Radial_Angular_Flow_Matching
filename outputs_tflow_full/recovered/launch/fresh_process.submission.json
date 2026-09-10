@@ -1,0 +1,27 @@
+{
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--partition=hermes-2",
+    "--nodelist=auh7-3b-gpu-030",
+    "--nodes=1",
+    "--ntasks=1",
+    "--cpus-per-task=4",
+    "--gres=gpu:mi210:1",
+    "--mem=32G",
+    "--time=00:30:00",
+    "--no-requeue",
+    "--job-name=tflow-recovered-fresh-process",
+    "--output=outputs_tflow_full/recovered/logs/%x-%j.out",
+    "--error=outputs_tflow_full/recovered/logs/%x-%j.err",
+    "tools/recovered_study_job.sh",
+    "tools/validate_recovered_tflow_fresh_process.py",
+    "--config",
+    "configs/rafm_input_study_recovered/prepared/imagenette_dcae.json"
+  ],
+  "exit_code": 0,
+  "stdout": "766324",
+  "stderr": "",
+  "submitted_utc": "2026-09-10T15:32:41.583403+00:00",
+  "job_id": "766324"
+}
