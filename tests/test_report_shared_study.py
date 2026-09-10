@@ -182,7 +182,7 @@ class SharedReportTests(unittest.TestCase):
                   'cov>q95': .05, 'cov>q99': .0145}
         data = {'conditions': [{'condition_id': 'audiomnist_stft', 'methods': {
             arm: {'status': 'incomplete', 'aggregate': {}} for arm in ('A', 'B', 'C', 'tflow')}}],
-            'fixed_spherical_gain_reference': {'eligible_for_prepared_protocol': True,
+            'fixed_spherical_gain_reference': {'eligible_for_prepared_protocol': True, 'backend_compatibility': {'verified': True},
                 'training_seeds': [8925, 1234, 7],
                 'measured_full_precision': {key: {'mean': value, 'std': .007352248333 if key == 'digit_acc' else 0.,
                                                   'vals': [value] * 3} for key, value in values.items()}}}
@@ -197,6 +197,35 @@ class SharedReportTests(unittest.TestCase):
         self.assertEqual(rows[0]['metrics'], {})
         data['fixed_spherical_gain_reference']['eligible_for_prepared_protocol'] = False
         self.assertEqual(len(report.audio_comparison_rows(data)), 4)
+
+    def test_audio_backend_must_measure_zero_changes_and_matching_energy(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            aggregate = root / 'aggregate.json'; report.write_json(aggregate, {'status': 'baseline_mismatch'})
+            cfg = {'seeds': [8925, 1234, 7], 'evaluation': {'n_samples': 2000}}
+            reference = {'path': str(aggregate)}
+            path = root / 'audit.json'
+            report.attach_reference_backend(reference, cfg, path)
+            self.assertFalse(reference['backend_compatibility']['verified'])
+            audit = {'status': 'passed', 'config_sha256': report.config_hash(cfg),
+                'aggregate': {'sha256': report.sha256(aggregate)},
+                'totals': {'old_vs_new_prediction_disagreements': 0, 'postrescale_prediction_disagreements': 0},
+                'runs': [{'seed': seed, 'n': 2000, 'invariance': {'passed': True, 'prediction_disagreements': 0},
+                          'baseline': {'comparison': {'prediction_disagreements_vs_cached': 0, 'energy_ks_tail_metrics_exactly_equal': True}},
+                          'posthoc': {'comparison': {'prediction_disagreements_vs_cached': 0, 'energy_ks_tail_metrics_exactly_equal': True}}}
+                         for seed in cfg['seeds']]}
+            report.write_json(path, audit)
+            report.attach_reference_backend(reference, cfg, path)
+            self.assertTrue(reference['backend_compatibility']['verified'])
+            audit['runs'][1]['posthoc']['comparison']['prediction_disagreements_vs_cached'] = 1
+            report.write_json(path, audit)
+            report.attach_reference_backend(reference, cfg, path)
+            self.assertFalse(reference['backend_compatibility']['verified'])
+            audit['runs'][1]['posthoc']['comparison']['prediction_disagreements_vs_cached'] = 0
+            audit['runs'][0]['baseline']['comparison']['energy_ks_tail_metrics_exactly_equal'] = False
+            report.write_json(path, audit)
+            report.attach_reference_backend(reference, cfg, path)
+            self.assertFalse(reference['backend_compatibility']['verified'])
 
     def test_plotting_skips_without_inventing_results(self):
         specification = importlib.util.spec_from_file_location('shared_plot', ROOT / 'tools/plot_shared_study.py')

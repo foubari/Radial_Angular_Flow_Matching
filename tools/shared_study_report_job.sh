@@ -33,3 +33,4 @@ if jobs:
   target.write_text(json.dumps(record,indent=2)+'\n')
 PY
 /mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.venv/bin/python tools/report_shared_study.py --plots
+/usr/bin/python3 tools/summarize_shared_study.py

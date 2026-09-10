@@ -444,6 +444,45 @@ def collect_operations(abc_version, tflow_version):
     return out
 
 
+def attach_reference_backend(reference, cfg, audit_path):
+    """Require measured evaluator compatibility; settings alone do not prove it."""
+    path = Path(audit_path)
+    assessment = {'status': 'unresolved', 'verified': False, 'path': str(path), 'issues': []}
+    reference['backend_compatibility'] = assessment
+    if not path.exists():
+        assessment['issues'].append('saved-output evaluation under the new backend has not completed')
+        return
+    if not isinstance(cfg, dict):
+        assessment['issues'].append('prepared audio configuration is absent')
+        return
+    assessment['sha256'] = sha256(path)
+    try:
+        audit = read_json(path)
+        assessment['record'] = json_safe(audit)
+        tests = {
+            'passed audit': audit.get('status') == 'passed',
+            'same shared audio config': audit.get('config_sha256') == config_hash(cfg),
+            'same completed reference': audit.get('aggregate', {}).get('sha256') == sha256(reference['path']),
+            'zero old-versus-new changed predictions': audit.get('totals', {}).get('old_vs_new_prediction_disagreements') == 0,
+            'zero postrescale changed predictions': audit.get('totals', {}).get('postrescale_prediction_disagreements') == 0,
+            'all original seeds': [row.get('seed') for row in audit.get('runs', [])] == cfg['seeds'],
+        }
+        for row in audit.get('runs', []):
+            prefix = f"seed {row.get('seed')} "
+            tests[prefix + 'sample count'] = row.get('n') == cfg['evaluation']['n_samples']
+            tests[prefix + 'gain invariance'] = row.get('invariance', {}).get('passed') is True and row.get('invariance', {}).get('prediction_disagreements') == 0
+            for version in ('baseline', 'posthoc'):
+                comparison = row.get(version, {}).get('comparison', {})
+                tests[prefix + version + ' predictions'] = comparison.get('prediction_disagreements_vs_cached') == 0
+                tests[prefix + version + ' energy/tails'] = comparison.get('energy_ks_tail_metrics_exactly_equal') is True
+        assessment['checks'] = tests
+        assessment['issues'] = [name for name, passed in tests.items() if not passed]
+        assessment['verified'] = not assessment['issues']
+        assessment['status'] = 'measured_compatible' if assessment['verified'] else 'compatibility_discrepancy_or_missing_evidence'
+    except (OSError, ValueError, KeyError) as error:
+        assessment['issues'].append(str(error))
+
+
 def audio_comparison_rows(report):
     """Reference rows remain separate from the expected A/B/C/t-Flow seed count."""
     metrics = ('digit_acc', 'energy_KS', 'cov>q95', 'cov>q99')
@@ -454,7 +493,7 @@ def audio_comparison_rows(report):
             rows.append({'method': method, 'status': group['status'], 'role': 'new matched study arm',
                          'metrics': {key: group['aggregate'][key] for key in metrics if key in group['aggregate']}})
     ref = report['fixed_spherical_gain_reference']
-    if ref.get('eligible_for_prepared_protocol'):
+    if ref.get('eligible_for_prepared_protocol') and ref.get('backend_compatibility', {}).get('verified') is True:
         rows.append({'method': 'fixed_spherical_empirical_gain_reference', 'status': 'verified_checkpoint_reference',
                      'role': 'completed checkpoint-based reference, not new A or historical paper value',
                      'metrics': {key: {'mean': ref['measured_full_precision'][key]['mean'],
@@ -522,6 +561,7 @@ def collect(config_root, abc_root, tflow_root, gain_path, gain_delivery):
     audio = next((item for item in report['conditions'] if item['condition_id'] == 'audiomnist_stft'), None)
     report['operations'] = collect_operations(abc_root.parent, tflow_root.parent)
     report['fixed_spherical_gain_reference'] = fixed_gain_reference(cfg_by_condition.get('audiomnist_stft'), cache_by_condition.get('audiomnist_stft'), gain_path, gain_delivery, audio['methods'] if audio else None)
+    attach_reference_backend(report['fixed_spherical_gain_reference'], cfg_by_condition.get('audiomnist_stft'), abc_root.parent / 'audio_reference_backend_check.json')
     report['audio_comparison_rows'] = audio_comparison_rows(report)
     return report
 
@@ -574,6 +614,7 @@ def write_outputs(report, directory):
     if ref.get('eligible_for_prepared_protocol'):
         acc = ref['measured_full_precision']['digit_acc']
         lines += ['', f"Measured reference accuracy {acc['mean']:.7f} ± {acc['std']:.7f} (population SD), energy KS {ref['measured_full_precision']['energy_KS']['mean']:.7f}; {ref['prediction_disagreements']} changed digit predictions across 6,000 paired outputs. New-run execution compatibility remains separately listed in report.json."]
+    lines += ['', 'New-evaluator backend audit: **' + ref.get('backend_compatibility', {}).get('status', 'unresolved') + '**. Reference markers/table comparisons require this measured check, including zero old/new prediction changes and preserved energy/tail metrics.']
     lines += ['', '| Audio method | Role / status | Digit accuracy | Energy KS | Coverage > q95 | Coverage > q99 |', '|---|---|---|---|---|---|']
     for row in report.get('audio_comparison_rows', []):
         cells = [row['method'], row['role'] + ' / ' + row['status']]

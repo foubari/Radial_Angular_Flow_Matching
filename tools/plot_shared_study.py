@@ -109,7 +109,7 @@ def plot_report(report, output):
                     included.append({'condition': condition['condition_id'], 'method': method, 'metric': metric})
             if kind == 'audio':
                 ref = report['fixed_spherical_gain_reference']
-                if ref.get('eligible_for_prepared_protocol'):
+                if ref.get('eligible_for_prepared_protocol') and ref.get('backend_compatibility', {}).get('verified') is True:
                     value = ref['measured_full_precision']['digit_acc']
                     axis.errorbar(.4, value['mean'], yerr=value['std'], fmt='*', color='#555555', markersize=10, capsize=3)
                     included.append({'condition': 'audiomnist_stft', 'method': 'fixed_spherical_empirical_gain_reference', 'metric': 'digit_acc', 'historical_accuracy_mismatch_preserved': True})
