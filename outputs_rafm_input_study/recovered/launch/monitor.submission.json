@@ -1,0 +1,25 @@
+{
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--partition=hermes-2",
+    "--nodelist=auh7-3b-gpu-029",
+    "--nodes=1",
+    "--ntasks=1",
+    "--cpus-per-task=1",
+    "--gres=none",
+    "--mem=1G",
+    "--time=08:15:00",
+    "--job-name=rafm-recovery-monitor",
+    "--output=outputs_rafm_input_study/recovered/logs/%x-%j.out",
+    "--error=outputs_rafm_input_study/recovered/logs/%x-%j.err",
+    "--wrap=/usr/bin/python3 -B /mnt/vast01/users/fouad.oubari/msgm/rafm-additions/tools/monitor_recovered_study.py"
+  ],
+  "exit_code": 0,
+  "stdout": "766022",
+  "stderr": "",
+  "submitted_utc": "2026-09-10T14:31:12.788280+00:00",
+  "source_commit": "2b6fea44519e055ddc6f3b156255097751f0b89c",
+  "source_sha256": "46a3e070daff4c487ec1b68618871597c3e80464ad81ec07bc5f7605710beca6",
+  "job_id": "766022"
+}

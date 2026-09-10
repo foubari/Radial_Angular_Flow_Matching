@@ -109,6 +109,20 @@ for the two image waves after the array starts. These are estimates;
 the first full-run logs will provide measured throughput. Neighboring PIV
 configurations took 30–38 seconds to train, with additional metric time.
 
+Initial full ImageNette logs on node029 measured about 43–44 ms/update for
+A and B, suggesting approximately 30 minutes of training per model. At
+16:36 Europe/Paris, four workers had emitted finite training losses and two
+were still in Slurm prolog. The revised provisional overall finish estimate
+is 18:00–19:00 Europe/Paris; full sampling/evaluation time remains unmeasured.
+This estimate is not a reported runtime result.
+
+CPU-only monitor job **766022** records progress every 60 seconds for up to
+eight hours under `outputs_rafm_input_study/recovered/monitor/`. It distinguishes
+allocation/startup from logged updates, records failures explicitly, and
+refreshes the A/B/C comparison once all 18 outcomes and required sample audits
+are terminal. It cannot modify or restart experiments. Final plot/aggregation
+job 765992 remains separately scheduled after the recovery array.
+
 Final results continue under
 `outputs_rafm_input_study/v1/final/<condition>/{A,B,C}/seed_<seed>/`.
 Recovered launch/check logs are under `outputs_rafm_input_study/recovered/`.
