@@ -126,8 +126,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--condition', choices=('piv_d32', 'imagenette_dcae'), action='append')
     parser.add_argument('--workers', type=int, default=6)
-    parser.add_argument('--node', choices=('auh7-3b-gpu-008', 'auh7-3b-gpu-015'), default='auh7-3b-gpu-008',
-                        help='Reuse one of the existing study nodes, with identical MI210 hardware')
+    parser.add_argument('--node', choices=('auh7-3b-gpu-008', 'auh7-3b-gpu-015', 'auh7-3b-gpu-029'), default='auh7-3b-gpu-029',
+                        help='One verified MI210 node; at most six GPUs total after the existing ABC array')
     parser.add_argument('--time-limit', default='48:00:00')
     parser.add_argument('--afterany', default='765748', help='Existing ABC array; retain node concurrency limit')
     parser.add_argument('--submit', action='store_true')
