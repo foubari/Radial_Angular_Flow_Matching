@@ -9,49 +9,25 @@ sampling reruns, or protocol changes were performed for this audit.
 
 ## Recorded outcomes
 
-Snapshot: **2026-09-10 14:18:07 UTC**. Of the nine planned toy runs, seven have
-`result.json`: **five failed and two complete**. B/77395 and C/77395 have no
-result or training log at this snapshot; they are not counted as successes or
-failures. The new failure since the initial four-failure audit is **A/77395**.
-All seven runs with results completed the prescribed 10,000 updates, saved
-their final checkpoints, and reached evaluation on an AMD Instinct MI210 on
-`auh7-3b-gpu-015` with Torch `2.7.1+rocm6.3`. This is a timestamped inventory,
-not a claim that the other workers have finished their remaining tasks.
+Snapshot: **2026-09-10T14:24:35.136877+00:00**. Of the nine planned toy runs, **6 failed, 3 complete, and 0 have no result yet**. This updates the initial four-failure audit: A/77395 and C/77395 subsequently failed. All 9 runs represented by recorded results completed the prescribed 10,000 updates, saved their final checkpoints, and reached evaluation on an AMD Instinct MI210 on `auh7-3b-gpu-015` with Torch `2.7.1+rocm6.3`.
 
 | Arm | Seed | Status | Final logged loss | Maximum logged loss | Training time (s) | Sampling time (s) | Worker stderr |
 | --- | ---: | --- | ---: | ---: | ---: | ---: | --- |
-| A | 8925 | complete | 86.7677078247 | 3.35599047278592e14 | 42.1130 | 0.176053 | `rafm_inputs-final-v1-765748_3.err` |
-| A | 77395 | failed | 53885562880 | 3.61253121818624e14 | 41.0179 | not recorded | `rafm_inputs-final-v1-765748_0.err` |
-| A | 65457 | failed | 482.393615723 | 1.37354027204608e14 | 39.5695 | not recorded | `rafm_inputs-final-v1-765748_3.err` |
-| B | 8925 | failed | 144503.40625 | 3.35599114387456e14 | 39.2212 | not recorded | `rafm_inputs-final-v1-765748_4.err` |
-| B | 77395 | no result yet | — | — | — | — | — |
-| B | 65457 | failed | 168674.4375 | 1.37354027204608e14 | 38.7722 | not recorded | `rafm_inputs-final-v1-765748_4.err` |
-| C | 8925 | failed | 131950.75 | 3.35599047278592e14 | 39.2740 | not recorded | `rafm_inputs-final-v1-765748_5.err` |
-| C | 77395 | no result yet | — | — | — | — | — |
-| C | 65457 | complete | 46839.3515625 | 1.37354043981824e14 | 41.1664 | 0.224587 | `rafm_inputs-final-v1-765748_5.err` |
+| A | 8925 | complete | 86.7677078247 | 335599047278592 | 42.1130 | 0.176053 | `rafm_inputs-final-v1-765748_3.err` |
+| A | 77395 | failed | 53885562880 | 361253121818624 | 41.0179 | not recorded | `rafm_inputs-final-v1-765748_0.err` |
+| A | 65457 | failed | 482.393615723 | 137354027204608 | 39.5695 | not recorded | `rafm_inputs-final-v1-765748_3.err` |
+| B | 8925 | failed | 144503.40625 | 335599114387456 | 39.2212 | not recorded | `rafm_inputs-final-v1-765748_4.err` |
+| B | 77395 | complete | 53882572800 | 361253121818624 | 43.3540 | 0.238152 | `rafm_inputs-final-v1-765748_1.err` |
+| B | 65457 | failed | 168674.4375 | 137354027204608 | 38.7722 | not recorded | `rafm_inputs-final-v1-765748_4.err` |
+| C | 8925 | failed | 131950.75 | 335599047278592 | 39.2740 | not recorded | `rafm_inputs-final-v1-765748_5.err` |
+| C | 77395 | failed | 53881057280 | 361253121818624 | 38.7211 | not recorded | `rafm_inputs-final-v1-765748_2.err` |
+| C | 65457 | complete | 46839.3515625 | 137354043981824 | 41.1664 | 0.224587 | `rafm_inputs-final-v1-765748_5.err` |
 
-Each of the five failed `result.json` files records
-`FloatingPointError: Nonfinite samples in batch
-starting at 0` from `experiments/rafm_inputs/run.py:252`. The initial source
-passed its finite check. The original ambient RK4 sampler completed the expected
-512 network calls, after which its single 10,000-sample batch contained nonfinite
-coordinates. The failure occurred before quality metrics and before writing a
-generated-sample artifact. The number of invalid rows and the first divergent
-integration step were not recorded; neither should be inferred from this error.
+Each failed toy `result.json` records `FloatingPointError: Nonfinite samples in batch starting at 0` from `experiments/rafm_inputs/run.py:252`. The initial source passed its finite check. The original ambient RK4 sampler completed the expected 512 network calls, after which its single 10,000-sample batch contained nonfinite coordinates. The failure occurred before quality metrics and before writing a generated-sample artifact. The number of invalid rows and the first divergent integration step were not recorded; neither should be inferred from this error.
 
-Checkpoints, configuration/data identities, training statistics, training logs,
-and failure tracebacks remain under
-`outputs_rafm_input_study/v1/final/toy_radial_angular/<arm>/seed_<seed>/`.
-Worker stderr remains under `outputs_rafm_input_study/v1/logs/`.
-All saved training loss rows in these seven runs are finite. Finiteness alone
-does not establish numerical correctness: the recorded spikes are enormous.
-Both completed toy runs also contain spikes of approximately `1e14`. Their
-`complete` status records finite outputs/metrics, not proof that their training
-targets or learned solutions were numerically correct. Neither should be used
-to dismiss the shared numerical concern or to construct a complete three-seed
-toy comparison by dropping failed seeds. Sampling times in the table are
-measured sampling-only times, excluding metric computation; failed runs do not
-have recorded sampling durations.
+Checkpoints, configuration/data identities, training statistics, training logs, and failure tracebacks remain under `outputs_rafm_input_study/v1/final/toy_radial_angular/<arm>/seed_<seed>/`. Worker stderr remains under `outputs_rafm_input_study/v1/logs/`.
+
+All saved training loss rows in these recorded toy runs are finite. Every recorded toy run, including each completed run, contains a loss spike of approximately `1e14`. The `complete` status records finite outputs/metrics, not proof that training targets or learned solutions were numerically correct. Neither success status nor finite losses dismiss the shared numerical concern. Existing finite quality metrics remain preserved; this audit does not relabel their status or construct a complete three-seed comparison by dropping failed seeds. Sampling times in the table are measured sampling-only times, excluding metric computation; failed runs do not have recorded sampling durations.
 
 ## Inherited path behavior
 
@@ -112,6 +88,28 @@ speed bound or state/velocity consistency in that branch. The new runtime
 regression check verifies agreement with the original loss and RNG behavior;
 matching an inherited implementation also retains its numerical defects.
 
+## Screening all completed vector training logs
+
+The additive artifact [rafm_angular_loss_spikes.json](rafm_angular_loss_spikes.json) inventories **225 final-budget vector training runs** at 2026-09-10T14:24:35.136877+00:00, with source/configuration, result, statistics and log hashes, per-run maxima, and the exact logged steps crossing a descriptive `max(loss) >= 1e6` threshold. Their recorded evaluation statuses are {"complete": 218, "failed": 7}. Sanity runs and incomplete training are excluded.
+
+**9 runs cross the threshold, all on the 2D toy.** Their arm/seed identities and maxima are listed above; full crossing-step records are in the JSON. Only saved instantaneous batch losses are observed (normally every 200 vector updates), so unlogged spikes can be missed. A high MSE can arise from targets, predictions, or both. The threshold is a diagnostic screen, not proof of the numerical cause, a change to the training protocol, or a rule for invalidating otherwise finite quality metrics. Falling below it is not a numerical correctness certificate.
+
+The Student-t dimension-2 condition uses the same antipodal implementation. Its currently recorded maxima are:
+
+| Arm | Seed | Maximum logged angular MSE | Evaluation status |
+| --- | ---: | ---: | --- |
+| A | 65457 | 473643.03125 | failed |
+| A | 77395 | 1216.02709961 | complete |
+| A | 8925 | 8056.76757812 | complete |
+| B | 65457 | 387605.0625 | complete |
+| B | 77395 | 10490.6894531 | complete |
+| B | 8925 | 1335.69750977 | complete |
+| C | 65457 | 249129.484375 | complete |
+| C | 77395 | 124561.25 | complete |
+| C | 8925 | 560.002197266 | complete |
+
+Student-t d2 A/65457 failed with the same nonfinite-sample exception after 10,000 updates despite its logged maximum being below `1e6`. Its failure is independently established by its saved `result.json`, not inferred from the threshold. This illustrates why a threshold cannot classify sampling success or prove causal attribution. No successful result is invalidated solely by this screen; no failed result is discarded or made successful by lowering the diagnostic threshold.
+
 ## Provenance and disposition
 
 Read-only `git show` comparisons confirmed that the first four source files in
@@ -133,14 +131,16 @@ numerical events.
 | Preserved `result.json` relative to the toy output root | SHA-256 |
 | --- | --- |
 | `A/seed_8925/result.json` | `eb61c21a8e997e7982de2e49ebef175d7257a7a76f4c444d362e0b3ededa9a4e` |
-| `A/seed_77395/result.json` | `c27e04312515e6d31d0d98c601fc4d363bcbbc7309bef988c07175b0f8704a96` |
 | `A/seed_65457/result.json` | `5cfe2fa04a552eb3d321c58e57ec7919359975d65088156fa1c3dbaa3408284f` |
-| `B/seed_65457/result.json` | `bbdbd06a1246bacb37faeb7c01064068ecfb91a7e63d8b9a30ddf9df45993b00` |
+| `A/seed_77395/result.json` | `c27e04312515e6d31d0d98c601fc4d363bcbbc7309bef988c07175b0f8704a96` |
 | `B/seed_8925/result.json` | `272344ab09ebe6e606636eb57fd0820507dd3160716c9ae992cb4b6f55623d9a` |
+| `B/seed_65457/result.json` | `bbdbd06a1246bacb37faeb7c01064068ecfb91a7e63d8b9a30ddf9df45993b00` |
+| `B/seed_77395/result.json` | `d1930a5c0c9038c9d2cf6149f7c52a80dc4eae7a19dcfb3fff14129baf270b70` |
 | `C/seed_8925/result.json` | `01910570b8387511c139fdf08ff32519320c477adb6c35c723e3375e2bc0b6bc` |
 | `C/seed_65457/result.json` | `d111b7cc28e97ba68de22620512ab21a9ea5628f0666bd2d7a53b75f2d291792` |
+| `C/seed_77395/result.json` | `13eb0b6fb63a8851e6ad12facb544e56e7039b05a0393846ca45fab4c6aa2fdb` |
 
-The current five failures must remain failures in v1 reporting, with no
+The recorded toy sampling failures must remain failures in v1 reporting, with no
 partial-seed aggregate presented as a complete three-seed comparison. They
 must not be relabeled as scheduler-recoverable: all prescribed training updates
 completed, and an unchanged checkpoint evaluation cannot repair training-target
