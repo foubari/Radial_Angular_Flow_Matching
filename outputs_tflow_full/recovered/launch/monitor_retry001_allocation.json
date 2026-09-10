@@ -1,0 +1,63 @@
+{
+  "created_utc": "2026-09-10T16:21:39.064434+00:00",
+  "command": [
+    "srun",
+    "--overlap",
+    "--exact",
+    "--jobid=765765",
+    "--nodes=1",
+    "--ntasks=1",
+    "--cpus-per-task=1",
+    "--mem=1G",
+    "--gres=none",
+    "--unbuffered",
+    "/usr/bin/python3",
+    "-B",
+    "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/tools/monitor_recovered_tflow.py",
+    "--manifest",
+    "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/recovered/launch/tasks_20260910T153538_4845907e.json",
+    "--manifest-sha256",
+    "9c179f2d3686a28af35b60d409ad39f119ba2482d56d89deb76880cc621dca8c",
+    "--tuning-job",
+    "766332",
+    "--final-job",
+    "766333",
+    "--additional-final-array",
+    "766523:2",
+    "--output",
+    "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/recovered/monitor_retry001"
+  ],
+  "existing_cpu_allocation": "765765",
+  "host": "auh7-3b-gpu-015",
+  "source": {
+    "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/tools/monitor_recovered_tflow.py",
+    "sha256": "49b9d0e46bc140080ac8fee4f3c3a07b1235d1e0729ef09cf037449fe0eed62e"
+  },
+  "log": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/recovered/logs/monitor_retry001_765765.log",
+  "prior_monitor": [
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/recovered/monitor/latest.json",
+      "sha256": "84234ae9f74ae2404c6cdbe8b902a1a688cc0b3e6574bfe254b90fd86aaa6224"
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/recovered/monitor/events.jsonl",
+      "sha256": "bc39c11db4c5f6171b93c7adb837f9bec87d386f5eac651ad676f8b11634c504"
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/recovered/launch/monitor_existing_allocation.json",
+      "sha256": "be6078d74fc0d13e37fcb449544393a42ebbe01f175fade3e70379a4f6bdac3d"
+    }
+  ],
+  "recovery": [
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/recovered/launch/image_node_failure_recovery.json",
+      "sha256": "276ac8a9a026aead4de03b176a7e7f1910eec2bec8f15eb567b498d9fa458da2"
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/recovered/launch/image_node_failure_recovery.submission.json",
+      "sha256": "382e7d16116a01eddcdc5c6e86f01eafe40088eeedf125df02a5a176bfd4388d"
+    }
+  ],
+  "reason": "Restart stopped CPU watcher with strict terminal-job accounting handling and explicit monitoring of replacement array766523; prior outputs preserved; no new GPU allocation.",
+  "launcher_pid": 2465590
+}
