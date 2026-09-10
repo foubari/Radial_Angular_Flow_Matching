@@ -1,13 +1,14 @@
 {
-  "job_id": 765756,
-  "role": "Classifier-only comparison of saved fixed-spherical outputs under new backend",
-  "dependency": "afterany:765741_1",
+  "job_id": 765758,
+  "previous_failed_job": 765756,
+  "role": "Saved fixed-spherical classifier backend compatibility; writable cache retry",
+  "dependency": "afterany:765756",
   "node": "auh7-3b-gpu-008",
   "gpus": 1,
   "training_updates": 0,
   "new_generated_samples": 0,
   "script": "tools/audio_reference_backend_job.sh",
-  "script_sha256": "274f89ff527da5b9ff781db887d201058f7f5ea6efd4033ec0511e9258224037",
+  "script_sha256": "c93e8db236c7b12236bb430817e492a3a652a85b05a06ed741c3346286c7ccde",
   "audit_source_sha256": "d41d2a1cc37533de55b346a80f1b99ffbe885da0202cb75e71884d8dc69ccb9d",
-  "created_utc": "2026-09-10T08:24:44.992864+00:00"
+  "created_utc": "2026-09-10T08:27:40.477319+00:00"
 }

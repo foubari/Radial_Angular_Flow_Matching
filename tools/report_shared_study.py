@@ -445,10 +445,12 @@ def collect_operations(abc_version, tflow_version):
 
 
 def attach_reference_backend(reference, cfg, audit_path):
-    """Require measured evaluator compatibility; settings alone do not prove it."""
+    """Keep archival discrepancies separate from measured current-backend reuse."""
     path = Path(audit_path)
-    assessment = {'status': 'unresolved', 'verified': False, 'path': str(path), 'issues': []}
+    assessment = {'status': 'unresolved', 'verified': False, 'reevaluation_usable': False, 'path': str(path), 'issues': []}
     reference['backend_compatibility'] = assessment
+    current = {'status': 'unresolved', 'usable_for_comparison': False, 'audit_path': str(path)}
+    reference['current_backend_reference'] = current
     if not path.exists():
         assessment['issues'].append('saved-output evaluation under the new backend has not completed')
         return
@@ -459,27 +461,80 @@ def attach_reference_backend(reference, cfg, audit_path):
     try:
         audit = read_json(path)
         assessment['record'] = json_safe(audit)
+        assessment['audit_status'] = audit.get('status')
+        archived = read_json(reference['path'])
         tests = {
-            'passed audit': audit.get('status') == 'passed',
+            'completed measured audit': audit.get('status') in ('passed', 'compatibility_discrepancy'),
+            'verified original data and evaluation protocol': reference.get('eligible_for_prepared_protocol') is True,
             'same shared audio config': audit.get('config_sha256') == config_hash(cfg),
+            'full recorded shared audio config': audit.get('config') == cfg,
             'same completed reference': audit.get('aggregate', {}).get('sha256') == sha256(reference['path']),
+            'same classifier': audit.get('classifier', {}).get('sha256') == cfg['evaluation']['classifier']['sha256'],
+            'same external test': audit.get('external_test', {}).get('sha256') == cfg['data']['external_test']['sha256'],
+            'same generator split indices': audit.get('generator_split_indices_match') is True,
             'zero old-versus-new changed predictions': audit.get('totals', {}).get('old_vs_new_prediction_disagreements') == 0,
             'zero postrescale changed predictions': audit.get('totals', {}).get('postrescale_prediction_disagreements') == 0,
             'all original seeds': [row.get('seed') for row in audit.get('runs', [])] == cfg['seeds'],
+            'saved outputs only': audit.get('generation_performed') is False and audit.get('training_updates') == 0,
         }
+        sources = ('tools/check_audio_reference_backend.py', 'experiments/rafm_inputs/run.py', 'experiments/tflow/run.py',
+                   'rafm/utils/seeds.py', 'experiments/poc_audio/audio_classifier.py', 'experiments/poc_audio/audio_empirical_gain.py')
+        for name in sources:
+            tests['same source ' + name] = audit.get('source_sha256', {}).get(name) == sha256(ROOT / name)
+        verified = audit.get('verification', [])
+        tests['all artifact verifications passed'] = bool(verified) and all(item.get('status') == 'passed' for item in verified)
+        verified_pins = {(item.get('path'), item.get('sha256')) for item in verified if item.get('status') == 'passed'}
+        expected_inputs = [cfg['data']['input'], cfg['data']['external_test'], cfg['data']['split']['file'], cfg['evaluation']['classifier']]
+        for spec in expected_inputs:
+            tests['verified input ' + spec['path']] = (spec['path'], spec['sha256']) in verified_pins
+        archived_runs = {row['seed']: row for row in archived['runs']}
+        primary = ('digit_acc', 'energy_KS', 'cov>q90', 'cov>q95', 'cov>q99', 'cov<q10')
+        energy_names = {'energy_KS': 'ks', 'cov>q90': 'cov_gt_q90', 'cov>q95': 'cov_gt_q95',
+                        'cov>q99': 'cov_gt_q99', 'cov<q10': 'cov_lt_q10', 'PIT': 'pit_mean', 'radial_w1': 'radial_w1'}
+        differences = []
         for row in audit.get('runs', []):
             prefix = f"seed {row.get('seed')} "
             tests[prefix + 'sample count'] = row.get('n') == cfg['evaluation']['n_samples']
             tests[prefix + 'gain invariance'] = row.get('invariance', {}).get('passed') is True and row.get('invariance', {}).get('prediction_disagreements') == 0
+            original = archived_runs[row['seed']]
+            sample = original['samples']
+            tests[prefix + 'same saved samples'] = row.get('input_samples') == sample and (sample['path'], sample['sha256']) in verified_pins
             for version in ('baseline', 'posthoc'):
                 comparison = row.get(version, {}).get('comparison', {})
                 tests[prefix + version + ' predictions'] = comparison.get('prediction_disagreements_vs_cached') == 0
-                tests[prefix + version + ' energy/tails'] = comparison.get('energy_ks_tail_metrics_exactly_equal') is True
+                measured = row.get(version, {}).get('metrics', {})
+                old = comparison.get('old_metrics', {})
+                deltas = comparison.get('metric_deltas', {})
+                unrounded = original[version]['unrounded']
+                expected_old = {'digit_acc': unrounded['digit_acc'], **{key: unrounded['energy'][value] for key, value in energy_names.items()}}
+                tests[prefix + version + ' archived metrics identity'] = old == expected_old
+                tests[prefix + version + ' all current metrics finite'] = all(numeric(measured.get(key)) for key in AUDIO)
+                tests[prefix + version + ' unchanged accuracy KS and coverage'] = all(measured.get(key) == old.get(key) and deltas.get(key) == 0 for key in primary)
+                tests[prefix + version + ' measured deltas consistent'] = all(numeric(deltas.get(key)) and deltas[key] == measured[key] - old[key] for key in AUDIO if key in measured and key in old) and set(AUDIO).issubset(deltas)
+                differences.append({'seed': row['seed'], 'version': version, 'metric_deltas': deltas,
+                                    'all_unrounded_energy_deltas': comparison.get('all_unrounded_energy_deltas'),
+                                    'maximum_logit_absolute_difference': comparison.get('maximum_logit_absolute_difference'),
+                                    'energy_bin_accuracies_exactly_equal': comparison.get('energy_bin_accuracies_exactly_equal'),
+                                    'energy_ks_tail_metrics_exactly_equal': comparison.get('energy_ks_tail_metrics_exactly_equal')})
+        for version in ('baseline', 'posthoc'):
+            for key in AUDIO:
+                values = [row.get(version, {}).get('metrics', {}).get(key) for row in audit.get('runs', [])]
+                stats = audit.get('aggregate_metrics', {}).get(version, {}).get(key, {})
+                tests[version + ' measured aggregate ' + key] = len(values) == 3 and all(numeric(value) for value in values) and stats == {
+                    'mean': statistics.mean(values), 'std_population': statistics.pstdev(values), 'values': values, 'n': 3}
         assessment['checks'] = tests
         assessment['issues'] = [name for name, passed in tests.items() if not passed]
-        assessment['verified'] = not assessment['issues']
+        assessment['reevaluation_usable'] = not assessment['issues']
+        assessment['verified'] = not assessment['issues'] and audit.get('status') == 'passed' and all(
+            row[version]['comparison'].get('energy_ks_tail_metrics_exactly_equal') is True
+            for row in audit['runs'] for version in ('baseline', 'posthoc'))
         assessment['status'] = 'measured_compatible' if assessment['verified'] else 'compatibility_discrepancy_or_missing_evidence'
-    except (OSError, ValueError, KeyError) as error:
+        if assessment['reevaluation_usable']:
+            current.update(status='measured_under_current_backend_with_recorded_differences' if audit['status'] != 'passed' else 'measured_under_current_backend',
+                usable_for_comparison=True, audit_sha256=assessment['sha256'], aggregate_metrics=audit['aggregate_metrics'],
+                runs=audit['runs'], differences=differences, backend_flags=audit.get('backend_flags'), hardware=audit.get('hardware'),
+                interpretation='These are newly measured metrics for the same saved Y/X under the current study backend. Archived metrics and raw audit status remain unchanged. Digit predictions, accuracy, energy KS and coverage rates are identical; PIT, radial W1, logits and near-fixed-radius energy-bin assignments can differ. Only these current-backend values enter new comparisons; no historical training-time comparison.')
+    except (OSError, ValueError, KeyError, TypeError) as error:
         assessment['issues'].append(str(error))
 
 
@@ -493,13 +548,12 @@ def audio_comparison_rows(report):
             rows.append({'method': method, 'status': group['status'], 'role': 'new matched study arm',
                          'metrics': {key: group['aggregate'][key] for key in metrics if key in group['aggregate']}})
     ref = report['fixed_spherical_gain_reference']
-    if ref.get('eligible_for_prepared_protocol') and ref.get('backend_compatibility', {}).get('verified') is True:
-        rows.append({'method': 'fixed_spherical_empirical_gain_reference', 'status': 'verified_checkpoint_reference',
-                     'role': 'completed checkpoint-based reference, not new A or historical paper value',
-                     'metrics': {key: {'mean': ref['measured_full_precision'][key]['mean'],
-                                      'std_population': ref['measured_full_precision'][key]['std'],
-                                      'values': ref['measured_full_precision'][key]['vals'],
-                                      'seeds': ref['training_seeds'], 'n': 3} for key in metrics}})
+    current = ref.get('current_backend_reference', {})
+    if ref.get('eligible_for_prepared_protocol') and current.get('usable_for_comparison') is True:
+        rows.append({'method': 'fixed_spherical_empirical_gain_reference', 'status': current['status'],
+                     'role': 'checkpoint reference re-evaluated under current backend, not new A or historical paper value',
+                     'audit_sha256': current['audit_sha256'],
+                     'metrics': {key: dict(current['aggregate_metrics']['posthoc'][key], seeds=ref['training_seeds']) for key in metrics}})
     return rows
 
 
@@ -614,7 +668,14 @@ def write_outputs(report, directory):
     if ref.get('eligible_for_prepared_protocol'):
         acc = ref['measured_full_precision']['digit_acc']
         lines += ['', f"Measured reference accuracy {acc['mean']:.7f} ± {acc['std']:.7f} (population SD), energy KS {ref['measured_full_precision']['energy_KS']['mean']:.7f}; {ref['prediction_disagreements']} changed digit predictions across 6,000 paired outputs. New-run execution compatibility remains separately listed in report.json."]
-    lines += ['', 'New-evaluator backend audit: **' + ref.get('backend_compatibility', {}).get('status', 'unresolved') + '**. Reference markers/table comparisons require this measured check, including zero old/new prediction changes and preserved energy/tail metrics.']
+    backend = ref.get('backend_compatibility', {})
+    current = ref.get('current_backend_reference', {})
+    lines += ['', 'Raw new-evaluator audit status: **' + str(backend.get('audit_status', 'unresolved')) + '**. Current measured reference: **' + current.get('status', 'unresolved') + '**.']
+    if current.get('usable_for_comparison'):
+        lines += ['', current['interpretation'], '', 'Measured current-minus-archived differences (each seed/version):']
+        for item in current['differences']:
+            deltas = {key: value for key, value in item['metric_deltas'].items() if value != 0}
+            lines.append('- Seed ' + str(item['seed']) + ' / ' + item['version'] + ': ' + json.dumps(deltas, sort_keys=True) + '; energy-bin accuracies identical: ' + str(item['energy_bin_accuracies_exactly_equal']) + '.')
     lines += ['', '| Audio method | Role / status | Digit accuracy | Energy KS | Coverage > q95 | Coverage > q99 |', '|---|---|---|---|---|---|']
     for row in report.get('audio_comparison_rows', []):
         cells = [row['method'], row['role'] + ' / ' + row['status']]

@@ -1,6 +1,8 @@
 """Scientific findings and exact continuation-cost accounting, stdlib fixtures."""
 import copy
+import hashlib
 import importlib.util
+import json
 from pathlib import Path
 import subprocess
 import sys
@@ -144,6 +146,11 @@ class FindingsTests(unittest.TestCase):
         ref['new_audio_execution_compatibility'] = [{'method': 'A', 'seed': seed, 'status': 'verified'} for seed in SEEDS]
         self.assertEqual(findings.audio_reference_comparison(data)['status'], 'unavailable')
         ref['backend_compatibility'] = {'verified': True}
+        self.assertEqual(findings.audio_reference_comparison(data)['status'], 'unavailable')
+        ref['current_backend_reference'] = {'usable_for_comparison': True,
+            'aggregate_metrics': {'posthoc': {key: {'values': value['vals']} for key, value in ref['measured_full_precision'].items()}}}
+        # Archived values must never replace the newly measured backend values.
+        ref['measured_full_precision']['digit_acc']['vals'] = [.999] * 3
         result = findings.audio_reference_comparison(data)
         self.assertEqual(result['best_digit_accuracy_methods'], ['fixed_spherical_empirical_gain_reference'])
         self.assertEqual(set(result['methods']), {'A', 'fixed_spherical_empirical_gain_reference'})
@@ -167,6 +174,52 @@ class FindingsTests(unittest.TestCase):
             self.assertIn('B-C', text)
             self.assertIn('no new theoretical guarantee', text)
         subprocess.run([sys.executable, '-c', 'import runpy,sys;runpy.run_path("tools/summarize_shared_study.py",run_name="inspection");assert "torch" not in sys.modules;assert "numpy" not in sys.modules'], cwd=ROOT, check=True)
+
+    def test_collector_then_findings_manifest_pins_final_recursive_bytes(self):
+        spec = importlib.util.spec_from_file_location('collector_fixture', ROOT / 'tools/report_shared_study.py')
+        collector = importlib.util.module_from_spec(spec); spec.loader.exec_module(collector)
+        data = {'study_id': 'fixture', 'status': 'incomplete', 'conditions': [], 'expected_final_runs': 0,
+                'seed_status_counts': {}, 'complete_conditions': [], 'complete_method_groups': 0,
+                'fixed_spherical_gain_reference': {'status': 'missing', 'issues': [],
+                    'reproduction_limitation': 'Historical accuracy remains distinct.'}, 'operations': {}}
+        with tempfile.TemporaryDirectory() as directory:
+            directory = Path(directory)
+            (directory / 'findings.json').write_text('{"stale": true}\n')
+            collector.write_outputs(data, directory)
+            initial = json.loads((directory / 'report_files.json').read_text())
+            stale_hash = next(item['sha256'] for item in initial['files'] if Path(item['path']).name == 'findings.json')
+            figures = directory / 'figures'; figures.mkdir()
+            # Binary fixtures stand in for exported figures; no plotting/ML import.
+            (figures / 'comparison.pdf').write_bytes(b'%PDF-1.4 fixture\n')
+            (figures / 'comparison.png').write_bytes(b'\x89PNG\r\n\x1a\nfixture')
+            (figures / 'plot_manifest.json').write_text('{"status": "fixture"}\n')
+            (figures / '.partial.png').write_bytes(b'temporary')
+            (directory / 'scratch.tmp').write_text('temporary')
+            subprocess.run([sys.executable, 'tools/summarize_shared_study.py', '--report', str(directory / 'report.json')],
+                           cwd=ROOT, check=True, capture_output=True, text=True)
+            manifest = json.loads((directory / 'report_files.json').read_text())
+            files = {item['relative_path']: item for item in manifest['files']}
+            for name in ('report.json', 'findings.json', 'findings.md', 'figures/comparison.pdf',
+                         'figures/comparison.png', 'figures/plot_manifest.json'):
+                raw = (directory / name).read_bytes()
+                self.assertEqual(files[name]['sha256'], hashlib.sha256(raw).hexdigest())
+                self.assertEqual(files[name]['size_bytes'], len(raw))
+            self.assertNotEqual(files['findings.json']['sha256'], stale_hash)
+            self.assertEqual(manifest['input_report']['sha256'], files['report.json']['sha256'])
+            self.assertNotIn('report_files.json', files)
+            self.assertNotIn('scratch.tmp', files)
+            self.assertNotIn('figures/.partial.png', files)
+
+    def test_changed_input_report_aborts_without_replacing_manifest(self):
+        with tempfile.TemporaryDirectory() as directory:
+            directory = Path(directory)
+            report_path = directory / 'report.json'; report_path.write_text('{"old": true}\n')
+            result = {'input_report': {'path': str(report_path), **findings.file_fingerprint(report_path)}}
+            target = directory / 'report_files.json'; target.write_text('original manifest\n')
+            report_path.write_text('{"changed": true}\n')
+            with self.assertRaisesRegex(ValueError, 'report.json changed'):
+                findings.finalize_report_manifest(result, directory)
+            self.assertEqual(target.read_text(), 'original manifest\n')
 
 
 if __name__ == '__main__':

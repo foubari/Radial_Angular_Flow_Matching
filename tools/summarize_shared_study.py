@@ -226,8 +226,10 @@ def audio_reference_comparison(report):
               'methods': {}, 'not_a_training_runtime_comparison': True, 'backend_compatibility': ref.get('backend_compatibility', {})}
     if audio is None or not ref.get('eligible_for_prepared_protocol') or ref.get('training_seeds') != audio['seeds']:
         return result
-    if ref.get('backend_compatibility', {}).get('verified') is not True:
-        result['reason'] = 'saved-output evaluation under the new backend is not verified; zero prediction changes and matching energy/tails must be measured'
+    current = ref.get('current_backend_reference', {})
+    result['current_backend_reference'] = current
+    if current.get('usable_for_comparison') is not True:
+        result['reason'] = 'saved-output evaluation under the new backend is not usable; strict identities, zero prediction changes and measured current metrics are required'
         return result
     checks = ref.get('new_audio_execution_compatibility', [])
     for method, group in audio['methods'].items():
@@ -248,7 +250,7 @@ def audio_reference_comparison(report):
         return result
     reference_metrics = {}
     for key in ('digit_acc', 'energy_KS', 'cov>q95', 'cov>q99'):
-        values = ref.get('measured_full_precision', {}).get(key, {}).get('vals', [])
+        values = current.get('aggregate_metrics', {}).get('posthoc', {}).get(key, {}).get('values', [])
         if len(values) != 3 or not all(numeric(value) for value in values):
             return dict(result, status='unavailable', reason='complete measured reference values missing')
         reference_metrics[key] = stats(values)
@@ -272,6 +274,7 @@ def build_findings(report):
                                                   for condition in report['conditions'] if condition.get('blocking_issues')]},
               'comparisons': {'B-A': [], 'B-C': [], 'tflow-A': []}, 'parameters': {}, 'tflow_rankings': {}, 'tflow_tuning': {},
               'limitations': [
+                  't-Flow denotes an independent direct-noise reproduction with documented backbone and endpoint adaptations. For vector dimensions above 128, the width-128 affine output bottleneck leaves noise components amplified by 1/t_min=1000. These adaptation failures do not establish intrinsic inferiority of published t-Flow; see docs/tflow_matched_backbone_failure_analysis.md.',
                   'New synthetic realizations are shared A/B/C/t-Flow comparisons, never historical tensors or replacement historical results.',
                   'Three-seed mean differences and sign consistency are descriptive, not tests of statistical significance.',
                   'No pooling of metric units across datasets, no averaging over missing/failed seeds, and no data-dependent tolerance for a tie.',
@@ -408,6 +411,9 @@ def write_findings(result, directory):
             lines.append('| ' + ' | '.join([method] + [number(metrics[key]['mean']) + ' ± ' + number(metrics[key]['std_population']) for key in ('digit_acc', 'energy_KS', 'cov>q95', 'cov>q99')]) + ' |')
     else:
         lines += [audio['reason'] + '.']
+    current_audio = audio.get('current_backend_reference', {})
+    if current_audio.get('usable_for_comparison'):
+        lines += ['', current_audio['interpretation'], '', 'The raw backend audit remains ' + str(audio['backend_compatibility'].get('audit_status')) + '; numerical differences are retained in findings.json and the report reference record.']
     lines += ['', audio['historical_reproduction_limitation'], '',
               'The checkpoint-based fixed-spherical+gain row is not new A and is not used for matched training-time claims. Constructed gains are independent of content; a B/C benefit is not presumed. The RAFM-Ang versus RAFM-Vel interpretation remains separate.', '',
               '## Missing, failed and blocked work', '']
@@ -427,6 +433,61 @@ def write_findings(result, directory):
     (directory / 'findings.md').write_text('\n'.join(lines) + '\n')
 
 
+def file_fingerprint(path):
+    digest = hashlib.sha256()
+    size = 0
+    with Path(path).open('rb') as stream:
+        for block in iter(lambda: stream.read(1024 * 1024), b''):
+            digest.update(block)
+            size += len(block)
+    return {'sha256': digest.hexdigest(), 'size_bytes': size}
+
+
+def finalize_report_manifest(result, directory):
+    """Pin final report bytes after collection, plotting and findings generation."""
+    directory = Path(directory)
+    source = result.get('input_report', {})
+    if not source.get('path') or not source.get('sha256'):
+        raise ValueError('Cannot finalize report manifest without input_report identity')
+    input_path = Path(source['path'])
+
+    def verify_input():
+        record = file_fingerprint(input_path)
+        if record['sha256'] != source['sha256']:
+            raise ValueError('Input report.json changed after findings were computed; rerun findings before finalizing')
+        return record
+
+    input_record = verify_input()
+    files = []
+    excluded = []
+    temporary_suffixes = ('.tmp', '.temp', '.part', '.partial', '.lock', '.swp', '.swo', '.pyc', '.pyo', '~')
+    for path in sorted(directory.rglob('*')):
+        if not path.is_file():
+            continue
+        relative = path.relative_to(directory)
+        if path == directory / 'report_files.json':
+            continue
+        if (any(part.startswith('.') or part in ('__pycache__', 'cache', 'tmp', 'temp') for part in relative.parts)
+                or path.name.endswith(temporary_suffixes)):
+            excluded.append(relative.as_posix())
+            continue
+        files.append({'path': str(path), 'relative_path': relative.as_posix(), **file_fingerprint(path)})
+    # Catch a collector overwriting report.json while the recursive scan ran.
+    verify_input()
+    manifest = {'schema_version': 2, 'finalized_after': 'collector, plots (if requested), findings',
+                'input_report': {'path': str(input_path), **input_record},
+                'files': files, 'excluded_ephemeral_files': excluded}
+    fd, temporary = tempfile.mkstemp(prefix='.report_files-', dir=directory)
+    try:
+        with os.fdopen(fd, 'w') as stream:
+            stream.write(json.dumps(manifest, indent=2, allow_nan=False) + '\n')
+        os.replace(temporary, directory / 'report_files.json')
+    finally:
+        if os.path.exists(temporary):
+            os.unlink(temporary)
+    return manifest
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--report', type=Path, default=ROOT / 'outputs_rafm_input_study/v1/report/report.json')
@@ -438,6 +499,7 @@ def main():
     findings['input_report'] = {'path': str(args.report), 'sha256': hashlib.sha256(raw).hexdigest()}
     output = args.output or args.report.parent
     write_findings(findings, output)
+    finalize_report_manifest(findings, output)
     print(json.dumps({'status': findings['status'], 'eligible_primary_comparisons': {key: value['eligible_conditions'] for key, value in findings['tallies'].items()}, 'findings': str(output / 'findings.md')}, indent=2))
 
 

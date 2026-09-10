@@ -1,0 +1,310 @@
+{
+  "created_utc": "2026-09-10T08:28:52.615042+00:00",
+  "manifest": "outputs_tflow_full/v2/launch/tasks_20260910T080611_91887409.json",
+  "manifest_sha256": "4485325dbc659a74aa875d1a1e69a3061014808d844a5d2ad4f8f04128ef2a92",
+  "reason": "Allow 39 final tasks with completed immutable source selection to run while audio tuning continues; orchestration only",
+  "previous_dependency": "afterany:765741",
+  "updates": [
+    {
+      "worker_index": 3,
+      "job_id": "765742_3",
+      "new_dependency": "afterany:765758",
+      "tasks": [
+        {
+          "task_index": 29,
+          "condition_id": "piv_d256",
+          "seed": 8925,
+          "receipt_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/piv_d256/selection_receipt.json",
+          "receipt_sha256": "1b38993500afcaf56ece0a90cbda1e33e976ae75eabe4185c305f62282385189"
+        },
+        {
+          "task_index": 35,
+          "condition_id": "student_t_d128_df3.0_cor",
+          "seed": 8925,
+          "receipt_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/student_t_d128_df3.0_cor/selection_receipt.json",
+          "receipt_sha256": "01e7821674705a882bc673ecd3915b60e5605afa90b3e1c61fe44af3a6639543"
+        },
+        {
+          "task_index": 41,
+          "condition_id": "piv_d64",
+          "seed": 8925,
+          "receipt_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/piv_d64/selection_receipt.json",
+          "receipt_sha256": "ea79093a67b989bc923b244809550c341ea445f0ec460c19b6e6ff0957753e89"
+        },
+        {
+          "task_index": 47,
+          "condition_id": "finance_ff49",
+          "seed": 8925,
+          "receipt_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/finance_ff49/selection_receipt.json",
+          "receipt_sha256": "a9616bf21f867c4287422acd96e5d73e98b1d7f4dec289f18b1f515b013dfcf3"
+        },
+        {
+          "task_index": 53,
+          "condition_id": "aniso_k10",
+          "seed": 8925,
+          "receipt_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/aniso_k10/selection_receipt.json",
+          "receipt_sha256": "5fefe76eddf5ee8d0d12bd257403e8e5cf7504221184f5c8d4ce51dbe6e04303"
+        },
+        {
+          "task_index": 59,
+          "condition_id": "aniso_k3",
+          "seed": 8925,
+          "receipt_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/aniso_k3/selection_receipt.json",
+          "receipt_sha256": "0db7c90d87e3aca99a4821d48203a5bc7f4d2e4e08dd9fcc7c0f40b3f6369f45"
+        },
+        {
+          "task_index": 65,
+          "condition_id": "aniso_k300",
+          "seed": 8925,
+          "receipt_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/aniso_k300/selection_receipt.json",
+          "receipt_sha256": "20d8fc3d4dd2e1a9e9fa22c379b862094a1744b17f17559ced683d5a8598184e"
+        },
+        {
+          "task_index": 71,
+          "condition_id": "gaussian_aniso_d16_cor",
+          "seed": 8925,
+          "receipt_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/gaussian_aniso_d16_cor/selection_receipt.json",
+          "receipt_sha256": "c91348ab2bd049e72f40260fba99b5f3163345abd4523dd9456b53c29e524653"
+        },
+        {
+          "task_index": 77,
+          "condition_id": "student_t_d16_df1.5_cor",
+          "seed": 8925,
+          "receipt_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/student_t_d16_df1.5_cor/selection_receipt.json",
+          "receipt_sha256": "0d5b20d8b25d702f68791eb84f5452cfb9430c49d62712d037d87514a1621d5f"
+        },
+        {
+          "task_index": 83,
+          "condition_id": "student_t_d16_df2.0_cor",
+          "seed": 8925,
+          "receipt_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/student_t_d16_df2.0_cor/selection_receipt.json",
+          "receipt_sha256": "9f451347ff9ba8c812c0e8e8e6ff1a3d1a0cc89e6985338be0175aea112e4881"
+        },
+        {
+          "task_index": 89,
+          "condition_id": "student_t_d16_df5.0_cor",
+          "seed": 8925,
+          "receipt_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/student_t_d16_df5.0_cor/selection_receipt.json",
+          "receipt_sha256": "467d304c89c05b5a0f41f89bcd12713c246c87d9a5bd10cf72d6a003e578baaf"
+        },
+        {
+          "task_index": 95,
+          "condition_id": "student_t_d8_df3.0_cor",
+          "seed": 8925,
+          "receipt_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/student_t_d8_df3.0_cor/selection_receipt.json",
+          "receipt_sha256": "b334dc72ffbffbd6ec0ae942111f94dec48678f1826aba6d6ca04286339c26c9"
+        },
+        {
+          "task_index": 101,
+          "condition_id": "toy_radial_angular",
+          "seed": 8925,
+          "receipt_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/toy_radial_angular/selection_receipt.json",
+          "receipt_sha256": "301b1c7618006d3c49a74a8b93369c9576354d058267fed2551812a5548a59ce"
+        }
+      ]
+    },
+    {
+      "worker_index": 4,
+      "job_id": "765742_4",
+      "new_dependency": "afterany:765758",
+      "tasks": [
+        {
+          "task_index": 30,
+          "condition_id": "piv_d256",
+          "seed": 77395,
+          "receipt_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/piv_d256/selection_receipt.json",
+          "receipt_sha256": "1b38993500afcaf56ece0a90cbda1e33e976ae75eabe4185c305f62282385189"
+        },
+        {
+          "task_index": 36,
+          "condition_id": "student_t_d128_df3.0_cor",
+          "seed": 77395,
+          "receipt_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/student_t_d128_df3.0_cor/selection_receipt.json",
+          "receipt_sha256": "01e7821674705a882bc673ecd3915b60e5605afa90b3e1c61fe44af3a6639543"
+        },
+        {
+          "task_index": 42,
+          "condition_id": "piv_d64",
+          "seed": 77395,
+          "receipt_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/piv_d64/selection_receipt.json",
+          "receipt_sha256": "ea79093a67b989bc923b244809550c341ea445f0ec460c19b6e6ff0957753e89"
+        },
+        {
+          "task_index": 48,
+          "condition_id": "finance_ff49",
+          "seed": 77395,
+          "receipt_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/finance_ff49/selection_receipt.json",
+          "receipt_sha256": "a9616bf21f867c4287422acd96e5d73e98b1d7f4dec289f18b1f515b013dfcf3"
+        },
+        {
+          "task_index": 54,
+          "condition_id": "aniso_k10",
+          "seed": 77395,
+          "receipt_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/aniso_k10/selection_receipt.json",
+          "receipt_sha256": "5fefe76eddf5ee8d0d12bd257403e8e5cf7504221184f5c8d4ce51dbe6e04303"
+        },
+        {
+          "task_index": 60,
+          "condition_id": "aniso_k3",
+          "seed": 77395,
+          "receipt_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/aniso_k3/selection_receipt.json",
+          "receipt_sha256": "0db7c90d87e3aca99a4821d48203a5bc7f4d2e4e08dd9fcc7c0f40b3f6369f45"
+        },
+        {
+          "task_index": 66,
+          "condition_id": "aniso_k300",
+          "seed": 77395,
+          "receipt_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/aniso_k300/selection_receipt.json",
+          "receipt_sha256": "20d8fc3d4dd2e1a9e9fa22c379b862094a1744b17f17559ced683d5a8598184e"
+        },
+        {
+          "task_index": 72,
+          "condition_id": "gaussian_aniso_d16_cor",
+          "seed": 77395,
+          "receipt_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/gaussian_aniso_d16_cor/selection_receipt.json",
+          "receipt_sha256": "c91348ab2bd049e72f40260fba99b5f3163345abd4523dd9456b53c29e524653"
+        },
+        {
+          "task_index": 78,
+          "condition_id": "student_t_d16_df1.5_cor",
+          "seed": 77395,
+          "receipt_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/student_t_d16_df1.5_cor/selection_receipt.json",
+          "receipt_sha256": "0d5b20d8b25d702f68791eb84f5452cfb9430c49d62712d037d87514a1621d5f"
+        },
+        {
+          "task_index": 84,
+          "condition_id": "student_t_d16_df2.0_cor",
+          "seed": 77395,
+          "receipt_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/student_t_d16_df2.0_cor/selection_receipt.json",
+          "receipt_sha256": "9f451347ff9ba8c812c0e8e8e6ff1a3d1a0cc89e6985338be0175aea112e4881"
+        },
+        {
+          "task_index": 90,
+          "condition_id": "student_t_d16_df5.0_cor",
+          "seed": 77395,
+          "receipt_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/student_t_d16_df5.0_cor/selection_receipt.json",
+          "receipt_sha256": "467d304c89c05b5a0f41f89bcd12713c246c87d9a5bd10cf72d6a003e578baaf"
+        },
+        {
+          "task_index": 96,
+          "condition_id": "student_t_d8_df3.0_cor",
+          "seed": 77395,
+          "receipt_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/student_t_d8_df3.0_cor/selection_receipt.json",
+          "receipt_sha256": "b334dc72ffbffbd6ec0ae942111f94dec48678f1826aba6d6ca04286339c26c9"
+        },
+        {
+          "task_index": 102,
+          "condition_id": "toy_radial_angular",
+          "seed": 77395,
+          "receipt_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/toy_radial_angular/selection_receipt.json",
+          "receipt_sha256": "301b1c7618006d3c49a74a8b93369c9576354d058267fed2551812a5548a59ce"
+        }
+      ]
+    },
+    {
+      "worker_index": 5,
+      "job_id": "765742_5",
+      "new_dependency": "afterany:765758",
+      "tasks": [
+        {
+          "task_index": 31,
+          "condition_id": "piv_d256",
+          "seed": 65457,
+          "receipt_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/piv_d256/selection_receipt.json",
+          "receipt_sha256": "1b38993500afcaf56ece0a90cbda1e33e976ae75eabe4185c305f62282385189"
+        },
+        {
+          "task_index": 37,
+          "condition_id": "student_t_d128_df3.0_cor",
+          "seed": 65457,
+          "receipt_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/student_t_d128_df3.0_cor/selection_receipt.json",
+          "receipt_sha256": "01e7821674705a882bc673ecd3915b60e5605afa90b3e1c61fe44af3a6639543"
+        },
+        {
+          "task_index": 43,
+          "condition_id": "piv_d64",
+          "seed": 65457,
+          "receipt_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/piv_d64/selection_receipt.json",
+          "receipt_sha256": "ea79093a67b989bc923b244809550c341ea445f0ec460c19b6e6ff0957753e89"
+        },
+        {
+          "task_index": 49,
+          "condition_id": "finance_ff49",
+          "seed": 65457,
+          "receipt_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/finance_ff49/selection_receipt.json",
+          "receipt_sha256": "a9616bf21f867c4287422acd96e5d73e98b1d7f4dec289f18b1f515b013dfcf3"
+        },
+        {
+          "task_index": 55,
+          "condition_id": "aniso_k10",
+          "seed": 65457,
+          "receipt_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/aniso_k10/selection_receipt.json",
+          "receipt_sha256": "5fefe76eddf5ee8d0d12bd257403e8e5cf7504221184f5c8d4ce51dbe6e04303"
+        },
+        {
+          "task_index": 61,
+          "condition_id": "aniso_k3",
+          "seed": 65457,
+          "receipt_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/aniso_k3/selection_receipt.json",
+          "receipt_sha256": "0db7c90d87e3aca99a4821d48203a5bc7f4d2e4e08dd9fcc7c0f40b3f6369f45"
+        },
+        {
+          "task_index": 67,
+          "condition_id": "aniso_k300",
+          "seed": 65457,
+          "receipt_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/aniso_k300/selection_receipt.json",
+          "receipt_sha256": "20d8fc3d4dd2e1a9e9fa22c379b862094a1744b17f17559ced683d5a8598184e"
+        },
+        {
+          "task_index": 73,
+          "condition_id": "gaussian_aniso_d16_cor",
+          "seed": 65457,
+          "receipt_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/gaussian_aniso_d16_cor/selection_receipt.json",
+          "receipt_sha256": "c91348ab2bd049e72f40260fba99b5f3163345abd4523dd9456b53c29e524653"
+        },
+        {
+          "task_index": 79,
+          "condition_id": "student_t_d16_df1.5_cor",
+          "seed": 65457,
+          "receipt_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/student_t_d16_df1.5_cor/selection_receipt.json",
+          "receipt_sha256": "0d5b20d8b25d702f68791eb84f5452cfb9430c49d62712d037d87514a1621d5f"
+        },
+        {
+          "task_index": 85,
+          "condition_id": "student_t_d16_df2.0_cor",
+          "seed": 65457,
+          "receipt_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/student_t_d16_df2.0_cor/selection_receipt.json",
+          "receipt_sha256": "9f451347ff9ba8c812c0e8e8e6ff1a3d1a0cc89e6985338be0175aea112e4881"
+        },
+        {
+          "task_index": 91,
+          "condition_id": "student_t_d16_df5.0_cor",
+          "seed": 65457,
+          "receipt_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/student_t_d16_df5.0_cor/selection_receipt.json",
+          "receipt_sha256": "467d304c89c05b5a0f41f89bcd12713c246c87d9a5bd10cf72d6a003e578baaf"
+        },
+        {
+          "task_index": 97,
+          "condition_id": "student_t_d8_df3.0_cor",
+          "seed": 65457,
+          "receipt_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/student_t_d8_df3.0_cor/selection_receipt.json",
+          "receipt_sha256": "b334dc72ffbffbd6ec0ae942111f94dec48678f1826aba6d6ca04286339c26c9"
+        },
+        {
+          "task_index": 103,
+          "condition_id": "toy_radial_angular",
+          "seed": 65457,
+          "receipt_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/toy_radial_angular/selection_receipt.json",
+          "receipt_sha256": "301b1c7618006d3c49a74a8b93369c9576354d058267fed2551812a5548a59ce"
+        }
+      ]
+    }
+  ],
+  "workers_left_unchanged": [
+    0,
+    1,
+    2
+  ],
+  "max_node_gpus": 6,
+  "no_scientific_config_or_runtime_change": true
+}

@@ -1,0 +1,27 @@
+{
+  "status": "execution_failure_before_predictions",
+  "job_id": 765756,
+  "error": "Saved-output classifier check aborted before predictions: MIOpen SQLite kernel cache was read-only",
+  "successful_seed_evaluations": 0,
+  "training_updates": 0,
+  "new_generated_samples": 0,
+  "resolution": "Explicit writable per-job MIOpen cache paths in scheduler wrapper; evaluator and settings unchanged",
+  "original_report_sha256": "cfed55d9b8bc7aa9f2cf609af37f29f293160323a16b191a779525d923dd14d1",
+  "log_paths": [
+    "outputs_rafm_input_study/v1/logs/audio-reference-backend-765756.out",
+    "outputs_rafm_input_study/v1/logs/audio-reference-backend-765756.err"
+  ],
+  "empty_logits_directory_archived_as": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/reference_backend_check/b1c128f28ab325fba949911f19ee0f23ee5f23b9f7024897f2ba347651aa0426_failed_job765756",
+  "exception": {
+    "type": "RuntimeError",
+    "message": "miopenStatusInternalError",
+    "traceback": "Traceback (most recent call last):\n  File \"/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/tools/check_audio_reference_backend.py\", line 263, in main\n    baseline, before = evaluate_saved(payload['Y'], labels, payload['logits_before'], classifier,\n  File \"/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/tools/check_audio_reference_backend.py\", line 114, in evaluate_saved\n    logits = classifier((samples / norms).reshape(-1, 2, 129, 63).to(device)).cpu()\n  File \"/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py\", line 1751, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n  File \"/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py\", line 1762, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/experiments/poc_audio/audio_classifier.py\", line 20, in forward\n    return s.net(lm)\n  File \"/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py\", line 1751, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n  File \"/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py\", line 1762, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.venv/lib/python3.10/site-packages/torch/nn/modules/container.py\", line 240, in forward\n    input = module(input)\n  File \"/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py\", line 1751, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n  File \"/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py\", line 1762, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.venv/lib/python3.10/site-packages/torch/nn/modules/container.py\", line 240, in forward\n    input = module(input)\n  File \"/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py\", line 1751, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n  File \"/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py\", line 1762, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.venv/lib/python3.10/site-packages/torch/nn/modules/conv.py\", line 554, in forward\n    return self._conv_forward(input, self.weight, self.bias)\n  File \"/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.venv/lib/python3.10/site-packages/torch/nn/modules/conv.py\", line 549, in _conv_forward\n    return F.conv2d(\nRuntimeError: miopenStatusInternalError\n"
+  },
+  "passed": 0,
+  "failed": 1,
+  "training_or_benchmark_results_affected": false,
+  "logs": [
+    "outputs_rafm_input_study/v1/logs/audio-reference-backend-765756.out",
+    "outputs_rafm_input_study/v1/logs/audio-reference-backend-765756.err"
+  ]
+}

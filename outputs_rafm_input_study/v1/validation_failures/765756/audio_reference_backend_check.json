@@ -1,0 +1,350 @@
+{
+  "schema_version": 1,
+  "status": "failed",
+  "verification": [
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_audio_gain/delivery_manifest.json",
+      "sha256": "518a1e3bb88ad11599049704cf6d28c7d00eb581c5612ce6392eae8a475a479d",
+      "size_bytes": 12210,
+      "status": "passed"
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_audio_gain/fixed_spherical_empirical_gain_v1_attempt2/aggregate.json",
+      "sha256": "5a42958f17e830c9b1e795f8c8ae1169db10122e4b3558cb73cddfb8204d1fb7",
+      "size_bytes": 27959,
+      "status": "passed"
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/poc_audio/digit_classifier.pt",
+      "sha256": "1c68713e65df8c256bf8dd73edee70ba0e419381258cc46ff497042287946d50",
+      "size_bytes": 848206,
+      "status": "passed"
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/poc_audio/data/audiomnist_stft_test.pt",
+      "sha256": "c9ab95b3bcb0049f881a84d180bccbdedf4d25cf6723dc48cafb90e4a0e20209",
+      "size_bytes": 195085807,
+      "status": "passed"
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/poc_audio/data/audiomnist_stft_train.pt",
+      "sha256": "d4c0e10dcae8bdb2ad6e7bf05202a42e6a6af3b6fb064e6fc97e12432e0fe7be",
+      "size_bytes": 780337846,
+      "status": "passed"
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/experiments/poc_audio/audio_classifier.py",
+      "sha256": "7af21994c8e7f428252ed566dbfae8274bf0b3368b96509dd76f7f65136f923a",
+      "size_bytes": 2839,
+      "status": "passed"
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/experiments/poc_audio/audio_empirical_gain.py",
+      "sha256": "cc2ef04792bdce97157827847b84a77ffc82f5ac95cf484a40ea6213b5498301",
+      "size_bytes": 36548,
+      "status": "passed"
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/v1/audiomnist_stft/split_indices.pt",
+      "sha256": "a4d59c68aab7dca5a87f0f6bbb239f7b671735c9843b05de4b3001d11568bac1",
+      "size_bytes": 97747,
+      "status": "passed"
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_audio_gain/fixed_spherical_empirical_gain_v1_attempt2/seed_8925/eval.json",
+      "sha256": "4023ec6fe0c4dd339ebfddf0e2ce08a31955c862b3ed335c4d7fbd058264ae95",
+      "size_bytes": 5685,
+      "status": "passed"
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/data/tflow/audio_gain/run_c2da4743aafbc4fb37f39b92/seed_8925/samples.pt",
+      "sha256": "b7fc4fc2129dddcc3989ca9262f223d66e686581b87f6c8f71f24dd059a178d9",
+      "size_bytes": 260258769,
+      "status": "passed"
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_audio_gain/fixed_spherical_empirical_gain_v1_attempt2/seed_1234/eval.json",
+      "sha256": "cc689c7d84546e78c115a309740d075a45238156f84114f3d84fddf4956cbd5c",
+      "size_bytes": 5670,
+      "status": "passed"
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/data/tflow/audio_gain/run_c2da4743aafbc4fb37f39b92/seed_1234/samples.pt",
+      "sha256": "63b3b66f3908da59da3a0e9e1634d7558f81b9cc0871e961d5bdd9771866a3da",
+      "size_bytes": 260258769,
+      "status": "passed"
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_audio_gain/fixed_spherical_empirical_gain_v1_attempt2/seed_7/eval.json",
+      "sha256": "771d7d99c0f27a9538c0ee31502539dd5c06d74c0d24f320da00c82e1d0fecff",
+      "size_bytes": 5663,
+      "status": "passed"
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/data/tflow/audio_gain/run_c2da4743aafbc4fb37f39b92/seed_7/samples.pt",
+      "sha256": "765d6e89df14e08fb30ec6a909d6f52b4a49f76ff0a022b3c3a43747205e40a5",
+      "size_bytes": 260258769,
+      "status": "passed"
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/data/tflow/audio_gain/run_c2da4743aafbc4fb37f39b92/paired_gains.pt",
+      "sha256": "8bc958c3de4bcdeeb73397711300193b8e7847229d84ca4dfd695dcea5065627",
+      "size_bytes": 155471,
+      "status": "passed"
+    }
+  ],
+  "runs": [],
+  "generation_performed": false,
+  "training_updates": 0,
+  "gain_draws": 0,
+  "gain_rescaling_performed": false,
+  "existing_artifacts_modified": false,
+  "purpose": "Measured compatibility of saved fixed-spherical Y/X under the new study classifier path",
+  "hardware": {
+    "host": "auh7-3b-gpu-008",
+    "slurm_job_id": "765756",
+    "python": "3.10.12",
+    "torch": "2.7.1+rocm6.3",
+    "cuda": null,
+    "hip": "6.3.42131-fa1d09cbd",
+    "gpu": "AMD Instinct MI210",
+    "vram_bytes": 68702699520
+  },
+  "delivery_manifest": {
+    "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_audio_gain/delivery_manifest.json",
+    "sha256": "518a1e3bb88ad11599049704cf6d28c7d00eb581c5612ce6392eae8a475a479d",
+    "result_commit": "5d592a2da57d17ad8f1cb7c6e5b6c48267438d32",
+    "commit_role": "Recorded evaluation delivery; not a training commit"
+  },
+  "aggregate": {
+    "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_audio_gain/fixed_spherical_empirical_gain_v1_attempt2/aggregate.json",
+    "sha256": "5a42958f17e830c9b1e795f8c8ae1169db10122e4b3558cb73cddfb8204d1fb7",
+    "original_status": "baseline_mismatch"
+  },
+  "config_sha256": "38c27cb839fb0249efbd684c992b5c70aea01a40435a34ef3e846439a76611fc",
+  "config": {
+    "schema_version": 1,
+    "condition_id": "audiomnist_stft",
+    "kind": "audio",
+    "protocol_status": "resolved",
+    "blocking_issues": [],
+    "seeds": [
+      8925,
+      1234,
+      7
+    ],
+    "data": {
+      "input": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/poc_audio/data/audiomnist_stft_train.pt",
+        "sha256": "d4c0e10dcae8bdb2ad6e7bf05202a42e6a6af3b6fb064e6fc97e12432e0fe7be"
+      },
+      "shape": [
+        12000,
+        16254
+      ],
+      "split": {
+        "kind": "indices",
+        "seed": 0,
+        "n_train": 10200,
+        "n_val": 1800,
+        "n_test": 0,
+        "file": {
+          "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/v1/audiomnist_stft/split_indices.pt",
+          "sha256": "a4d59c68aab7dca5a87f0f6bbb239f7b671735c9843b05de4b3001d11568bac1"
+        }
+      },
+      "transform": "as_cached",
+      "external_test": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/poc_audio/data/audiomnist_stft_test.pt",
+        "sha256": "c9ab95b3bcb0049f881a84d180bccbdedf4d25cf6723dc48cafb90e4a0e20209"
+      }
+    },
+    "model": {
+      "kind": "audio_unet",
+      "ch": 96,
+      "class_dropout": 0.1
+    },
+    "training": {
+      "steps": 24000,
+      "batch_size": 32,
+      "optimizer": "AdamW",
+      "lr": 0.0002,
+      "betas": [
+        0.9,
+        0.95
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "gradient_clip": null,
+      "ema": 0.999,
+      "precision": "bfloat16_autocast",
+      "batch_rule": "step_seeded",
+      "compile": false,
+      "checkpoint_every": 2000,
+      "log_every": 500,
+      "class_dropout": 0.1
+    },
+    "evaluation": {
+      "n_samples": 2000,
+      "model_evaluations": 160,
+      "sample_batch_size": 128,
+      "sample_seed": 0,
+      "metric_seed": 0,
+      "metric_seed_note": "Common new seed-0 metric projections across A/B/C and t-Flow; historical projections unavailable.",
+      "classifier": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/poc_audio/digit_classifier.pt",
+        "sha256": "1c68713e65df8c256bf8dd73edee70ba0e419381258cc46ff497042287946d50"
+      }
+    },
+    "sampler": {
+      "t_min": 0.001,
+      "rho": 7.0,
+      "grid": "power_sigma",
+      "sigma_min": 0.01
+    },
+    "tuning": {
+      "seed": 46021,
+      "nu": [
+        3,
+        5,
+        7
+      ],
+      "scale_multipliers": [
+        0.5,
+        1,
+        2
+      ],
+      "stage1_fraction": 0.05,
+      "continuation_fraction": 0.1,
+      "n_finalists": 2,
+      "validation_generated_samples": 1000,
+      "sample_seed": 61717,
+      "projection_seed": 61719
+    },
+    "provenance": {
+      "paper_sha256": "97f709df2a45e4acf4ba186379c60e9c75120d95e09af782d7a18c8b56d00367",
+      "baseline_commit": "5b89ed5f4af8a47c3b57eb9d595203daafc6d2c4",
+      "source_artifacts": [
+        "experiments/poc_audio/audio_data.py",
+        "experiments/poc_audio/audio_flow.py",
+        "experiments/poc_audio/audio_eval.py",
+        "experiments/poc_audio/launch_stage2_seeds.bat",
+        "experiments/poc_audio/stage2_3seed.json"
+      ],
+      "cached_input_only": true,
+      "existing_results_unchanged": true,
+      "study_id": "rafm_input_parameterization_v1",
+      "historical_result_reuse": false,
+      "comparison_label": "new_matched_runs_on_verified_existing_cache",
+      "original_prepared_config_sha256": "b115e71e1006d26917d027fef73239e8bc0a5dca97a80ca4ed6fb56cdc695c40",
+      "batch_resolution": {
+        "prepared_value": 32,
+        "selected_value": 32,
+        "evidence": "Supplied PDF p34 C.7: Student-t/PIV256; Weather2048; other vectors4096; downstream p35 C.10"
+      },
+      "original_split_spec": {
+        "kind": "random",
+        "seed": 0,
+        "n_train": 10200,
+        "n_val": 1800,
+        "n_test": 0
+      },
+      "generation": null,
+      "shared_preparation_identity_sha256": "247310996b875843c4314f6adbf3fb88de14e9f352b892d3e22486d704672436"
+    },
+    "experiment_launch_status": "authorized_after_correctness_checks_and_verified_cache",
+    "rafm_sampling_source": {
+      "kind": "radial_empirical_ecdf",
+      "fit_split": "generator_train_only",
+      "implementation": "rafm/sources/radial_empirical.py:RadialEmpiricalSource(mode=ecdf)",
+      "interpolation": "torch.quantile linear, independent uniform radius draw",
+      "log_radius_source": false,
+      "evidence": [
+        "rebuttal_experiments/configs/E1_studentt_d16.yaml",
+        "rebuttal_experiments/configs/E1_gaussian_d16.yaml",
+        "rebuttal_experiments/configs/E5_toy2d.yaml",
+        "rebuttal_experiments/configs/E6_dim16.yaml",
+        "rebuttal_experiments/configs/E8_df3.0.yaml",
+        "rebuttal_experiments/scripts/run_real.py",
+        "experiments/poc_audio/audio_flow.py",
+        "experiments/image_latents/dit/dit_train_sit.py"
+      ],
+      "note": "Explicit angular_rafm entries use empirical ECDF; rafm_oracle is a separate reference method."
+    },
+    "study": {
+      "id": "rafm_input_parameterization_v1",
+      "methods": [
+        "A",
+        "B",
+        "C",
+        "tflow"
+      ],
+      "training_seeds_shared": true,
+      "new_A_rerun": true,
+      "B_C_additional_tuning_steps": 0,
+      "final_checkpoint_selection": "prescribed_final_update_or_final_EMA",
+      "radius_stat_fit_split": "generator_train_only",
+      "authorization": "User authorized full t-Flow and A/B/C study on 2026-09-10, after small correctness runs"
+    },
+    "shared_cache": {
+      "directory": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/v1/audiomnist_stft",
+      "manifest_path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/v1/audiomnist_stft/manifest.json",
+      "manifest_sha256": "0ab9076e6bb1421f908c5b988720e2bb83d328a6e2642f105713170ec42d6a7c"
+    }
+  },
+  "original_historical_reproduction_discrepancy_preserved": true,
+  "classifier": {
+    "path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/poc_audio/digit_classifier.pt",
+    "sha256": "1c68713e65df8c256bf8dd73edee70ba0e419381258cc46ff497042287946d50"
+  },
+  "external_test": {
+    "path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/poc_audio/data/audiomnist_stft_test.pt",
+    "sha256": "c9ab95b3bcb0049f881a84d180bccbdedf4d25cf6723dc48cafb90e4a0e20209"
+  },
+  "source_sha256": {
+    "tools/check_audio_reference_backend.py": "d41d2a1cc37533de55b346a80f1b99ffbe885da0202cb75e71884d8dc69ccb9d",
+    "experiments/rafm_inputs/run.py": "58fdbc9ae54dab4c43278bb58c0b7ed2fbef1fbd94c7f56f0be3332e4d359818",
+    "experiments/tflow/run.py": "67b512f5607525814d08f60195846741089714e134bb65303904bbdea9849f0c",
+    "rafm/utils/seeds.py": "8b6e8cea98a6519f7067808163f065d6d797df0d82aec4d3dfbc6d8ee76bbf39",
+    "experiments/poc_audio/audio_classifier.py": "7af21994c8e7f428252ed566dbfae8274bf0b3368b96509dd76f7f65136f923a",
+    "experiments/poc_audio/audio_empirical_gain.py": "cc2ef04792bdce97157827847b84a77ffc82f5ac95cf484a40ea6213b5498301"
+  },
+  "generator_split_indices_match": true,
+  "logits_directory": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/reference_backend_check/b1c128f28ab325fba949911f19ee0f23ee5f23b9f7024897f2ba347651aa0426",
+  "backend_before_study_seed_helper": {
+    "cudnn_deterministic": false,
+    "cudnn_benchmark": false,
+    "cudnn_allow_tf32": true,
+    "matmul_allow_tf32": false,
+    "deterministic_algorithms": false,
+    "float32_matmul_precision": "highest",
+    "normalization_device": "cpu",
+    "normalization_dtype": "float32",
+    "classifier_device": "cuda:0",
+    "classifier_dtype": "float32",
+    "autocast": false,
+    "classifier_batch_size": 2000,
+    "metric_seed": 0
+  },
+  "backend_flags": {
+    "cudnn_deterministic": true,
+    "cudnn_benchmark": false,
+    "cudnn_allow_tf32": true,
+    "matmul_allow_tf32": false,
+    "deterministic_algorithms": false,
+    "float32_matmul_precision": "highest",
+    "normalization_device": "cpu",
+    "normalization_dtype": "float32",
+    "classifier_device": "cuda:0",
+    "classifier_dtype": "float32",
+    "autocast": false,
+    "classifier_batch_size": 2000,
+    "metric_seed": 0
+  },
+  "runtime_s": 8.191485952585936,
+  "failure": {
+    "type": "RuntimeError",
+    "message": "miopenStatusInternalError",
+    "traceback": "Traceback (most recent call last):\n  File \"/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/tools/check_audio_reference_backend.py\", line 263, in main\n    baseline, before = evaluate_saved(payload['Y'], labels, payload['logits_before'], classifier,\n  File \"/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/tools/check_audio_reference_backend.py\", line 114, in evaluate_saved\n    logits = classifier((samples / norms).reshape(-1, 2, 129, 63).to(device)).cpu()\n  File \"/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py\", line 1751, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n  File \"/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py\", line 1762, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/experiments/poc_audio/audio_classifier.py\", line 20, in forward\n    return s.net(lm)\n  File \"/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py\", line 1751, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n  File \"/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py\", line 1762, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.venv/lib/python3.10/site-packages/torch/nn/modules/container.py\", line 240, in forward\n    input = module(input)\n  File \"/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py\", line 1751, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n  File \"/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py\", line 1762, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.venv/lib/python3.10/site-packages/torch/nn/modules/container.py\", line 240, in forward\n    input = module(input)\n  File \"/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py\", line 1751, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n  File \"/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py\", line 1762, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.venv/lib/python3.10/site-packages/torch/nn/modules/conv.py\", line 554, in forward\n    return self._conv_forward(input, self.weight, self.bias)\n  File \"/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.venv/lib/python3.10/site-packages/torch/nn/modules/conv.py\", line 549, in _conv_forward\n    return F.conv2d(\nRuntimeError: miopenStatusInternalError\n"
+  }
+}

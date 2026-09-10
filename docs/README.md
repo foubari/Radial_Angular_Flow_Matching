@@ -1,13 +1,34 @@
-# RAFM extension preparation
+# RAFM experiment extension
 
 Implementation branch: `experiments/tflow-empirical-gain` in
 `foubari/Radial_Angular_Flow_Matching`, based on
 `5b89ed5f4af8a47c3b57eb9d595203daafc6d2c4`.
 
-**No training, tuning, checkpoint evaluation, or benchmark sampling has been
-launched for this extension.** The next experiment approval is Stage A in
-[the concrete run plan](run_plan.md). Passing correctness tests does not establish
-benchmark performance or remove the documented artifact and protocol blockers.
+**The user authorized the matched t-Flow and RAFM-Ang A/B/C study on
+2026-09-10; it is running on separate cluster compute nodes.** See the
+[launch/status record](../outputs_rafm_input_study/v1/STATUS.md),
+[current result snapshot](../outputs_rafm_input_study/v1/report/README.md), and
+[measured findings](../outputs_rafm_input_study/v1/report/findings.md).
+Twenty-six of 28 requested conditions have verified inputs; native PIV d32 and
+the image split/reference mapping remain blocked. No completed experiment or
+quality improvement is implied by successful correctness checks.
+
+The active reproducible configurations are `configs/rafm_input_study/prepared/`.
+The [shared protocol](rafm_input_study_protocol.md),
+[A/B/C parameterization](rafm_input_method.md), and
+[launch commands and immutable manifests](shared_study_launch.md) supersede the
+older preparation-only launch restrictions below. New synthetic realizations
+are explicitly labelled shared comparisons; historical results are preserved.
+The [t-Flow backbone failure analysis](tflow_matched_backbone_failure_analysis.md)
+documents the interpretation limits of the observed failed runs, including the
+direct-noise MLP's output-rank limitation. Failures are retained, not retuned.
+
+The completed fixed-spherical audio gain control and its measured current-backend
+reevaluation are separate references. Exact digit predictions, energy KS and tail
+coverage agree; small PIT/radial reduction differences and the discrepancy from
+historical paper accuracy remain recorded.
+
+The following documents retain the earlier preparation and provenance audit:
 
 - [Run plan and resource estimates](run_plan.md): five resolved sanity cases,
   validation-only source selection, full-suite scope, and explicit launch commands.
@@ -28,7 +49,7 @@ benchmark performance or remove the documented artifact and protocol blockers.
   remaining access failures. A failed anonymous private-release lookup does not
   establish that an artifact is absent.
 
-Prepared JSON configurations are under `configs/tflow/prepared/`. Unresolved
+Earlier prepared JSON configurations are under `configs/tflow/prepared/`. Unresolved
 conditions refuse execution. Final model jobs require a frozen validation-only
 source choice and an allocation with exactly one visible GPU. Reporting requires
 all three final seeds and preserves failed or incomplete conditions explicitly.

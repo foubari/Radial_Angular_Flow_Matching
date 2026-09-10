@@ -62,6 +62,15 @@ def plot_report(report, output):
         axis.grid(axis='y', alpha=.2)
         axis.margins(x=.035)
 
+    def magnitude_scale(axis, linthresh):
+        # Default symlog ticks can miss a narrow positive range entirely.
+        # Include the plotted error bars when deciding whether compression helps.
+        lower, upper = axis.dataLim.intervaly
+        if 0 < lower <= upper and upper / lower < 10:
+            axis.set_yscale('linear')
+        else:
+            axis.set_yscale('symlog', linthresh=linthresh)
+
     # Paired differences answer the input and radius-conditioning questions.
     for contrast in ('B-A', 'B-C'):
         panels = []
@@ -109,25 +118,26 @@ def plot_report(report, output):
                     included.append({'condition': condition['condition_id'], 'method': method, 'metric': metric})
             if kind == 'audio':
                 ref = report['fixed_spherical_gain_reference']
-                if ref.get('eligible_for_prepared_protocol') and ref.get('backend_compatibility', {}).get('verified') is True:
-                    value = ref['measured_full_precision']['digit_acc']
-                    axis.errorbar(.4, value['mean'], yerr=value['std'], fmt='*', color='#555555', markersize=10, capsize=3)
+                current = ref.get('current_backend_reference', {})
+                if ref.get('eligible_for_prepared_protocol') and current.get('usable_for_comparison') is True:
+                    value = current['aggregate_metrics']['posthoc']['digit_acc']
+                    axis.errorbar(.4, value['mean'], yerr=value['std_population'], fmt='*', color='#555555', markersize=10, capsize=3)
                     included.append({'condition': 'audiomnist_stft', 'method': 'fixed_spherical_empirical_gain_reference', 'metric': 'digit_acc', 'historical_accuracy_mismatch_preserved': True})
             axis.set_ylabel(metric)
             axis.set_title(kind)
             if kind != 'audio':
-                axis.set_yscale('symlog', linthresh=1e-4)
+                magnitude_scale(axis, linthresh=1e-4)
             labels(axis, [c['condition_id'] for c in rows])
         handles = [Line2D([], [], marker='o', linestyle='', color=color, label=method) for method, color in colors.items()]
         handles.append(Line2D([], [], marker='*', linestyle='', color='#555555', label='Fixed-spherical + gain reference'))
         axes[0, 0].legend(handles=handles, ncol=5, fontsize=8)
         finish(fig, 'quality_tflow_and_rafm_inputs', 'Measured quality at matched final training budgets', included,
-               'Complete three-seed method means and population SD. Vector/image axes use symmetric-log scaling with linear threshold 1e-4. The audio reference retains its measured approximately 0.8067 accuracy versus reported 0.810 discrepancy; its historical training runtime is not compared.')
+               'Complete three-seed method means and population SD. Vector/image axes use linear scaling for positive ranges spanning less than a decade (including error bars), otherwise symmetric-log scaling with linear threshold 1e-4. Audio uses measured current-backend evaluation of the saved checkpoint outputs; the raw backend discrepancy in PIT/radial W1 remains recorded. Reference accuracy remains approximately 0.8067 versus reported 0.810; historical training runtime is not compared.')
 
     # Downstream content and calibration share one explicitly labelled reference.
     audio_rows = report.get('audio_comparison_rows', [])
     if any(row['status'] == 'complete' for row in audio_rows):
-        rows = [row for row in audio_rows if row['status'] in ('complete', 'verified_checkpoint_reference')]
+        rows = [row for row in audio_rows if row['status'] in ('complete', 'measured_under_current_backend', 'measured_under_current_backend_with_recorded_differences')]
         fig, axes = plt.subplots(2, 2, figsize=(12, 9), squeeze=False)
         included = []
         metrics = [('digit_acc', 'Digit accuracy; higher is better', None),
@@ -138,10 +148,10 @@ def plot_report(report, output):
             names = []
             for index, row in enumerate(rows):
                 value = row['metrics'].get(metric)
-                names.append('Fixed-spherical + gain\ncheckpoint reference' if row['status'] == 'verified_checkpoint_reference' else row['method'])
+                reference = row['method'] == 'fixed_spherical_empirical_gain_reference'
+                names.append('Fixed-spherical + gain\ncurrent-backend reference' if reference else row['method'])
                 if value is None:
                     continue
-                reference = row['status'] == 'verified_checkpoint_reference'
                 color = '#555555' if reference else colors[row['method']]
                 axis.errorbar(index, value['mean'], yerr=value['std_population'], fmt='*' if reference else 'o', color=color, markersize=10 if reference else 6, capsize=3)
                 axis.scatter([index - .07, index, index + .07], value['values'], s=13, color=color, alpha=.55)
@@ -151,7 +161,7 @@ def plot_report(report, output):
             axis.set_ylabel(label)
             labels(axis, names)
         finish(fig, 'audio_content_energy_and_tails', 'AudioMNIST content and energy calibration', included,
-               'Complete measured seed triplets, including the verified fixed-spherical plus empirical-gain checkpoint reference. Accuracy is 0.8066667 with population SD 0.00735225, not the historical paper value 0.810 ± 0.013. Dashed coverage targets are 0.05 and 0.01. The reference is neither new arm A nor a matched training-runtime observation. The benchmark constructs gain independently of digit/content; radius-conditioning gains are not assumed.')
+               'Complete measured seed triplets, including the saved fixed-spherical plus empirical-gain outputs re-evaluated under the current backend. The raw audit discrepancy is preserved: predictions/accuracy/KS/coverage are unchanged, while PIT/radial W1 and some original fixed-radius energy-bin assignments differ. Accuracy is 0.8066667 with population SD 0.00735225, not historical 0.810 ± 0.013. Dashed coverage targets are 0.05 and 0.01. This reference is neither new A nor a matched training-runtime observation. Gain is constructed independently of digit/content; radius-conditioning gains are not assumed.')
 
     # Dependence-sensitive angular fit in each radius bin.
     rows = [c for c in report['conditions'] if any('angular_sw_bin0' in g['aggregate'] for g in c['methods'].values())]
@@ -169,7 +179,7 @@ def plot_report(report, output):
                     included.append({'condition': condition['condition_id'], 'method': method, 'metric': metric})
             axis.set_ylabel('Angular sliced W1')
             axis.set_title(f'Test-radius quartile bin {bin_index}; lower is better')
-            axis.set_yscale('symlog', linthresh=1e-5)
+            magnitude_scale(axis, linthresh=1e-5)
             labels(axis, [c['condition_id'] for c in rows])
         axes[0, 0].legend(handles=[Line2D([], [], marker='o', linestyle='', color=color, label=method) for method, color in colors.items()], ncol=4)
         finish(fig, 'angular_fit_by_radius_bin', 'Angular fit conditional on radius', included,
@@ -189,7 +199,7 @@ def plot_report(report, output):
                     axis.errorbar(index + offset, value['mean'], yerr=value['std_population'], fmt='o', color=colors[arm], capsize=2)
                     included.append({'condition': condition['condition_id'], 'method': arm, 'radius_drift': metric})
             axis.set_ylabel(metric.replace('_', ' ') + ' radius drift')
-            axis.set_yscale('symlog', linthresh=1e-7)
+            magnitude_scale(axis, linthresh=1e-7)
             labels(axis, [c['condition_id'] for c in rows])
         axes[0, 0].legend(handles=[Line2D([], [], marker='o', linestyle='', color=colors[arm], label=arm) for arm in ('A', 'B', 'C')], ncol=3)
         finish(fig, 'ambient_sampler_radius_drift', 'Measured ambient RAFM sampler radius drift', included,
@@ -210,7 +220,7 @@ def plot_report(report, output):
                     included.append({'condition': condition['condition_id'], 'method': method, 'metric': metric})
             axis.set_ylabel(label)
             if metric != 'conditioning_overhead_fraction':
-                axis.set_yscale('symlog', linthresh=1)
+                magnitude_scale(axis, linthresh=1)
             labels(axis, [c['condition_id'] for c in rows])
         axes[0, 0].legend(handles=[Line2D([], [], marker='o', linestyle='', color=color, label=method) for method, color in colors.items()], ncol=4)
         finish(fig, 'measured_runtime_and_parameter_overhead', 'Recorded cost and conditioning overhead', included,

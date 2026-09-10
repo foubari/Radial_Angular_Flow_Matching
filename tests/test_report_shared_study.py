@@ -62,6 +62,44 @@ def rows(arm='A', values=(1., 2., 3.)):
     return out
 
 
+def backend_fixture(root):
+    def artifact(name):
+        path = root / name; path.parent.mkdir(parents=True, exist_ok=True); path.write_text('fixture ' + name)
+        return {'path': str(path), 'sha256': report.sha256(path)}
+    cfg = {'seeds': [8925, 1234, 7], 'evaluation': {'n_samples': 2000, 'classifier': artifact('classifier.pt')},
+           'data': {'input': artifact('train.pt'), 'external_test': artifact('test.pt'), 'split': {'file': artifact('split.pt')}}}
+    sources = {name: artifact(name)['sha256'] for name in (
+        'tools/check_audio_reference_backend.py', 'experiments/rafm_inputs/run.py', 'experiments/tflow/run.py',
+        'rafm/utils/seeds.py', 'experiments/poc_audio/audio_classifier.py', 'experiments/poc_audio/audio_empirical_gain.py')}
+    metrics = {'digit_acc': .8, 'energy_KS': .02, 'cov>q90': .1, 'cov>q95': .05, 'cov>q99': .01,
+               'cov<q10': .1, 'PIT': .49, 'radial_w1': .04}
+    energy_names = {'energy_KS': 'ks', 'cov>q90': 'cov_gt_q90', 'cov>q95': 'cov_gt_q95',
+                    'cov>q99': 'cov_gt_q99', 'cov<q10': 'cov_lt_q10', 'PIT': 'pit_mean', 'radial_w1': 'radial_w1'}
+    originals, runs = [], []
+    verification = [dict(item, status='passed') for item in (cfg['data']['input'], cfg['data']['external_test'], cfg['data']['split']['file'], cfg['evaluation']['classifier'])]
+    for seed in cfg['seeds']:
+        sample = artifact(f'seed_{seed}/samples.pt'); verification.append(dict(sample, status='passed'))
+        original = {'seed': seed, 'samples': sample}
+        row = {'seed': seed, 'n': 2000, 'input_samples': sample, 'invariance': {'passed': True, 'prediction_disagreements': 0}}
+        for arm in ('baseline', 'posthoc'):
+            original[arm] = {'unrounded': {'digit_acc': metrics['digit_acc'], 'energy': {name: metrics[key] for key, name in energy_names.items()}}}
+            row[arm] = {'metrics': dict(metrics), 'comparison': {'prediction_disagreements_vs_cached': 0,
+                        'energy_ks_tail_metrics_exactly_equal': True, 'old_metrics': dict(metrics), 'metric_deltas': {key: 0. for key in metrics}}}
+        originals.append(original); runs.append(row)
+    aggregate = root / 'aggregate.json'; report.write_json(aggregate, {'status': 'baseline_mismatch', 'runs': originals})
+    audit = {'status': 'passed', 'config': cfg, 'config_sha256': report.config_hash(cfg), 'aggregate': {'sha256': report.sha256(aggregate)},
+        'classifier': cfg['evaluation']['classifier'], 'external_test': cfg['data']['external_test'], 'generator_split_indices_match': True,
+        'source_sha256': sources, 'verification': verification, 'generation_performed': False, 'training_updates': 0,
+        'totals': {'old_vs_new_prediction_disagreements': 0, 'postrescale_prediction_disagreements': 0}, 'runs': runs}
+    refresh_backend_aggregates(audit)
+    return cfg, {'path': str(aggregate), 'eligible_for_prepared_protocol': True}, audit
+
+
+def refresh_backend_aggregates(audit):
+    audit['aggregate_metrics'] = {arm: {key: {'mean': statistics.mean(values), 'std_population': statistics.pstdev(values), 'values': values, 'n': 3}
+        for key in report.AUDIO for values in [[row[arm]['metrics'][key] for row in audit['runs']]]} for arm in ('baseline', 'posthoc')}
+
+
 class SharedReportTests(unittest.TestCase):
     def test_only_exact_three_seed_summary(self):
         for values in ([1], [1, 2], [1, 2, 3, 4], [1, 2, math.nan]):
@@ -182,14 +220,17 @@ class SharedReportTests(unittest.TestCase):
                   'cov>q95': .05, 'cov>q99': .0145}
         data = {'conditions': [{'condition_id': 'audiomnist_stft', 'methods': {
             arm: {'status': 'incomplete', 'aggregate': {}} for arm in ('A', 'B', 'C', 'tflow')}}],
-            'fixed_spherical_gain_reference': {'eligible_for_prepared_protocol': True, 'backend_compatibility': {'verified': True},
+            'fixed_spherical_gain_reference': {'eligible_for_prepared_protocol': True, 'backend_compatibility': {'verified': False},
                 'training_seeds': [8925, 1234, 7],
-                'measured_full_precision': {key: {'mean': value, 'std': .007352248333 if key == 'digit_acc' else 0.,
-                                                  'vals': [value] * 3} for key, value in values.items()}}}
+                'measured_full_precision': {'digit_acc': {'mean': .999}},
+                'current_backend_reference': {'usable_for_comparison': True, 'status': 'measured_under_current_backend_with_recorded_differences',
+                    'audit_sha256': 'fixture-audit', 'aggregate_metrics': {'posthoc': {
+                        key: {'mean': value, 'std_population': .007352248333 if key == 'digit_acc' else 0.,
+                              'values': [value] * 3, 'n': 3} for key, value in values.items()}}}}}
         rows = report.audio_comparison_rows(data)
         self.assertEqual(len(rows), 5)
         reference = rows[-1]
-        self.assertEqual(reference['status'], 'verified_checkpoint_reference')
+        self.assertEqual(reference['status'], 'measured_under_current_backend_with_recorded_differences')
         self.assertIn('not new A or historical paper value', reference['role'])
         self.assertEqual(set(reference['metrics']), set(values))
         self.assertEqual(reference['metrics']['digit_acc']['mean'], values['digit_acc'])
@@ -201,31 +242,55 @@ class SharedReportTests(unittest.TestCase):
     def test_audio_backend_must_measure_zero_changes_and_matching_energy(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
-            aggregate = root / 'aggregate.json'; report.write_json(aggregate, {'status': 'baseline_mismatch'})
-            cfg = {'seeds': [8925, 1234, 7], 'evaluation': {'n_samples': 2000}}
-            reference = {'path': str(aggregate)}
+            cfg, reference, audit = backend_fixture(root)
             path = root / 'audit.json'
             report.attach_reference_backend(reference, cfg, path)
             self.assertFalse(reference['backend_compatibility']['verified'])
-            audit = {'status': 'passed', 'config_sha256': report.config_hash(cfg),
-                'aggregate': {'sha256': report.sha256(aggregate)},
-                'totals': {'old_vs_new_prediction_disagreements': 0, 'postrescale_prediction_disagreements': 0},
-                'runs': [{'seed': seed, 'n': 2000, 'invariance': {'passed': True, 'prediction_disagreements': 0},
-                          'baseline': {'comparison': {'prediction_disagreements_vs_cached': 0, 'energy_ks_tail_metrics_exactly_equal': True}},
-                          'posthoc': {'comparison': {'prediction_disagreements_vs_cached': 0, 'energy_ks_tail_metrics_exactly_equal': True}}}
-                         for seed in cfg['seeds']]}
             report.write_json(path, audit)
-            report.attach_reference_backend(reference, cfg, path)
+            with patch.object(report, 'ROOT', root):
+                report.attach_reference_backend(reference, cfg, path)
             self.assertTrue(reference['backend_compatibility']['verified'])
+            self.assertTrue(reference['current_backend_reference']['usable_for_comparison'])
             audit['runs'][1]['posthoc']['comparison']['prediction_disagreements_vs_cached'] = 1
             report.write_json(path, audit)
-            report.attach_reference_backend(reference, cfg, path)
+            with patch.object(report, 'ROOT', root):
+                report.attach_reference_backend(reference, cfg, path)
             self.assertFalse(reference['backend_compatibility']['verified'])
+            self.assertFalse(reference['current_backend_reference']['usable_for_comparison'])
             audit['runs'][1]['posthoc']['comparison']['prediction_disagreements_vs_cached'] = 0
-            audit['runs'][0]['baseline']['comparison']['energy_ks_tail_metrics_exactly_equal'] = False
+            audit['runs'][0]['baseline']['metrics']['energy_KS'] = .03
             report.write_json(path, audit)
-            report.attach_reference_backend(reference, cfg, path)
+            with patch.object(report, 'ROOT', root):
+                report.attach_reference_backend(reference, cfg, path)
+            self.assertFalse(reference['current_backend_reference']['usable_for_comparison'])
+
+    def test_pit_discrepancy_reuses_only_verified_current_measurements(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory); cfg, reference, audit = backend_fixture(root)
+            audit['status'] = 'compatibility_discrepancy'
+            for row in audit['runs']:
+                posthoc = row['posthoc']; posthoc['metrics']['PIT'] -= 5e-7
+                posthoc['comparison']['energy_ks_tail_metrics_exactly_equal'] = False
+                posthoc['comparison']['metric_deltas']['PIT'] = posthoc['metrics']['PIT'] - posthoc['comparison']['old_metrics']['PIT']
+            refresh_backend_aggregates(audit)
+            path = root / 'audit.json'; report.write_json(path, audit)
+            with patch.object(report, 'ROOT', root):
+                report.attach_reference_backend(reference, cfg, path)
+            current = reference['current_backend_reference']
+            self.assertTrue(current['usable_for_comparison'])
+            self.assertEqual(current['status'], 'measured_under_current_backend_with_recorded_differences')
             self.assertFalse(reference['backend_compatibility']['verified'])
+            self.assertEqual(reference['backend_compatibility']['audit_status'], 'compatibility_discrepancy')
+            self.assertEqual(current['aggregate_metrics']['posthoc']['PIT']['mean'], .49 - 5e-7)
+            for bad in ('missing_measurement', 'changed_dataset', 'changed_source'):
+                altered = copy.deepcopy(audit)
+                if bad == 'missing_measurement': del altered['aggregate_metrics']['posthoc']['PIT']
+                if bad == 'changed_dataset': altered['external_test']['sha256'] = 'different'
+                if bad == 'changed_source': altered['source_sha256']['experiments/rafm_inputs/run.py'] = 'different'
+                report.write_json(path, altered)
+                with patch.object(report, 'ROOT', root):
+                    report.attach_reference_backend(reference, cfg, path)
+                self.assertFalse(reference['current_backend_reference']['usable_for_comparison'], bad)
 
     def test_plotting_skips_without_inventing_results(self):
         specification = importlib.util.spec_from_file_location('shared_plot', ROOT / 'tools/plot_shared_study.py')

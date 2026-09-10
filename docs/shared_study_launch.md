@@ -181,3 +181,7 @@ The startup correction additionally passed five mocked wrapper/argument/evidence
 checks and four mocked fresh-process gate checks. They establish initialization
 ordering and refusal behavior without executing a model on a login node. GPU
 validation reports are separate evidence and are required before resubmission.
+
+## Live dependency optimization (2026-09-10)
+
+The initial full-array dependency remains the reproducible default above. For the active launch, workers 3/4/5 each had all thirteen final-task source selections verified after tuning workers 1–5 finished. Their scheduler dependencies were changed to `afterany:765758` (the short saved-output audio classifier audit), allowing these 39 final vector tasks to overlap the still-running audio selection. Final workers 0/1/2 keep `afterany:765741`. The mutation is recorded with all receipt hashes in `outputs_tflow_full/v2/launch/ready_final_workers_dependency_update.json`. No task shard, command, configuration, source byte or numerical budget changed, and at most six GPUs are allocated on node 008.

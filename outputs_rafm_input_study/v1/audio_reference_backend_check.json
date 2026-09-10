@@ -1,0 +1,1204 @@
+{
+  "schema_version": 1,
+  "status": "compatibility_discrepancy",
+  "verification": [
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_audio_gain/delivery_manifest.json",
+      "sha256": "518a1e3bb88ad11599049704cf6d28c7d00eb581c5612ce6392eae8a475a479d",
+      "size_bytes": 12210,
+      "status": "passed"
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_audio_gain/fixed_spherical_empirical_gain_v1_attempt2/aggregate.json",
+      "sha256": "5a42958f17e830c9b1e795f8c8ae1169db10122e4b3558cb73cddfb8204d1fb7",
+      "size_bytes": 27959,
+      "status": "passed"
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/poc_audio/digit_classifier.pt",
+      "sha256": "1c68713e65df8c256bf8dd73edee70ba0e419381258cc46ff497042287946d50",
+      "size_bytes": 848206,
+      "status": "passed"
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/poc_audio/data/audiomnist_stft_test.pt",
+      "sha256": "c9ab95b3bcb0049f881a84d180bccbdedf4d25cf6723dc48cafb90e4a0e20209",
+      "size_bytes": 195085807,
+      "status": "passed"
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/poc_audio/data/audiomnist_stft_train.pt",
+      "sha256": "d4c0e10dcae8bdb2ad6e7bf05202a42e6a6af3b6fb064e6fc97e12432e0fe7be",
+      "size_bytes": 780337846,
+      "status": "passed"
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/experiments/poc_audio/audio_classifier.py",
+      "sha256": "7af21994c8e7f428252ed566dbfae8274bf0b3368b96509dd76f7f65136f923a",
+      "size_bytes": 2839,
+      "status": "passed"
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/experiments/poc_audio/audio_empirical_gain.py",
+      "sha256": "cc2ef04792bdce97157827847b84a77ffc82f5ac95cf484a40ea6213b5498301",
+      "size_bytes": 36548,
+      "status": "passed"
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/v1/audiomnist_stft/split_indices.pt",
+      "sha256": "a4d59c68aab7dca5a87f0f6bbb239f7b671735c9843b05de4b3001d11568bac1",
+      "size_bytes": 97747,
+      "status": "passed"
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_audio_gain/fixed_spherical_empirical_gain_v1_attempt2/seed_8925/eval.json",
+      "sha256": "4023ec6fe0c4dd339ebfddf0e2ce08a31955c862b3ed335c4d7fbd058264ae95",
+      "size_bytes": 5685,
+      "status": "passed"
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/data/tflow/audio_gain/run_c2da4743aafbc4fb37f39b92/seed_8925/samples.pt",
+      "sha256": "b7fc4fc2129dddcc3989ca9262f223d66e686581b87f6c8f71f24dd059a178d9",
+      "size_bytes": 260258769,
+      "status": "passed"
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_audio_gain/fixed_spherical_empirical_gain_v1_attempt2/seed_1234/eval.json",
+      "sha256": "cc689c7d84546e78c115a309740d075a45238156f84114f3d84fddf4956cbd5c",
+      "size_bytes": 5670,
+      "status": "passed"
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/data/tflow/audio_gain/run_c2da4743aafbc4fb37f39b92/seed_1234/samples.pt",
+      "sha256": "63b3b66f3908da59da3a0e9e1634d7558f81b9cc0871e961d5bdd9771866a3da",
+      "size_bytes": 260258769,
+      "status": "passed"
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_audio_gain/fixed_spherical_empirical_gain_v1_attempt2/seed_7/eval.json",
+      "sha256": "771d7d99c0f27a9538c0ee31502539dd5c06d74c0d24f320da00c82e1d0fecff",
+      "size_bytes": 5663,
+      "status": "passed"
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/data/tflow/audio_gain/run_c2da4743aafbc4fb37f39b92/seed_7/samples.pt",
+      "sha256": "765d6e89df14e08fb30ec6a909d6f52b4a49f76ff0a022b3c3a43747205e40a5",
+      "size_bytes": 260258769,
+      "status": "passed"
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/data/tflow/audio_gain/run_c2da4743aafbc4fb37f39b92/paired_gains.pt",
+      "sha256": "8bc958c3de4bcdeeb73397711300193b8e7847229d84ca4dfd695dcea5065627",
+      "size_bytes": 155471,
+      "status": "passed"
+    }
+  ],
+  "runs": [
+    {
+      "seed": 8925,
+      "n": 2000,
+      "status": "compatibility_discrepancy",
+      "input_samples": {
+        "path": "/mnt/vast01/users/fouad.oubari/data/tflow/audio_gain/run_c2da4743aafbc4fb37f39b92/seed_8925/samples.pt",
+        "sha256": "b7fc4fc2129dddcc3989ca9262f223d66e686581b87f6c8f71f24dd059a178d9",
+        "size_bytes": 260258769
+      },
+      "baseline": {
+        "summary": {
+          "energy": {
+            "radial_w1": 1.4876,
+            "ks": 0.5923,
+            "cov_gt_q90": 0.0,
+            "cov_gt_q95": 0.0,
+            "cov_gt_q99": 0.0,
+            "cov_lt_q10": 0.0,
+            "pit_mean": 0.5923,
+            "gen_energy_mean": 2.261,
+            "data_energy_mean": 2.298
+          },
+          "content": {
+            "digit_acc": 0.803,
+            "mean_confidence": 0.828,
+            "acc_by_energy": {
+              "low_energy": 0.763,
+              "mid_energy": 0.777,
+              "high_energy": 0.868
+            }
+          },
+          "unrounded": {
+            "energy": {
+              "radial_w1": 1.4875860233306883,
+              "ks": 0.5923333333333334,
+              "cov_gt_q90": 0.0,
+              "cov_gt_q95": 0.0,
+              "cov_gt_q99": 0.0,
+              "cov_lt_q10": 0.0,
+              "pit_mean": 0.5923333333333335,
+              "gen_energy_mean": 2.261423349380493,
+              "data_energy_mean": 2.297874689102173
+            },
+            "digit_acc": 0.8025,
+            "correct_count": 1605,
+            "legacy_float32_accuracy": 0.8025000095367432,
+            "mean_confidence": 0.8281311392784119
+          }
+        },
+        "metrics": {
+          "digit_acc": 0.8025,
+          "energy_KS": 0.5923333333333334,
+          "cov>q95": 0.0,
+          "cov>q99": 0.0,
+          "cov<q10": 0.0,
+          "PIT": 0.5923333333333335,
+          "radial_w1": 1.4875860233306883,
+          "cov>q90": 0.0
+        },
+        "comparison": {
+          "prediction_disagreements_vs_cached": 0,
+          "maximum_logit_absolute_difference": 2.250075340270996e-05,
+          "mean_logit_absolute_difference": 2.589850737422239e-06,
+          "metric_deltas": {
+            "digit_acc": 0.0,
+            "energy_KS": 0.0,
+            "cov>q95": 0.0,
+            "cov>q99": 0.0,
+            "cov<q10": 0.0,
+            "PIT": 0.0,
+            "radial_w1": -2.8125445039606234e-07,
+            "cov>q90": 0.0
+          },
+          "old_metrics": {
+            "digit_acc": 0.8025,
+            "energy_KS": 0.5923333333333334,
+            "cov>q95": 0.0,
+            "cov>q99": 0.0,
+            "cov<q10": 0.0,
+            "PIT": 0.5923333333333335,
+            "radial_w1": 1.4875863045851387,
+            "cov>q90": 0.0
+          },
+          "energy_ks_tail_metrics_exactly_equal": true,
+          "energy_compatibility_keys": [
+            "energy_KS",
+            "cov>q95",
+            "cov>q99",
+            "cov<q10",
+            "PIT",
+            "cov>q90"
+          ],
+          "all_unrounded_energy_deltas": {
+            "radial_w1": -2.8125445039606234e-07,
+            "ks": 0.0,
+            "cov_gt_q90": 0.0,
+            "cov_gt_q95": 0.0,
+            "cov_gt_q99": 0.0,
+            "cov_lt_q10": 0.0,
+            "pit_mean": 0.0,
+            "gen_energy_mean": -3.337860107421875e-06,
+            "data_energy_mean": 0.0
+          },
+          "mean_confidence_delta": -1.1920928955078125e-07,
+          "rounded_energy_exactly_equal": true,
+          "energy_bin_accuracies_exactly_equal": false
+        },
+        "classifier_time_s": 0.8501763232052326
+      },
+      "posthoc": {
+        "summary": {
+          "energy": {
+            "radial_w1": 0.0487,
+            "ks": 0.0218,
+            "cov_gt_q90": 0.1055,
+            "cov_gt_q95": 0.05,
+            "cov_gt_q99": 0.0145,
+            "cov_lt_q10": 0.0975,
+            "pit_mean": 0.4925,
+            "gen_energy_mean": 2.27,
+            "data_energy_mean": 2.298
+          },
+          "content": {
+            "digit_acc": 0.803,
+            "mean_confidence": 0.828,
+            "acc_by_energy": {
+              "low_energy": 0.819,
+              "mid_energy": 0.791,
+              "high_energy": 0.798
+            }
+          },
+          "unrounded": {
+            "energy": {
+              "radial_w1": 0.04871300476292761,
+              "ks": 0.021833333333333333,
+              "cov_gt_q90": 0.1055,
+              "cov_gt_q95": 0.05,
+              "cov_gt_q99": 0.0145,
+              "cov_lt_q10": 0.0975,
+              "pit_mean": 0.4924861666666666,
+              "gen_energy_mean": 2.2698185443878174,
+              "data_energy_mean": 2.297874689102173
+            },
+            "digit_acc": 0.8025,
+            "correct_count": 1605,
+            "legacy_float32_accuracy": 0.8025000095367432,
+            "mean_confidence": 0.8281311392784119
+          }
+        },
+        "metrics": {
+          "digit_acc": 0.8025,
+          "energy_KS": 0.021833333333333333,
+          "cov>q95": 0.05,
+          "cov>q99": 0.0145,
+          "cov<q10": 0.0975,
+          "PIT": 0.4924861666666666,
+          "radial_w1": 0.04871300476292761,
+          "cov>q90": 0.1055
+        },
+        "comparison": {
+          "prediction_disagreements_vs_cached": 0,
+          "maximum_logit_absolute_difference": 3.133714199066162e-05,
+          "mean_logit_absolute_difference": 2.576638735263259e-06,
+          "metric_deltas": {
+            "digit_acc": 0.0,
+            "energy_KS": 0.0,
+            "cov>q95": 0.0,
+            "cov>q99": 0.0,
+            "cov<q10": 0.0,
+            "PIT": -5.00000000069889e-07,
+            "radial_w1": 1.3611813386299465e-06,
+            "cov>q90": 0.0
+          },
+          "old_metrics": {
+            "digit_acc": 0.8025,
+            "energy_KS": 0.021833333333333333,
+            "cov>q95": 0.05,
+            "cov>q99": 0.0145,
+            "cov<q10": 0.0975,
+            "PIT": 0.4924866666666667,
+            "radial_w1": 0.04871164358158898,
+            "cov>q90": 0.1055
+          },
+          "energy_ks_tail_metrics_exactly_equal": false,
+          "energy_compatibility_keys": [
+            "energy_KS",
+            "cov>q95",
+            "cov>q99",
+            "cov<q10",
+            "PIT",
+            "cov>q90"
+          ],
+          "all_unrounded_energy_deltas": {
+            "radial_w1": 1.3611813386299465e-06,
+            "ks": 0.0,
+            "cov_gt_q90": 0.0,
+            "cov_gt_q95": 0.0,
+            "cov_gt_q99": 0.0,
+            "cov_lt_q10": 0.0,
+            "pit_mean": -5.00000000069889e-07,
+            "gen_energy_mean": -3.814697265625e-06,
+            "data_energy_mean": 0.0
+          },
+          "mean_confidence_delta": -1.1920928955078125e-07,
+          "rounded_energy_exactly_equal": true,
+          "energy_bin_accuracies_exactly_equal": true
+        },
+        "classifier_time_s": 0.09495223686099052
+      },
+      "invariance": {
+        "prediction_disagreements": 0,
+        "accuracy_difference": 0.0,
+        "passed": true
+      },
+      "new_logits": {
+        "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/reference_backend_check/b1c128f28ab325fba949911f19ee0f23ee5f23b9f7024897f2ba347651aa0426/seed_8925_logits.pt",
+        "sha256": "aed0afd67f15eb43e27bb84e21fad6982e99d96d5db67acdaa7ec2e8aa641201"
+      },
+      "runtime": {
+        "total_s": 2.212171036750078,
+        "classifier_s": 0.9451285600662231,
+        "peak_memory": {
+          "allocated_bytes": 1872597504,
+          "reserved_bytes": 2409627648
+        },
+        "timing_kind": "measured"
+      }
+    },
+    {
+      "seed": 1234,
+      "n": 2000,
+      "status": "compatibility_discrepancy",
+      "input_samples": {
+        "path": "/mnt/vast01/users/fouad.oubari/data/tflow/audio_gain/run_c2da4743aafbc4fb37f39b92/seed_1234/samples.pt",
+        "sha256": "63b3b66f3908da59da3a0e9e1634d7558f81b9cc0871e961d5bdd9771866a3da",
+        "size_bytes": 260258769
+      },
+      "baseline": {
+        "summary": {
+          "energy": {
+            "radial_w1": 1.4876,
+            "ks": 0.5923,
+            "cov_gt_q90": 0.0,
+            "cov_gt_q95": 0.0,
+            "cov_gt_q99": 0.0,
+            "cov_lt_q10": 0.0,
+            "pit_mean": 0.5923,
+            "gen_energy_mean": 2.261,
+            "data_energy_mean": 2.298
+          },
+          "content": {
+            "digit_acc": 0.8,
+            "mean_confidence": 0.824,
+            "acc_by_energy": {
+              "low_energy": 0.754,
+              "mid_energy": 0.77,
+              "high_energy": 0.877
+            }
+          },
+          "unrounded": {
+            "energy": {
+              "radial_w1": 1.4876064305702845,
+              "ks": 0.5923333333333334,
+              "cov_gt_q90": 0.0,
+              "cov_gt_q95": 0.0,
+              "cov_gt_q99": 0.0,
+              "cov_lt_q10": 0.0,
+              "pit_mean": 0.5923333333333335,
+              "gen_energy_mean": 2.2614009380340576,
+              "data_energy_mean": 2.297874689102173
+            },
+            "digit_acc": 0.8005,
+            "correct_count": 1601,
+            "legacy_float32_accuracy": 0.8004999756813049,
+            "mean_confidence": 0.8244608044624329
+          }
+        },
+        "metrics": {
+          "digit_acc": 0.8005,
+          "energy_KS": 0.5923333333333334,
+          "cov>q95": 0.0,
+          "cov>q99": 0.0,
+          "cov<q10": 0.0,
+          "PIT": 0.5923333333333335,
+          "radial_w1": 1.4876064305702845,
+          "cov>q90": 0.0
+        },
+        "comparison": {
+          "prediction_disagreements_vs_cached": 0,
+          "maximum_logit_absolute_difference": 2.002716064453125e-05,
+          "mean_logit_absolute_difference": 2.637865463839262e-06,
+          "metric_deltas": {
+            "digit_acc": 0.0,
+            "energy_KS": 0.0,
+            "cov>q95": 0.0,
+            "cov>q99": 0.0,
+            "cov<q10": 0.0,
+            "PIT": 0.0,
+            "radial_w1": -1.9796689332274298e-07,
+            "cov>q90": 0.0
+          },
+          "old_metrics": {
+            "digit_acc": 0.8005,
+            "energy_KS": 0.5923333333333334,
+            "cov>q95": 0.0,
+            "cov>q99": 0.0,
+            "cov<q10": 0.0,
+            "PIT": 0.5923333333333335,
+            "radial_w1": 1.4876066285371778,
+            "cov>q90": 0.0
+          },
+          "energy_ks_tail_metrics_exactly_equal": true,
+          "energy_compatibility_keys": [
+            "energy_KS",
+            "cov>q95",
+            "cov>q99",
+            "cov<q10",
+            "PIT",
+            "cov>q90"
+          ],
+          "all_unrounded_energy_deltas": {
+            "radial_w1": -1.9796689332274298e-07,
+            "ks": 0.0,
+            "cov_gt_q90": 0.0,
+            "cov_gt_q95": 0.0,
+            "cov_gt_q99": 0.0,
+            "cov_lt_q10": 0.0,
+            "pit_mean": 0.0,
+            "gen_energy_mean": -3.337860107421875e-06,
+            "data_energy_mean": 0.0
+          },
+          "mean_confidence_delta": -5.960464477539063e-08,
+          "rounded_energy_exactly_equal": true,
+          "energy_bin_accuracies_exactly_equal": false
+        },
+        "classifier_time_s": 0.08136607334017754
+      },
+      "posthoc": {
+        "summary": {
+          "energy": {
+            "radial_w1": 0.0487,
+            "ks": 0.0218,
+            "cov_gt_q90": 0.1055,
+            "cov_gt_q95": 0.05,
+            "cov_gt_q99": 0.0145,
+            "cov_lt_q10": 0.0975,
+            "pit_mean": 0.4925,
+            "gen_energy_mean": 2.27,
+            "data_energy_mean": 2.298
+          },
+          "content": {
+            "digit_acc": 0.8,
+            "mean_confidence": 0.824,
+            "acc_by_energy": {
+              "low_energy": 0.81,
+              "mid_energy": 0.775,
+              "high_energy": 0.817
+            }
+          },
+          "unrounded": {
+            "energy": {
+              "radial_w1": 0.048712974280118865,
+              "ks": 0.021833333333333333,
+              "cov_gt_q90": 0.1055,
+              "cov_gt_q95": 0.05,
+              "cov_gt_q99": 0.0145,
+              "cov_lt_q10": 0.0975,
+              "pit_mean": 0.492486,
+              "gen_energy_mean": 2.2698187828063965,
+              "data_energy_mean": 2.297874689102173
+            },
+            "digit_acc": 0.8005,
+            "correct_count": 1601,
+            "legacy_float32_accuracy": 0.8004999756813049,
+            "mean_confidence": 0.8244608044624329
+          }
+        },
+        "metrics": {
+          "digit_acc": 0.8005,
+          "energy_KS": 0.021833333333333333,
+          "cov>q95": 0.05,
+          "cov>q99": 0.0145,
+          "cov<q10": 0.0975,
+          "PIT": 0.492486,
+          "radial_w1": 0.048712974280118865,
+          "cov>q90": 0.1055
+        },
+        "comparison": {
+          "prediction_disagreements_vs_cached": 0,
+          "maximum_logit_absolute_difference": 2.288818359375e-05,
+          "mean_logit_absolute_difference": 2.601189407869242e-06,
+          "metric_deltas": {
+            "digit_acc": 0.0,
+            "energy_KS": 0.0,
+            "cov>q95": 0.0,
+            "cov>q99": 0.0,
+            "cov<q10": 0.0,
+            "PIT": -5.000000000143778e-07,
+            "radial_w1": 1.3399173816042165e-06,
+            "cov>q90": 0.0
+          },
+          "old_metrics": {
+            "digit_acc": 0.8005,
+            "energy_KS": 0.021833333333333333,
+            "cov>q95": 0.05,
+            "cov>q99": 0.0145,
+            "cov<q10": 0.0975,
+            "PIT": 0.4924865,
+            "radial_w1": 0.04871163436273726,
+            "cov>q90": 0.1055
+          },
+          "energy_ks_tail_metrics_exactly_equal": false,
+          "energy_compatibility_keys": [
+            "energy_KS",
+            "cov>q95",
+            "cov>q99",
+            "cov<q10",
+            "PIT",
+            "cov>q90"
+          ],
+          "all_unrounded_energy_deltas": {
+            "radial_w1": 1.3399173816042165e-06,
+            "ks": 0.0,
+            "cov_gt_q90": 0.0,
+            "cov_gt_q95": 0.0,
+            "cov_gt_q99": 0.0,
+            "cov_lt_q10": 0.0,
+            "pit_mean": -5.000000000143778e-07,
+            "gen_energy_mean": -3.5762786865234375e-06,
+            "data_energy_mean": 0.0
+          },
+          "mean_confidence_delta": -5.960464477539063e-08,
+          "rounded_energy_exactly_equal": true,
+          "energy_bin_accuracies_exactly_equal": true
+        },
+        "classifier_time_s": 0.08900901302695274
+      },
+      "invariance": {
+        "prediction_disagreements": 0,
+        "accuracy_difference": 0.0,
+        "passed": true
+      },
+      "new_logits": {
+        "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/reference_backend_check/b1c128f28ab325fba949911f19ee0f23ee5f23b9f7024897f2ba347651aa0426/seed_1234_logits.pt",
+        "sha256": "eefc9ac48902d8663049ab04fc15302bdcf48ee34523c6876597ede58b930f6f"
+      },
+      "runtime": {
+        "total_s": 0.5795877277851105,
+        "classifier_s": 0.17037508636713028,
+        "peak_memory": {
+          "allocated_bytes": 1872597504,
+          "reserved_bytes": 2409627648
+        },
+        "timing_kind": "measured"
+      }
+    },
+    {
+      "seed": 7,
+      "n": 2000,
+      "status": "compatibility_discrepancy",
+      "input_samples": {
+        "path": "/mnt/vast01/users/fouad.oubari/data/tflow/audio_gain/run_c2da4743aafbc4fb37f39b92/seed_7/samples.pt",
+        "sha256": "765d6e89df14e08fb30ec6a909d6f52b4a49f76ff0a022b3c3a43747205e40a5",
+        "size_bytes": 260258769
+      },
+      "baseline": {
+        "summary": {
+          "energy": {
+            "radial_w1": 1.4876,
+            "ks": 0.5923,
+            "cov_gt_q90": 0.0,
+            "cov_gt_q95": 0.0,
+            "cov_gt_q99": 0.0,
+            "cov_lt_q10": 0.0,
+            "pit_mean": 0.5923,
+            "gen_energy_mean": 2.261,
+            "data_energy_mean": 2.298
+          },
+          "content": {
+            "digit_acc": 0.817,
+            "mean_confidence": 0.836,
+            "acc_by_energy": {
+              "low_energy": 0.783,
+              "mid_energy": 0.788,
+              "high_energy": 0.88
+            }
+          },
+          "unrounded": {
+            "energy": {
+              "radial_w1": 1.4876059960524242,
+              "ks": 0.5923333333333334,
+              "cov_gt_q90": 0.0,
+              "cov_gt_q95": 0.0,
+              "cov_gt_q99": 0.0,
+              "cov_lt_q10": 0.0,
+              "pit_mean": 0.5923333333333335,
+              "gen_energy_mean": 2.261401891708374,
+              "data_energy_mean": 2.297874689102173
+            },
+            "digit_acc": 0.817,
+            "correct_count": 1634,
+            "legacy_float32_accuracy": 0.8169999718666077,
+            "mean_confidence": 0.8362984657287598
+          }
+        },
+        "metrics": {
+          "digit_acc": 0.817,
+          "energy_KS": 0.5923333333333334,
+          "cov>q95": 0.0,
+          "cov>q99": 0.0,
+          "cov<q10": 0.0,
+          "PIT": 0.5923333333333335,
+          "radial_w1": 1.4876059960524242,
+          "cov>q90": 0.0
+        },
+        "comparison": {
+          "prediction_disagreements_vs_cached": 0,
+          "maximum_logit_absolute_difference": 2.002716064453125e-05,
+          "mean_logit_absolute_difference": 2.572901621533674e-06,
+          "metric_deltas": {
+            "digit_acc": 0.0,
+            "energy_KS": 0.0,
+            "cov>q95": 0.0,
+            "cov>q99": 0.0,
+            "cov<q10": 0.0,
+            "PIT": 0.0,
+            "radial_w1": -3.0561288189012714e-07,
+            "cov>q90": 0.0
+          },
+          "old_metrics": {
+            "digit_acc": 0.817,
+            "energy_KS": 0.5923333333333334,
+            "cov>q95": 0.0,
+            "cov>q99": 0.0,
+            "cov<q10": 0.0,
+            "PIT": 0.5923333333333335,
+            "radial_w1": 1.487606301665306,
+            "cov>q90": 0.0
+          },
+          "energy_ks_tail_metrics_exactly_equal": true,
+          "energy_compatibility_keys": [
+            "energy_KS",
+            "cov>q95",
+            "cov>q99",
+            "cov<q10",
+            "PIT",
+            "cov>q90"
+          ],
+          "all_unrounded_energy_deltas": {
+            "radial_w1": -3.0561288189012714e-07,
+            "ks": 0.0,
+            "cov_gt_q90": 0.0,
+            "cov_gt_q95": 0.0,
+            "cov_gt_q99": 0.0,
+            "cov_lt_q10": 0.0,
+            "pit_mean": 0.0,
+            "gen_energy_mean": -3.5762786865234375e-06,
+            "data_energy_mean": 0.0
+          },
+          "mean_confidence_delta": -1.1920928955078125e-07,
+          "rounded_energy_exactly_equal": true,
+          "energy_bin_accuracies_exactly_equal": false
+        },
+        "classifier_time_s": 0.08212781697511673
+      },
+      "posthoc": {
+        "summary": {
+          "energy": {
+            "radial_w1": 0.0487,
+            "ks": 0.0218,
+            "cov_gt_q90": 0.1055,
+            "cov_gt_q95": 0.05,
+            "cov_gt_q99": 0.0145,
+            "cov_lt_q10": 0.0975,
+            "pit_mean": 0.4925,
+            "gen_energy_mean": 2.27,
+            "data_energy_mean": 2.298
+          },
+          "content": {
+            "digit_acc": 0.817,
+            "mean_confidence": 0.836,
+            "acc_by_energy": {
+              "low_energy": 0.816,
+              "mid_energy": 0.808,
+              "high_energy": 0.828
+            }
+          },
+          "unrounded": {
+            "energy": {
+              "radial_w1": 0.048713048880298856,
+              "ks": 0.021833333333333333,
+              "cov_gt_q90": 0.1055,
+              "cov_gt_q95": 0.05,
+              "cov_gt_q99": 0.0145,
+              "cov_lt_q10": 0.0975,
+              "pit_mean": 0.4924861666666666,
+              "gen_energy_mean": 2.2698183059692383,
+              "data_energy_mean": 2.297874689102173
+            },
+            "digit_acc": 0.817,
+            "correct_count": 1634,
+            "legacy_float32_accuracy": 0.8169999718666077,
+            "mean_confidence": 0.8362984657287598
+          }
+        },
+        "metrics": {
+          "digit_acc": 0.817,
+          "energy_KS": 0.021833333333333333,
+          "cov>q95": 0.05,
+          "cov>q99": 0.0145,
+          "cov<q10": 0.0975,
+          "PIT": 0.4924861666666666,
+          "radial_w1": 0.048713048880298856,
+          "cov>q90": 0.1055
+        },
+        "comparison": {
+          "prediction_disagreements_vs_cached": 0,
+          "maximum_logit_absolute_difference": 2.193450927734375e-05,
+          "mean_logit_absolute_difference": 2.5196995920850895e-06,
+          "metric_deltas": {
+            "digit_acc": 0.0,
+            "energy_KS": 0.0,
+            "cov>q95": 0.0,
+            "cov>q99": 0.0,
+            "cov<q10": 0.0,
+            "PIT": -5.00000000069889e-07,
+            "radial_w1": 1.4123320579567666e-06,
+            "cov>q90": 0.0
+          },
+          "old_metrics": {
+            "digit_acc": 0.817,
+            "energy_KS": 0.021833333333333333,
+            "cov>q95": 0.05,
+            "cov>q99": 0.0145,
+            "cov<q10": 0.0975,
+            "PIT": 0.4924866666666667,
+            "radial_w1": 0.0487116365482409,
+            "cov>q90": 0.1055
+          },
+          "energy_ks_tail_metrics_exactly_equal": false,
+          "energy_compatibility_keys": [
+            "energy_KS",
+            "cov>q95",
+            "cov>q99",
+            "cov<q10",
+            "PIT",
+            "cov>q90"
+          ],
+          "all_unrounded_energy_deltas": {
+            "radial_w1": 1.4123320579567666e-06,
+            "ks": 0.0,
+            "cov_gt_q90": 0.0,
+            "cov_gt_q95": 0.0,
+            "cov_gt_q99": 0.0,
+            "cov_lt_q10": 0.0,
+            "pit_mean": -5.00000000069889e-07,
+            "gen_energy_mean": -4.0531158447265625e-06,
+            "data_energy_mean": 0.0
+          },
+          "mean_confidence_delta": -5.960464477539063e-08,
+          "rounded_energy_exactly_equal": true,
+          "energy_bin_accuracies_exactly_equal": true
+        },
+        "classifier_time_s": 0.0818934515118599
+      },
+      "invariance": {
+        "prediction_disagreements": 0,
+        "accuracy_difference": 0.0,
+        "passed": true
+      },
+      "new_logits": {
+        "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/reference_backend_check/b1c128f28ab325fba949911f19ee0f23ee5f23b9f7024897f2ba347651aa0426/seed_7_logits.pt",
+        "sha256": "4311cfa96972cbed7c2099b9218902eaf61356760c17da3c5973b491ff0d8d15"
+      },
+      "runtime": {
+        "total_s": 0.559676393866539,
+        "classifier_s": 0.16402126848697662,
+        "peak_memory": {
+          "allocated_bytes": 1872597504,
+          "reserved_bytes": 2409627648
+        },
+        "timing_kind": "measured"
+      }
+    }
+  ],
+  "generation_performed": false,
+  "training_updates": 0,
+  "gain_draws": 0,
+  "gain_rescaling_performed": false,
+  "existing_artifacts_modified": false,
+  "purpose": "Measured compatibility of saved fixed-spherical Y/X under the new study classifier path",
+  "hardware": {
+    "host": "auh7-3b-gpu-008",
+    "slurm_job_id": "765758",
+    "python": "3.10.12",
+    "torch": "2.7.1+rocm6.3",
+    "cuda": null,
+    "hip": "6.3.42131-fa1d09cbd",
+    "gpu": "AMD Instinct MI210",
+    "vram_bytes": 68702699520
+  },
+  "delivery_manifest": {
+    "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_audio_gain/delivery_manifest.json",
+    "sha256": "518a1e3bb88ad11599049704cf6d28c7d00eb581c5612ce6392eae8a475a479d",
+    "result_commit": "5d592a2da57d17ad8f1cb7c6e5b6c48267438d32",
+    "commit_role": "Recorded evaluation delivery; not a training commit"
+  },
+  "aggregate": {
+    "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_audio_gain/fixed_spherical_empirical_gain_v1_attempt2/aggregate.json",
+    "sha256": "5a42958f17e830c9b1e795f8c8ae1169db10122e4b3558cb73cddfb8204d1fb7",
+    "original_status": "baseline_mismatch"
+  },
+  "config_sha256": "38c27cb839fb0249efbd684c992b5c70aea01a40435a34ef3e846439a76611fc",
+  "config": {
+    "schema_version": 1,
+    "condition_id": "audiomnist_stft",
+    "kind": "audio",
+    "protocol_status": "resolved",
+    "blocking_issues": [],
+    "seeds": [
+      8925,
+      1234,
+      7
+    ],
+    "data": {
+      "input": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/poc_audio/data/audiomnist_stft_train.pt",
+        "sha256": "d4c0e10dcae8bdb2ad6e7bf05202a42e6a6af3b6fb064e6fc97e12432e0fe7be"
+      },
+      "shape": [
+        12000,
+        16254
+      ],
+      "split": {
+        "kind": "indices",
+        "seed": 0,
+        "n_train": 10200,
+        "n_val": 1800,
+        "n_test": 0,
+        "file": {
+          "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/v1/audiomnist_stft/split_indices.pt",
+          "sha256": "a4d59c68aab7dca5a87f0f6bbb239f7b671735c9843b05de4b3001d11568bac1"
+        }
+      },
+      "transform": "as_cached",
+      "external_test": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/poc_audio/data/audiomnist_stft_test.pt",
+        "sha256": "c9ab95b3bcb0049f881a84d180bccbdedf4d25cf6723dc48cafb90e4a0e20209"
+      }
+    },
+    "model": {
+      "kind": "audio_unet",
+      "ch": 96,
+      "class_dropout": 0.1
+    },
+    "training": {
+      "steps": 24000,
+      "batch_size": 32,
+      "optimizer": "AdamW",
+      "lr": 0.0002,
+      "betas": [
+        0.9,
+        0.95
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "gradient_clip": null,
+      "ema": 0.999,
+      "precision": "bfloat16_autocast",
+      "batch_rule": "step_seeded",
+      "compile": false,
+      "checkpoint_every": 2000,
+      "log_every": 500,
+      "class_dropout": 0.1
+    },
+    "evaluation": {
+      "n_samples": 2000,
+      "model_evaluations": 160,
+      "sample_batch_size": 128,
+      "sample_seed": 0,
+      "metric_seed": 0,
+      "metric_seed_note": "Common new seed-0 metric projections across A/B/C and t-Flow; historical projections unavailable.",
+      "classifier": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/poc_audio/digit_classifier.pt",
+        "sha256": "1c68713e65df8c256bf8dd73edee70ba0e419381258cc46ff497042287946d50"
+      }
+    },
+    "sampler": {
+      "t_min": 0.001,
+      "rho": 7.0,
+      "grid": "power_sigma",
+      "sigma_min": 0.01
+    },
+    "tuning": {
+      "seed": 46021,
+      "nu": [
+        3,
+        5,
+        7
+      ],
+      "scale_multipliers": [
+        0.5,
+        1,
+        2
+      ],
+      "stage1_fraction": 0.05,
+      "continuation_fraction": 0.1,
+      "n_finalists": 2,
+      "validation_generated_samples": 1000,
+      "sample_seed": 61717,
+      "projection_seed": 61719
+    },
+    "provenance": {
+      "paper_sha256": "97f709df2a45e4acf4ba186379c60e9c75120d95e09af782d7a18c8b56d00367",
+      "baseline_commit": "5b89ed5f4af8a47c3b57eb9d595203daafc6d2c4",
+      "source_artifacts": [
+        "experiments/poc_audio/audio_data.py",
+        "experiments/poc_audio/audio_flow.py",
+        "experiments/poc_audio/audio_eval.py",
+        "experiments/poc_audio/launch_stage2_seeds.bat",
+        "experiments/poc_audio/stage2_3seed.json"
+      ],
+      "cached_input_only": true,
+      "existing_results_unchanged": true,
+      "study_id": "rafm_input_parameterization_v1",
+      "historical_result_reuse": false,
+      "comparison_label": "new_matched_runs_on_verified_existing_cache",
+      "original_prepared_config_sha256": "b115e71e1006d26917d027fef73239e8bc0a5dca97a80ca4ed6fb56cdc695c40",
+      "batch_resolution": {
+        "prepared_value": 32,
+        "selected_value": 32,
+        "evidence": "Supplied PDF p34 C.7: Student-t/PIV256; Weather2048; other vectors4096; downstream p35 C.10"
+      },
+      "original_split_spec": {
+        "kind": "random",
+        "seed": 0,
+        "n_train": 10200,
+        "n_val": 1800,
+        "n_test": 0
+      },
+      "generation": null,
+      "shared_preparation_identity_sha256": "247310996b875843c4314f6adbf3fb88de14e9f352b892d3e22486d704672436"
+    },
+    "experiment_launch_status": "authorized_after_correctness_checks_and_verified_cache",
+    "rafm_sampling_source": {
+      "kind": "radial_empirical_ecdf",
+      "fit_split": "generator_train_only",
+      "implementation": "rafm/sources/radial_empirical.py:RadialEmpiricalSource(mode=ecdf)",
+      "interpolation": "torch.quantile linear, independent uniform radius draw",
+      "log_radius_source": false,
+      "evidence": [
+        "rebuttal_experiments/configs/E1_studentt_d16.yaml",
+        "rebuttal_experiments/configs/E1_gaussian_d16.yaml",
+        "rebuttal_experiments/configs/E5_toy2d.yaml",
+        "rebuttal_experiments/configs/E6_dim16.yaml",
+        "rebuttal_experiments/configs/E8_df3.0.yaml",
+        "rebuttal_experiments/scripts/run_real.py",
+        "experiments/poc_audio/audio_flow.py",
+        "experiments/image_latents/dit/dit_train_sit.py"
+      ],
+      "note": "Explicit angular_rafm entries use empirical ECDF; rafm_oracle is a separate reference method."
+    },
+    "study": {
+      "id": "rafm_input_parameterization_v1",
+      "methods": [
+        "A",
+        "B",
+        "C",
+        "tflow"
+      ],
+      "training_seeds_shared": true,
+      "new_A_rerun": true,
+      "B_C_additional_tuning_steps": 0,
+      "final_checkpoint_selection": "prescribed_final_update_or_final_EMA",
+      "radius_stat_fit_split": "generator_train_only",
+      "authorization": "User authorized full t-Flow and A/B/C study on 2026-09-10, after small correctness runs"
+    },
+    "shared_cache": {
+      "directory": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/v1/audiomnist_stft",
+      "manifest_path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/v1/audiomnist_stft/manifest.json",
+      "manifest_sha256": "0ab9076e6bb1421f908c5b988720e2bb83d328a6e2642f105713170ec42d6a7c"
+    }
+  },
+  "original_historical_reproduction_discrepancy_preserved": true,
+  "classifier": {
+    "path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/poc_audio/digit_classifier.pt",
+    "sha256": "1c68713e65df8c256bf8dd73edee70ba0e419381258cc46ff497042287946d50"
+  },
+  "external_test": {
+    "path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/poc_audio/data/audiomnist_stft_test.pt",
+    "sha256": "c9ab95b3bcb0049f881a84d180bccbdedf4d25cf6723dc48cafb90e4a0e20209"
+  },
+  "source_sha256": {
+    "tools/check_audio_reference_backend.py": "d41d2a1cc37533de55b346a80f1b99ffbe885da0202cb75e71884d8dc69ccb9d",
+    "experiments/rafm_inputs/run.py": "58fdbc9ae54dab4c43278bb58c0b7ed2fbef1fbd94c7f56f0be3332e4d359818",
+    "experiments/tflow/run.py": "67b512f5607525814d08f60195846741089714e134bb65303904bbdea9849f0c",
+    "rafm/utils/seeds.py": "8b6e8cea98a6519f7067808163f065d6d797df0d82aec4d3dfbc6d8ee76bbf39",
+    "experiments/poc_audio/audio_classifier.py": "7af21994c8e7f428252ed566dbfae8274bf0b3368b96509dd76f7f65136f923a",
+    "experiments/poc_audio/audio_empirical_gain.py": "cc2ef04792bdce97157827847b84a77ffc82f5ac95cf484a40ea6213b5498301"
+  },
+  "generator_split_indices_match": true,
+  "logits_directory": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/reference_backend_check/b1c128f28ab325fba949911f19ee0f23ee5f23b9f7024897f2ba347651aa0426",
+  "backend_before_study_seed_helper": {
+    "cudnn_deterministic": false,
+    "cudnn_benchmark": false,
+    "cudnn_allow_tf32": true,
+    "matmul_allow_tf32": false,
+    "deterministic_algorithms": false,
+    "float32_matmul_precision": "highest",
+    "normalization_device": "cpu",
+    "normalization_dtype": "float32",
+    "classifier_device": "cuda:0",
+    "classifier_dtype": "float32",
+    "autocast": false,
+    "classifier_batch_size": 2000,
+    "metric_seed": 0
+  },
+  "backend_flags": {
+    "cudnn_deterministic": true,
+    "cudnn_benchmark": false,
+    "cudnn_allow_tf32": true,
+    "matmul_allow_tf32": false,
+    "deterministic_algorithms": false,
+    "float32_matmul_precision": "highest",
+    "normalization_device": "cpu",
+    "normalization_dtype": "float32",
+    "classifier_device": "cuda:0",
+    "classifier_dtype": "float32",
+    "autocast": false,
+    "classifier_batch_size": 2000,
+    "metric_seed": 0
+  },
+  "aggregate_metrics": {
+    "baseline": {
+      "digit_acc": {
+        "mean": 0.8066666666666666,
+        "std_population": 0.007352248333370906,
+        "values": [
+          0.8025,
+          0.8005,
+          0.817
+        ],
+        "n": 3
+      },
+      "energy_KS": {
+        "mean": 0.5923333333333334,
+        "std_population": 0.0,
+        "values": [
+          0.5923333333333334,
+          0.5923333333333334,
+          0.5923333333333334
+        ],
+        "n": 3
+      },
+      "cov>q95": {
+        "mean": 0.0,
+        "std_population": 0.0,
+        "values": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "n": 3
+      },
+      "cov>q99": {
+        "mean": 0.0,
+        "std_population": 0.0,
+        "values": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "n": 3
+      },
+      "cov<q10": {
+        "mean": 0.0,
+        "std_population": 0.0,
+        "values": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "n": 3
+      },
+      "PIT": {
+        "mean": 0.5923333333333335,
+        "std_population": 0.0,
+        "values": [
+          0.5923333333333335,
+          0.5923333333333335,
+          0.5923333333333335
+        ],
+        "n": 3
+      },
+      "radial_w1": {
+        "mean": 1.487599483317799,
+        "std_population": 9.51930113706471e-06,
+        "values": [
+          1.4875860233306883,
+          1.4876064305702845,
+          1.4876059960524242
+        ],
+        "n": 3
+      },
+      "cov>q90": {
+        "mean": 0.0,
+        "std_population": 0.0,
+        "values": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "n": 3
+      }
+    },
+    "posthoc": {
+      "digit_acc": {
+        "mean": 0.8066666666666666,
+        "std_population": 0.007352248333370906,
+        "values": [
+          0.8025,
+          0.8005,
+          0.817
+        ],
+        "n": 3
+      },
+      "energy_KS": {
+        "mean": 0.021833333333333333,
+        "std_population": 0.0,
+        "values": [
+          0.021833333333333333,
+          0.021833333333333333,
+          0.021833333333333333
+        ],
+        "n": 3
+      },
+      "cov>q95": {
+        "mean": 0.05,
+        "std_population": 0.0,
+        "values": [
+          0.05,
+          0.05,
+          0.05
+        ],
+        "n": 3
+      },
+      "cov>q99": {
+        "mean": 0.0145,
+        "std_population": 0.0,
+        "values": [
+          0.0145,
+          0.0145,
+          0.0145
+        ],
+        "n": 3
+      },
+      "cov<q10": {
+        "mean": 0.0975,
+        "std_population": 0.0,
+        "values": [
+          0.0975,
+          0.0975,
+          0.0975
+        ],
+        "n": 3
+      },
+      "PIT": {
+        "mean": 0.49248611111111107,
+        "std_population": 7.85674201166524e-08,
+        "values": [
+          0.4924861666666666,
+          0.492486,
+          0.4924861666666666
+        ],
+        "n": 3
+      },
+      "radial_w1": {
+        "mean": 0.048713009307781774,
+        "std_population": 3.062448354135477e-08,
+        "values": [
+          0.04871300476292761,
+          0.048712974280118865,
+          0.048713048880298856
+        ],
+        "n": 3
+      },
+      "cov>q90": {
+        "mean": 0.1055,
+        "std_population": 0.0,
+        "values": [
+          0.1055,
+          0.1055,
+          0.1055
+        ],
+        "n": 3
+      }
+    }
+  },
+  "totals": {
+    "old_vs_new_prediction_disagreements": 0,
+    "postrescale_prediction_disagreements": 0,
+    "saved_generated_examples": 6000,
+    "classified_versions": 12000,
+    "energy_ks_tail_metrics_exactly_equal": false
+  },
+  "runtime_s": 9.617467306554317,
+  "interpretation": "Measured compatibility of these same saved outputs; this does not resolve the separate historical fixed-spherical accuracy reproduction discrepancy, and does not test a new generative model."
+}

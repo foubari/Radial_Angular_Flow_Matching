@@ -1,0 +1,13 @@
+{
+  "job_id": 765757,
+  "replaces_pending_job": 765754,
+  "reason": "Include measured findings and wait for saved-audio backend audit",
+  "dependency": "afterany:765742:765748:765758",
+  "script": "tools/shared_study_report_job.sh",
+  "script_sha256": "9d46547d5a046c980e89a57fee7e8a12dcad6ec29cfd35e52436e3b84c3e2e21",
+  "gpu_count": 0,
+  "created_utc": "2026-09-10T08:25:26.582231+00:00",
+  "dependency_history": [
+    "afterany:765742:765748:765756"
+  ]
+}
