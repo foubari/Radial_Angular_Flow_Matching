@@ -38,11 +38,18 @@ def scheduler(job, workers=None):
         parts = [part.strip() for part in line.split('|')]
         if len(parts) >= 3 and re.fullmatch(pattern, parts[0]):
             rows[parts[0]] = {'state': parts[1].split()[0].rstrip('+'), 'exit_code': parts[2]}
-    query_failure = queue['exit_code'] != 0 or accounting['exit_code'] != 0
-    ended = (not query_failure and not queue['stdout'] and len(rows) == (workers or 1)
-             and all(row['state'] in common.TERMINAL for row in rows.values()))
+    accounting_terminal = (accounting['exit_code'] == 0 and len(rows) == (workers or 1)
+                           and all(row['state'] in common.TERMINAL for row in rows.values()))
+    # Completed jobs age out of the controller before they age out of sacct.
+    # Accept only this exact squeue error, and only with positive, complete
+    # accounting evidence. Authentication/network errors remain real failures.
+    queue_purged = (queue['exit_code'] == 1 and not queue['stdout'] and accounting_terminal
+                    and queue['stderr'] == 'slurm_load_jobs error: Invalid job id specified')
+    query_failure = (queue['exit_code'] != 0 and not queue_purged) or accounting['exit_code'] != 0
+    ended = not query_failure and not queue['stdout'] and accounting_terminal
     return {'job_id': job, 'queue': queue, 'accounting': accounting, 'tasks': rows,
-            'ended': ended, 'query_failure': query_failure}
+            'ended': ended, 'query_failure': query_failure,
+            'queue_purged_after_accounted_completion': queue_purged}
 
 
 def load_plan(args):
@@ -171,7 +178,10 @@ def snapshot(plan, args):
             'manifest_sha256': args.manifest_sha256, 'source_commit': plan['source_commit'],
             'expected_final_tasks': 6, 'counts': dict(Counter(row['status'] for row in rows)),
             'tasks': rows, 'tuning': tuning,
-            'scheduler': {'tuning': scheduler(args.tuning_job, 2), 'final': scheduler(args.final_job, 6)},
+            'additional_final_arrays': args.additional_final_array,
+            'scheduler': {'tuning': scheduler(args.tuning_job, 2), 'final': scheduler(args.final_job, 6),
+                          **{'additional_final_' + job: scheduler(job, workers)
+                             for job, workers in args.additional_final_array}},
             'policy': 'Read-only; no retries, submissions, training, tuning, sampling or metric recomputation'}
 
 
@@ -240,7 +250,8 @@ def monitor(plan, args):
     query_failures = 0
     signatures = {}
     common.event(args.output, 'monitor_started', manifest_sha256=args.manifest_sha256,
-                 tuning_job=args.tuning_job, final_job=args.final_job, max_hours=args.hours, once=args.once)
+                 tuning_job=args.tuning_job, final_job=args.final_job,
+                 additional_final_arrays=args.additional_final_array, max_hours=args.hours, once=args.once)
     while True:
         tick = time.monotonic()
         data = snapshot(plan, args)
@@ -270,7 +281,9 @@ def monitor(plan, args):
                 data['blocker'] = 'Combined reporting command failed; inspect reporter.json'
         elif terminal:
             data['status'] = 'waiting_for_remaining_combined_outcomes'
-        if schedules['final']['ended'] and not terminal:
+        finals_ended = all(value['ended'] for name, value in schedules.items()
+                           if name == 'final' or name.startswith('additional_final_'))
+        if finals_ended and not terminal:
             ended_since = tick if ended_since is None else ended_since
         else:
             ended_since = None
@@ -280,7 +293,7 @@ def monitor(plan, args):
             if query_failures >= 3:
                 data.update(status='blocked', blocker='Three consecutive scheduler query failures; exact errors recorded')
             elif ended_since is not None and tick - ended_since >= 60:
-                data.update(status='blocked', blocker='Final array ended, but results/audits remain unresolved after 60-second grace',
+                data.update(status='blocked', blocker='Original and additional final arrays ended, but results/audits remain unresolved after 60-second grace',
                     unresolved=[{'condition': r['condition'], 'seed': r['seed'], 'status': r['status'],
                                  'path': r['result_path'], 'issues': r['issues']}
                                 for r in data['tasks'] if r['status'] not in ('complete', 'failed')])
@@ -303,6 +316,8 @@ def main():
     parser.add_argument('--manifest-sha256', required=True)
     parser.add_argument('--tuning-job', required=True)
     parser.add_argument('--final-job', required=True)
+    parser.add_argument('--additional-final-array', action='append', default=[], metavar='JOB:WORKER_COUNT',
+                        help='Root-authorized replacement array to monitor; does not submit or retry any task')
     parser.add_argument('--output', type=Path, default=OUTPUT)
     parser.add_argument('--report-output', type=Path, default=REPORT)
     parser.add_argument('--hours', type=float, default=8)
@@ -312,6 +327,15 @@ def main():
             or not re.fullmatch('[a-f0-9]{64}', args.manifest_sha256)
             or not all(re.fullmatch(r'\d+', j) for j in (args.tuning_job, args.final_job))):
         parser.error('Require a SHA-256, numeric job IDs and a positive maximum of eight hours')
+    additional = []
+    for spec in args.additional_final_array:
+        if not re.fullmatch(r'[1-9]\d*:[1-9]\d*', spec):
+            parser.error('--additional-final-array requires positive JOB:WORKER_COUNT integers')
+        job, count = spec.split(':')
+        if int(count) > 6 or job in {args.tuning_job, args.final_job, *(j for j, _ in additional)}:
+            parser.error('Additional final arrays require unique job IDs and at most six workers')
+        additional.append((job, int(count)))
+    args.additional_final_array = additional
     args.output.mkdir(parents=True, exist_ok=True)
     with (args.output / '.monitor.lock').open('a+') as lock:
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)

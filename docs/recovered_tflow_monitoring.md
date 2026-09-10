@@ -23,3 +23,18 @@ When all six recovered t-Flow outcomes and all other prescribed outcomes are com
 The frozen collector's generated `manuscript_addition.md` still contains an obsolete PIV/image-blocker sentence. The additive `recovered_provenance_note.md` explicitly supersedes it. `findings.md` and `report.json` supply actual outcomes, all scientific failures, qualified t-Flow comparisons, the newly cached synthetic realization label and image-reference overlap limitations. The main manuscript is not edited.
 
 Exit 0 means all reported outcomes succeeded. Exit 1 means the complete report includes recorded scientific failures, including failures from the earlier 26-condition study. Exit 2 means an execution/provenance blocker, three consecutive scheduler-query failures, unresolved results/audits 60 seconds after the final array ends, a reporting failure, or the bounded timeout. A blocked report attempt is preserved and never automatically retried.
+
+## Controller purge and the authorized node-failure recovery
+
+The initial monitor stopped at 18:10:44 Paris because Slurm had purged completed tuning array 766332 from its controller. Its `squeue` returned `Invalid job id specified` while `sacct` positively reported both tasks completed. The monitor now accepts precisely that controller-purge error only when accounting succeeds and every expected task is terminal. Authentication, network and incomplete-accounting errors remain failures.
+
+The initial `monitor/` outputs, launch receipt and log remain preserved. The manually authorized replacement array 766523 runs only original final worker indices 1 and 2 (ImageNette seeds 1234 and 7), which had `NODE_FAIL` before creating output directories. Its separate recovery manifest and submission receipt record the intervention. This is infrastructure recovery, not a retry of a scientific failure.
+
+Restart the command above with these additional arguments, keeping the original manifest and tuning/final IDs:
+
+```bash
+--additional-final-array 766523:2 \
+--output outputs_tflow_full/recovered/monitor_retry001
+```
+
+The original and every explicitly listed replacement array must all be terminal before missing-outcome grace begins. Complete audited outcomes can still trigger the combined report without waiting for scheduler cleanup. This option only watches root-authorized jobs; it cannot create or retry them. The new launch receipt should pin both the watcher source and the separate recovery manifest/submission receipt.

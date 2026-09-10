@@ -1,0 +1,45 @@
+{
+  "status": "submitted",
+  "created_utc": "2026-09-10T16:20:17.562587+00:00",
+  "manifest": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/recovered/launch/image_node_failure_recovery.json",
+  "manifest_sha256": "276ac8a9a026aead4de03b176a7e7f1910eec2bec8f15eb567b498d9fa458da2",
+  "original_manifest": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/recovered/launch/tasks_20260910T153538_4845907e.json",
+  "original_array": "766333",
+  "worker_indices": [
+    1,
+    2
+  ],
+  "task_indices": [
+    3,
+    4
+  ],
+  "seeds": [
+    1234,
+    7
+  ],
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--partition=hermes-2",
+    "--nodelist=auh7-3b-gpu-031",
+    "--nodes=1",
+    "--ntasks=1",
+    "--cpus-per-task=4",
+    "--gres=gpu:mi210:1",
+    "--mem=32G",
+    "--time=04:00:00",
+    "--array=1,2%2",
+    "--no-requeue",
+    "--job-name=tflow-image-node-recovery",
+    "--output=/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/recovered/logs/%x-%A_%a.out",
+    "--error=/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/recovered/logs/%x-%A_%a.err",
+    "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/tools/shared_study_array_job.sh",
+    "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/recovered/launch/image_node_failure_recovery.json",
+    "276ac8a9a026aead4de03b176a7e7f1910eec2bec8f15eb567b498d9fa458da2",
+    "final"
+  ],
+  "exit_code": 0,
+  "stdout": "766523",
+  "stderr": "",
+  "job_id": "766523"
+}
