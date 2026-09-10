@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "condition_id": "imagenette_dcae",
+  "kind": "image",
+  "protocol_status": "blocked",
+  "blocking_issues": [
+    "image_split_conflict",
+    "historical_eval_provenance"
+  ],
+  "seeds": [
+    8925,
+    1234,
+    7
+  ],
+  "data": {
+    "input": {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/image_latents/data/dcae_latents_scaled.pt",
+      "sha256": "15088880ca60e69747d4c8bb55eda046d0667475e35ff6d7133e876090d83116"
+    },
+    "shape": [
+      13394,
+      2048
+    ],
+    "split": {
+      "kind": "indices",
+      "seed": 0,
+      "n_train": null,
+      "n_val": null,
+      "n_test": null,
+      "file": {
+        "path": null,
+        "sha256": null
+      }
+    },
+    "transform": "train_center",
+    "labels": {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/image_latents/data/dcae_labels.pt",
+      "sha256": "95e17fe21ec2a8644dfb1f4cd00b576c0ab307b333d83f6baa67d67026a1f671"
+    }
+  },
+  "model": {
+    "kind": "image_sit",
+    "hidden": 384,
+    "depth": 12,
+    "heads": 6,
+    "class_dropout": 0.1,
+    "source_dir": "/mnt/vast01/users/fouad.oubari/references/SiT-tflow"
+  },
+  "training": {
+    "steps": 40000,
+    "batch_size": 64,
+    "optimizer": "AdamW",
+    "lr": 0.0001,
+    "betas": [
+      0.9,
+      0.95
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0,
+    "gradient_clip": null,
+    "ema": 0.9999,
+    "precision": "bfloat16_autocast",
+    "batch_rule": "step_seeded",
+    "compile": false,
+    "checkpoint_every": 2000,
+    "log_every": 500,
+    "class_dropout": 0.1
+  },
+  "evaluation": {
+    "n_samples": 3000,
+    "model_evaluations": 100,
+    "sample_batch_size": 512,
+    "sample_seed": 0,
+    "metric_seed": 2020,
+    "metric_seed_note": "Common new seed-0 metric projections across A/B/C and t-Flow; historical projections unavailable.",
+    "device": "cuda:0",
+    "real_n": 3925,
+    "real_reference_dir": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/image_latents/dit/eval_std/_real_ref",
+    "expected_reference_sha256": "79064131fa4cad5529be9ba8b37d3da62a2002adb1b011cfc6bdf148b25382b7",
+    "decoder_path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.cache/huggingface/hub/models--mit-han-lab--dc-ae-f32c32-sana-1.0-diffusers/snapshots/ca69e17e97609e64ce055115a6515215109b1f50",
+    "inception_weights_path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.cache/torch/hub/checkpoints/weights-inception-2015-12-05-6726825d.pth",
+    "generated_image_root": "/mnt/vast01/users/fouad.oubari/data/tflow/generated_images",
+    "decoder_files_sha256": {
+      "config.json": "604288647c7e5b7db62d3b1dc771dfee72dacd5f713c9b0b96ae5333a47299ee",
+      "diffusion_pytorch_model.safetensors": "15a4b09e56d95b768a0ec9da50b702e21d920333fc9b3480d66bb5c7fad9d87f"
+    },
+    "inception_weights_sha256": "6726825d0af5f729cebd5821db510b11b1cfad8faad88a03f1befd49fb9129b2"
+  },
+  "sampler": {
+    "t_min": 0.001,
+    "rho": 7.0,
+    "grid": "power_sigma",
+    "sigma_min": 0.01
+  },
+  "tuning": {
+    "seed": 46021,
+    "nu": [
+      3,
+      5,
+      7
+    ],
+    "scale_multipliers": [
+      0.5,
+      1,
+      2
+    ],
+    "stage1_fraction": 0.05,
+    "continuation_fraction": 0.1,
+    "n_finalists": 2,
+    "validation_generated_samples": 1000,
+    "sample_seed": 61717,
+    "projection_seed": 61719
+  },
+  "provenance": {
+    "paper_sha256": "97f709df2a45e4acf4ba186379c60e9c75120d95e09af782d7a18c8b56d00367",
+    "baseline_commit": "5b89ed5f4af8a47c3b57eb9d595203daafc6d2c4",
+    "source_artifacts": [
+      "experiments/image_latents/scripts/extract_dcae_latents.py",
+      "experiments/image_latents/dit/dit_train_sit.py",
+      "experiments/image_latents/dit/dit_eval_sit.py",
+      "experiments/image_latents/dit/eval_phaseB.bat",
+      "experiments/image_latents/launch_angular_dit.bat",
+      "experiments/image_latents/results_phaseB.json"
+    ],
+    "cached_input_only": true,
+    "existing_results_unchanged": true,
+    "study_id": "rafm_input_parameterization_v1",
+    "historical_result_reuse": false,
+    "comparison_label": "new_matched_runs_on_verified_existing_cache",
+    "original_prepared_config_sha256": "ab2c261e67435871710c68abef81c55e7c558f8e7210f8639f7421e215e83976",
+    "batch_resolution": {
+      "prepared_value": 64,
+      "selected_value": 64,
+      "evidence": "Supplied PDF p34 C.7: Student-t/PIV256; Weather2048; other vectors4096; downstream p35 C.10"
+    },
+    "original_split_spec": {
+      "kind": "indices",
+      "seed": 0,
+      "n_train": null,
+      "n_val": null,
+      "n_test": null,
+      "file": {
+        "path": null,
+        "sha256": null
+      }
+    },
+    "generation": null
+  },
+  "experiment_launch_status": "authorized_after_correctness_checks_and_verified_cache",
+  "rafm_sampling_source": {
+    "kind": "radial_empirical_ecdf",
+    "fit_split": "generator_train_only",
+    "implementation": "rafm/sources/radial_empirical.py:RadialEmpiricalSource(mode=ecdf)",
+    "interpolation": "torch.quantile linear, independent uniform radius draw",
+    "log_radius_source": false,
+    "evidence": [
+      "rebuttal_experiments/configs/E1_studentt_d16.yaml",
+      "rebuttal_experiments/configs/E1_gaussian_d16.yaml",
+      "rebuttal_experiments/configs/E5_toy2d.yaml",
+      "rebuttal_experiments/configs/E6_dim16.yaml",
+      "rebuttal_experiments/configs/E8_df3.0.yaml",
+      "rebuttal_experiments/scripts/run_real.py",
+      "experiments/poc_audio/audio_flow.py",
+      "experiments/image_latents/dit/dit_train_sit.py"
+    ],
+    "note": "Explicit angular_rafm entries use empirical ECDF; rafm_oracle is a separate reference method."
+  },
+  "study": {
+    "id": "rafm_input_parameterization_v1",
+    "methods": [
+      "A",
+      "B",
+      "C",
+      "tflow"
+    ],
+    "training_seeds_shared": true,
+    "new_A_rerun": true,
+    "B_C_additional_tuning_steps": 0,
+    "final_checkpoint_selection": "prescribed_final_update_or_final_EMA",
+    "radius_stat_fit_split": "generator_train_only",
+    "authorization": "User authorized full t-Flow and A/B/C study on 2026-09-10, after small correctness runs"
+  },
+  "shared_cache": {
+    "directory": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/v1/imagenette_dcae",
+    "manifest_path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/v1/imagenette_dcae/manifest.json",
+    "manifest_sha256": null
+  }
+}

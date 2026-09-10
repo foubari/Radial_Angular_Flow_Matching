@@ -1,0 +1,41 @@
+{
+  "status": "complete_for_selected_conditions",
+  "conditions": [
+    "aniso_k1",
+    "aniso_k10",
+    "aniso_k100",
+    "aniso_k3",
+    "aniso_k30",
+    "aniso_k300",
+    "audiomnist_stft",
+    "finance_ff49",
+    "gaussian_aniso_d16_cor",
+    "piv_d16",
+    "piv_d256",
+    "piv_d64",
+    "student_t_d128_df3.0_cor",
+    "student_t_d16_df1.5_cor",
+    "student_t_d16_df10.0_cor",
+    "student_t_d16_df2.0_cor",
+    "student_t_d16_df3.0_cor",
+    "student_t_d16_df5.0_cor",
+    "student_t_d16_df50.0_cor",
+    "student_t_d256_df3.0_cor",
+    "student_t_d2_df3.0_cor",
+    "student_t_d32_df3.0_cor",
+    "student_t_d64_df3.0_cor",
+    "student_t_d8_df3.0_cor",
+    "toy_radial_angular",
+    "weather_au_wind"
+  ],
+  "blocked_conditions": {
+    "piv_d32": [
+      "piv32_identity_missing"
+    ],
+    "imagenette_dcae": [
+      "image_split_conflict",
+      "historical_eval_provenance"
+    ]
+  },
+  "no_models_run": true
+}

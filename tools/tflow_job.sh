@@ -18,13 +18,15 @@ fi
 TFLOW_ROOT=/mnt/vast01/users/fouad.oubari/msgm/rafm-additions
 TFLOW_PYTHON=/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.venv/bin/python
 cd "$TFLOW_ROOT"
-mkdir -p outputs_tflow/cache/{torch,inductor,triton,miopen,matplotlib}
+TFLOW_CACHE="$TFLOW_ROOT/outputs_tflow/cache/${SLURM_JOB_ID:?A compute-node allocation is required}"
+mkdir -p "$TFLOW_CACHE"/{torch,inductor,triton,miopen_performance,miopen_kernel,matplotlib}
 export PYTHONDONTWRITEBYTECODE=1 PYTHONNOUSERSITE=1 OMP_NUM_THREADS=4 MKL_NUM_THREADS=4
-export TORCH_HOME="$TFLOW_ROOT/outputs_tflow/cache/torch"
-export TORCHINDUCTOR_CACHE_DIR="$TFLOW_ROOT/outputs_tflow/cache/inductor"
-export TRITON_CACHE_DIR="$TFLOW_ROOT/outputs_tflow/cache/triton"
-export MIOPEN_USER_DB_PATH="$TFLOW_ROOT/outputs_tflow/cache/miopen"
-export MPLCONFIGDIR="$TFLOW_ROOT/outputs_tflow/cache/matplotlib"
+export TORCH_HOME="$TFLOW_CACHE/torch"
+export TORCHINDUCTOR_CACHE_DIR="$TFLOW_CACHE/inductor"
+export TRITON_CACHE_DIR="$TFLOW_CACHE/triton"
+export MIOPEN_USER_DB_PATH="$TFLOW_CACHE/miopen_performance"
+export MIOPEN_CUSTOM_CACHE_DIR="$TFLOW_CACHE/miopen_kernel"
+export MPLCONFIGDIR="$TFLOW_CACHE/matplotlib"
 TFLOW_CONFIG="configs/tflow/prepared/$TFLOW_CONDITION.json"
 case "$TFLOW_PHASE" in
   sanity)

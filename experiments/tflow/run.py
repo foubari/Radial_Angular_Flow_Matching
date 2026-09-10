@@ -137,6 +137,13 @@ def _finite_state(value, name):
         raise FloatingPointError(f"Nonfinite checkpoint state: {name}")
 
 
+def finite_gradients(model):
+    """Check the same gradients with one accelerator-to-host synchronization."""
+    checks = [torch.isfinite(parameter.grad).all() for parameter in model.parameters()
+              if parameter.grad is not None]
+    return not checks or bool(torch.stack(checks).all().item())
+
+
 def validate_config(cfg):
     if cfg.get("schema_version") != 1:
         raise ValueError("Unsupported configuration schema")
@@ -215,6 +222,40 @@ def hardware():
     return info
 
 
+def tensor_fingerprint(value):
+    """Hash realized tensor bytes, recording shape and dtype separately."""
+    array = value.detach().cpu().contiguous().numpy()
+    return {"shape": list(array.shape), "dtype": array.dtype.str,
+            "sha256": hashlib.sha256(array.tobytes(order="C")).hexdigest()}
+
+
+def dataset_manifest(data):
+    """Record exact realized splits; an external test is never a validation row."""
+    result = {"values": tensor_fingerprint(data.values),
+              "preprocessing_mean": tensor_fingerprint(data.mean),
+              "split_indices": {name: tensor_fingerprint(index)
+                                for name, index in data.indices.items()},
+              "splits": {name: tensor_fingerprint(data.split(name))
+                         for name in data.indices},
+              "external_test_loaded": data.external_test is not None}
+    if data.labels is not None:
+        result["labels"] = tensor_fingerprint(data.labels)
+    if data.external_gains is not None:
+        result["external_test_gains"] = tensor_fingerprint(data.external_gains)
+    return result
+
+
+def peak_memory(device, previous=None):
+    """Retain measured peaks across checkpoint resumes without fabricating CPU values."""
+    if device.type != "cuda":
+        return previous
+    current = {"allocated_bytes": torch.cuda.max_memory_allocated(device),
+               "reserved_bytes": torch.cuda.max_memory_reserved(device)}
+    if previous is not None:
+        current = {key: max(value, previous.get(key, 0)) for key, value in current.items()}
+    return current
+
+
 def build_model(cfg, dim, device):
     if cfg["kind"] == "vector":
         model_cfg = cfg["model"]
@@ -289,6 +330,9 @@ def train(cfg, data, output, seed, source, *, budget=None, stage="final"):
     config_path = output / "config.json"
     if config_path.exists() and json.loads(config_path.read_text()) != signature:
         raise ValueError("Output directory already belongs to different run/source/code bytes")
+    write_json(output / "dataset_manifest.json", dataset_manifest(data))
+    if device.type == "cuda":
+        torch.cuda.reset_peak_memory_stats(device)
     set_all_seeds(seed)
     model = build_model(cfg, data.values.shape[1], device)
     ema_rate = cfg["training"].get("ema")
@@ -308,6 +352,7 @@ def train(cfg, data, output, seed, source, *, budget=None, stage="final"):
     start = 0
     elapsed_before = 0.0
     loss_value = None
+    previous_peak_memory = None
     if checkpoint.exists():
         saved = torch.load(checkpoint, map_location="cpu", weights_only=False)
         if saved["run_sha256"] != run_hash:
@@ -325,6 +370,7 @@ def train(cfg, data, output, seed, source, *, budget=None, stage="final"):
         if elapsed_before < 0:
             raise ValueError("Checkpoint train_time_s must be nonnegative")
         loss_value = saved.get("last_loss")
+        previous_peak_memory = saved.get("peak_memory")
         restore_rng(saved["rng"])
         if start > budget:
             raise ValueError("Checkpoint exceeds requested tuning stage budget")
@@ -340,6 +386,7 @@ def train(cfg, data, output, seed, source, *, budget=None, stage="final"):
         stats = {"run_sha256": run_hash, "total_train_time_s": elapsed_before,
                  "training_step": budget, "final_loss": loss_value, "timing_kind": "measured",
                  "timing_scope": "completed checkpoint snapshot; no additional optimizer steps",
+                 "peak_memory": previous_peak_memory,
                  "n_params": sum(p.numel() for p in model.parameters()), "hardware": hardware()}
         write_json(existing_stats, stats)
         return stats
@@ -365,7 +412,7 @@ def train(cfg, data, output, seed, source, *, budget=None, stage="final"):
         with torch.autocast("cuda", dtype=torch.bfloat16, enabled=train_cfg["precision"] == "bfloat16_autocast"):
             loss = tflow_loss(predictor, values, source, reduction="batch_mean")
         loss.backward()
-        if any(p.grad is not None and not torch.isfinite(p.grad).all() for p in model.parameters()):
+        if not finite_gradients(model):
             raise FloatingPointError(f"Nonfinite gradient at step {step}")
         optimizer.step()
         if ema is not None:
@@ -384,6 +431,7 @@ def train(cfg, data, output, seed, source, *, budget=None, stage="final"):
             saved = {"run_sha256": run_hash, "model": model.state_dict(),
                      "ema": None if ema is None else ema.state_dict(), "optimizer": optimizer.state_dict(),
                      "step": step, "train_time_s": elapsed, "rng": rng_state(), "stage": stage,
+                     "peak_memory": peak_memory(device, previous_peak_memory),
                      "last_loss": loss_value, "implementation_sha256": signature["implementation_sha256"]}
             for name in ("model", "ema", "optimizer"):
                 _finite_state(saved[name], name)
@@ -394,6 +442,8 @@ def train(cfg, data, output, seed, source, *, budget=None, stage="final"):
     stats = {"run_sha256": run_hash, "total_train_time_s": elapsed_before + time.perf_counter() - begin,
              "training_step": budget, "final_loss": loss_value, "timing_kind": "measured",
              "timing_scope": "training loop including compile, logging, finite checks and checkpoints; excludes data/model setup",
+             "peak_memory": peak_memory(device, previous_peak_memory),
+             "peak_memory_scope": "model, EMA, optimizer, accelerator training data and training loop; maximum across resumes",
              "n_params": sum(p.numel() for p in model.parameters()), "hardware": hardware()}
     write_json(output / "training_stats.json", stats)
     return stats
@@ -433,6 +483,8 @@ def sample(cfg, model, source, n, *, seed=None):
         labels = torch.arange(10, device=device).repeat_interleave(n // 10)
     dim = cfg["data"]["shape"][1]
     _synchronize(device)
+    if device.type == "cuda":
+        torch.cuda.reset_peak_memory_stats(device)
     begin = time.perf_counter()
     initial = sample_student_t((n, dim), source, device=device)
     output = []
@@ -462,6 +514,7 @@ def sample(cfg, model, source, n, *, seed=None):
             "sample_time_s": elapsed, "nfe": sampled["nfe"],
             "time_grid": sampled["time_grid"].cpu(), "timing_kind": "measured",
             "n_batches": len(output), "model_calls_total": total_calls,
+            "peak_memory": peak_memory(device),
             "nfe_scope": "model calls per trajectory; model_calls_total includes all minibatches",
             "timing_scope": "source draw, Heun, strict finite checks, and CPU sample transfers; excludes metrics"}
 
@@ -519,10 +572,22 @@ def evaluate(cfg, data, output, seed, source):
             if data.external_gains is None:
                 raise ValueError("Full audio evaluation requires the pinned external test gains")
             directions = (samples / norms).reshape(-1,2,129,63)
-            logits = torch.cat([classifier(x.to(next(model.parameters()).device)).cpu() for x in directions.split(128)])
+            # Match the original audio_eval.py and completed fixed-gain control:
+            # one full 2,000-example classifier forward, with no AMP context.
+            logits = classifier(directions.to(next(model.parameters()).device)).cpu()
             if not bool(torch.isfinite(logits).all().item()):
                 raise FloatingPointError("Audio classifier produced nonfinite logits")
-        metrics = flat_metrics(summarize(samples, logits, generated["labels"], data.external_gains.numpy()), full_precision=True)
+        audio_summary = summarize(samples, logits, generated["labels"], data.external_gains.numpy())
+        metrics = flat_metrics(audio_summary, full_precision=True)
+        audio_artifact = sample_path.with_name("audio_evaluation.pt")
+        torch.save({"logits": logits, "predictions": logits.argmax(1),
+                    "labels": generated["labels"], "generated_radii": norms[:, 0]}, audio_artifact)
+        downstream_metadata = {"audio_summary": audio_summary,
+                               "classifier_batch_size": len(samples),
+                               "classifier_forward_calls": 1,
+                               "classifier_precision": "float32_no_autocast",
+                               "classifier": cfg["evaluation"]["classifier"],
+                               "audio_artifact": {"path": str(audio_artifact), "sha256": sha256(audio_artifact)}}
     else:
         from baselines.tflow_downstream import evaluate_image
         image_cfg = dict(cfg["evaluation"])
@@ -540,11 +605,16 @@ def evaluate(cfg, data, output, seed, source):
         # Keep the original image key 'ks', which the image renderer requires.
         downstream_metadata = {key: value for key, value in image_result.items() if key not in ("image", "latent")}
     metrics.update(nfe=generated["nfe"], sample_time_s=generated["sample_time_s"],
-                   total_train_time_s=checkpoint["train_time_s"])
+                   total_train_time_s=checkpoint["train_time_s"],
+                   n_params=sum(p.numel() for p in model.parameters()))
     clean_metrics, bad = sanitize_metrics(metrics)
     envelope = {"schema_version":1, "condition_id":cfg["condition_id"], "method":"tflow", "seed":seed, "stage":"final",
                 "status":"failed" if bad else "complete", "config":cfg, "config_sha256":json_hash(cfg),
                 "source":vars(source), "hardware":hardware(),
+                "dataset_manifest": dataset_manifest(data),
+                "peak_memory": {"training": checkpoint.get("peak_memory"),
+                                "sampling": generated["peak_memory"],
+                                "sampling_and_evaluation": peak_memory(next(model.parameters()).device)},
                 "implementation_sha256": implementation_sha256(cfg),
                 "checkpoint": {"path": str(output / "checkpoint.pt"), "sha256": checkpoint_hash,
                                "step": checkpoint["step"], "run_sha256": checkpoint["run_sha256"]},

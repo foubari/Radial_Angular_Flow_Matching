@@ -214,6 +214,7 @@ def test_sanity_setup_failure_is_preserved_without_checkpoint(fake_selection, mo
     monkeypatch.setattr(sanity, "compute_device", lambda: "cpu")
     monkeypatch.setattr(sanity, "hardware", lambda: {"kind": "mock setup test"})
     monkeypatch.setattr(sanity, "set_all_seeds", lambda seed: None)
+    monkeypatch.setattr(sanity, "dataset_manifest", lambda data: {"kind": "mock data manifest"})
 
     def load_data(cfg, *, include_external_test):
         assert include_external_test is False

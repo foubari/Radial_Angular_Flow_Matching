@@ -29,15 +29,26 @@ uniquely define a runnable sampler. The equations above determine this core.
 
 ## Final publication and code search status
 
-The [final ICLR 2025 publication](https://proceedings.iclr.cc/paper_files/paper/2025/file/1d5b9233ad716a43be5c0d3023cb82d0-Paper-Conference.pdf)
-has been located, but its algorithm pages have **not yet been verified** in this
-session. The web reader rejected the 33.6 MB PDF; direct downloads from the
-proceedings and OpenReview returned HTTP 403. Do not claim that the discrepancies
-above persist in the final publication without inspecting it.
+On 2026-09-10, targeted search returned indexed text from the official
+[final ICLR 2025 publication, pp. 30–31](https://proceedings.iclr.cc/paper_files/paper/2025/file/1d5b9233ad716a43be5c0d3023cb82d0-Paper-Conference.pdf).
+Appendix B renumbers the straight interpolant, field and noise objective to
+Eqs. **167–169**; their mathematical content agrees with the implementation.
+The final-paper Figure 5 indexed algorithms retain the integer-time versus
+continuous-time inconsistency and overwrite the first Heun slope while referring
+to a separate primed slope. This supports using the equations and an explicit
+standard Heun update. It does **not** establish the authors' executed sampler.
+
+This is verification against indexed primary-source text, **not visual inspection
+of the final PDF**. The web reader still rejects its 33,581,191-byte size, and the
+cluster proxy still rejects a direct download with `Tunnel connection failed:
+403 Forbidden`. Final-page images and the final table/schedule layout remain
+unverified. The benchmark endpoint and grid remain declared adaptations.
 
 Searches of the paper, arXiv metadata, author page and public GitHub references
 did not establish a public authors' t-Flow implementation. The
 [first author's page](https://kpandey008.github.io/) links the paper without code.
+The [NVIDIA publication page](https://research.nvidia.com/labs/lpr/publication/pandey2024heavytailed/)
+was rechecked on 2026-09-10 and likewise links arXiv without a code artifact.
 [NVIDIA PhysicsNeMo v1.2.0 release notes](https://github.com/NVIDIA/physicsnemo/releases/tag/v1.2.0)
 describe a later *adapted t-EDM* implementation. Its
 [repository](https://github.com/NVIDIA/physicsnemo) is Apache-2.0 licensed.

@@ -234,6 +234,41 @@ def test_audio_tuning_does_not_read_external_test(monkeypatch):
     assert result.external_test is None and result.external_gains is None
 
 
+def test_dataset_manifest_distinguishes_split_order_and_external_test():
+    data = inputs.CachedData(torch.arange(12).float().reshape(6, 2), None,
+                             {"train": torch.tensor([0, 1, 2]),
+                              "val": torch.tensor([3, 4, 5]), "test": torch.empty(0, dtype=torch.long)},
+                             torch.zeros(2), external_test=torch.tensor([[50., 60.]]),
+                             external_gains=torch.tensor([2.]))
+    first = run.dataset_manifest(data)
+    assert first["external_test_loaded"] is True
+    assert first["split_indices"]["test"]["shape"] == [0]
+    assert first["splits"]["test"]["shape"] == [1, 2]
+    data.indices["train"] = torch.tensor([2, 1, 0])
+    changed = run.dataset_manifest(data)
+    assert first["values"] == changed["values"]
+    assert first["splits"]["train"]["sha256"] != changed["splits"]["train"]["sha256"]
+    assert first["split_indices"]["train"]["sha256"] != changed["split_indices"]["train"]["sha256"]
+    assert first["splits"]["val"] == changed["splits"]["val"]
+
+
+def test_peak_memory_retains_measured_maximum_across_resume(monkeypatch):
+    monkeypatch.setattr(torch.cuda, "max_memory_allocated", lambda device: 300)
+    monkeypatch.setattr(torch.cuda, "max_memory_reserved", lambda device: 400)
+    assert run.peak_memory(torch.device("cuda"), {"allocated_bytes": 500, "reserved_bytes": 200}) == {
+        "allocated_bytes": 500, "reserved_bytes": 400}
+    assert run.peak_memory(torch.device("cpu")) is None
+
+
+def test_finite_gradients_keeps_none_semantics_and_rejects_nonfinite():
+    model = torch.nn.Linear(2, 2)
+    assert run.finite_gradients(model)
+    model.weight.grad = torch.ones_like(model.weight)
+    assert run.finite_gradients(model)
+    model.bias.grad = torch.tensor([0., float("nan")])
+    assert not run.finite_gradients(model)
+
+
 def test_heavy_finite_rows_do_not_overflow_validation_norms():
     values = torch.tensor([[1e30, -1e30], [2e30, 1e30], [-1e30, 3e30]], dtype=torch.float32)
     choices = source_candidates(values)

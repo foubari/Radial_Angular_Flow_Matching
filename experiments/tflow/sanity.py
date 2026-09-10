@@ -16,7 +16,7 @@ from experiments.tflow.data import load_data
 from experiments.tflow.run import (validate_config, compute_device, build_model,
                                    noise_callback, sample, hardware, write_json,
                                    implementation_sha256, json_hash, _finite_state,
-                                   sanitize_metrics)
+                                   sanitize_metrics, dataset_manifest, finite_gradients)
 from experiments.tflow.validation import source_candidates, selection_score
 from rafm.utils.seeds import set_all_seeds
 
@@ -37,6 +37,7 @@ def check(cfg, root):
         write_json(output/'config.json',cfg)
         device=compute_device()
         data=load_data(cfg,include_external_test=False)
+        write_json(output/'dataset_manifest.json',dataset_manifest(data))
         set_all_seeds(46021)
         model=build_model(cfg,data.values.shape[1],device).train()
         settings=cfg['training']
@@ -67,7 +68,7 @@ def check(cfg, root):
             with torch.autocast('cuda',dtype=torch.bfloat16,enabled=settings['precision']=='bfloat16_autocast'):
                 loss=tflow_loss(noise_callback(model,cfg,y),values[index],source,reduction='batch_mean')
             loss.backward()
-            if any(p.grad is not None and not torch.isfinite(p.grad).all() for p in model.parameters()):
+            if not finite_gradients(model):
                 raise FloatingPointError('Nonfinite sanity gradient')
             optimizer.step()
             if ema is not None:
