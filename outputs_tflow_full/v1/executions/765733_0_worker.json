@@ -1,0 +1,106 @@
+{
+  "status": "failed",
+  "study": "tflow",
+  "phase": "tuning",
+  "worker_index": 0,
+  "task_indices": [
+    0,
+    6,
+    12,
+    18,
+    24
+  ],
+  "manifest": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v1/launch/tasks_20260910T075106_eecf1c69.json",
+  "manifest_sha256": "a1c75f8d2200c80f01958cc808ff79ab8e1ea5c0cf5e985163e82c7b52206718",
+  "slurm_job_id": "765733",
+  "host": "auh7-3b-gpu-008",
+  "started_utc": "2026-09-10T07:53:01.277378+00:00",
+  "tasks": [
+    {
+      "task_index": 0,
+      "command": [
+        "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.venv/bin/python",
+        "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/tools/launch_shared_study.py",
+        "--execute-task",
+        "0",
+        "--manifest",
+        "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v1/launch/tasks_20260910T075106_eecf1c69.json",
+        "--manifest-sha256",
+        "a1c75f8d2200c80f01958cc808ff79ab8e1ea5c0cf5e985163e82c7b52206718"
+      ],
+      "status": "failed",
+      "started_utc": "2026-09-10T07:53:01.284280+00:00",
+      "exit_code": 1,
+      "ended_utc": "2026-09-10T07:53:27.053160+00:00"
+    },
+    {
+      "task_index": 6,
+      "command": [
+        "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.venv/bin/python",
+        "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/tools/launch_shared_study.py",
+        "--execute-task",
+        "6",
+        "--manifest",
+        "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v1/launch/tasks_20260910T075106_eecf1c69.json",
+        "--manifest-sha256",
+        "a1c75f8d2200c80f01958cc808ff79ab8e1ea5c0cf5e985163e82c7b52206718"
+      ],
+      "status": "failed",
+      "started_utc": "2026-09-10T07:53:27.058374+00:00",
+      "exit_code": 1,
+      "ended_utc": "2026-09-10T07:53:45.606009+00:00"
+    },
+    {
+      "task_index": 12,
+      "command": [
+        "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.venv/bin/python",
+        "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/tools/launch_shared_study.py",
+        "--execute-task",
+        "12",
+        "--manifest",
+        "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v1/launch/tasks_20260910T075106_eecf1c69.json",
+        "--manifest-sha256",
+        "a1c75f8d2200c80f01958cc808ff79ab8e1ea5c0cf5e985163e82c7b52206718"
+      ],
+      "status": "failed",
+      "started_utc": "2026-09-10T07:53:45.631738+00:00",
+      "exit_code": 1,
+      "ended_utc": "2026-09-10T07:54:04.085806+00:00"
+    },
+    {
+      "task_index": 18,
+      "command": [
+        "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.venv/bin/python",
+        "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/tools/launch_shared_study.py",
+        "--execute-task",
+        "18",
+        "--manifest",
+        "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v1/launch/tasks_20260910T075106_eecf1c69.json",
+        "--manifest-sha256",
+        "a1c75f8d2200c80f01958cc808ff79ab8e1ea5c0cf5e985163e82c7b52206718"
+      ],
+      "status": "failed",
+      "started_utc": "2026-09-10T07:54:04.091559+00:00",
+      "exit_code": 1,
+      "ended_utc": "2026-09-10T07:54:22.694380+00:00"
+    },
+    {
+      "task_index": 24,
+      "command": [
+        "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.venv/bin/python",
+        "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/tools/launch_shared_study.py",
+        "--execute-task",
+        "24",
+        "--manifest",
+        "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v1/launch/tasks_20260910T075106_eecf1c69.json",
+        "--manifest-sha256",
+        "a1c75f8d2200c80f01958cc808ff79ab8e1ea5c0cf5e985163e82c7b52206718"
+      ],
+      "status": "failed",
+      "started_utc": "2026-09-10T07:54:22.700354+00:00",
+      "exit_code": 1,
+      "ended_utc": "2026-09-10T07:54:40.810559+00:00"
+    }
+  ],
+  "ended_utc": "2026-09-10T07:54:40.816117+00:00"
+}

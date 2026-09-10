@@ -1,0 +1,90 @@
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/experiments/tflow/tune.py", line 166, in <module>
+    main()
+  File "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/experiments/tflow/tune.py", line 162, in main
+    print(json.dumps(select(json.loads(Path(args.config).read_text()), args.output), indent=2))
+  File "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/experiments/tflow/tune.py", line 142, in select
+    history.append(trial(index, first_budget))
+  File "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/experiments/tflow/tune.py", line 117, in trial
+    train(cfg, data, output, TUNING_SEED, source, budget=budget, stage="tuning")
+  File "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/experiments/tflow/run.py", line 335, in train
+    torch.cuda.reset_peak_memory_stats(device)
+  File "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.venv/lib/python3.10/site-packages/torch/cuda/memory.py", line 374, in reset_peak_memory_stats
+    return torch._C._cuda_resetPeakMemoryStats(device)
+RuntimeError: Invalid device argument 
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/experiments/tflow/tune.py", line 166, in <module>
+    main()
+  File "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/experiments/tflow/tune.py", line 162, in main
+    print(json.dumps(select(json.loads(Path(args.config).read_text()), args.output), indent=2))
+  File "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/experiments/tflow/tune.py", line 142, in select
+    history.append(trial(index, first_budget))
+  File "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/experiments/tflow/tune.py", line 117, in trial
+    train(cfg, data, output, TUNING_SEED, source, budget=budget, stage="tuning")
+  File "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/experiments/tflow/run.py", line 335, in train
+    torch.cuda.reset_peak_memory_stats(device)
+  File "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.venv/lib/python3.10/site-packages/torch/cuda/memory.py", line 374, in reset_peak_memory_stats
+    return torch._C._cuda_resetPeakMemoryStats(device)
+RuntimeError: Invalid device argument 
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/experiments/tflow/tune.py", line 166, in <module>
+    main()
+  File "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/experiments/tflow/tune.py", line 162, in main
+    print(json.dumps(select(json.loads(Path(args.config).read_text()), args.output), indent=2))
+  File "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/experiments/tflow/tune.py", line 142, in select
+    history.append(trial(index, first_budget))
+  File "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/experiments/tflow/tune.py", line 117, in trial
+    train(cfg, data, output, TUNING_SEED, source, budget=budget, stage="tuning")
+  File "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/experiments/tflow/run.py", line 335, in train
+    torch.cuda.reset_peak_memory_stats(device)
+  File "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.venv/lib/python3.10/site-packages/torch/cuda/memory.py", line 374, in reset_peak_memory_stats
+    return torch._C._cuda_resetPeakMemoryStats(device)
+RuntimeError: Invalid device argument 
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/experiments/tflow/tune.py", line 166, in <module>
+    main()
+  File "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/experiments/tflow/tune.py", line 162, in main
+    print(json.dumps(select(json.loads(Path(args.config).read_text()), args.output), indent=2))
+  File "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/experiments/tflow/tune.py", line 142, in select
+    history.append(trial(index, first_budget))
+  File "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/experiments/tflow/tune.py", line 117, in trial
+    train(cfg, data, output, TUNING_SEED, source, budget=budget, stage="tuning")
+  File "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/experiments/tflow/run.py", line 335, in train
+    torch.cuda.reset_peak_memory_stats(device)
+  File "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.venv/lib/python3.10/site-packages/torch/cuda/memory.py", line 374, in reset_peak_memory_stats
+    return torch._C._cuda_resetPeakMemoryStats(device)
+RuntimeError: Invalid device argument 
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/experiments/tflow/tune.py", line 166, in <module>
+    main()
+  File "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/experiments/tflow/tune.py", line 162, in main
+    print(json.dumps(select(json.loads(Path(args.config).read_text()), args.output), indent=2))
+  File "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/experiments/tflow/tune.py", line 142, in select
+    history.append(trial(index, first_budget))
+  File "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/experiments/tflow/tune.py", line 117, in trial
+    train(cfg, data, output, TUNING_SEED, source, budget=budget, stage="tuning")
+  File "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/experiments/tflow/run.py", line 335, in train
+    torch.cuda.reset_peak_memory_stats(device)
+  File "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.venv/lib/python3.10/site-packages/torch/cuda/memory.py", line 374, in reset_peak_memory_stats
+    return torch._C._cuda_resetPeakMemoryStats(device)
+RuntimeError: Invalid device argument 

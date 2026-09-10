@@ -1,0 +1,35 @@
+{
+  "manifest": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/launch/tasks_20260910T080615_c1cc6a41.json",
+  "manifest_sha256": "d94e88fa8135d786d7457e72644a797840272e614485cb11cb647ca9da482d41",
+  "submitted_utc": "2026-09-10T08:06:16.316979+00:00",
+  "arrays": [
+    {
+      "phase": "final",
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--partition=hermes-2",
+        "--nodelist=auh7-3b-gpu-015",
+        "--nodes=1",
+        "--ntasks=1",
+        "--cpus-per-task=4",
+        "--gres=gpu:mi210:1",
+        "--mem=32G",
+        "--time=48:00:00",
+        "--array=0-5%6",
+        "--no-requeue",
+        "--job-name=rafm_inputs-final-v1",
+        "--output=/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/logs/%x-%A_%a.out",
+        "--error=/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/logs/%x-%A_%a.err",
+        "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/tools/shared_study_array_job.sh",
+        "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/launch/tasks_20260910T080615_c1cc6a41.json",
+        "d94e88fa8135d786d7457e72644a797840272e614485cb11cb647ca9da482d41",
+        "final"
+      ],
+      "exit_code": 0,
+      "stdout": "765748",
+      "stderr": "",
+      "job_id": "765748"
+    }
+  ]
+}

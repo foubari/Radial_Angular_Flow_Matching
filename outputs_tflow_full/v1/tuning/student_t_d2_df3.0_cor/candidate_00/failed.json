@@ -1,0 +1,27 @@
+{
+  "status": "failed",
+  "candidate_index": 0,
+  "steps": 500,
+  "source": {
+    "nu": 3.0,
+    "scale": 0.1608373062604002,
+    "scale_multiplier": 0.5,
+    "reference_scale": 0.3216746125208004,
+    "training_median_radius": 0.4270166152960485
+  },
+  "config_sha256": "caa0e5c0fc378ce9d6663808f1226a19745e90aea2954dc2d5a17e8bcd7339a5",
+  "implementation_sha256": "3297bfee029c574a545cc713f3266c074896b9051fabfbc3c4cea11e5efbcc41",
+  "stage": "tuning",
+  "hardware": {
+    "host": "auh7-3b-gpu-008",
+    "slurm_job_id": "765733",
+    "python": "3.10.12",
+    "torch": "2.7.1+rocm6.3",
+    "cuda": null,
+    "hip": "6.3.42131-fa1d09cbd",
+    "gpu": "AMD Instinct MI210",
+    "vram_bytes": 68702699520
+  },
+  "error_type": "RuntimeError",
+  "error": "Invalid device argument "
+}

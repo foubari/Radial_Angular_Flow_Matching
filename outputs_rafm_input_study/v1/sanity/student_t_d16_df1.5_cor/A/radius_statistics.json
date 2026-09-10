@@ -1,0 +1,15 @@
+{
+  "mean_log_radius": 3.726221178749199,
+  "population_std_log_radius": 0.7313075197436689,
+  "standardization_scale": 0.7313075197436689,
+  "radius_floor": 1e-08,
+  "std_floor": 1e-08,
+  "n_training_samples": 30000,
+  "dimension": 16,
+  "training_data_sha256": "930f1c226605b46571e78d0ca0ad885cd151523f631487a57affa979c1023cab",
+  "training_indices_sha256": "b955ac5fbf11416eea13fe84909def75a462565a10c6cea35e1bb3ffe431ced0",
+  "zero_radius_count": 0,
+  "below_radius_floor_count": 0,
+  "fit_split": "generator_training",
+  "accumulation_dtype": "float64"
+}

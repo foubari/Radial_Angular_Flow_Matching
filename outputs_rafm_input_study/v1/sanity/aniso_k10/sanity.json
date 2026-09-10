@@ -1,0 +1,179 @@
+{
+  "status": "passed",
+  "condition_id": "aniso_k10",
+  "rows": [
+    {
+      "arm": "A",
+      "status": "passed",
+      "training": {
+        "run_sha256": "85e222a66955a868446cac7c1a8bcb8d96832dd96fd59fcdb277094a2d506f7c",
+        "training_step": 16,
+        "total_train_time_s": 2.974267430603504,
+        "final_loss": 2.3912534713745117,
+        "parameters": {
+          "arm": "A",
+          "backbone_kind": "mlp",
+          "original_backbone_parameters": 41504,
+          "total_parameters": 41504,
+          "trainable_parameters": 41504,
+          "conditioning_overhead_parameters": 0,
+          "conditioning_overhead_fraction": 0.0,
+          "radius_embedding_hidden_width": null
+        },
+        "hardware": {
+          "host": "auh7-3b-gpu-015",
+          "slurm_job_id": "765730",
+          "python": "3.10.12",
+          "torch": "2.7.1+rocm6.3",
+          "cuda": null,
+          "hip": "6.3.42131-fa1d09cbd",
+          "gpu": "AMD Instinct MI210",
+          "vram_bytes": 68702699520
+        },
+        "peak_memory": {
+          "allocated_bytes": 99976704,
+          "reserved_bytes": 109051904
+        },
+        "timing_kind": "measured",
+        "timing_scope": "training loop including compile, finite checks, logging and checkpoints",
+        "gradient_observed": true,
+        "radius_embedding_gradient_observed": false,
+        "backend": {
+          "cudnn_deterministic": true,
+          "cudnn_benchmark": false,
+          "note": "Shared seed helper for every new arm; historical downstream scripts did not explicitly force deterministic cuDNN/MIOpen"
+        }
+      },
+      "n_generated": 128,
+      "nfe": 512,
+      "model_calls_total": 512,
+      "radius_drift": {
+        "mean_absolute": 1.6838312149047852e-06,
+        "max_absolute": 7.62939453125e-06,
+        "mean_relative": 6.241146621732696e-08,
+        "max_relative": 2.434130124129297e-07,
+        "initial_below_radius_floor": 0,
+        "radius_floor": 1e-08
+      },
+      "finite_samples": true,
+      "checkpoint_strict_load": true,
+      "test_data_used": false
+    },
+    {
+      "arm": "B",
+      "status": "passed",
+      "training": {
+        "run_sha256": "ebfa60e8fca97c3354d70291fe1a83940424acec578c7dbdffe30e85cfb700a8",
+        "training_step": 16,
+        "total_train_time_s": 1.2506845518946648,
+        "final_loss": 2.4823646545410156,
+        "parameters": {
+          "arm": "B",
+          "backbone_kind": "mlp",
+          "original_backbone_parameters": 41504,
+          "total_parameters": 41632,
+          "trainable_parameters": 41632,
+          "conditioning_overhead_parameters": 128,
+          "conditioning_overhead_fraction": 0.0030840400925212026,
+          "radius_embedding_hidden_width": null
+        },
+        "hardware": {
+          "host": "auh7-3b-gpu-015",
+          "slurm_job_id": "765730",
+          "python": "3.10.12",
+          "torch": "2.7.1+rocm6.3",
+          "cuda": null,
+          "hip": "6.3.42131-fa1d09cbd",
+          "gpu": "AMD Instinct MI210",
+          "vram_bytes": 68702699520
+        },
+        "peak_memory": {
+          "allocated_bytes": 100162560,
+          "reserved_bytes": 109051904
+        },
+        "timing_kind": "measured",
+        "timing_scope": "training loop including compile, finite checks, logging and checkpoints",
+        "gradient_observed": true,
+        "radius_embedding_gradient_observed": true,
+        "backend": {
+          "cudnn_deterministic": true,
+          "cudnn_benchmark": false,
+          "note": "Shared seed helper for every new arm; historical downstream scripts did not explicitly force deterministic cuDNN/MIOpen"
+        }
+      },
+      "n_generated": 128,
+      "nfe": 512,
+      "model_calls_total": 512,
+      "radius_drift": {
+        "mean_absolute": 1.8402934074401855e-06,
+        "max_absolute": 7.62939453125e-06,
+        "mean_relative": 7.036750560018845e-08,
+        "max_relative": 2.5550269810992177e-07,
+        "initial_below_radius_floor": 0,
+        "radius_floor": 1e-08
+      },
+      "finite_samples": true,
+      "checkpoint_strict_load": true,
+      "test_data_used": false
+    },
+    {
+      "arm": "C",
+      "status": "passed",
+      "training": {
+        "run_sha256": "bfdb77edc526a5cc26f2c2385b0369d500a4ec529c32989476fb8f30a59cc7af",
+        "training_step": 16,
+        "total_train_time_s": 1.2560366317629814,
+        "final_loss": 2.481931686401367,
+        "parameters": {
+          "arm": "C",
+          "backbone_kind": "mlp",
+          "original_backbone_parameters": 41504,
+          "total_parameters": 41632,
+          "trainable_parameters": 41632,
+          "conditioning_overhead_parameters": 128,
+          "conditioning_overhead_fraction": 0.0030840400925212026,
+          "radius_embedding_hidden_width": null
+        },
+        "hardware": {
+          "host": "auh7-3b-gpu-015",
+          "slurm_job_id": "765730",
+          "python": "3.10.12",
+          "torch": "2.7.1+rocm6.3",
+          "cuda": null,
+          "hip": "6.3.42131-fa1d09cbd",
+          "gpu": "AMD Instinct MI210",
+          "vram_bytes": 68702699520
+        },
+        "peak_memory": {
+          "allocated_bytes": 100164096,
+          "reserved_bytes": 109051904
+        },
+        "timing_kind": "measured",
+        "timing_scope": "training loop including compile, finite checks, logging and checkpoints",
+        "gradient_observed": true,
+        "radius_embedding_gradient_observed": false,
+        "backend": {
+          "cudnn_deterministic": true,
+          "cudnn_benchmark": false,
+          "note": "Shared seed helper for every new arm; historical downstream scripts did not explicitly force deterministic cuDNN/MIOpen"
+        }
+      },
+      "n_generated": 128,
+      "nfe": 512,
+      "model_calls_total": 512,
+      "radius_drift": {
+        "mean_absolute": 2.0042061805725098e-06,
+        "max_absolute": 7.62939453125e-06,
+        "mean_relative": 7.589385120354564e-08,
+        "max_relative": 3.3615219763305504e-07,
+        "initial_below_radius_floor": 0,
+        "radius_floor": 1e-08
+      },
+      "finite_samples": true,
+      "checkpoint_strict_load": true,
+      "test_data_used": false
+    }
+  ],
+  "no_tuning": true,
+  "disposable_updates_per_arm": 16
+}

@@ -1,0 +1,106 @@
+{
+  "status": "passed",
+  "purpose": "disposable_public_trainer_validation",
+  "condition_id": "audiomnist_stft",
+  "test_data_used": false,
+  "source_selection_performed": false,
+  "config_sha256": "38c27cb839fb0249efbd684c992b5c70aea01a40435a34ef3e846439a76611fc",
+  "implementation_sha256": "afd10909f52362aacdbf1a3f42deb86cff99644aad329c111b0553e889eceb17",
+  "entrypoint_sha256": "861639d37f7985a1847d629f4fa74c56467ccf88847497794cabcc3f74c332f3",
+  "validator_sha256": "14b7a6ded9550caa459925abfc6863e29af0cb1e44f0a88ca98fc627cc7ced27",
+  "hardware": {
+    "host": "auh7-3b-gpu-015",
+    "slurm_job_id": "765740",
+    "python": "3.10.12",
+    "torch": "2.7.1+rocm6.3",
+    "cuda": null,
+    "hip": "6.3.42131-fa1d09cbd",
+    "gpu": "AMD Instinct MI210",
+    "vram_bytes": 68702699520
+  },
+  "gpu_initialized_before_training": true,
+  "initial_updates": 4,
+  "resumed_updates": 2,
+  "uninterrupted_updates": 6,
+  "disposable_optimizer_updates_total": 12,
+  "checkpoint_load": true,
+  "resume_bitwise_identical": true,
+  "finite_samples": true,
+  "nfe": 160,
+  "source": {
+    "nu": 5.0,
+    "scale": 0.00937505569530116
+  },
+  "first_training": {
+    "run_sha256": "9d70b66cc018e037f5416bf94522787974cd5f16f7fe77188dfb5f51b0ba58db",
+    "total_train_time_s": 4.9364267364144325,
+    "training_step": 4,
+    "final_loss": 4.387972354888916,
+    "timing_kind": "measured",
+    "timing_scope": "training loop including compile, logging, finite checks and checkpoints; excludes data/model setup",
+    "peak_memory": {
+      "allocated_bytes": 8173539840,
+      "reserved_bytes": 9072279552
+    },
+    "peak_memory_scope": "model, EMA, optimizer, accelerator training data and training loop; maximum across resumes",
+    "n_params": 27896802,
+    "hardware": {
+      "host": "auh7-3b-gpu-015",
+      "slurm_job_id": "765740",
+      "python": "3.10.12",
+      "torch": "2.7.1+rocm6.3",
+      "cuda": null,
+      "hip": "6.3.42131-fa1d09cbd",
+      "gpu": "AMD Instinct MI210",
+      "vram_bytes": 68702699520
+    }
+  },
+  "resumed_training": {
+    "run_sha256": "9d70b66cc018e037f5416bf94522787974cd5f16f7fe77188dfb5f51b0ba58db",
+    "total_train_time_s": 5.732263348996639,
+    "training_step": 6,
+    "final_loss": 3.3620665073394775,
+    "timing_kind": "measured",
+    "timing_scope": "training loop including compile, logging, finite checks and checkpoints; excludes data/model setup",
+    "peak_memory": {
+      "allocated_bytes": 8617838592,
+      "reserved_bytes": 9588178944
+    },
+    "peak_memory_scope": "model, EMA, optimizer, accelerator training data and training loop; maximum across resumes",
+    "n_params": 27896802,
+    "hardware": {
+      "host": "auh7-3b-gpu-015",
+      "slurm_job_id": "765740",
+      "python": "3.10.12",
+      "torch": "2.7.1+rocm6.3",
+      "cuda": null,
+      "hip": "6.3.42131-fa1d09cbd",
+      "gpu": "AMD Instinct MI210",
+      "vram_bytes": 68702699520
+    }
+  },
+  "uninterrupted_training": {
+    "run_sha256": "9d70b66cc018e037f5416bf94522787974cd5f16f7fe77188dfb5f51b0ba58db",
+    "total_train_time_s": 3.1535777375102043,
+    "training_step": 6,
+    "final_loss": 3.3620665073394775,
+    "timing_kind": "measured",
+    "timing_scope": "training loop including compile, logging, finite checks and checkpoints; excludes data/model setup",
+    "peak_memory": {
+      "allocated_bytes": 9072304640,
+      "reserved_bytes": 10053746688
+    },
+    "peak_memory_scope": "model, EMA, optimizer, accelerator training data and training loop; maximum across resumes",
+    "n_params": 27896802,
+    "hardware": {
+      "host": "auh7-3b-gpu-015",
+      "slurm_job_id": "765740",
+      "python": "3.10.12",
+      "torch": "2.7.1+rocm6.3",
+      "cuda": null,
+      "hip": "6.3.42131-fa1d09cbd",
+      "gpu": "AMD Instinct MI210",
+      "vram_bytes": 68702699520
+    }
+  }
+}

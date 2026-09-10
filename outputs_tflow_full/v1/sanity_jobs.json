@@ -1,0 +1,106 @@
+[
+  {
+    "condition": "aniso_k1",
+    "exit_code": 0
+  },
+  {
+    "condition": "aniso_k10",
+    "exit_code": 0
+  },
+  {
+    "condition": "aniso_k100",
+    "exit_code": 0
+  },
+  {
+    "condition": "aniso_k3",
+    "exit_code": 0
+  },
+  {
+    "condition": "aniso_k30",
+    "exit_code": 0
+  },
+  {
+    "condition": "aniso_k300",
+    "exit_code": 0
+  },
+  {
+    "condition": "audiomnist_stft",
+    "exit_code": 0
+  },
+  {
+    "condition": "finance_ff49",
+    "exit_code": 0
+  },
+  {
+    "condition": "gaussian_aniso_d16_cor",
+    "exit_code": 0
+  },
+  {
+    "condition": "piv_d16",
+    "exit_code": 0
+  },
+  {
+    "condition": "piv_d256",
+    "exit_code": 0
+  },
+  {
+    "condition": "piv_d64",
+    "exit_code": 0
+  },
+  {
+    "condition": "student_t_d128_df3.0_cor",
+    "exit_code": 0
+  },
+  {
+    "condition": "student_t_d16_df1.5_cor",
+    "exit_code": 0
+  },
+  {
+    "condition": "student_t_d16_df10.0_cor",
+    "exit_code": 0
+  },
+  {
+    "condition": "student_t_d16_df2.0_cor",
+    "exit_code": 0
+  },
+  {
+    "condition": "student_t_d16_df3.0_cor",
+    "exit_code": 0
+  },
+  {
+    "condition": "student_t_d16_df5.0_cor",
+    "exit_code": 0
+  },
+  {
+    "condition": "student_t_d16_df50.0_cor",
+    "exit_code": 0
+  },
+  {
+    "condition": "student_t_d256_df3.0_cor",
+    "exit_code": 0
+  },
+  {
+    "condition": "student_t_d2_df3.0_cor",
+    "exit_code": 0
+  },
+  {
+    "condition": "student_t_d32_df3.0_cor",
+    "exit_code": 0
+  },
+  {
+    "condition": "student_t_d64_df3.0_cor",
+    "exit_code": 0
+  },
+  {
+    "condition": "student_t_d8_df3.0_cor",
+    "exit_code": 0
+  },
+  {
+    "condition": "toy_radial_angular",
+    "exit_code": 0
+  },
+  {
+    "condition": "weather_au_wind",
+    "exit_code": 0
+  }
+]

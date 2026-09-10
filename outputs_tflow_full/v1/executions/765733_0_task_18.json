@@ -1,0 +1,46 @@
+{
+  "status": "failed",
+  "study": "tflow",
+  "task_index": 18,
+  "condition_id": "student_t_d16_df10.0_cor",
+  "phase": "tuning",
+  "arm": null,
+  "seed": null,
+  "source_commit": "2750576ddf20c45d5856eb2aa8fb6336be83ac6a",
+  "manifest": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v1/launch/tasks_20260910T075106_eecf1c69.json",
+  "manifest_sha256": "a1c75f8d2200c80f01958cc808ff79ab8e1ea5c0cf5e985163e82c7b52206718",
+  "slurm_job_id": "765733",
+  "started_utc": "2026-09-10T07:54:04.149082+00:00",
+  "host": "auh7-3b-gpu-008",
+  "commands": [
+    {
+      "phase": "validation_only_tuning",
+      "seed": null,
+      "command": [
+        "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.venv/bin/python",
+        "-m",
+        "experiments.tflow.tune",
+        "--config",
+        "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/configs/rafm_input_study/prepared/student_t_d16_df10.0_cor.json",
+        "--output",
+        "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v1/tuning"
+      ],
+      "started_utc": "2026-09-10T07:54:10.681916+00:00",
+      "status": "failed",
+      "exit_code": 1,
+      "ended_utc": "2026-09-10T07:54:21.739835+00:00"
+    }
+  ],
+  "run_lock": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v1/locks/student_t_d16_df10.0_cor_tuning_all_selection.lock",
+  "hardware": {
+    "host": "auh7-3b-gpu-008",
+    "slurm_job_id": "765733",
+    "python": "3.10.12",
+    "torch": "2.7.1+rocm6.3",
+    "cuda": null,
+    "hip": "6.3.42131-fa1d09cbd",
+    "gpu": "AMD Instinct MI210",
+    "vram_bytes": 68702699520
+  },
+  "ended_utc": "2026-09-10T07:54:21.745567+00:00"
+}

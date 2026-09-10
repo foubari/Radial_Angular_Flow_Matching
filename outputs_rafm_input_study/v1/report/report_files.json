@@ -1,0 +1,40 @@
+{
+  "files": [
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/report/README.md",
+      "sha256": "c92b6b9dfcfb2b5adc1845ec5801fd37be3d6c68ae74b32d9da5e46174fa6c22"
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/report/aggregate_metrics.csv",
+      "sha256": "4d4c9bd9c2abe3afacb34076a8b86f5e28ef68e57f628f51884b4e90c776a9be"
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/report/audio_comparison.csv",
+      "sha256": "2093ef8a53720a3f69e422b2e83cd05a648ac3808dddc765298e76b3c8983944"
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/report/audio_comparison.tex",
+      "sha256": "1a2a4de22bdfe9b8170c01f5955dcbb3039336fc13b4fc965106314a28d81585"
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/report/comparison_table.tex",
+      "sha256": "9cf80ecdc083b2261831df6ca6c493a810327e28a55d11bee11b6b9471c5841b"
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/report/manuscript_addition.md",
+      "sha256": "43af8fef9ba6225eb8633c9775f1d59b41b1151cb8daf9d3633cd2a674de2b2d"
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/report/paired_deltas.csv",
+      "sha256": "bca6012beba4ed688d4ae16cca355ff19aead1bfe13dcb91a0a0790291a15b56"
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/report/per_seed_metrics.csv",
+      "sha256": "26214ea3df12b6815f8cc521c3d6ab4995c6b218a1de04d0aa47108a7595832f"
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/report/report.json",
+      "sha256": "96efb50aaf708c0c699216780b8c085df87c084d0239f434e64fb0f30beb1e4e"
+    }
+  ]
+}

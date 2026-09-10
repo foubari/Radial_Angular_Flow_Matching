@@ -1,0 +1,14 @@
+{
+  "job_id": 765729,
+  "phase": "unit_checks",
+  "status": "failed",
+  "passed": 46,
+  "failed": 4,
+  "error": "Sampler called CUDA peak-memory reset for CPU unit fixtures",
+  "resolution": "Guard CUDA peak reset by device.type; CPU peak_memory stays None",
+  "training_or_benchmark_results_affected": false,
+  "logs": [
+    "outputs_rafm_input_study/v1/logs/rafm-input-sanity-765729.out",
+    "outputs_rafm_input_study/v1/logs/rafm-input-sanity-765729.err"
+  ]
+}

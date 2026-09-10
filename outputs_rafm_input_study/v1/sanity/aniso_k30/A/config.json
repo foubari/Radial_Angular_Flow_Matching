@@ -1,0 +1,208 @@
+{
+  "config": {
+    "schema_version": 1,
+    "condition_id": "aniso_k30",
+    "kind": "vector",
+    "protocol_status": "resolved",
+    "blocking_issues": [],
+    "seeds": [
+      8925,
+      77395,
+      65457
+    ],
+    "data": {
+      "input": {
+        "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/v1/aniso_k30/values.pt",
+        "sha256": "fbfb1e4d9ee7bf5c815cbeefacdff2e366b8f61a16b131a5028cb082327fb620"
+      },
+      "shape": [
+        50000,
+        32
+      ],
+      "split": {
+        "kind": "indices",
+        "seed": 0,
+        "n_train": 30000,
+        "n_val": 10000,
+        "n_test": 10000,
+        "file": {
+          "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/v1/aniso_k30/split_indices.pt",
+          "sha256": "64f4ddb1e05c706bd7385a9156337933845b67703fb77a1b7c455249f60a3d3c"
+        }
+      },
+      "transform": "as_cached"
+    },
+    "model": {
+      "kind": "mlp",
+      "hidden_dim": 128,
+      "n_layers": 3
+    },
+    "training": {
+      "steps": 10000,
+      "batch_size": 4096,
+      "optimizer": "Adam",
+      "lr": 0.001,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "gradient_clip": null,
+      "ema": null,
+      "precision": "float32",
+      "batch_rule": "global_torch",
+      "compile": true,
+      "checkpoint_every": 5000,
+      "log_every": 200,
+      "class_dropout": 0.0
+    },
+    "evaluation": {
+      "n_samples": 10000,
+      "model_evaluations": 512,
+      "sample_batch_size": 10000,
+      "sample_seed": 0,
+      "metric_seed": 0,
+      "metric_seed_note": "Common new seed-0 metric projections across A/B/C and t-Flow; historical projections unavailable."
+    },
+    "sampler": {
+      "t_min": 0.001,
+      "rho": 7.0,
+      "grid": "power_sigma",
+      "sigma_min": 0.01
+    },
+    "tuning": {
+      "seed": 46021,
+      "nu": [
+        3,
+        5,
+        7
+      ],
+      "scale_multipliers": [
+        0.5,
+        1,
+        2
+      ],
+      "stage1_fraction": 0.05,
+      "continuation_fraction": 0.1,
+      "n_finalists": 2,
+      "validation_generated_samples": 1000,
+      "sample_seed": 61717,
+      "projection_seed": 61719
+    },
+    "provenance": {
+      "paper_sha256": "97f709df2a45e4acf4ba186379c60e9c75120d95e09af782d7a18c8b56d00367",
+      "baseline_commit": "5b89ed5f4af8a47c3b57eb9d595203daafc6d2c4",
+      "source_artifacts": [
+        "rebuttal_experiments/scripts/gen_aniso.py",
+        "rebuttal_experiments/raw_results/E9_aniso/aniso_k30/"
+      ],
+      "cached_input_only": true,
+      "existing_results_unchanged": true,
+      "study_id": "rafm_input_parameterization_v1",
+      "historical_result_reuse": false,
+      "comparison_label": "new_matched_realization",
+      "original_prepared_config_sha256": "9d4c2f78f8612dc66943d11b61b886e9c8c4199ba35c69716d8d74e4c6cf7719",
+      "batch_resolution": {
+        "prepared_value": 4096,
+        "selected_value": 4096,
+        "evidence": "Supplied PDF p34 C.7: Student-t/PIV256; Weather2048; other vectors4096; downstream p35 C.10"
+      },
+      "original_split_spec": {
+        "kind": "chrono",
+        "seed": 0,
+        "n_train": 30000,
+        "n_val": 10000,
+        "n_test": 10000
+      },
+      "generation": {
+        "realization": "new_matched_comparison_not_historical",
+        "sample_seed": 42,
+        "split_seed": 0,
+        "shape": [
+          50000,
+          32
+        ],
+        "device": "cpu",
+        "dtype": "float32",
+        "family": "aniso_sweep",
+        "dim": 32,
+        "kappa": 30,
+        "numpy_generator": "numpy.random.default_rng / PCG64",
+        "matrix_seed": 42,
+        "kappa_order": [
+          1,
+          3,
+          10,
+          30,
+          100,
+          300
+        ],
+        "source_files": [
+          "rebuttal_experiments/scripts/gen_aniso.py"
+        ],
+        "replay_rule": "U,V then one Nxd normal array for each kappa in fixed order; discard preceding arrays",
+        "historical_identity_claim": false
+      },
+      "shared_preparation_identity_sha256": "12a683137cff6cd75187731e2ef924a03d1b6015386ce66d39f18aa9dabc314a"
+    },
+    "experiment_launch_status": "authorized_after_correctness_checks_and_verified_cache",
+    "rafm_sampling_source": {
+      "kind": "radial_empirical_ecdf",
+      "fit_split": "generator_train_only",
+      "implementation": "rafm/sources/radial_empirical.py:RadialEmpiricalSource(mode=ecdf)",
+      "interpolation": "torch.quantile linear, independent uniform radius draw",
+      "log_radius_source": false,
+      "evidence": [
+        "rebuttal_experiments/configs/E1_studentt_d16.yaml",
+        "rebuttal_experiments/configs/E1_gaussian_d16.yaml",
+        "rebuttal_experiments/configs/E5_toy2d.yaml",
+        "rebuttal_experiments/configs/E6_dim16.yaml",
+        "rebuttal_experiments/configs/E8_df3.0.yaml",
+        "rebuttal_experiments/scripts/run_real.py",
+        "experiments/poc_audio/audio_flow.py",
+        "experiments/image_latents/dit/dit_train_sit.py"
+      ],
+      "note": "Explicit angular_rafm entries use empirical ECDF; rafm_oracle is a separate reference method."
+    },
+    "study": {
+      "id": "rafm_input_parameterization_v1",
+      "methods": [
+        "A",
+        "B",
+        "C",
+        "tflow"
+      ],
+      "training_seeds_shared": true,
+      "new_A_rerun": true,
+      "B_C_additional_tuning_steps": 0,
+      "final_checkpoint_selection": "prescribed_final_update_or_final_EMA",
+      "radius_stat_fit_split": "generator_train_only",
+      "authorization": "User authorized full t-Flow and A/B/C study on 2026-09-10, after small correctness runs"
+    },
+    "shared_cache": {
+      "directory": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/v1/aniso_k30",
+      "manifest_path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/v1/aniso_k30/manifest.json",
+      "manifest_sha256": "37f9fae9b396390a1526171fbfda0b69b3ba182f7c48230f3358cf068d946a9b"
+    }
+  },
+  "arm": "A",
+  "seed": 46021,
+  "stage": "sanity",
+  "radius_statistics": {
+    "mean_log_radius": 4.159918507641534,
+    "population_std_log_radius": 0.23150557324458934,
+    "standardization_scale": 0.23150557324458934,
+    "radius_floor": 1e-08,
+    "std_floor": 1e-08,
+    "n_training_samples": 30000,
+    "dimension": 32,
+    "training_data_sha256": "1d498a4a952d9cca0084b849631c2acbe1402794806d4c7c066e8af32bbc9478",
+    "training_indices_sha256": "7146f11166efda28ca9ca43d607a7b85de395dda7fb78283479068313b757972",
+    "zero_radius_count": 0,
+    "below_radius_floor_count": 0,
+    "fit_split": "generator_training",
+    "accumulation_dtype": "float64"
+  },
+  "implementation_sha256": "89d0c5819f1e80de00bb3a0827ae2bc57a27c01bbf66ec78f23ef88a7d30a6b1"
+}

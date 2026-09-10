@@ -1,0 +1,1452 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "benchmark_data_used": false,
+  "optimizer_updates": 0,
+  "numerical_solver_steps": 0,
+  "rows": [
+    {
+      "arm": "A",
+      "status": "passed",
+      "dimension": 256,
+      "batch_size": 2,
+      "model_config": {
+        "kind": "mlp",
+        "hidden_dim": 128,
+        "n_layers": 3
+      },
+      "parameters": {
+        "arm": "A",
+        "backbone_kind": "mlp",
+        "original_backbone_parameters": 99072,
+        "total_parameters": 99072,
+        "trainable_parameters": 99072,
+        "conditioning_overhead_parameters": 0,
+        "conditioning_overhead_fraction": 0.0,
+        "radius_embedding_hidden_width": null
+      },
+      "initial_state_sha256": "500eec5bae16461c459f456cd3ad66705f80aa23281ef6f7f0274a103a1100b3",
+      "module_structure_sha256": "bfc0f6b5057070548f3b4a3a0f630f78cd3b9adea555bbe92de820deb2fada33",
+      "original_initialization_forward_backward": {
+        "precision": "float32",
+        "backbone_gradients": {
+          "finite": true,
+          "nonzero": true,
+          "maximum_absolute": 4.442729949951172,
+          "tensors_with_gradients": 8
+        },
+        "condition_gradients": {
+          "applicable": false
+        }
+      },
+      "fixture_head_graph_check": {
+        "changed_parameters": [],
+        "optimizer_updates": 0,
+        "backbone_gradients": {
+          "finite": true,
+          "nonzero": true,
+          "maximum_absolute": 4.442729949951172,
+          "tensors_with_gradients": 8
+        },
+        "condition_gradients": {
+          "applicable": false
+        },
+        "radius_scale": 2.0,
+        "maximum_prediction_change": 0.009019583463668823,
+        "c_radius_invariant": null
+      },
+      "strict_checkpoint_reload": {
+        "passed": true,
+        "maximum_output_error": 0.0,
+        "file_written": false
+      },
+      "original_a_forward_identical": true,
+      "radius_statistics": {
+        "mean_log_radius": 0.15204941000836963,
+        "population_std_log_radius": 0.8713272737133757,
+        "standardization_scale": 0.8713272737133757,
+        "radius_floor": 1e-08,
+        "std_floor": 1e-08,
+        "n_training_samples": 8,
+        "dimension": 256,
+        "training_data_sha256": "51bbaf23d8e40f993bc74e60c2ad85632bb7a4848d123aef0a0119969e9f49a0",
+        "training_indices_sha256": "fece8d601cd4c9020e24f9e4a47feedefb2bceff5e9798d8056aea8700052eaa",
+        "zero_radius_count": 0,
+        "below_radius_floor_count": 0,
+        "fit_split": "generator_training",
+        "accumulation_dtype": "float64"
+      },
+      "model_metadata": {
+        "schema_version": 1,
+        "method": "rafm_angular_input_ablation",
+        "arm": "A",
+        "dimension": 256,
+        "model_config": {
+          "kind": "mlp",
+          "hidden_dim": 128,
+          "n_layers": 3
+        },
+        "input": "ambient_state",
+        "radius_condition": null,
+        "radius_statistics": {
+          "mean_log_radius": 0.15204941000836963,
+          "population_std_log_radius": 0.8713272737133757,
+          "standardization_scale": 0.8713272737133757,
+          "radius_floor": 1e-08,
+          "std_floor": 1e-08,
+          "n_training_samples": 8,
+          "dimension": 256,
+          "training_data_sha256": "51bbaf23d8e40f993bc74e60c2ad85632bb7a4848d123aef0a0119969e9f49a0",
+          "training_indices_sha256": "fece8d601cd4c9020e24f9e4a47feedefb2bceff5e9798d8056aea8700052eaa",
+          "zero_radius_count": 0,
+          "below_radius_floor_count": 0,
+          "fit_split": "generator_training",
+          "accumulation_dtype": "float64"
+        },
+        "direction_safeguard": "scale by maximum absolute coordinate, normalize L2; exact zero maps to zero",
+        "conditioning_injection": null,
+        "original_backbone_provenance": {
+          "backbone": "MLP",
+          "source": "rafm/models/mlp.py",
+          "source_sha256": "abe7b4e44e034a897e4772df0929053a24edaa92047eb48846a60667deb5a483"
+        },
+        "parameters": {
+          "arm": "A",
+          "backbone_kind": "mlp",
+          "original_backbone_parameters": 99072,
+          "total_parameters": 99072,
+          "trainable_parameters": 99072,
+          "conditioning_overhead_parameters": 0,
+          "conditioning_overhead_fraction": 0.0,
+          "radius_embedding_hidden_width": null
+        },
+        "implementation_sha256": {
+          "baselines/rafm_input_parameterization.py": "80242e47fde4210bace698b60ecb85ffe26a5f2baa2c93b00652286d65e823c8",
+          "rafm/models/mlp.py": "abe7b4e44e034a897e4772df0929053a24edaa92047eb48846a60667deb5a483",
+          "rafm/flow_matching/sampler.py": "6b3e79a81e2ce982e5467b8ca563decc457f2cd16f9e919c626f710ece224de0"
+        },
+        "population_objective": "unchanged original matched-radius spherical path and angular MSE",
+        "sampler": "unchanged benchmark ambient solver, radius multiplier, tangent projection and guards"
+      },
+      "elapsed_s": 0.8125583156943321,
+      "peak_memory": {
+        "allocated_bytes": 80500736,
+        "reserved_bytes": 81788928
+      },
+      "timing_kind": "measured",
+      "benchmark_data_used": false,
+      "optimizer_updates": 0,
+      "numerical_solver_steps": 0
+    },
+    {
+      "arm": "B",
+      "status": "passed",
+      "dimension": 256,
+      "batch_size": 2,
+      "model_config": {
+        "kind": "mlp",
+        "hidden_dim": 128,
+        "n_layers": 3
+      },
+      "parameters": {
+        "arm": "B",
+        "backbone_kind": "mlp",
+        "original_backbone_parameters": 99072,
+        "total_parameters": 99200,
+        "trainable_parameters": 99200,
+        "conditioning_overhead_parameters": 128,
+        "conditioning_overhead_fraction": 0.0012919896640826874,
+        "radius_embedding_hidden_width": null
+      },
+      "initial_state_sha256": "31f0588a50b2978ced7d43da6f56e0e1075af5995e5af7dfda7bf16e6995157d",
+      "module_structure_sha256": "bfc0f6b5057070548f3b4a3a0f630f78cd3b9adea555bbe92de820deb2fada33",
+      "original_initialization_forward_backward": {
+        "precision": "float32",
+        "backbone_gradients": {
+          "finite": true,
+          "nonzero": true,
+          "maximum_absolute": 4.442559242248535,
+          "tensors_with_gradients": 8
+        },
+        "condition_gradients": {
+          "applicable": true,
+          "finite": true,
+          "nonzero": true,
+          "maximum_absolute": 0.10221042484045029,
+          "tensors_with_gradients": 1
+        }
+      },
+      "fixture_head_graph_check": {
+        "changed_parameters": [],
+        "optimizer_updates": 0,
+        "backbone_gradients": {
+          "finite": true,
+          "nonzero": true,
+          "maximum_absolute": 4.442559242248535,
+          "tensors_with_gradients": 8
+        },
+        "condition_gradients": {
+          "applicable": true,
+          "finite": true,
+          "nonzero": true,
+          "maximum_absolute": 0.10221042484045029,
+          "tensors_with_gradients": 1
+        },
+        "radius_scale": 2.0,
+        "maximum_prediction_change": 0.0022233277559280396,
+        "c_radius_invariant": null
+      },
+      "strict_checkpoint_reload": {
+        "passed": true,
+        "maximum_output_error": 0.0,
+        "file_written": false
+      },
+      "original_a_forward_identical": null,
+      "radius_statistics": {
+        "mean_log_radius": 0.15204941000836963,
+        "population_std_log_radius": 0.8713272737133757,
+        "standardization_scale": 0.8713272737133757,
+        "radius_floor": 1e-08,
+        "std_floor": 1e-08,
+        "n_training_samples": 8,
+        "dimension": 256,
+        "training_data_sha256": "51bbaf23d8e40f993bc74e60c2ad85632bb7a4848d123aef0a0119969e9f49a0",
+        "training_indices_sha256": "fece8d601cd4c9020e24f9e4a47feedefb2bceff5e9798d8056aea8700052eaa",
+        "zero_radius_count": 0,
+        "below_radius_floor_count": 0,
+        "fit_split": "generator_training",
+        "accumulation_dtype": "float64"
+      },
+      "model_metadata": {
+        "schema_version": 1,
+        "method": "rafm_angular_input_ablation",
+        "arm": "B",
+        "dimension": 256,
+        "model_config": {
+          "kind": "mlp",
+          "hidden_dim": 128,
+          "n_layers": 3
+        },
+        "input": "unit_direction",
+        "radius_condition": "standardized_log_radius",
+        "radius_statistics": {
+          "mean_log_radius": 0.15204941000836963,
+          "population_std_log_radius": 0.8713272737133757,
+          "standardization_scale": 0.8713272737133757,
+          "radius_floor": 1e-08,
+          "std_floor": 1e-08,
+          "n_training_samples": 8,
+          "dimension": 256,
+          "training_data_sha256": "51bbaf23d8e40f993bc74e60c2ad85632bb7a4848d123aef0a0119969e9f49a0",
+          "training_indices_sha256": "fece8d601cd4c9020e24f9e4a47feedefb2bceff5e9798d8056aea8700052eaa",
+          "zero_radius_count": 0,
+          "below_radius_floor_count": 0,
+          "fit_split": "generator_training",
+          "accumulation_dtype": "float64"
+        },
+        "direction_safeguard": "scale by maximum absolute coordinate, normalize L2; exact zero maps to zero",
+        "conditioning_injection": "extra MLP input before time",
+        "original_backbone_provenance": {
+          "backbone": "MLP",
+          "source": "rafm/models/mlp.py",
+          "source_sha256": "abe7b4e44e034a897e4772df0929053a24edaa92047eb48846a60667deb5a483"
+        },
+        "parameters": {
+          "arm": "B",
+          "backbone_kind": "mlp",
+          "original_backbone_parameters": 99072,
+          "total_parameters": 99200,
+          "trainable_parameters": 99200,
+          "conditioning_overhead_parameters": 128,
+          "conditioning_overhead_fraction": 0.0012919896640826874,
+          "radius_embedding_hidden_width": null
+        },
+        "implementation_sha256": {
+          "baselines/rafm_input_parameterization.py": "80242e47fde4210bace698b60ecb85ffe26a5f2baa2c93b00652286d65e823c8",
+          "rafm/models/mlp.py": "abe7b4e44e034a897e4772df0929053a24edaa92047eb48846a60667deb5a483",
+          "rafm/flow_matching/sampler.py": "6b3e79a81e2ce982e5467b8ca563decc457f2cd16f9e919c626f710ece224de0"
+        },
+        "population_objective": "unchanged original matched-radius spherical path and angular MSE",
+        "sampler": "unchanged benchmark ambient solver, radius multiplier, tangent projection and guards"
+      },
+      "elapsed_s": 0.046056367456912994,
+      "peak_memory": {
+        "allocated_bytes": 80503808,
+        "reserved_bytes": 81788928
+      },
+      "timing_kind": "measured",
+      "benchmark_data_used": false,
+      "optimizer_updates": 0,
+      "numerical_solver_steps": 0
+    },
+    {
+      "arm": "C",
+      "status": "passed",
+      "dimension": 256,
+      "batch_size": 2,
+      "model_config": {
+        "kind": "mlp",
+        "hidden_dim": 128,
+        "n_layers": 3
+      },
+      "parameters": {
+        "arm": "C",
+        "backbone_kind": "mlp",
+        "original_backbone_parameters": 99072,
+        "total_parameters": 99200,
+        "trainable_parameters": 99200,
+        "conditioning_overhead_parameters": 128,
+        "conditioning_overhead_fraction": 0.0012919896640826874,
+        "radius_embedding_hidden_width": null
+      },
+      "initial_state_sha256": "31f0588a50b2978ced7d43da6f56e0e1075af5995e5af7dfda7bf16e6995157d",
+      "module_structure_sha256": "bfc0f6b5057070548f3b4a3a0f630f78cd3b9adea555bbe92de820deb2fada33",
+      "original_initialization_forward_backward": {
+        "precision": "float32",
+        "backbone_gradients": {
+          "finite": true,
+          "nonzero": true,
+          "maximum_absolute": 4.443431854248047,
+          "tensors_with_gradients": 8
+        },
+        "condition_gradients": {
+          "applicable": true,
+          "finite": true,
+          "nonzero": false,
+          "maximum_absolute": 0.0,
+          "tensors_with_gradients": 1
+        }
+      },
+      "fixture_head_graph_check": {
+        "changed_parameters": [],
+        "optimizer_updates": 0,
+        "backbone_gradients": {
+          "finite": true,
+          "nonzero": true,
+          "maximum_absolute": 4.443431854248047,
+          "tensors_with_gradients": 8
+        },
+        "condition_gradients": {
+          "applicable": true,
+          "finite": true,
+          "nonzero": false,
+          "maximum_absolute": 0.0,
+          "tensors_with_gradients": 1
+        },
+        "radius_scale": 2.0,
+        "maximum_prediction_change": 0.0,
+        "c_radius_invariant": true
+      },
+      "strict_checkpoint_reload": {
+        "passed": true,
+        "maximum_output_error": 0.0,
+        "file_written": false
+      },
+      "original_a_forward_identical": null,
+      "radius_statistics": {
+        "mean_log_radius": 0.15204941000836963,
+        "population_std_log_radius": 0.8713272737133757,
+        "standardization_scale": 0.8713272737133757,
+        "radius_floor": 1e-08,
+        "std_floor": 1e-08,
+        "n_training_samples": 8,
+        "dimension": 256,
+        "training_data_sha256": "51bbaf23d8e40f993bc74e60c2ad85632bb7a4848d123aef0a0119969e9f49a0",
+        "training_indices_sha256": "fece8d601cd4c9020e24f9e4a47feedefb2bceff5e9798d8056aea8700052eaa",
+        "zero_radius_count": 0,
+        "below_radius_floor_count": 0,
+        "fit_split": "generator_training",
+        "accumulation_dtype": "float64"
+      },
+      "model_metadata": {
+        "schema_version": 1,
+        "method": "rafm_angular_input_ablation",
+        "arm": "C",
+        "dimension": 256,
+        "model_config": {
+          "kind": "mlp",
+          "hidden_dim": 128,
+          "n_layers": 3
+        },
+        "input": "unit_direction",
+        "radius_condition": "constant_zero",
+        "radius_statistics": {
+          "mean_log_radius": 0.15204941000836963,
+          "population_std_log_radius": 0.8713272737133757,
+          "standardization_scale": 0.8713272737133757,
+          "radius_floor": 1e-08,
+          "std_floor": 1e-08,
+          "n_training_samples": 8,
+          "dimension": 256,
+          "training_data_sha256": "51bbaf23d8e40f993bc74e60c2ad85632bb7a4848d123aef0a0119969e9f49a0",
+          "training_indices_sha256": "fece8d601cd4c9020e24f9e4a47feedefb2bceff5e9798d8056aea8700052eaa",
+          "zero_radius_count": 0,
+          "below_radius_floor_count": 0,
+          "fit_split": "generator_training",
+          "accumulation_dtype": "float64"
+        },
+        "direction_safeguard": "scale by maximum absolute coordinate, normalize L2; exact zero maps to zero",
+        "conditioning_injection": "extra MLP input before time",
+        "original_backbone_provenance": {
+          "backbone": "MLP",
+          "source": "rafm/models/mlp.py",
+          "source_sha256": "abe7b4e44e034a897e4772df0929053a24edaa92047eb48846a60667deb5a483"
+        },
+        "parameters": {
+          "arm": "C",
+          "backbone_kind": "mlp",
+          "original_backbone_parameters": 99072,
+          "total_parameters": 99200,
+          "trainable_parameters": 99200,
+          "conditioning_overhead_parameters": 128,
+          "conditioning_overhead_fraction": 0.0012919896640826874,
+          "radius_embedding_hidden_width": null
+        },
+        "implementation_sha256": {
+          "baselines/rafm_input_parameterization.py": "80242e47fde4210bace698b60ecb85ffe26a5f2baa2c93b00652286d65e823c8",
+          "rafm/models/mlp.py": "abe7b4e44e034a897e4772df0929053a24edaa92047eb48846a60667deb5a483",
+          "rafm/flow_matching/sampler.py": "6b3e79a81e2ce982e5467b8ca563decc457f2cd16f9e919c626f710ece224de0"
+        },
+        "population_objective": "unchanged original matched-radius spherical path and angular MSE",
+        "sampler": "unchanged benchmark ambient solver, radius multiplier, tangent projection and guards"
+      },
+      "elapsed_s": 0.011268064379692078,
+      "peak_memory": {
+        "allocated_bytes": 80503808,
+        "reserved_bytes": 81788928
+      },
+      "timing_kind": "measured",
+      "benchmark_data_used": false,
+      "optimizer_updates": 0,
+      "numerical_solver_steps": 0
+    },
+    {
+      "arm": "A",
+      "status": "passed",
+      "dimension": 16254,
+      "batch_size": 2,
+      "model_config": {
+        "kind": "audio_unet",
+        "event_shape": [
+          2,
+          129,
+          63
+        ],
+        "ch": 96,
+        "mult": [
+          1,
+          2,
+          4
+        ],
+        "cond": 256,
+        "attn_from": 2,
+        "num_classes": 10
+      },
+      "parameters": {
+        "arm": "A",
+        "backbone_kind": "audio_unet",
+        "original_backbone_parameters": 27896802,
+        "total_parameters": 27896802,
+        "trainable_parameters": 27896802,
+        "conditioning_overhead_parameters": 0,
+        "conditioning_overhead_fraction": 0.0,
+        "radius_embedding_hidden_width": null
+      },
+      "initial_state_sha256": "02cc29c0e0e3200188d1c20e49a85689d5a08bf741f157a15a4aaf0c0aeb8965",
+      "module_structure_sha256": "8fc3826689ededb8c41407da17315134fb224edd644ad51f5d2c3bfbd394cd03",
+      "original_initialization_forward_backward": {
+        "precision": "bfloat16_autocast",
+        "backbone_gradients": {
+          "finite": true,
+          "nonzero": true,
+          "maximum_absolute": 266.0,
+          "tensors_with_gradients": 195
+        },
+        "condition_gradients": {
+          "applicable": false
+        }
+      },
+      "fixture_head_graph_check": {
+        "changed_parameters": [
+          "backbone.out.weight"
+        ],
+        "optimizer_updates": 0,
+        "backbone_gradients": {
+          "finite": true,
+          "nonzero": true,
+          "maximum_absolute": 3466.750244140625,
+          "tensors_with_gradients": 195
+        },
+        "condition_gradients": {
+          "applicable": false
+        },
+        "radius_scale": 2.0,
+        "maximum_prediction_change": 0.03825157508254051,
+        "c_radius_invariant": null
+      },
+      "strict_checkpoint_reload": {
+        "passed": true,
+        "maximum_output_error": 0.0,
+        "file_written": false
+      },
+      "original_a_forward_identical": true,
+      "radius_statistics": {
+        "mean_log_radius": 0.15204944103707907,
+        "population_std_log_radius": 0.8713273093269878,
+        "standardization_scale": 0.8713273093269878,
+        "radius_floor": 1e-08,
+        "std_floor": 1e-08,
+        "n_training_samples": 8,
+        "dimension": 16254,
+        "training_data_sha256": "50ee29b67f0a5d964b6608fd19e49215e341518d409b72b18e90ca1129bf4726",
+        "training_indices_sha256": "fece8d601cd4c9020e24f9e4a47feedefb2bceff5e9798d8056aea8700052eaa",
+        "zero_radius_count": 0,
+        "below_radius_floor_count": 0,
+        "fit_split": "generator_training",
+        "accumulation_dtype": "float64"
+      },
+      "model_metadata": {
+        "schema_version": 1,
+        "method": "rafm_angular_input_ablation",
+        "arm": "A",
+        "dimension": 16254,
+        "model_config": {
+          "kind": "audio_unet",
+          "event_shape": [
+            2,
+            129,
+            63
+          ],
+          "ch": 96,
+          "mult": [
+            1,
+            2,
+            4
+          ],
+          "cond": 256,
+          "attn_from": 2,
+          "num_classes": 10
+        },
+        "input": "ambient_state",
+        "radius_condition": null,
+        "radius_statistics": {
+          "mean_log_radius": 0.15204944103707907,
+          "population_std_log_radius": 0.8713273093269878,
+          "standardization_scale": 0.8713273093269878,
+          "radius_floor": 1e-08,
+          "std_floor": 1e-08,
+          "n_training_samples": 8,
+          "dimension": 16254,
+          "training_data_sha256": "50ee29b67f0a5d964b6608fd19e49215e341518d409b72b18e90ca1129bf4726",
+          "training_indices_sha256": "fece8d601cd4c9020e24f9e4a47feedefb2bceff5e9798d8056aea8700052eaa",
+          "zero_radius_count": 0,
+          "below_radius_floor_count": 0,
+          "fit_split": "generator_training",
+          "accumulation_dtype": "float64"
+        },
+        "direction_safeguard": "scale by maximum absolute coordinate, normalize L2; exact zero maps to zero",
+        "conditioning_injection": null,
+        "original_backbone_provenance": {
+          "backbone": "UNetVel",
+          "event_shape": [
+            2,
+            129,
+            63
+          ],
+          "source": "experiments/poc_audio/audio_flow.py",
+          "source_sha256": "002401d0933edc1e090279428fbbfcf3d764910b1bf15a9840ba48d36e731dc0",
+          "state_dict_format": "original_unwrapped"
+        },
+        "parameters": {
+          "arm": "A",
+          "backbone_kind": "audio_unet",
+          "original_backbone_parameters": 27896802,
+          "total_parameters": 27896802,
+          "trainable_parameters": 27896802,
+          "conditioning_overhead_parameters": 0,
+          "conditioning_overhead_fraction": 0.0,
+          "radius_embedding_hidden_width": null
+        },
+        "implementation_sha256": {
+          "baselines/rafm_input_parameterization.py": "80242e47fde4210bace698b60ecb85ffe26a5f2baa2c93b00652286d65e823c8",
+          "rafm/models/mlp.py": "abe7b4e44e034a897e4772df0929053a24edaa92047eb48846a60667deb5a483",
+          "rafm/flow_matching/sampler.py": "6b3e79a81e2ce982e5467b8ca563decc457f2cd16f9e919c626f710ece224de0"
+        },
+        "population_objective": "unchanged original matched-radius spherical path and angular MSE",
+        "sampler": "unchanged benchmark ambient solver, radius multiplier, tangent projection and guards"
+      },
+      "elapsed_s": 6.7649911269545555,
+      "peak_memory": {
+        "allocated_bytes": 669894656,
+        "reserved_bytes": 782237696
+      },
+      "timing_kind": "measured",
+      "benchmark_data_used": false,
+      "optimizer_updates": 0,
+      "numerical_solver_steps": 0
+    },
+    {
+      "arm": "B",
+      "status": "passed",
+      "dimension": 16254,
+      "batch_size": 2,
+      "model_config": {
+        "kind": "audio_unet",
+        "event_shape": [
+          2,
+          129,
+          63
+        ],
+        "ch": 96,
+        "mult": [
+          1,
+          2,
+          4
+        ],
+        "cond": 256,
+        "attn_from": 2,
+        "num_classes": 10
+      },
+      "parameters": {
+        "arm": "B",
+        "backbone_kind": "audio_unet",
+        "original_backbone_parameters": 27896802,
+        "total_parameters": 27901186,
+        "trainable_parameters": 27901186,
+        "conditioning_overhead_parameters": 4384,
+        "conditioning_overhead_fraction": 0.00015715062966715682,
+        "radius_embedding_hidden_width": 16
+      },
+      "initial_state_sha256": "c70ec9d17db39418890c660575ac49cb45945d71fafe7e145e69e4b18579f4fe",
+      "module_structure_sha256": "4b63e382683cb533ae1b44836f865d89699ad3678501b9b20d4ff8bde30c8b40",
+      "original_initialization_forward_backward": {
+        "precision": "bfloat16_autocast",
+        "backbone_gradients": {
+          "finite": true,
+          "nonzero": true,
+          "maximum_absolute": 300.0,
+          "tensors_with_gradients": 199
+        },
+        "condition_gradients": {
+          "applicable": true,
+          "finite": true,
+          "nonzero": false,
+          "maximum_absolute": 0.0,
+          "tensors_with_gradients": 4
+        }
+      },
+      "fixture_head_graph_check": {
+        "changed_parameters": [
+          "backbone.out.weight"
+        ],
+        "optimizer_updates": 0,
+        "backbone_gradients": {
+          "finite": true,
+          "nonzero": true,
+          "maximum_absolute": 2883.798828125,
+          "tensors_with_gradients": 199
+        },
+        "condition_gradients": {
+          "applicable": true,
+          "finite": true,
+          "nonzero": true,
+          "maximum_absolute": 53.41686248779297,
+          "tensors_with_gradients": 4
+        },
+        "radius_scale": 2.0,
+        "maximum_prediction_change": 0.08130055665969849,
+        "c_radius_invariant": null
+      },
+      "strict_checkpoint_reload": {
+        "passed": true,
+        "maximum_output_error": 0.0,
+        "file_written": false
+      },
+      "original_a_forward_identical": null,
+      "radius_statistics": {
+        "mean_log_radius": 0.15204944103707907,
+        "population_std_log_radius": 0.8713273093269878,
+        "standardization_scale": 0.8713273093269878,
+        "radius_floor": 1e-08,
+        "std_floor": 1e-08,
+        "n_training_samples": 8,
+        "dimension": 16254,
+        "training_data_sha256": "50ee29b67f0a5d964b6608fd19e49215e341518d409b72b18e90ca1129bf4726",
+        "training_indices_sha256": "fece8d601cd4c9020e24f9e4a47feedefb2bceff5e9798d8056aea8700052eaa",
+        "zero_radius_count": 0,
+        "below_radius_floor_count": 0,
+        "fit_split": "generator_training",
+        "accumulation_dtype": "float64"
+      },
+      "model_metadata": {
+        "schema_version": 1,
+        "method": "rafm_angular_input_ablation",
+        "arm": "B",
+        "dimension": 16254,
+        "model_config": {
+          "kind": "audio_unet",
+          "event_shape": [
+            2,
+            129,
+            63
+          ],
+          "ch": 96,
+          "mult": [
+            1,
+            2,
+            4
+          ],
+          "cond": 256,
+          "attn_from": 2,
+          "num_classes": 10
+        },
+        "input": "unit_direction",
+        "radius_condition": "standardized_log_radius",
+        "radius_statistics": {
+          "mean_log_radius": 0.15204944103707907,
+          "population_std_log_radius": 0.8713273093269878,
+          "standardization_scale": 0.8713273093269878,
+          "radius_floor": 1e-08,
+          "std_floor": 1e-08,
+          "n_training_samples": 8,
+          "dimension": 16254,
+          "training_data_sha256": "50ee29b67f0a5d964b6608fd19e49215e341518d409b72b18e90ca1129bf4726",
+          "training_indices_sha256": "fece8d601cd4c9020e24f9e4a47feedefb2bceff5e9798d8056aea8700052eaa",
+          "zero_radius_count": 0,
+          "below_radius_floor_count": 0,
+          "fit_split": "generator_training",
+          "accumulation_dtype": "float64"
+        },
+        "direction_safeguard": "scale by maximum absolute coordinate, normalize L2; exact zero maps to zero",
+        "conditioning_injection": "add scalar MLP embedding to original time embedding",
+        "original_backbone_provenance": {
+          "backbone": "UNetVel",
+          "event_shape": [
+            2,
+            129,
+            63
+          ],
+          "source": "experiments/poc_audio/audio_flow.py",
+          "source_sha256": "002401d0933edc1e090279428fbbfcf3d764910b1bf15a9840ba48d36e731dc0",
+          "state_dict_format": "original_unwrapped"
+        },
+        "parameters": {
+          "arm": "B",
+          "backbone_kind": "audio_unet",
+          "original_backbone_parameters": 27896802,
+          "total_parameters": 27901186,
+          "trainable_parameters": 27901186,
+          "conditioning_overhead_parameters": 4384,
+          "conditioning_overhead_fraction": 0.00015715062966715682,
+          "radius_embedding_hidden_width": 16
+        },
+        "implementation_sha256": {
+          "baselines/rafm_input_parameterization.py": "80242e47fde4210bace698b60ecb85ffe26a5f2baa2c93b00652286d65e823c8",
+          "rafm/models/mlp.py": "abe7b4e44e034a897e4772df0929053a24edaa92047eb48846a60667deb5a483",
+          "rafm/flow_matching/sampler.py": "6b3e79a81e2ce982e5467b8ca563decc457f2cd16f9e919c626f710ece224de0"
+        },
+        "population_objective": "unchanged original matched-radius spherical path and angular MSE",
+        "sampler": "unchanged benchmark ambient solver, radius multiplier, tangent projection and guards"
+      },
+      "elapsed_s": 0.29328084737062454,
+      "peak_memory": {
+        "allocated_bytes": 670045696,
+        "reserved_bytes": 782237696
+      },
+      "timing_kind": "measured",
+      "benchmark_data_used": false,
+      "optimizer_updates": 0,
+      "numerical_solver_steps": 0
+    },
+    {
+      "arm": "C",
+      "status": "passed",
+      "dimension": 16254,
+      "batch_size": 2,
+      "model_config": {
+        "kind": "audio_unet",
+        "event_shape": [
+          2,
+          129,
+          63
+        ],
+        "ch": 96,
+        "mult": [
+          1,
+          2,
+          4
+        ],
+        "cond": 256,
+        "attn_from": 2,
+        "num_classes": 10
+      },
+      "parameters": {
+        "arm": "C",
+        "backbone_kind": "audio_unet",
+        "original_backbone_parameters": 27896802,
+        "total_parameters": 27901186,
+        "trainable_parameters": 27901186,
+        "conditioning_overhead_parameters": 4384,
+        "conditioning_overhead_fraction": 0.00015715062966715682,
+        "radius_embedding_hidden_width": 16
+      },
+      "initial_state_sha256": "c70ec9d17db39418890c660575ac49cb45945d71fafe7e145e69e4b18579f4fe",
+      "module_structure_sha256": "4b63e382683cb533ae1b44836f865d89699ad3678501b9b20d4ff8bde30c8b40",
+      "original_initialization_forward_backward": {
+        "precision": "bfloat16_autocast",
+        "backbone_gradients": {
+          "finite": true,
+          "nonzero": true,
+          "maximum_absolute": 312.0,
+          "tensors_with_gradients": 199
+        },
+        "condition_gradients": {
+          "applicable": true,
+          "finite": true,
+          "nonzero": false,
+          "maximum_absolute": 0.0,
+          "tensors_with_gradients": 4
+        }
+      },
+      "fixture_head_graph_check": {
+        "changed_parameters": [
+          "backbone.out.weight"
+        ],
+        "optimizer_updates": 0,
+        "backbone_gradients": {
+          "finite": true,
+          "nonzero": true,
+          "maximum_absolute": 2918.859375,
+          "tensors_with_gradients": 199
+        },
+        "condition_gradients": {
+          "applicable": true,
+          "finite": true,
+          "nonzero": true,
+          "maximum_absolute": 70.03025817871094,
+          "tensors_with_gradients": 4
+        },
+        "radius_scale": 2.0,
+        "maximum_prediction_change": 0.0,
+        "c_radius_invariant": true
+      },
+      "strict_checkpoint_reload": {
+        "passed": true,
+        "maximum_output_error": 0.0,
+        "file_written": false
+      },
+      "original_a_forward_identical": null,
+      "radius_statistics": {
+        "mean_log_radius": 0.15204944103707907,
+        "population_std_log_radius": 0.8713273093269878,
+        "standardization_scale": 0.8713273093269878,
+        "radius_floor": 1e-08,
+        "std_floor": 1e-08,
+        "n_training_samples": 8,
+        "dimension": 16254,
+        "training_data_sha256": "50ee29b67f0a5d964b6608fd19e49215e341518d409b72b18e90ca1129bf4726",
+        "training_indices_sha256": "fece8d601cd4c9020e24f9e4a47feedefb2bceff5e9798d8056aea8700052eaa",
+        "zero_radius_count": 0,
+        "below_radius_floor_count": 0,
+        "fit_split": "generator_training",
+        "accumulation_dtype": "float64"
+      },
+      "model_metadata": {
+        "schema_version": 1,
+        "method": "rafm_angular_input_ablation",
+        "arm": "C",
+        "dimension": 16254,
+        "model_config": {
+          "kind": "audio_unet",
+          "event_shape": [
+            2,
+            129,
+            63
+          ],
+          "ch": 96,
+          "mult": [
+            1,
+            2,
+            4
+          ],
+          "cond": 256,
+          "attn_from": 2,
+          "num_classes": 10
+        },
+        "input": "unit_direction",
+        "radius_condition": "constant_zero",
+        "radius_statistics": {
+          "mean_log_radius": 0.15204944103707907,
+          "population_std_log_radius": 0.8713273093269878,
+          "standardization_scale": 0.8713273093269878,
+          "radius_floor": 1e-08,
+          "std_floor": 1e-08,
+          "n_training_samples": 8,
+          "dimension": 16254,
+          "training_data_sha256": "50ee29b67f0a5d964b6608fd19e49215e341518d409b72b18e90ca1129bf4726",
+          "training_indices_sha256": "fece8d601cd4c9020e24f9e4a47feedefb2bceff5e9798d8056aea8700052eaa",
+          "zero_radius_count": 0,
+          "below_radius_floor_count": 0,
+          "fit_split": "generator_training",
+          "accumulation_dtype": "float64"
+        },
+        "direction_safeguard": "scale by maximum absolute coordinate, normalize L2; exact zero maps to zero",
+        "conditioning_injection": "add scalar MLP embedding to original time embedding",
+        "original_backbone_provenance": {
+          "backbone": "UNetVel",
+          "event_shape": [
+            2,
+            129,
+            63
+          ],
+          "source": "experiments/poc_audio/audio_flow.py",
+          "source_sha256": "002401d0933edc1e090279428fbbfcf3d764910b1bf15a9840ba48d36e731dc0",
+          "state_dict_format": "original_unwrapped"
+        },
+        "parameters": {
+          "arm": "C",
+          "backbone_kind": "audio_unet",
+          "original_backbone_parameters": 27896802,
+          "total_parameters": 27901186,
+          "trainable_parameters": 27901186,
+          "conditioning_overhead_parameters": 4384,
+          "conditioning_overhead_fraction": 0.00015715062966715682,
+          "radius_embedding_hidden_width": 16
+        },
+        "implementation_sha256": {
+          "baselines/rafm_input_parameterization.py": "80242e47fde4210bace698b60ecb85ffe26a5f2baa2c93b00652286d65e823c8",
+          "rafm/models/mlp.py": "abe7b4e44e034a897e4772df0929053a24edaa92047eb48846a60667deb5a483",
+          "rafm/flow_matching/sampler.py": "6b3e79a81e2ce982e5467b8ca563decc457f2cd16f9e919c626f710ece224de0"
+        },
+        "population_objective": "unchanged original matched-radius spherical path and angular MSE",
+        "sampler": "unchanged benchmark ambient solver, radius multiplier, tangent projection and guards"
+      },
+      "elapsed_s": 0.30157098919153214,
+      "peak_memory": {
+        "allocated_bytes": 670045696,
+        "reserved_bytes": 782237696
+      },
+      "timing_kind": "measured",
+      "benchmark_data_used": false,
+      "optimizer_updates": 0,
+      "numerical_solver_steps": 0
+    },
+    {
+      "arm": "A",
+      "status": "passed",
+      "dimension": 2048,
+      "batch_size": 2,
+      "model_config": {
+        "kind": "image_sit",
+        "event_shape": [
+          32,
+          8,
+          8
+        ],
+        "hidden": 384,
+        "depth": 12,
+        "heads": 6,
+        "num_classes": 10,
+        "class_dropout": 0.1,
+        "source_dir": "/mnt/vast01/users/fouad.oubari/references/SiT-tflow"
+      },
+      "parameters": {
+        "arm": "A",
+        "backbone_kind": "image_sit",
+        "original_backbone_parameters": 32515616,
+        "total_parameters": 32515616,
+        "trainable_parameters": 32491040,
+        "conditioning_overhead_parameters": 0,
+        "conditioning_overhead_fraction": 0.0,
+        "radius_embedding_hidden_width": null
+      },
+      "initial_state_sha256": "262f003060a32a7c82b12a9d646e62011849f719d9505565c50bc80a45e2ab38",
+      "module_structure_sha256": "56ab2543675dc3bd4961890cc125a128518b519aeec0b7af137834d0f08bcd58",
+      "original_initialization_forward_backward": {
+        "precision": "bfloat16_autocast",
+        "backbone_gradients": {
+          "finite": true,
+          "nonzero": true,
+          "maximum_absolute": 67.5,
+          "tensors_with_gradients": 131
+        },
+        "condition_gradients": {
+          "applicable": false
+        }
+      },
+      "fixture_head_graph_check": {
+        "changed_parameters": [
+          "backbone.final_layer.linear.weight",
+          "backbone.final_layer.adaLN_modulation.1.weight"
+        ],
+        "optimizer_updates": 0,
+        "backbone_gradients": {
+          "finite": true,
+          "nonzero": true,
+          "maximum_absolute": 88.29796600341797,
+          "tensors_with_gradients": 131
+        },
+        "condition_gradients": {
+          "applicable": false
+        },
+        "radius_scale": 2.0,
+        "maximum_prediction_change": 0.047201864421367645,
+        "c_radius_invariant": null
+      },
+      "strict_checkpoint_reload": {
+        "passed": true,
+        "maximum_output_error": 0.0,
+        "file_written": false
+      },
+      "original_a_forward_identical": true,
+      "radius_statistics": {
+        "mean_log_radius": 0.15204939443802987,
+        "population_std_log_radius": 0.8713272965588995,
+        "standardization_scale": 0.8713272965588995,
+        "radius_floor": 1e-08,
+        "std_floor": 1e-08,
+        "n_training_samples": 8,
+        "dimension": 2048,
+        "training_data_sha256": "9fb6cf76243d745f5af27193c238a04e4734e71c045bf7ee137048920274d665",
+        "training_indices_sha256": "fece8d601cd4c9020e24f9e4a47feedefb2bceff5e9798d8056aea8700052eaa",
+        "zero_radius_count": 0,
+        "below_radius_floor_count": 0,
+        "fit_split": "generator_training",
+        "accumulation_dtype": "float64"
+      },
+      "model_metadata": {
+        "schema_version": 1,
+        "method": "rafm_angular_input_ablation",
+        "arm": "A",
+        "dimension": 2048,
+        "model_config": {
+          "kind": "image_sit",
+          "event_shape": [
+            32,
+            8,
+            8
+          ],
+          "hidden": 384,
+          "depth": 12,
+          "heads": 6,
+          "num_classes": 10,
+          "class_dropout": 0.1,
+          "source_dir": "/mnt/vast01/users/fouad.oubari/references/SiT-tflow"
+        },
+        "input": "ambient_state",
+        "radius_condition": null,
+        "radius_statistics": {
+          "mean_log_radius": 0.15204939443802987,
+          "population_std_log_radius": 0.8713272965588995,
+          "standardization_scale": 0.8713272965588995,
+          "radius_floor": 1e-08,
+          "std_floor": 1e-08,
+          "n_training_samples": 8,
+          "dimension": 2048,
+          "training_data_sha256": "9fb6cf76243d745f5af27193c238a04e4734e71c045bf7ee137048920274d665",
+          "training_indices_sha256": "fece8d601cd4c9020e24f9e4a47feedefb2bceff5e9798d8056aea8700052eaa",
+          "zero_radius_count": 0,
+          "below_radius_floor_count": 0,
+          "fit_split": "generator_training",
+          "accumulation_dtype": "float64"
+        },
+        "direction_safeguard": "scale by maximum absolute coordinate, normalize L2; exact zero maps to zero",
+        "conditioning_injection": null,
+        "original_backbone_provenance": {
+          "backbone": "SiT",
+          "repository": "https://github.com/willisma/SiT",
+          "commit": "cbde832a40b153ccc79603412409da9c9b0c568c",
+          "source_sha256": "677cfa2cf5a7db122abd014d6d92d7ac5f39745f571773a6adcc26c7d2f33d89",
+          "license": "MIT",
+          "license_sha256": "cf9b17822d1fcd4ff32ccbe14183386fb3adf6f2ff92dc184130823f7fc28173",
+          "event_shape": [
+            32,
+            8,
+            8
+          ],
+          "state_dict_format": "original_unwrapped"
+        },
+        "parameters": {
+          "arm": "A",
+          "backbone_kind": "image_sit",
+          "original_backbone_parameters": 32515616,
+          "total_parameters": 32515616,
+          "trainable_parameters": 32491040,
+          "conditioning_overhead_parameters": 0,
+          "conditioning_overhead_fraction": 0.0,
+          "radius_embedding_hidden_width": null
+        },
+        "implementation_sha256": {
+          "baselines/rafm_input_parameterization.py": "80242e47fde4210bace698b60ecb85ffe26a5f2baa2c93b00652286d65e823c8",
+          "rafm/models/mlp.py": "abe7b4e44e034a897e4772df0929053a24edaa92047eb48846a60667deb5a483",
+          "rafm/flow_matching/sampler.py": "6b3e79a81e2ce982e5467b8ca563decc457f2cd16f9e919c626f710ece224de0"
+        },
+        "population_objective": "unchanged original matched-radius spherical path and angular MSE",
+        "sampler": "unchanged benchmark ambient solver, radius multiplier, tangent projection and guards"
+      },
+      "elapsed_s": 1.1268102005124092,
+      "peak_memory": {
+        "allocated_bytes": 347071488,
+        "reserved_bytes": 446693376
+      },
+      "timing_kind": "measured",
+      "benchmark_data_used": false,
+      "optimizer_updates": 0,
+      "numerical_solver_steps": 0
+    },
+    {
+      "arm": "B",
+      "status": "passed",
+      "dimension": 2048,
+      "batch_size": 2,
+      "model_config": {
+        "kind": "image_sit",
+        "event_shape": [
+          32,
+          8,
+          8
+        ],
+        "hidden": 384,
+        "depth": 12,
+        "heads": 6,
+        "num_classes": 10,
+        "class_dropout": 0.1,
+        "source_dir": "/mnt/vast01/users/fouad.oubari/references/SiT-tflow"
+      },
+      "parameters": {
+        "arm": "B",
+        "backbone_kind": "image_sit",
+        "original_backbone_parameters": 32515616,
+        "total_parameters": 32522176,
+        "trainable_parameters": 32497600,
+        "conditioning_overhead_parameters": 6560,
+        "conditioning_overhead_fraction": 0.0002017492149003113,
+        "radius_embedding_hidden_width": 16
+      },
+      "initial_state_sha256": "4fbc35ee298599a0a5ea5c0d57a789286dea95a45ba3be8fabcb56ae091e5839",
+      "module_structure_sha256": "5f653c87064ebe0e15026ab061e3a1530becc9651e131b9449b021616cd35838",
+      "original_initialization_forward_backward": {
+        "precision": "bfloat16_autocast",
+        "backbone_gradients": {
+          "finite": true,
+          "nonzero": true,
+          "maximum_absolute": 68.0,
+          "tensors_with_gradients": 135
+        },
+        "condition_gradients": {
+          "applicable": true,
+          "finite": true,
+          "nonzero": false,
+          "maximum_absolute": 0.0,
+          "tensors_with_gradients": 4
+        }
+      },
+      "fixture_head_graph_check": {
+        "changed_parameters": [
+          "backbone.final_layer.linear.weight",
+          "backbone.final_layer.adaLN_modulation.1.weight"
+        ],
+        "optimizer_updates": 0,
+        "backbone_gradients": {
+          "finite": true,
+          "nonzero": true,
+          "maximum_absolute": 88.11891174316406,
+          "tensors_with_gradients": 135
+        },
+        "condition_gradients": {
+          "applicable": true,
+          "finite": true,
+          "nonzero": true,
+          "maximum_absolute": 0.6187584400177002,
+          "tensors_with_gradients": 4
+        },
+        "radius_scale": 2.0,
+        "maximum_prediction_change": 0.018734127283096313,
+        "c_radius_invariant": null
+      },
+      "strict_checkpoint_reload": {
+        "passed": true,
+        "maximum_output_error": 0.0,
+        "file_written": false
+      },
+      "original_a_forward_identical": null,
+      "radius_statistics": {
+        "mean_log_radius": 0.15204939443802987,
+        "population_std_log_radius": 0.8713272965588995,
+        "standardization_scale": 0.8713272965588995,
+        "radius_floor": 1e-08,
+        "std_floor": 1e-08,
+        "n_training_samples": 8,
+        "dimension": 2048,
+        "training_data_sha256": "9fb6cf76243d745f5af27193c238a04e4734e71c045bf7ee137048920274d665",
+        "training_indices_sha256": "fece8d601cd4c9020e24f9e4a47feedefb2bceff5e9798d8056aea8700052eaa",
+        "zero_radius_count": 0,
+        "below_radius_floor_count": 0,
+        "fit_split": "generator_training",
+        "accumulation_dtype": "float64"
+      },
+      "model_metadata": {
+        "schema_version": 1,
+        "method": "rafm_angular_input_ablation",
+        "arm": "B",
+        "dimension": 2048,
+        "model_config": {
+          "kind": "image_sit",
+          "event_shape": [
+            32,
+            8,
+            8
+          ],
+          "hidden": 384,
+          "depth": 12,
+          "heads": 6,
+          "num_classes": 10,
+          "class_dropout": 0.1,
+          "source_dir": "/mnt/vast01/users/fouad.oubari/references/SiT-tflow"
+        },
+        "input": "unit_direction",
+        "radius_condition": "standardized_log_radius",
+        "radius_statistics": {
+          "mean_log_radius": 0.15204939443802987,
+          "population_std_log_radius": 0.8713272965588995,
+          "standardization_scale": 0.8713272965588995,
+          "radius_floor": 1e-08,
+          "std_floor": 1e-08,
+          "n_training_samples": 8,
+          "dimension": 2048,
+          "training_data_sha256": "9fb6cf76243d745f5af27193c238a04e4734e71c045bf7ee137048920274d665",
+          "training_indices_sha256": "fece8d601cd4c9020e24f9e4a47feedefb2bceff5e9798d8056aea8700052eaa",
+          "zero_radius_count": 0,
+          "below_radius_floor_count": 0,
+          "fit_split": "generator_training",
+          "accumulation_dtype": "float64"
+        },
+        "direction_safeguard": "scale by maximum absolute coordinate, normalize L2; exact zero maps to zero",
+        "conditioning_injection": "add scalar MLP embedding to original time embedding",
+        "original_backbone_provenance": {
+          "backbone": "SiT",
+          "repository": "https://github.com/willisma/SiT",
+          "commit": "cbde832a40b153ccc79603412409da9c9b0c568c",
+          "source_sha256": "677cfa2cf5a7db122abd014d6d92d7ac5f39745f571773a6adcc26c7d2f33d89",
+          "license": "MIT",
+          "license_sha256": "cf9b17822d1fcd4ff32ccbe14183386fb3adf6f2ff92dc184130823f7fc28173",
+          "event_shape": [
+            32,
+            8,
+            8
+          ],
+          "state_dict_format": "original_unwrapped"
+        },
+        "parameters": {
+          "arm": "B",
+          "backbone_kind": "image_sit",
+          "original_backbone_parameters": 32515616,
+          "total_parameters": 32522176,
+          "trainable_parameters": 32497600,
+          "conditioning_overhead_parameters": 6560,
+          "conditioning_overhead_fraction": 0.0002017492149003113,
+          "radius_embedding_hidden_width": 16
+        },
+        "implementation_sha256": {
+          "baselines/rafm_input_parameterization.py": "80242e47fde4210bace698b60ecb85ffe26a5f2baa2c93b00652286d65e823c8",
+          "rafm/models/mlp.py": "abe7b4e44e034a897e4772df0929053a24edaa92047eb48846a60667deb5a483",
+          "rafm/flow_matching/sampler.py": "6b3e79a81e2ce982e5467b8ca563decc457f2cd16f9e919c626f710ece224de0"
+        },
+        "population_objective": "unchanged original matched-radius spherical path and angular MSE",
+        "sampler": "unchanged benchmark ambient solver, radius multiplier, tangent projection and guards"
+      },
+      "elapsed_s": 0.3742840588092804,
+      "peak_memory": {
+        "allocated_bytes": 347130880,
+        "reserved_bytes": 446693376
+      },
+      "timing_kind": "measured",
+      "benchmark_data_used": false,
+      "optimizer_updates": 0,
+      "numerical_solver_steps": 0
+    },
+    {
+      "arm": "C",
+      "status": "passed",
+      "dimension": 2048,
+      "batch_size": 2,
+      "model_config": {
+        "kind": "image_sit",
+        "event_shape": [
+          32,
+          8,
+          8
+        ],
+        "hidden": 384,
+        "depth": 12,
+        "heads": 6,
+        "num_classes": 10,
+        "class_dropout": 0.1,
+        "source_dir": "/mnt/vast01/users/fouad.oubari/references/SiT-tflow"
+      },
+      "parameters": {
+        "arm": "C",
+        "backbone_kind": "image_sit",
+        "original_backbone_parameters": 32515616,
+        "total_parameters": 32522176,
+        "trainable_parameters": 32497600,
+        "conditioning_overhead_parameters": 6560,
+        "conditioning_overhead_fraction": 0.0002017492149003113,
+        "radius_embedding_hidden_width": 16
+      },
+      "initial_state_sha256": "4fbc35ee298599a0a5ea5c0d57a789286dea95a45ba3be8fabcb56ae091e5839",
+      "module_structure_sha256": "5f653c87064ebe0e15026ab061e3a1530becc9651e131b9449b021616cd35838",
+      "original_initialization_forward_backward": {
+        "precision": "bfloat16_autocast",
+        "backbone_gradients": {
+          "finite": true,
+          "nonzero": true,
+          "maximum_absolute": 68.0,
+          "tensors_with_gradients": 135
+        },
+        "condition_gradients": {
+          "applicable": true,
+          "finite": true,
+          "nonzero": false,
+          "maximum_absolute": 0.0,
+          "tensors_with_gradients": 4
+        }
+      },
+      "fixture_head_graph_check": {
+        "changed_parameters": [
+          "backbone.final_layer.linear.weight",
+          "backbone.final_layer.adaLN_modulation.1.weight"
+        ],
+        "optimizer_updates": 0,
+        "backbone_gradients": {
+          "finite": true,
+          "nonzero": true,
+          "maximum_absolute": 88.01471710205078,
+          "tensors_with_gradients": 135
+        },
+        "condition_gradients": {
+          "applicable": true,
+          "finite": true,
+          "nonzero": true,
+          "maximum_absolute": 0.5578771829605103,
+          "tensors_with_gradients": 4
+        },
+        "radius_scale": 2.0,
+        "maximum_prediction_change": 0.0,
+        "c_radius_invariant": true
+      },
+      "strict_checkpoint_reload": {
+        "passed": true,
+        "maximum_output_error": 0.0,
+        "file_written": false
+      },
+      "original_a_forward_identical": null,
+      "radius_statistics": {
+        "mean_log_radius": 0.15204939443802987,
+        "population_std_log_radius": 0.8713272965588995,
+        "standardization_scale": 0.8713272965588995,
+        "radius_floor": 1e-08,
+        "std_floor": 1e-08,
+        "n_training_samples": 8,
+        "dimension": 2048,
+        "training_data_sha256": "9fb6cf76243d745f5af27193c238a04e4734e71c045bf7ee137048920274d665",
+        "training_indices_sha256": "fece8d601cd4c9020e24f9e4a47feedefb2bceff5e9798d8056aea8700052eaa",
+        "zero_radius_count": 0,
+        "below_radius_floor_count": 0,
+        "fit_split": "generator_training",
+        "accumulation_dtype": "float64"
+      },
+      "model_metadata": {
+        "schema_version": 1,
+        "method": "rafm_angular_input_ablation",
+        "arm": "C",
+        "dimension": 2048,
+        "model_config": {
+          "kind": "image_sit",
+          "event_shape": [
+            32,
+            8,
+            8
+          ],
+          "hidden": 384,
+          "depth": 12,
+          "heads": 6,
+          "num_classes": 10,
+          "class_dropout": 0.1,
+          "source_dir": "/mnt/vast01/users/fouad.oubari/references/SiT-tflow"
+        },
+        "input": "unit_direction",
+        "radius_condition": "constant_zero",
+        "radius_statistics": {
+          "mean_log_radius": 0.15204939443802987,
+          "population_std_log_radius": 0.8713272965588995,
+          "standardization_scale": 0.8713272965588995,
+          "radius_floor": 1e-08,
+          "std_floor": 1e-08,
+          "n_training_samples": 8,
+          "dimension": 2048,
+          "training_data_sha256": "9fb6cf76243d745f5af27193c238a04e4734e71c045bf7ee137048920274d665",
+          "training_indices_sha256": "fece8d601cd4c9020e24f9e4a47feedefb2bceff5e9798d8056aea8700052eaa",
+          "zero_radius_count": 0,
+          "below_radius_floor_count": 0,
+          "fit_split": "generator_training",
+          "accumulation_dtype": "float64"
+        },
+        "direction_safeguard": "scale by maximum absolute coordinate, normalize L2; exact zero maps to zero",
+        "conditioning_injection": "add scalar MLP embedding to original time embedding",
+        "original_backbone_provenance": {
+          "backbone": "SiT",
+          "repository": "https://github.com/willisma/SiT",
+          "commit": "cbde832a40b153ccc79603412409da9c9b0c568c",
+          "source_sha256": "677cfa2cf5a7db122abd014d6d92d7ac5f39745f571773a6adcc26c7d2f33d89",
+          "license": "MIT",
+          "license_sha256": "cf9b17822d1fcd4ff32ccbe14183386fb3adf6f2ff92dc184130823f7fc28173",
+          "event_shape": [
+            32,
+            8,
+            8
+          ],
+          "state_dict_format": "original_unwrapped"
+        },
+        "parameters": {
+          "arm": "C",
+          "backbone_kind": "image_sit",
+          "original_backbone_parameters": 32515616,
+          "total_parameters": 32522176,
+          "trainable_parameters": 32497600,
+          "conditioning_overhead_parameters": 6560,
+          "conditioning_overhead_fraction": 0.0002017492149003113,
+          "radius_embedding_hidden_width": 16
+        },
+        "implementation_sha256": {
+          "baselines/rafm_input_parameterization.py": "80242e47fde4210bace698b60ecb85ffe26a5f2baa2c93b00652286d65e823c8",
+          "rafm/models/mlp.py": "abe7b4e44e034a897e4772df0929053a24edaa92047eb48846a60667deb5a483",
+          "rafm/flow_matching/sampler.py": "6b3e79a81e2ce982e5467b8ca563decc457f2cd16f9e919c626f710ece224de0"
+        },
+        "population_objective": "unchanged original matched-radius spherical path and angular MSE",
+        "sampler": "unchanged benchmark ambient solver, radius multiplier, tangent projection and guards"
+      },
+      "elapsed_s": 0.37299127131700516,
+      "peak_memory": {
+        "allocated_bytes": 347130880,
+        "reserved_bytes": 446693376
+      },
+      "timing_kind": "measured",
+      "benchmark_data_used": false,
+      "optimizer_updates": 0,
+      "numerical_solver_steps": 0
+    }
+  ],
+  "script_sha256": "41f9537dc36a7d1bec1d5aba4ddca814a761e0614e7730df95b83095b20d1854",
+  "hardware": {
+    "host": "auh7-3b-gpu-015",
+    "slurm_job_id": "765730",
+    "python": "3.10.12",
+    "torch": "2.7.1+rocm6.3",
+    "cuda": null,
+    "hip": "6.3.42131-fa1d09cbd",
+    "gpu": "AMD Instinct MI210",
+    "vram_bytes": 68702699520
+  },
+  "b_c_counts_modules_and_initial_weights_identical": true
+}

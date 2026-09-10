@@ -1,0 +1,21 @@
+method,role,status,metric,mean,std_population,n
+A,new matched study arm,incomplete,digit_acc,,,
+A,new matched study arm,incomplete,energy_KS,,,
+A,new matched study arm,incomplete,cov>q95,,,
+A,new matched study arm,incomplete,cov>q99,,,
+B,new matched study arm,incomplete,digit_acc,,,
+B,new matched study arm,incomplete,energy_KS,,,
+B,new matched study arm,incomplete,cov>q95,,,
+B,new matched study arm,incomplete,cov>q99,,,
+C,new matched study arm,incomplete,digit_acc,,,
+C,new matched study arm,incomplete,energy_KS,,,
+C,new matched study arm,incomplete,cov>q95,,,
+C,new matched study arm,incomplete,cov>q99,,,
+tflow,new matched study arm,incomplete,digit_acc,,,
+tflow,new matched study arm,incomplete,energy_KS,,,
+tflow,new matched study arm,incomplete,cov>q95,,,
+tflow,new matched study arm,incomplete,cov>q99,,,
+fixed_spherical_empirical_gain_reference,"completed checkpoint-based reference, not new A or historical paper value",verified_checkpoint_reference,digit_acc,0.8066666666666666,0.007352248333370906,3
+fixed_spherical_empirical_gain_reference,"completed checkpoint-based reference, not new A or historical paper value",verified_checkpoint_reference,energy_KS,0.021833333333333333,0.0,3
+fixed_spherical_empirical_gain_reference,"completed checkpoint-based reference, not new A or historical paper value",verified_checkpoint_reference,cov>q95,0.05,0.0,3
+fixed_spherical_empirical_gain_reference,"completed checkpoint-based reference, not new A or historical paper value",verified_checkpoint_reference,cov>q99,0.0145,0.0,3

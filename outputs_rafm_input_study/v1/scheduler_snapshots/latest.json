@@ -1,0 +1,6 @@
+{
+  "captured_utc": "2026-09-10T08:09:32.715153+00:00",
+  "queue": "765754|rafm-tflow-report|PENDING|0:00|(Dependency)\n765742_[0-5%6]|tflow-final-v2|PENDING|0:00|(Dependency)\n765748_2|rafm_inputs-final-v1|RUNNING|3:14|auh7-3b-gpu-015\n765748_3|rafm_inputs-final-v1|RUNNING|3:14|auh7-3b-gpu-015\n765748_4|rafm_inputs-final-v1|RUNNING|3:14|auh7-3b-gpu-015\n765748_5|rafm_inputs-final-v1|RUNNING|3:14|auh7-3b-gpu-015\n765748_0|rafm_inputs-final-v1|RUNNING|3:15|auh7-3b-gpu-015\n765748_1|rafm_inputs-final-v1|RUNNING|3:15|auh7-3b-gpu-015\n765741_0|tflow-tuning-v2|RUNNING|3:19|auh7-3b-gpu-008\n765741_1|tflow-tuning-v2|RUNNING|3:19|auh7-3b-gpu-008\n765741_2|tflow-tuning-v2|RUNNING|3:19|auh7-3b-gpu-008\n765741_3|tflow-tuning-v2|RUNNING|3:19|auh7-3b-gpu-008\n765741_4|tflow-tuning-v2|RUNNING|3:19|auh7-3b-gpu-008\n765741_5|tflow-tuning-v2|RUNNING|3:19|auh7-3b-gpu-008\n",
+  "returncode": 0,
+  "stderr": ""
+}

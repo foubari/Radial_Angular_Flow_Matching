@@ -1,0 +1,41 @@
+{
+  "status": "cancelled_after_startup_failure",
+  "tuning_array": 765731,
+  "final_array": 765732,
+  "failure": "ROCm allocator peak-stat reset before torch.cuda initialization in a fresh training process",
+  "optimizer_updates_observed": 0,
+  "checkpoint_files": [],
+  "failures": [
+    {
+      "path": "outputs_tflow_full/v1/tuning/aniso_k30/candidate_00/failed.json",
+      "condition": "aniso_k30",
+      "error": "Invalid device argument ",
+      "requested_budget": 500
+    },
+    {
+      "path": "outputs_tflow_full/v1/tuning/audiomnist_stft/candidate_00/failed.json",
+      "condition": "audiomnist_stft",
+      "error": "Invalid device argument ",
+      "requested_budget": 1200
+    },
+    {
+      "path": "outputs_tflow_full/v1/tuning/student_t_d16_df10.0_cor/candidate_00/failed.json",
+      "condition": "student_t_d16_df10.0_cor",
+      "error": "Invalid device argument ",
+      "requested_budget": 500
+    },
+    {
+      "path": "outputs_tflow_full/v1/tuning/student_t_d2_df3.0_cor/candidate_00/failed.json",
+      "condition": "student_t_d2_df3.0_cor",
+      "error": "Invalid device argument ",
+      "requested_budget": 500
+    },
+    {
+      "path": "outputs_tflow_full/v1/tuning/student_t_d64_df3.0_cor/candidate_00/failed.json",
+      "condition": "student_t_d64_df3.0_cor",
+      "error": "Invalid device argument ",
+      "requested_budget": 500
+    }
+  ],
+  "resolution": "Explicit GPU initialization in common orchestration entrypoint; retain runtime/config bytes and validate actual public trainer in fresh processes before restarting to v2"
+}
