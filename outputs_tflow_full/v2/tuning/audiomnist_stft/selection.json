@@ -1,0 +1,383 @@
+{
+  "status": "frozen",
+  "selection_split": "validation",
+  "config_sha256": "38c27cb839fb0249efbd684c992b5c70aea01a40435a34ef3e846439a76611fc",
+  "condition_id": "audiomnist_stft",
+  "tuning_seed": 46021,
+  "implementation_sha256": "afd10909f52362aacdbf1a3f42deb86cff99644aad329c111b0553e889eceb17",
+  "selected": {
+    "nu": 7.0,
+    "scale": 0.004784161933072574,
+    "scale_multiplier": 0.5,
+    "reference_scale": 0.009568323866145149,
+    "training_median_radius": 1.2811867878990055
+  },
+  "stage1_trials": [
+    {
+      "candidate_index": 0,
+      "source": {
+        "nu": 3.0,
+        "scale": 0.0044622695245184075,
+        "scale_multiplier": 0.5,
+        "reference_scale": 0.008924539049036815,
+        "training_median_radius": 1.2811867878990055
+      },
+      "steps": 1200,
+      "status": "complete",
+      "metrics": {
+        "selection_score": 0.7933498263888888,
+        "radial_ks": 1.0,
+        "projected_ks_mean": 0.5866996527777777,
+        "projection_seed": 61719,
+        "n_projections": 64,
+        "n_generated": 1000,
+        "n_validation": 1800
+      },
+      "config_sha256": "38c27cb839fb0249efbd684c992b5c70aea01a40435a34ef3e846439a76611fc",
+      "implementation_sha256": "afd10909f52362aacdbf1a3f42deb86cff99644aad329c111b0553e889eceb17",
+      "checkpoint": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/audiomnist_stft/candidate_00/checkpoint.pt",
+        "sha256": "baed34541ca36e71c6c323bb6cfaa1ee3ba80bf401fde05fb77c56e6c24950a1",
+        "step": 1200,
+        "run_sha256": "aa217288f2ac9b95123b6ac0ade4be72dd3bc5ec308d58b39936c4b10f5279b6",
+        "stage": "tuning"
+      },
+      "training_time_s": 448.6636123098433,
+      "sample_time_s": 439.67588163912296
+    },
+    {
+      "candidate_index": 1,
+      "source": {
+        "nu": 3.0,
+        "scale": 0.008924539049036815,
+        "scale_multiplier": 1.0,
+        "reference_scale": 0.008924539049036815,
+        "training_median_radius": 1.2811867878990055
+      },
+      "steps": 1200,
+      "status": "complete",
+      "metrics": {
+        "selection_score": 0.8123454861111111,
+        "radial_ks": 1.0,
+        "projected_ks_mean": 0.6246909722222223,
+        "projection_seed": 61719,
+        "n_projections": 64,
+        "n_generated": 1000,
+        "n_validation": 1800
+      },
+      "config_sha256": "38c27cb839fb0249efbd684c992b5c70aea01a40435a34ef3e846439a76611fc",
+      "implementation_sha256": "afd10909f52362aacdbf1a3f42deb86cff99644aad329c111b0553e889eceb17",
+      "checkpoint": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/audiomnist_stft/candidate_01/checkpoint.pt",
+        "sha256": "be6571520592ca067017dafea76bb9920daa5095b4c9bdd57682ab210b5bf5b8",
+        "step": 1200,
+        "run_sha256": "aac1d5ae62cbdceea084ea7fa44652590696cf8782384f5dadb3a7bc3b7a1715",
+        "stage": "tuning"
+      },
+      "training_time_s": 448.60734313726425,
+      "sample_time_s": 439.2600842565298
+    },
+    {
+      "candidate_index": 2,
+      "source": {
+        "nu": 3.0,
+        "scale": 0.01784907809807363,
+        "scale_multiplier": 2.0,
+        "reference_scale": 0.008924539049036815,
+        "training_median_radius": 1.2811867878990055
+      },
+      "steps": 1200,
+      "status": "complete",
+      "metrics": {
+        "selection_score": 0.8002717013888889,
+        "radial_ks": 1.0,
+        "projected_ks_mean": 0.6005434027777778,
+        "projection_seed": 61719,
+        "n_projections": 64,
+        "n_generated": 1000,
+        "n_validation": 1800
+      },
+      "config_sha256": "38c27cb839fb0249efbd684c992b5c70aea01a40435a34ef3e846439a76611fc",
+      "implementation_sha256": "afd10909f52362aacdbf1a3f42deb86cff99644aad329c111b0553e889eceb17",
+      "checkpoint": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/audiomnist_stft/candidate_02/checkpoint.pt",
+        "sha256": "f1c4b03fa65f858aa5babde8961a5755d490ae169c5bc78d6d9fada20c8d0b2d",
+        "step": 1200,
+        "run_sha256": "7e3576b165e7571781a1b3a6fcf32fa398e02d6bec7d99cb1b274e1d86d4f48b",
+        "stage": "tuning"
+      },
+      "training_time_s": 444.6344833448529,
+      "sample_time_s": 438.9405516460538
+    },
+    {
+      "candidate_index": 3,
+      "source": {
+        "nu": 5.0,
+        "scale": 0.00468752784765058,
+        "scale_multiplier": 0.5,
+        "reference_scale": 0.00937505569530116,
+        "training_median_radius": 1.2811867878990055
+      },
+      "steps": 1200,
+      "status": "complete",
+      "metrics": {
+        "selection_score": 0.7663854166666666,
+        "radial_ks": 1.0,
+        "projected_ks_mean": 0.5327708333333333,
+        "projection_seed": 61719,
+        "n_projections": 64,
+        "n_generated": 1000,
+        "n_validation": 1800
+      },
+      "config_sha256": "38c27cb839fb0249efbd684c992b5c70aea01a40435a34ef3e846439a76611fc",
+      "implementation_sha256": "afd10909f52362aacdbf1a3f42deb86cff99644aad329c111b0553e889eceb17",
+      "checkpoint": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/audiomnist_stft/candidate_03/checkpoint.pt",
+        "sha256": "2137cae48a6467b7cd7187ae112e55d3438e6d0b8fc8b954f957682b8f936a98",
+        "step": 1200,
+        "run_sha256": "e9c8c51b796203235e2dd2ccc45427f4d30aeec866f45ff041a0ffd00e824569",
+        "stage": "tuning"
+      },
+      "training_time_s": 446.82223749533296,
+      "sample_time_s": 439.3730518296361
+    },
+    {
+      "candidate_index": 4,
+      "source": {
+        "nu": 5.0,
+        "scale": 0.00937505569530116,
+        "scale_multiplier": 1.0,
+        "reference_scale": 0.00937505569530116,
+        "training_median_radius": 1.2811867878990055
+      },
+      "steps": 1200,
+      "status": "complete",
+      "metrics": {
+        "selection_score": 0.7910720486111111,
+        "radial_ks": 1.0,
+        "projected_ks_mean": 0.5821440972222223,
+        "projection_seed": 61719,
+        "n_projections": 64,
+        "n_generated": 1000,
+        "n_validation": 1800
+      },
+      "config_sha256": "38c27cb839fb0249efbd684c992b5c70aea01a40435a34ef3e846439a76611fc",
+      "implementation_sha256": "afd10909f52362aacdbf1a3f42deb86cff99644aad329c111b0553e889eceb17",
+      "checkpoint": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/audiomnist_stft/candidate_04/checkpoint.pt",
+        "sha256": "58561fdce23ebf3c0c33dfcdcb144309603a843187902fd9620f0a996301cda5",
+        "step": 1200,
+        "run_sha256": "9d70b66cc018e037f5416bf94522787974cd5f16f7fe77188dfb5f51b0ba58db",
+        "stage": "tuning"
+      },
+      "training_time_s": 445.1338725090027,
+      "sample_time_s": 439.00333930924535
+    },
+    {
+      "candidate_index": 5,
+      "source": {
+        "nu": 5.0,
+        "scale": 0.01875011139060232,
+        "scale_multiplier": 2.0,
+        "reference_scale": 0.00937505569530116,
+        "training_median_radius": 1.2811867878990055
+      },
+      "steps": 1200,
+      "status": "complete",
+      "metrics": {
+        "selection_score": 0.7734670138888889,
+        "radial_ks": 1.0,
+        "projected_ks_mean": 0.5469340277777779,
+        "projection_seed": 61719,
+        "n_projections": 64,
+        "n_generated": 1000,
+        "n_validation": 1800
+      },
+      "config_sha256": "38c27cb839fb0249efbd684c992b5c70aea01a40435a34ef3e846439a76611fc",
+      "implementation_sha256": "afd10909f52362aacdbf1a3f42deb86cff99644aad329c111b0553e889eceb17",
+      "checkpoint": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/audiomnist_stft/candidate_05/checkpoint.pt",
+        "sha256": "99f717a70ef70d4fbab6e0571621223e91a678c1717173cc924f20c3868eacb1",
+        "step": 1200,
+        "run_sha256": "1eb61c3db2fa3e0fef4d9a37f4971efc2ccb50c867c602c78aeec5e1e49d298b",
+        "stage": "tuning"
+      },
+      "training_time_s": 445.6008500754833,
+      "sample_time_s": 439.9173873215914
+    },
+    {
+      "candidate_index": 6,
+      "source": {
+        "nu": 7.0,
+        "scale": 0.004784161933072574,
+        "scale_multiplier": 0.5,
+        "reference_scale": 0.009568323866145149,
+        "training_median_radius": 1.2811867878990055
+      },
+      "steps": 1200,
+      "status": "complete",
+      "metrics": {
+        "selection_score": 0.7591310763888889,
+        "radial_ks": 1.0,
+        "projected_ks_mean": 0.5182621527777778,
+        "projection_seed": 61719,
+        "n_projections": 64,
+        "n_generated": 1000,
+        "n_validation": 1800
+      },
+      "config_sha256": "38c27cb839fb0249efbd684c992b5c70aea01a40435a34ef3e846439a76611fc",
+      "implementation_sha256": "afd10909f52362aacdbf1a3f42deb86cff99644aad329c111b0553e889eceb17",
+      "checkpoint": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/audiomnist_stft/candidate_06/checkpoint.pt",
+        "sha256": "0bb21fde436cef381b78edc54af57acfd1f7e7a01aa8da3b82192034a81f4ddb",
+        "step": 1200,
+        "run_sha256": "5a82d575ab9513983e8f623b692af84569d9ba859ae09b8f7bbe5dc4d98a67dc",
+        "stage": "tuning"
+      },
+      "training_time_s": 446.4523238129914,
+      "sample_time_s": 440.005200419575
+    },
+    {
+      "candidate_index": 7,
+      "source": {
+        "nu": 7.0,
+        "scale": 0.009568323866145149,
+        "scale_multiplier": 1.0,
+        "reference_scale": 0.009568323866145149,
+        "training_median_radius": 1.2811867878990055
+      },
+      "steps": 1200,
+      "status": "complete",
+      "metrics": {
+        "selection_score": 0.7681840277777778,
+        "radial_ks": 1.0,
+        "projected_ks_mean": 0.5363680555555557,
+        "projection_seed": 61719,
+        "n_projections": 64,
+        "n_generated": 1000,
+        "n_validation": 1800
+      },
+      "config_sha256": "38c27cb839fb0249efbd684c992b5c70aea01a40435a34ef3e846439a76611fc",
+      "implementation_sha256": "afd10909f52362aacdbf1a3f42deb86cff99644aad329c111b0553e889eceb17",
+      "checkpoint": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/audiomnist_stft/candidate_07/checkpoint.pt",
+        "sha256": "23034f5bc3bd98b53373816d06f8a716ec84ea65467dc8dd76bf46b9007fc4bd",
+        "step": 1200,
+        "run_sha256": "b14faa23a8cd6567501ff1787389ec7ef23b4b9e93f911cd3e61ab57b1022b4c",
+        "stage": "tuning"
+      },
+      "training_time_s": 446.7051354907453,
+      "sample_time_s": 439.93008326366544
+    },
+    {
+      "candidate_index": 8,
+      "source": {
+        "nu": 7.0,
+        "scale": 0.019136647732290298,
+        "scale_multiplier": 2.0,
+        "reference_scale": 0.009568323866145149,
+        "training_median_radius": 1.2811867878990055
+      },
+      "steps": 1200,
+      "status": "complete",
+      "metrics": {
+        "selection_score": 0.7651223958333333,
+        "radial_ks": 1.0,
+        "projected_ks_mean": 0.5302447916666666,
+        "projection_seed": 61719,
+        "n_projections": 64,
+        "n_generated": 1000,
+        "n_validation": 1800
+      },
+      "config_sha256": "38c27cb839fb0249efbd684c992b5c70aea01a40435a34ef3e846439a76611fc",
+      "implementation_sha256": "afd10909f52362aacdbf1a3f42deb86cff99644aad329c111b0553e889eceb17",
+      "checkpoint": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/audiomnist_stft/candidate_08/checkpoint.pt",
+        "sha256": "38d23226d75974cf60a87ad6b8fcda44824fad0671e1a95f02efafb79485a718",
+        "step": 1200,
+        "run_sha256": "85947484775986a6df21bf4685b6c9698acd1b0ed169c4b56dd3f9b4e83f19b0",
+        "stage": "tuning"
+      },
+      "training_time_s": 446.9557122178376,
+      "sample_time_s": 440.10539691895247
+    }
+  ],
+  "finalist_trials": [
+    {
+      "candidate_index": 6,
+      "source": {
+        "nu": 7.0,
+        "scale": 0.004784161933072574,
+        "scale_multiplier": 0.5,
+        "reference_scale": 0.009568323866145149,
+        "training_median_radius": 1.2811867878990055
+      },
+      "steps": 2400,
+      "status": "complete",
+      "metrics": {
+        "selection_score": 0.7679036458333333,
+        "radial_ks": 1.0,
+        "projected_ks_mean": 0.5358072916666666,
+        "projection_seed": 61719,
+        "n_projections": 64,
+        "n_generated": 1000,
+        "n_validation": 1800
+      },
+      "config_sha256": "38c27cb839fb0249efbd684c992b5c70aea01a40435a34ef3e846439a76611fc",
+      "implementation_sha256": "afd10909f52362aacdbf1a3f42deb86cff99644aad329c111b0553e889eceb17",
+      "checkpoint": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/audiomnist_stft/candidate_06/checkpoint.pt",
+        "sha256": "5802da66ba805d0574f2910a6cd8ad8e13f00c80761186f6f195a4852c025b58",
+        "step": 2400,
+        "run_sha256": "5a82d575ab9513983e8f623b692af84569d9ba859ae09b8f7bbe5dc4d98a67dc",
+        "stage": "tuning"
+      },
+      "training_time_s": 896.8805920816958,
+      "sample_time_s": 439.8884928226471
+    },
+    {
+      "candidate_index": 8,
+      "source": {
+        "nu": 7.0,
+        "scale": 0.019136647732290298,
+        "scale_multiplier": 2.0,
+        "reference_scale": 0.009568323866145149,
+        "training_median_radius": 1.2811867878990055
+      },
+      "steps": 2400,
+      "status": "complete",
+      "metrics": {
+        "selection_score": 0.7775911458333333,
+        "radial_ks": 1.0,
+        "projected_ks_mean": 0.5551822916666667,
+        "projection_seed": 61719,
+        "n_projections": 64,
+        "n_generated": 1000,
+        "n_validation": 1800
+      },
+      "config_sha256": "38c27cb839fb0249efbd684c992b5c70aea01a40435a34ef3e846439a76611fc",
+      "implementation_sha256": "afd10909f52362aacdbf1a3f42deb86cff99644aad329c111b0553e889eceb17",
+      "checkpoint": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/audiomnist_stft/candidate_08/checkpoint.pt",
+        "sha256": "1fe80483c3156c5f6a62e39dccb382f0d2c4487335583198a0ff367aa905cba0",
+        "step": 2400,
+        "run_sha256": "85947484775986a6df21bf4685b6c9698acd1b0ed169c4b56dd3f9b4e83f19b0",
+        "stage": "tuning"
+      },
+      "training_time_s": 896.7978573776782,
+      "sample_time_s": 439.2942708618939
+    }
+  ],
+  "selection_score": {
+    "selection_score": 0.7679036458333333,
+    "radial_ks": 1.0,
+    "projected_ks_mean": 0.5358072916666666,
+    "projection_seed": 61719,
+    "n_projections": 64,
+    "n_generated": 1000,
+    "n_validation": 1800
+  },
+  "full_training_equivalents": 0.55,
+  "test_data_used_for_selection": false,
+  "final_training": "restart all three paper seeds from scratch"
+}

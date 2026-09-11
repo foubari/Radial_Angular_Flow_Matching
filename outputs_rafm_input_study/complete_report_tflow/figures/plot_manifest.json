@@ -1,0 +1,5255 @@
+{
+  "status": "measured_figures_exported",
+  "figures": [
+    {
+      "name": "paired_B_minus_A",
+      "included": [
+        {
+          "condition": "aniso_k1",
+          "contrast": "B-A",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "aniso_k10",
+          "contrast": "B-A",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "aniso_k100",
+          "contrast": "B-A",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "aniso_k3",
+          "contrast": "B-A",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "aniso_k30",
+          "contrast": "B-A",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "aniso_k300",
+          "contrast": "B-A",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "finance_ff49",
+          "contrast": "B-A",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "gaussian_aniso_d16_cor",
+          "contrast": "B-A",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "piv_d16",
+          "contrast": "B-A",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "piv_d256",
+          "contrast": "B-A",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "piv_d32",
+          "contrast": "B-A",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "piv_d64",
+          "contrast": "B-A",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d128_df3.0_cor",
+          "contrast": "B-A",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d16_df1.5_cor",
+          "contrast": "B-A",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d16_df10.0_cor",
+          "contrast": "B-A",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d16_df2.0_cor",
+          "contrast": "B-A",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d16_df3.0_cor",
+          "contrast": "B-A",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d16_df5.0_cor",
+          "contrast": "B-A",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d16_df50.0_cor",
+          "contrast": "B-A",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d256_df3.0_cor",
+          "contrast": "B-A",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d32_df3.0_cor",
+          "contrast": "B-A",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d64_df3.0_cor",
+          "contrast": "B-A",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d8_df3.0_cor",
+          "contrast": "B-A",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "weather_au_wind",
+          "contrast": "B-A",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "audiomnist_stft",
+          "contrast": "B-A",
+          "metric": "digit_acc"
+        },
+        {
+          "condition": "imagenette_dcae",
+          "contrast": "B-A",
+          "metric": "fid"
+        }
+      ],
+      "caption": "Mean paired delta with population SD and each training-seed delta. Deltas compare matching cached data, protocol and training seeds; no significance is asserted. Only complete three-seed groups shown. Blocked: none. Failed/incompatible groups: aniso_k10/tflow, piv_d256/tflow, piv_d64/tflow, student_t_d128_df3.0_cor/tflow, student_t_d256_df3.0_cor/tflow, student_t_d2_df3.0_cor/A, student_t_d64_df3.0_cor/tflow, toy_radial_angular/A, toy_radial_angular/B, toy_radial_angular/C, weather_au_wind/tflow. All pending groups are listed in plot_manifest.json; published results are unchanged.",
+      "pdf": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/figures/paired_B_minus_A.pdf",
+      "png": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/figures/paired_B_minus_A.png"
+    },
+    {
+      "name": "paired_B_minus_C",
+      "included": [
+        {
+          "condition": "aniso_k1",
+          "contrast": "B-C",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "aniso_k10",
+          "contrast": "B-C",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "aniso_k100",
+          "contrast": "B-C",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "aniso_k3",
+          "contrast": "B-C",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "aniso_k30",
+          "contrast": "B-C",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "aniso_k300",
+          "contrast": "B-C",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "finance_ff49",
+          "contrast": "B-C",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "gaussian_aniso_d16_cor",
+          "contrast": "B-C",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "piv_d16",
+          "contrast": "B-C",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "piv_d256",
+          "contrast": "B-C",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "piv_d32",
+          "contrast": "B-C",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "piv_d64",
+          "contrast": "B-C",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d128_df3.0_cor",
+          "contrast": "B-C",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d16_df1.5_cor",
+          "contrast": "B-C",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d16_df10.0_cor",
+          "contrast": "B-C",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d16_df2.0_cor",
+          "contrast": "B-C",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d16_df3.0_cor",
+          "contrast": "B-C",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d16_df5.0_cor",
+          "contrast": "B-C",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d16_df50.0_cor",
+          "contrast": "B-C",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d256_df3.0_cor",
+          "contrast": "B-C",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d2_df3.0_cor",
+          "contrast": "B-C",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d32_df3.0_cor",
+          "contrast": "B-C",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d64_df3.0_cor",
+          "contrast": "B-C",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d8_df3.0_cor",
+          "contrast": "B-C",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "weather_au_wind",
+          "contrast": "B-C",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "audiomnist_stft",
+          "contrast": "B-C",
+          "metric": "digit_acc"
+        },
+        {
+          "condition": "imagenette_dcae",
+          "contrast": "B-C",
+          "metric": "fid"
+        }
+      ],
+      "caption": "Mean paired delta with population SD and each training-seed delta. Deltas compare matching cached data, protocol and training seeds; no significance is asserted. Only complete three-seed groups shown. Blocked: none. Failed/incompatible groups: aniso_k10/tflow, piv_d256/tflow, piv_d64/tflow, student_t_d128_df3.0_cor/tflow, student_t_d256_df3.0_cor/tflow, student_t_d2_df3.0_cor/A, student_t_d64_df3.0_cor/tflow, toy_radial_angular/A, toy_radial_angular/B, toy_radial_angular/C, weather_au_wind/tflow. All pending groups are listed in plot_manifest.json; published results are unchanged.",
+      "pdf": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/figures/paired_B_minus_C.pdf",
+      "png": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/figures/paired_B_minus_C.png"
+    },
+    {
+      "name": "quality_tflow_and_rafm_inputs",
+      "included": [
+        {
+          "condition": "aniso_k1",
+          "method": "A",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "aniso_k1",
+          "method": "B",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "aniso_k1",
+          "method": "C",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "aniso_k1",
+          "method": "tflow",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "aniso_k10",
+          "method": "A",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "aniso_k10",
+          "method": "B",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "aniso_k10",
+          "method": "C",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "aniso_k100",
+          "method": "A",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "aniso_k100",
+          "method": "B",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "aniso_k100",
+          "method": "C",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "aniso_k100",
+          "method": "tflow",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "aniso_k3",
+          "method": "A",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "aniso_k3",
+          "method": "B",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "aniso_k3",
+          "method": "C",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "aniso_k3",
+          "method": "tflow",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "aniso_k30",
+          "method": "A",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "aniso_k30",
+          "method": "B",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "aniso_k30",
+          "method": "C",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "aniso_k30",
+          "method": "tflow",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "aniso_k300",
+          "method": "A",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "aniso_k300",
+          "method": "B",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "aniso_k300",
+          "method": "C",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "aniso_k300",
+          "method": "tflow",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "finance_ff49",
+          "method": "A",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "finance_ff49",
+          "method": "B",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "finance_ff49",
+          "method": "C",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "finance_ff49",
+          "method": "tflow",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "gaussian_aniso_d16_cor",
+          "method": "A",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "gaussian_aniso_d16_cor",
+          "method": "B",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "gaussian_aniso_d16_cor",
+          "method": "C",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "gaussian_aniso_d16_cor",
+          "method": "tflow",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "piv_d16",
+          "method": "A",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "piv_d16",
+          "method": "B",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "piv_d16",
+          "method": "C",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "piv_d16",
+          "method": "tflow",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "piv_d256",
+          "method": "A",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "piv_d256",
+          "method": "B",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "piv_d256",
+          "method": "C",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "piv_d32",
+          "method": "A",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "piv_d32",
+          "method": "B",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "piv_d32",
+          "method": "C",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "piv_d32",
+          "method": "tflow",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "piv_d64",
+          "method": "A",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "piv_d64",
+          "method": "B",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "piv_d64",
+          "method": "C",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d128_df3.0_cor",
+          "method": "A",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d128_df3.0_cor",
+          "method": "B",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d128_df3.0_cor",
+          "method": "C",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d16_df1.5_cor",
+          "method": "A",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d16_df1.5_cor",
+          "method": "B",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d16_df1.5_cor",
+          "method": "C",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d16_df1.5_cor",
+          "method": "tflow",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d16_df10.0_cor",
+          "method": "A",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d16_df10.0_cor",
+          "method": "B",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d16_df10.0_cor",
+          "method": "C",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d16_df10.0_cor",
+          "method": "tflow",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d16_df2.0_cor",
+          "method": "A",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d16_df2.0_cor",
+          "method": "B",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d16_df2.0_cor",
+          "method": "C",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d16_df2.0_cor",
+          "method": "tflow",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d16_df3.0_cor",
+          "method": "A",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d16_df3.0_cor",
+          "method": "B",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d16_df3.0_cor",
+          "method": "C",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d16_df3.0_cor",
+          "method": "tflow",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d16_df5.0_cor",
+          "method": "A",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d16_df5.0_cor",
+          "method": "B",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d16_df5.0_cor",
+          "method": "C",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d16_df5.0_cor",
+          "method": "tflow",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d16_df50.0_cor",
+          "method": "A",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d16_df50.0_cor",
+          "method": "B",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d16_df50.0_cor",
+          "method": "C",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d16_df50.0_cor",
+          "method": "tflow",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d256_df3.0_cor",
+          "method": "A",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d256_df3.0_cor",
+          "method": "B",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d256_df3.0_cor",
+          "method": "C",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d2_df3.0_cor",
+          "method": "B",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d2_df3.0_cor",
+          "method": "C",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d2_df3.0_cor",
+          "method": "tflow",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d32_df3.0_cor",
+          "method": "A",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d32_df3.0_cor",
+          "method": "B",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d32_df3.0_cor",
+          "method": "C",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d32_df3.0_cor",
+          "method": "tflow",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d64_df3.0_cor",
+          "method": "A",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d64_df3.0_cor",
+          "method": "B",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d64_df3.0_cor",
+          "method": "C",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d8_df3.0_cor",
+          "method": "A",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d8_df3.0_cor",
+          "method": "B",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d8_df3.0_cor",
+          "method": "C",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "student_t_d8_df3.0_cor",
+          "method": "tflow",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "toy_radial_angular",
+          "method": "tflow",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "weather_au_wind",
+          "method": "A",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "weather_au_wind",
+          "method": "B",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "weather_au_wind",
+          "method": "C",
+          "metric": "sliced_w1"
+        },
+        {
+          "condition": "audiomnist_stft",
+          "method": "A",
+          "metric": "digit_acc"
+        },
+        {
+          "condition": "audiomnist_stft",
+          "method": "B",
+          "metric": "digit_acc"
+        },
+        {
+          "condition": "audiomnist_stft",
+          "method": "C",
+          "metric": "digit_acc"
+        },
+        {
+          "condition": "audiomnist_stft",
+          "method": "tflow",
+          "metric": "digit_acc"
+        },
+        {
+          "condition": "audiomnist_stft",
+          "method": "fixed_spherical_empirical_gain_reference",
+          "metric": "digit_acc",
+          "historical_accuracy_mismatch_preserved": true
+        },
+        {
+          "condition": "imagenette_dcae",
+          "method": "A",
+          "metric": "fid"
+        },
+        {
+          "condition": "imagenette_dcae",
+          "method": "B",
+          "metric": "fid"
+        },
+        {
+          "condition": "imagenette_dcae",
+          "method": "C",
+          "metric": "fid"
+        },
+        {
+          "condition": "imagenette_dcae",
+          "method": "tflow",
+          "metric": "fid"
+        }
+      ],
+      "caption": "Complete three-seed method means and population SD. Vector/image axes use linear scaling for positive ranges spanning less than a decade (including error bars), otherwise symmetric-log scaling with linear threshold 1e-4. Audio uses measured current-backend evaluation of the saved checkpoint outputs; the raw backend discrepancy in PIT/radial W1 remains recorded. Reference accuracy remains approximately 0.8067 versus reported 0.810; historical training runtime is not compared. Only complete three-seed groups shown. Blocked: none. Failed/incompatible groups: aniso_k10/tflow, piv_d256/tflow, piv_d64/tflow, student_t_d128_df3.0_cor/tflow, student_t_d256_df3.0_cor/tflow, student_t_d2_df3.0_cor/A, student_t_d64_df3.0_cor/tflow, toy_radial_angular/A, toy_radial_angular/B, toy_radial_angular/C, weather_au_wind/tflow. All pending groups are listed in plot_manifest.json; published results are unchanged.",
+      "pdf": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/figures/quality_tflow_and_rafm_inputs.pdf",
+      "png": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/figures/quality_tflow_and_rafm_inputs.png"
+    },
+    {
+      "name": "audio_content_energy_and_tails",
+      "included": [
+        {
+          "condition": "audiomnist_stft",
+          "method": "A",
+          "metric": "digit_acc",
+          "role": "new matched study arm"
+        },
+        {
+          "condition": "audiomnist_stft",
+          "method": "B",
+          "metric": "digit_acc",
+          "role": "new matched study arm"
+        },
+        {
+          "condition": "audiomnist_stft",
+          "method": "C",
+          "metric": "digit_acc",
+          "role": "new matched study arm"
+        },
+        {
+          "condition": "audiomnist_stft",
+          "method": "tflow",
+          "metric": "digit_acc",
+          "role": "new matched study arm"
+        },
+        {
+          "condition": "audiomnist_stft",
+          "method": "fixed_spherical_empirical_gain_reference",
+          "metric": "digit_acc",
+          "role": "checkpoint reference re-evaluated under current backend, not new A or historical paper value"
+        },
+        {
+          "condition": "audiomnist_stft",
+          "method": "A",
+          "metric": "energy_KS",
+          "role": "new matched study arm"
+        },
+        {
+          "condition": "audiomnist_stft",
+          "method": "B",
+          "metric": "energy_KS",
+          "role": "new matched study arm"
+        },
+        {
+          "condition": "audiomnist_stft",
+          "method": "C",
+          "metric": "energy_KS",
+          "role": "new matched study arm"
+        },
+        {
+          "condition": "audiomnist_stft",
+          "method": "tflow",
+          "metric": "energy_KS",
+          "role": "new matched study arm"
+        },
+        {
+          "condition": "audiomnist_stft",
+          "method": "fixed_spherical_empirical_gain_reference",
+          "metric": "energy_KS",
+          "role": "checkpoint reference re-evaluated under current backend, not new A or historical paper value"
+        },
+        {
+          "condition": "audiomnist_stft",
+          "method": "A",
+          "metric": "cov>q95",
+          "role": "new matched study arm"
+        },
+        {
+          "condition": "audiomnist_stft",
+          "method": "B",
+          "metric": "cov>q95",
+          "role": "new matched study arm"
+        },
+        {
+          "condition": "audiomnist_stft",
+          "method": "C",
+          "metric": "cov>q95",
+          "role": "new matched study arm"
+        },
+        {
+          "condition": "audiomnist_stft",
+          "method": "tflow",
+          "metric": "cov>q95",
+          "role": "new matched study arm"
+        },
+        {
+          "condition": "audiomnist_stft",
+          "method": "fixed_spherical_empirical_gain_reference",
+          "metric": "cov>q95",
+          "role": "checkpoint reference re-evaluated under current backend, not new A or historical paper value"
+        },
+        {
+          "condition": "audiomnist_stft",
+          "method": "A",
+          "metric": "cov>q99",
+          "role": "new matched study arm"
+        },
+        {
+          "condition": "audiomnist_stft",
+          "method": "B",
+          "metric": "cov>q99",
+          "role": "new matched study arm"
+        },
+        {
+          "condition": "audiomnist_stft",
+          "method": "C",
+          "metric": "cov>q99",
+          "role": "new matched study arm"
+        },
+        {
+          "condition": "audiomnist_stft",
+          "method": "tflow",
+          "metric": "cov>q99",
+          "role": "new matched study arm"
+        },
+        {
+          "condition": "audiomnist_stft",
+          "method": "fixed_spherical_empirical_gain_reference",
+          "metric": "cov>q99",
+          "role": "checkpoint reference re-evaluated under current backend, not new A or historical paper value"
+        }
+      ],
+      "caption": "Complete measured seed triplets, including the saved fixed-spherical plus empirical-gain outputs re-evaluated under the current backend. The raw audit discrepancy is preserved: predictions/accuracy/KS/coverage are unchanged, while PIT/radial W1 and some original fixed-radius energy-bin assignments differ. Accuracy is 0.8066667 with population SD 0.00735225, not historical 0.810 \u00b1 0.013. Dashed coverage targets are 0.05 and 0.01. This reference is neither new A nor a matched training-runtime observation. Gain is constructed independently of digit/content; radius-conditioning gains are not assumed. Only complete three-seed groups shown. Blocked: none. Failed/incompatible groups: aniso_k10/tflow, piv_d256/tflow, piv_d64/tflow, student_t_d128_df3.0_cor/tflow, student_t_d256_df3.0_cor/tflow, student_t_d2_df3.0_cor/A, student_t_d64_df3.0_cor/tflow, toy_radial_angular/A, toy_radial_angular/B, toy_radial_angular/C, weather_au_wind/tflow. All pending groups are listed in plot_manifest.json; published results are unchanged.",
+      "pdf": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/figures/audio_content_energy_and_tails.pdf",
+      "png": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/figures/audio_content_energy_and_tails.png"
+    },
+    {
+      "name": "angular_fit_by_radius_bin",
+      "included": [
+        {
+          "condition": "aniso_k1",
+          "method": "A",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "aniso_k1",
+          "method": "B",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "aniso_k1",
+          "method": "C",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "aniso_k1",
+          "method": "tflow",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "aniso_k10",
+          "method": "A",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "aniso_k10",
+          "method": "B",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "aniso_k10",
+          "method": "C",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "aniso_k100",
+          "method": "A",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "aniso_k100",
+          "method": "B",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "aniso_k100",
+          "method": "C",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "aniso_k100",
+          "method": "tflow",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "aniso_k3",
+          "method": "A",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "aniso_k3",
+          "method": "B",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "aniso_k3",
+          "method": "C",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "aniso_k3",
+          "method": "tflow",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "aniso_k30",
+          "method": "A",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "aniso_k30",
+          "method": "B",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "aniso_k30",
+          "method": "C",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "aniso_k30",
+          "method": "tflow",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "aniso_k300",
+          "method": "A",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "aniso_k300",
+          "method": "B",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "aniso_k300",
+          "method": "C",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "aniso_k300",
+          "method": "tflow",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "audiomnist_stft",
+          "method": "A",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "audiomnist_stft",
+          "method": "B",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "audiomnist_stft",
+          "method": "C",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "finance_ff49",
+          "method": "A",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "finance_ff49",
+          "method": "B",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "finance_ff49",
+          "method": "C",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "finance_ff49",
+          "method": "tflow",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "gaussian_aniso_d16_cor",
+          "method": "A",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "gaussian_aniso_d16_cor",
+          "method": "B",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "gaussian_aniso_d16_cor",
+          "method": "C",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "gaussian_aniso_d16_cor",
+          "method": "tflow",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "imagenette_dcae",
+          "method": "A",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "imagenette_dcae",
+          "method": "B",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "imagenette_dcae",
+          "method": "C",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "piv_d16",
+          "method": "A",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "piv_d16",
+          "method": "B",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "piv_d16",
+          "method": "C",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "piv_d16",
+          "method": "tflow",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "piv_d256",
+          "method": "A",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "piv_d256",
+          "method": "B",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "piv_d256",
+          "method": "C",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "piv_d32",
+          "method": "A",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "piv_d32",
+          "method": "B",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "piv_d32",
+          "method": "C",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "piv_d32",
+          "method": "tflow",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "piv_d64",
+          "method": "A",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "piv_d64",
+          "method": "B",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "piv_d64",
+          "method": "C",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "student_t_d128_df3.0_cor",
+          "method": "A",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "student_t_d128_df3.0_cor",
+          "method": "B",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "student_t_d128_df3.0_cor",
+          "method": "C",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "student_t_d16_df1.5_cor",
+          "method": "A",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "student_t_d16_df1.5_cor",
+          "method": "B",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "student_t_d16_df1.5_cor",
+          "method": "C",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "student_t_d16_df1.5_cor",
+          "method": "tflow",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "student_t_d16_df10.0_cor",
+          "method": "A",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "student_t_d16_df10.0_cor",
+          "method": "B",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "student_t_d16_df10.0_cor",
+          "method": "C",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "student_t_d16_df10.0_cor",
+          "method": "tflow",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "student_t_d16_df2.0_cor",
+          "method": "A",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "student_t_d16_df2.0_cor",
+          "method": "B",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "student_t_d16_df2.0_cor",
+          "method": "C",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "student_t_d16_df2.0_cor",
+          "method": "tflow",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "student_t_d16_df3.0_cor",
+          "method": "A",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "student_t_d16_df3.0_cor",
+          "method": "B",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "student_t_d16_df3.0_cor",
+          "method": "C",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "student_t_d16_df3.0_cor",
+          "method": "tflow",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "student_t_d16_df5.0_cor",
+          "method": "A",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "student_t_d16_df5.0_cor",
+          "method": "B",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "student_t_d16_df5.0_cor",
+          "method": "C",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "student_t_d16_df5.0_cor",
+          "method": "tflow",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "student_t_d16_df50.0_cor",
+          "method": "A",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "student_t_d16_df50.0_cor",
+          "method": "B",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "student_t_d16_df50.0_cor",
+          "method": "C",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "student_t_d16_df50.0_cor",
+          "method": "tflow",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "student_t_d256_df3.0_cor",
+          "method": "A",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "student_t_d256_df3.0_cor",
+          "method": "B",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "student_t_d256_df3.0_cor",
+          "method": "C",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "student_t_d2_df3.0_cor",
+          "method": "B",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "student_t_d2_df3.0_cor",
+          "method": "C",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "student_t_d2_df3.0_cor",
+          "method": "tflow",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "student_t_d32_df3.0_cor",
+          "method": "A",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "student_t_d32_df3.0_cor",
+          "method": "B",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "student_t_d32_df3.0_cor",
+          "method": "C",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "student_t_d32_df3.0_cor",
+          "method": "tflow",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "student_t_d64_df3.0_cor",
+          "method": "A",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "student_t_d64_df3.0_cor",
+          "method": "B",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "student_t_d64_df3.0_cor",
+          "method": "C",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "student_t_d8_df3.0_cor",
+          "method": "A",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "student_t_d8_df3.0_cor",
+          "method": "B",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "student_t_d8_df3.0_cor",
+          "method": "C",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "student_t_d8_df3.0_cor",
+          "method": "tflow",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "toy_radial_angular",
+          "method": "tflow",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "weather_au_wind",
+          "method": "A",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "weather_au_wind",
+          "method": "B",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "weather_au_wind",
+          "method": "C",
+          "metric": "angular_sw_bin0"
+        },
+        {
+          "condition": "aniso_k1",
+          "method": "A",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "aniso_k1",
+          "method": "B",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "aniso_k1",
+          "method": "C",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "aniso_k1",
+          "method": "tflow",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "aniso_k10",
+          "method": "A",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "aniso_k10",
+          "method": "B",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "aniso_k10",
+          "method": "C",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "aniso_k100",
+          "method": "A",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "aniso_k100",
+          "method": "B",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "aniso_k100",
+          "method": "C",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "aniso_k100",
+          "method": "tflow",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "aniso_k3",
+          "method": "A",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "aniso_k3",
+          "method": "B",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "aniso_k3",
+          "method": "C",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "aniso_k3",
+          "method": "tflow",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "aniso_k30",
+          "method": "A",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "aniso_k30",
+          "method": "B",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "aniso_k30",
+          "method": "C",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "aniso_k30",
+          "method": "tflow",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "aniso_k300",
+          "method": "A",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "aniso_k300",
+          "method": "B",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "aniso_k300",
+          "method": "C",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "aniso_k300",
+          "method": "tflow",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "audiomnist_stft",
+          "method": "A",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "audiomnist_stft",
+          "method": "B",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "audiomnist_stft",
+          "method": "C",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "finance_ff49",
+          "method": "A",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "finance_ff49",
+          "method": "B",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "finance_ff49",
+          "method": "C",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "finance_ff49",
+          "method": "tflow",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "gaussian_aniso_d16_cor",
+          "method": "A",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "gaussian_aniso_d16_cor",
+          "method": "B",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "gaussian_aniso_d16_cor",
+          "method": "C",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "gaussian_aniso_d16_cor",
+          "method": "tflow",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "imagenette_dcae",
+          "method": "A",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "imagenette_dcae",
+          "method": "B",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "imagenette_dcae",
+          "method": "C",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "piv_d16",
+          "method": "A",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "piv_d16",
+          "method": "B",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "piv_d16",
+          "method": "C",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "piv_d16",
+          "method": "tflow",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "piv_d256",
+          "method": "A",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "piv_d256",
+          "method": "B",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "piv_d256",
+          "method": "C",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "piv_d32",
+          "method": "A",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "piv_d32",
+          "method": "B",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "piv_d32",
+          "method": "C",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "piv_d32",
+          "method": "tflow",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "piv_d64",
+          "method": "A",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "piv_d64",
+          "method": "B",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "piv_d64",
+          "method": "C",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "student_t_d128_df3.0_cor",
+          "method": "A",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "student_t_d128_df3.0_cor",
+          "method": "B",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "student_t_d128_df3.0_cor",
+          "method": "C",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "student_t_d16_df1.5_cor",
+          "method": "A",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "student_t_d16_df1.5_cor",
+          "method": "B",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "student_t_d16_df1.5_cor",
+          "method": "C",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "student_t_d16_df1.5_cor",
+          "method": "tflow",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "student_t_d16_df10.0_cor",
+          "method": "A",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "student_t_d16_df10.0_cor",
+          "method": "B",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "student_t_d16_df10.0_cor",
+          "method": "C",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "student_t_d16_df10.0_cor",
+          "method": "tflow",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "student_t_d16_df2.0_cor",
+          "method": "A",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "student_t_d16_df2.0_cor",
+          "method": "B",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "student_t_d16_df2.0_cor",
+          "method": "C",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "student_t_d16_df2.0_cor",
+          "method": "tflow",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "student_t_d16_df3.0_cor",
+          "method": "A",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "student_t_d16_df3.0_cor",
+          "method": "B",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "student_t_d16_df3.0_cor",
+          "method": "C",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "student_t_d16_df3.0_cor",
+          "method": "tflow",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "student_t_d16_df5.0_cor",
+          "method": "A",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "student_t_d16_df5.0_cor",
+          "method": "B",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "student_t_d16_df5.0_cor",
+          "method": "C",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "student_t_d16_df5.0_cor",
+          "method": "tflow",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "student_t_d16_df50.0_cor",
+          "method": "A",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "student_t_d16_df50.0_cor",
+          "method": "B",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "student_t_d16_df50.0_cor",
+          "method": "C",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "student_t_d16_df50.0_cor",
+          "method": "tflow",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "student_t_d256_df3.0_cor",
+          "method": "A",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "student_t_d256_df3.0_cor",
+          "method": "B",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "student_t_d256_df3.0_cor",
+          "method": "C",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "student_t_d2_df3.0_cor",
+          "method": "B",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "student_t_d2_df3.0_cor",
+          "method": "C",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "student_t_d2_df3.0_cor",
+          "method": "tflow",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "student_t_d32_df3.0_cor",
+          "method": "A",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "student_t_d32_df3.0_cor",
+          "method": "B",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "student_t_d32_df3.0_cor",
+          "method": "C",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "student_t_d32_df3.0_cor",
+          "method": "tflow",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "student_t_d64_df3.0_cor",
+          "method": "A",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "student_t_d64_df3.0_cor",
+          "method": "B",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "student_t_d64_df3.0_cor",
+          "method": "C",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "student_t_d8_df3.0_cor",
+          "method": "A",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "student_t_d8_df3.0_cor",
+          "method": "B",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "student_t_d8_df3.0_cor",
+          "method": "C",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "student_t_d8_df3.0_cor",
+          "method": "tflow",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "toy_radial_angular",
+          "method": "tflow",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "weather_au_wind",
+          "method": "A",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "weather_au_wind",
+          "method": "B",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "weather_au_wind",
+          "method": "C",
+          "metric": "angular_sw_bin1"
+        },
+        {
+          "condition": "aniso_k1",
+          "method": "A",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "aniso_k1",
+          "method": "B",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "aniso_k1",
+          "method": "C",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "aniso_k1",
+          "method": "tflow",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "aniso_k10",
+          "method": "A",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "aniso_k10",
+          "method": "B",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "aniso_k10",
+          "method": "C",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "aniso_k100",
+          "method": "A",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "aniso_k100",
+          "method": "B",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "aniso_k100",
+          "method": "C",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "aniso_k100",
+          "method": "tflow",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "aniso_k3",
+          "method": "A",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "aniso_k3",
+          "method": "B",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "aniso_k3",
+          "method": "C",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "aniso_k3",
+          "method": "tflow",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "aniso_k30",
+          "method": "A",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "aniso_k30",
+          "method": "B",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "aniso_k30",
+          "method": "C",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "aniso_k30",
+          "method": "tflow",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "aniso_k300",
+          "method": "A",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "aniso_k300",
+          "method": "B",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "aniso_k300",
+          "method": "C",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "aniso_k300",
+          "method": "tflow",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "audiomnist_stft",
+          "method": "A",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "audiomnist_stft",
+          "method": "B",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "audiomnist_stft",
+          "method": "C",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "finance_ff49",
+          "method": "A",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "finance_ff49",
+          "method": "B",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "finance_ff49",
+          "method": "C",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "finance_ff49",
+          "method": "tflow",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "gaussian_aniso_d16_cor",
+          "method": "A",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "gaussian_aniso_d16_cor",
+          "method": "B",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "gaussian_aniso_d16_cor",
+          "method": "C",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "gaussian_aniso_d16_cor",
+          "method": "tflow",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "imagenette_dcae",
+          "method": "A",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "imagenette_dcae",
+          "method": "B",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "imagenette_dcae",
+          "method": "C",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "piv_d16",
+          "method": "A",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "piv_d16",
+          "method": "B",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "piv_d16",
+          "method": "C",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "piv_d16",
+          "method": "tflow",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "piv_d256",
+          "method": "A",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "piv_d256",
+          "method": "B",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "piv_d256",
+          "method": "C",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "piv_d32",
+          "method": "A",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "piv_d32",
+          "method": "B",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "piv_d32",
+          "method": "C",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "piv_d32",
+          "method": "tflow",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "piv_d64",
+          "method": "A",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "piv_d64",
+          "method": "B",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "piv_d64",
+          "method": "C",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "student_t_d128_df3.0_cor",
+          "method": "A",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "student_t_d128_df3.0_cor",
+          "method": "B",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "student_t_d128_df3.0_cor",
+          "method": "C",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "student_t_d16_df1.5_cor",
+          "method": "A",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "student_t_d16_df1.5_cor",
+          "method": "B",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "student_t_d16_df1.5_cor",
+          "method": "C",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "student_t_d16_df1.5_cor",
+          "method": "tflow",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "student_t_d16_df10.0_cor",
+          "method": "A",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "student_t_d16_df10.0_cor",
+          "method": "B",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "student_t_d16_df10.0_cor",
+          "method": "C",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "student_t_d16_df10.0_cor",
+          "method": "tflow",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "student_t_d16_df2.0_cor",
+          "method": "A",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "student_t_d16_df2.0_cor",
+          "method": "B",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "student_t_d16_df2.0_cor",
+          "method": "C",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "student_t_d16_df2.0_cor",
+          "method": "tflow",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "student_t_d16_df3.0_cor",
+          "method": "A",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "student_t_d16_df3.0_cor",
+          "method": "B",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "student_t_d16_df3.0_cor",
+          "method": "C",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "student_t_d16_df3.0_cor",
+          "method": "tflow",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "student_t_d16_df5.0_cor",
+          "method": "A",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "student_t_d16_df5.0_cor",
+          "method": "B",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "student_t_d16_df5.0_cor",
+          "method": "C",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "student_t_d16_df5.0_cor",
+          "method": "tflow",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "student_t_d16_df50.0_cor",
+          "method": "A",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "student_t_d16_df50.0_cor",
+          "method": "B",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "student_t_d16_df50.0_cor",
+          "method": "C",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "student_t_d16_df50.0_cor",
+          "method": "tflow",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "student_t_d256_df3.0_cor",
+          "method": "A",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "student_t_d256_df3.0_cor",
+          "method": "B",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "student_t_d256_df3.0_cor",
+          "method": "C",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "student_t_d2_df3.0_cor",
+          "method": "B",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "student_t_d2_df3.0_cor",
+          "method": "C",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "student_t_d2_df3.0_cor",
+          "method": "tflow",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "student_t_d32_df3.0_cor",
+          "method": "A",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "student_t_d32_df3.0_cor",
+          "method": "B",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "student_t_d32_df3.0_cor",
+          "method": "C",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "student_t_d32_df3.0_cor",
+          "method": "tflow",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "student_t_d64_df3.0_cor",
+          "method": "A",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "student_t_d64_df3.0_cor",
+          "method": "B",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "student_t_d64_df3.0_cor",
+          "method": "C",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "student_t_d8_df3.0_cor",
+          "method": "A",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "student_t_d8_df3.0_cor",
+          "method": "B",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "student_t_d8_df3.0_cor",
+          "method": "C",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "student_t_d8_df3.0_cor",
+          "method": "tflow",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "toy_radial_angular",
+          "method": "tflow",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "weather_au_wind",
+          "method": "A",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "weather_au_wind",
+          "method": "B",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "weather_au_wind",
+          "method": "C",
+          "metric": "angular_sw_bin2"
+        },
+        {
+          "condition": "aniso_k1",
+          "method": "A",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "aniso_k1",
+          "method": "B",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "aniso_k1",
+          "method": "C",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "aniso_k1",
+          "method": "tflow",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "aniso_k10",
+          "method": "A",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "aniso_k10",
+          "method": "B",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "aniso_k10",
+          "method": "C",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "aniso_k100",
+          "method": "A",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "aniso_k100",
+          "method": "B",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "aniso_k100",
+          "method": "C",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "aniso_k100",
+          "method": "tflow",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "aniso_k3",
+          "method": "A",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "aniso_k3",
+          "method": "B",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "aniso_k3",
+          "method": "C",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "aniso_k3",
+          "method": "tflow",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "aniso_k30",
+          "method": "A",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "aniso_k30",
+          "method": "B",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "aniso_k30",
+          "method": "C",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "aniso_k30",
+          "method": "tflow",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "aniso_k300",
+          "method": "A",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "aniso_k300",
+          "method": "B",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "aniso_k300",
+          "method": "C",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "aniso_k300",
+          "method": "tflow",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "audiomnist_stft",
+          "method": "A",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "audiomnist_stft",
+          "method": "B",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "audiomnist_stft",
+          "method": "C",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "finance_ff49",
+          "method": "A",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "finance_ff49",
+          "method": "B",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "finance_ff49",
+          "method": "C",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "finance_ff49",
+          "method": "tflow",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "gaussian_aniso_d16_cor",
+          "method": "A",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "gaussian_aniso_d16_cor",
+          "method": "B",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "gaussian_aniso_d16_cor",
+          "method": "C",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "gaussian_aniso_d16_cor",
+          "method": "tflow",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "imagenette_dcae",
+          "method": "A",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "imagenette_dcae",
+          "method": "B",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "imagenette_dcae",
+          "method": "C",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "piv_d16",
+          "method": "A",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "piv_d16",
+          "method": "B",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "piv_d16",
+          "method": "C",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "piv_d16",
+          "method": "tflow",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "piv_d256",
+          "method": "A",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "piv_d256",
+          "method": "B",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "piv_d256",
+          "method": "C",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "piv_d32",
+          "method": "A",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "piv_d32",
+          "method": "B",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "piv_d32",
+          "method": "C",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "piv_d32",
+          "method": "tflow",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "piv_d64",
+          "method": "A",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "piv_d64",
+          "method": "B",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "piv_d64",
+          "method": "C",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "student_t_d128_df3.0_cor",
+          "method": "A",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "student_t_d128_df3.0_cor",
+          "method": "B",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "student_t_d128_df3.0_cor",
+          "method": "C",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "student_t_d16_df1.5_cor",
+          "method": "A",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "student_t_d16_df1.5_cor",
+          "method": "B",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "student_t_d16_df1.5_cor",
+          "method": "C",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "student_t_d16_df1.5_cor",
+          "method": "tflow",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "student_t_d16_df10.0_cor",
+          "method": "A",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "student_t_d16_df10.0_cor",
+          "method": "B",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "student_t_d16_df10.0_cor",
+          "method": "C",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "student_t_d16_df10.0_cor",
+          "method": "tflow",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "student_t_d16_df2.0_cor",
+          "method": "A",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "student_t_d16_df2.0_cor",
+          "method": "B",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "student_t_d16_df2.0_cor",
+          "method": "C",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "student_t_d16_df2.0_cor",
+          "method": "tflow",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "student_t_d16_df3.0_cor",
+          "method": "A",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "student_t_d16_df3.0_cor",
+          "method": "B",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "student_t_d16_df3.0_cor",
+          "method": "C",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "student_t_d16_df3.0_cor",
+          "method": "tflow",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "student_t_d16_df5.0_cor",
+          "method": "A",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "student_t_d16_df5.0_cor",
+          "method": "B",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "student_t_d16_df5.0_cor",
+          "method": "C",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "student_t_d16_df5.0_cor",
+          "method": "tflow",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "student_t_d16_df50.0_cor",
+          "method": "A",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "student_t_d16_df50.0_cor",
+          "method": "B",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "student_t_d16_df50.0_cor",
+          "method": "C",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "student_t_d16_df50.0_cor",
+          "method": "tflow",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "student_t_d256_df3.0_cor",
+          "method": "A",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "student_t_d256_df3.0_cor",
+          "method": "B",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "student_t_d256_df3.0_cor",
+          "method": "C",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "student_t_d2_df3.0_cor",
+          "method": "B",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "student_t_d2_df3.0_cor",
+          "method": "C",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "student_t_d2_df3.0_cor",
+          "method": "tflow",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "student_t_d32_df3.0_cor",
+          "method": "A",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "student_t_d32_df3.0_cor",
+          "method": "B",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "student_t_d32_df3.0_cor",
+          "method": "C",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "student_t_d32_df3.0_cor",
+          "method": "tflow",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "student_t_d64_df3.0_cor",
+          "method": "A",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "student_t_d64_df3.0_cor",
+          "method": "B",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "student_t_d64_df3.0_cor",
+          "method": "C",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "student_t_d8_df3.0_cor",
+          "method": "A",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "student_t_d8_df3.0_cor",
+          "method": "B",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "student_t_d8_df3.0_cor",
+          "method": "C",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "student_t_d8_df3.0_cor",
+          "method": "tflow",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "toy_radial_angular",
+          "method": "tflow",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "weather_au_wind",
+          "method": "A",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "weather_au_wind",
+          "method": "B",
+          "metric": "angular_sw_bin3"
+        },
+        {
+          "condition": "weather_au_wind",
+          "method": "C",
+          "metric": "angular_sw_bin3"
+        }
+      ],
+      "caption": "Each panel uses the existing angular SW evaluator within one test-radius quantile bin. Groups with undefined or nonfinite bins have no aggregate and are omitted explicitly; values are not averaged over surviving seeds. Only complete three-seed groups shown. Blocked: none. Failed/incompatible groups: aniso_k10/tflow, piv_d256/tflow, piv_d64/tflow, student_t_d128_df3.0_cor/tflow, student_t_d256_df3.0_cor/tflow, student_t_d2_df3.0_cor/A, student_t_d64_df3.0_cor/tflow, toy_radial_angular/A, toy_radial_angular/B, toy_radial_angular/C, weather_au_wind/tflow. All pending groups are listed in plot_manifest.json; published results are unchanged.",
+      "pdf": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/figures/angular_fit_by_radius_bin.pdf",
+      "png": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/figures/angular_fit_by_radius_bin.png"
+    },
+    {
+      "name": "ambient_sampler_radius_drift",
+      "included": [
+        {
+          "condition": "aniso_k1",
+          "method": "A",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "aniso_k1",
+          "method": "B",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "aniso_k1",
+          "method": "C",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "aniso_k10",
+          "method": "A",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "aniso_k10",
+          "method": "B",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "aniso_k10",
+          "method": "C",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "aniso_k100",
+          "method": "A",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "aniso_k100",
+          "method": "B",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "aniso_k100",
+          "method": "C",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "aniso_k3",
+          "method": "A",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "aniso_k3",
+          "method": "B",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "aniso_k3",
+          "method": "C",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "aniso_k30",
+          "method": "A",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "aniso_k30",
+          "method": "B",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "aniso_k30",
+          "method": "C",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "aniso_k300",
+          "method": "A",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "aniso_k300",
+          "method": "B",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "aniso_k300",
+          "method": "C",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "audiomnist_stft",
+          "method": "A",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "audiomnist_stft",
+          "method": "B",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "audiomnist_stft",
+          "method": "C",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "finance_ff49",
+          "method": "A",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "finance_ff49",
+          "method": "B",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "finance_ff49",
+          "method": "C",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "gaussian_aniso_d16_cor",
+          "method": "A",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "gaussian_aniso_d16_cor",
+          "method": "B",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "gaussian_aniso_d16_cor",
+          "method": "C",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "imagenette_dcae",
+          "method": "A",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "imagenette_dcae",
+          "method": "B",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "imagenette_dcae",
+          "method": "C",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "piv_d16",
+          "method": "A",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "piv_d16",
+          "method": "B",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "piv_d16",
+          "method": "C",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "piv_d256",
+          "method": "A",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "piv_d256",
+          "method": "B",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "piv_d256",
+          "method": "C",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "piv_d32",
+          "method": "A",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "piv_d32",
+          "method": "B",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "piv_d32",
+          "method": "C",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "piv_d64",
+          "method": "A",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "piv_d64",
+          "method": "B",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "piv_d64",
+          "method": "C",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "student_t_d128_df3.0_cor",
+          "method": "A",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "student_t_d128_df3.0_cor",
+          "method": "B",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "student_t_d128_df3.0_cor",
+          "method": "C",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "student_t_d16_df1.5_cor",
+          "method": "A",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "student_t_d16_df1.5_cor",
+          "method": "B",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "student_t_d16_df1.5_cor",
+          "method": "C",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "student_t_d16_df10.0_cor",
+          "method": "A",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "student_t_d16_df10.0_cor",
+          "method": "B",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "student_t_d16_df10.0_cor",
+          "method": "C",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "student_t_d16_df2.0_cor",
+          "method": "A",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "student_t_d16_df2.0_cor",
+          "method": "B",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "student_t_d16_df2.0_cor",
+          "method": "C",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "student_t_d16_df3.0_cor",
+          "method": "A",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "student_t_d16_df3.0_cor",
+          "method": "B",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "student_t_d16_df3.0_cor",
+          "method": "C",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "student_t_d16_df5.0_cor",
+          "method": "A",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "student_t_d16_df5.0_cor",
+          "method": "B",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "student_t_d16_df5.0_cor",
+          "method": "C",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "student_t_d16_df50.0_cor",
+          "method": "A",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "student_t_d16_df50.0_cor",
+          "method": "B",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "student_t_d16_df50.0_cor",
+          "method": "C",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "student_t_d256_df3.0_cor",
+          "method": "A",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "student_t_d256_df3.0_cor",
+          "method": "B",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "student_t_d256_df3.0_cor",
+          "method": "C",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "student_t_d2_df3.0_cor",
+          "method": "B",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "student_t_d2_df3.0_cor",
+          "method": "C",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "student_t_d32_df3.0_cor",
+          "method": "A",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "student_t_d32_df3.0_cor",
+          "method": "B",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "student_t_d32_df3.0_cor",
+          "method": "C",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "student_t_d64_df3.0_cor",
+          "method": "A",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "student_t_d64_df3.0_cor",
+          "method": "B",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "student_t_d64_df3.0_cor",
+          "method": "C",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "student_t_d8_df3.0_cor",
+          "method": "A",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "student_t_d8_df3.0_cor",
+          "method": "B",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "student_t_d8_df3.0_cor",
+          "method": "C",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "weather_au_wind",
+          "method": "A",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "weather_au_wind",
+          "method": "B",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "weather_au_wind",
+          "method": "C",
+          "radius_drift": "mean_relative"
+        },
+        {
+          "condition": "aniso_k1",
+          "method": "A",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "aniso_k1",
+          "method": "B",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "aniso_k1",
+          "method": "C",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "aniso_k10",
+          "method": "A",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "aniso_k10",
+          "method": "B",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "aniso_k10",
+          "method": "C",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "aniso_k100",
+          "method": "A",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "aniso_k100",
+          "method": "B",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "aniso_k100",
+          "method": "C",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "aniso_k3",
+          "method": "A",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "aniso_k3",
+          "method": "B",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "aniso_k3",
+          "method": "C",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "aniso_k30",
+          "method": "A",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "aniso_k30",
+          "method": "B",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "aniso_k30",
+          "method": "C",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "aniso_k300",
+          "method": "A",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "aniso_k300",
+          "method": "B",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "aniso_k300",
+          "method": "C",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "audiomnist_stft",
+          "method": "A",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "audiomnist_stft",
+          "method": "B",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "audiomnist_stft",
+          "method": "C",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "finance_ff49",
+          "method": "A",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "finance_ff49",
+          "method": "B",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "finance_ff49",
+          "method": "C",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "gaussian_aniso_d16_cor",
+          "method": "A",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "gaussian_aniso_d16_cor",
+          "method": "B",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "gaussian_aniso_d16_cor",
+          "method": "C",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "imagenette_dcae",
+          "method": "A",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "imagenette_dcae",
+          "method": "B",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "imagenette_dcae",
+          "method": "C",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "piv_d16",
+          "method": "A",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "piv_d16",
+          "method": "B",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "piv_d16",
+          "method": "C",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "piv_d256",
+          "method": "A",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "piv_d256",
+          "method": "B",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "piv_d256",
+          "method": "C",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "piv_d32",
+          "method": "A",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "piv_d32",
+          "method": "B",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "piv_d32",
+          "method": "C",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "piv_d64",
+          "method": "A",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "piv_d64",
+          "method": "B",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "piv_d64",
+          "method": "C",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "student_t_d128_df3.0_cor",
+          "method": "A",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "student_t_d128_df3.0_cor",
+          "method": "B",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "student_t_d128_df3.0_cor",
+          "method": "C",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "student_t_d16_df1.5_cor",
+          "method": "A",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "student_t_d16_df1.5_cor",
+          "method": "B",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "student_t_d16_df1.5_cor",
+          "method": "C",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "student_t_d16_df10.0_cor",
+          "method": "A",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "student_t_d16_df10.0_cor",
+          "method": "B",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "student_t_d16_df10.0_cor",
+          "method": "C",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "student_t_d16_df2.0_cor",
+          "method": "A",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "student_t_d16_df2.0_cor",
+          "method": "B",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "student_t_d16_df2.0_cor",
+          "method": "C",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "student_t_d16_df3.0_cor",
+          "method": "A",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "student_t_d16_df3.0_cor",
+          "method": "B",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "student_t_d16_df3.0_cor",
+          "method": "C",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "student_t_d16_df5.0_cor",
+          "method": "A",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "student_t_d16_df5.0_cor",
+          "method": "B",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "student_t_d16_df5.0_cor",
+          "method": "C",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "student_t_d16_df50.0_cor",
+          "method": "A",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "student_t_d16_df50.0_cor",
+          "method": "B",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "student_t_d16_df50.0_cor",
+          "method": "C",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "student_t_d256_df3.0_cor",
+          "method": "A",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "student_t_d256_df3.0_cor",
+          "method": "B",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "student_t_d256_df3.0_cor",
+          "method": "C",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "student_t_d2_df3.0_cor",
+          "method": "B",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "student_t_d2_df3.0_cor",
+          "method": "C",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "student_t_d32_df3.0_cor",
+          "method": "A",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "student_t_d32_df3.0_cor",
+          "method": "B",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "student_t_d32_df3.0_cor",
+          "method": "C",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "student_t_d64_df3.0_cor",
+          "method": "A",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "student_t_d64_df3.0_cor",
+          "method": "B",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "student_t_d64_df3.0_cor",
+          "method": "C",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "student_t_d8_df3.0_cor",
+          "method": "A",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "student_t_d8_df3.0_cor",
+          "method": "B",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "student_t_d8_df3.0_cor",
+          "method": "C",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "weather_au_wind",
+          "method": "A",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "weather_au_wind",
+          "method": "B",
+          "radius_drift": "max_relative"
+        },
+        {
+          "condition": "weather_au_wind",
+          "method": "C",
+          "radius_drift": "max_relative"
+        }
+      ],
+      "caption": "Mean and maximum relative drift measured within each seed, summarized over complete seed triplets. t-Flow is excluded from this spherical invariant diagnostic because its population transport intentionally changes radii. Only complete three-seed groups shown. Blocked: none. Failed/incompatible groups: aniso_k10/tflow, piv_d256/tflow, piv_d64/tflow, student_t_d128_df3.0_cor/tflow, student_t_d256_df3.0_cor/tflow, student_t_d2_df3.0_cor/A, student_t_d64_df3.0_cor/tflow, toy_radial_angular/A, toy_radial_angular/B, toy_radial_angular/C, weather_au_wind/tflow. All pending groups are listed in plot_manifest.json; published results are unchanged.",
+      "pdf": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/figures/ambient_sampler_radius_drift.pdf",
+      "png": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/figures/ambient_sampler_radius_drift.png"
+    },
+    {
+      "name": "measured_runtime_and_parameter_overhead",
+      "included": [
+        {
+          "condition": "aniso_k1",
+          "method": "A",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "aniso_k1",
+          "method": "B",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "aniso_k1",
+          "method": "C",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "aniso_k1",
+          "method": "tflow",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "aniso_k10",
+          "method": "A",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "aniso_k10",
+          "method": "B",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "aniso_k10",
+          "method": "C",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "aniso_k100",
+          "method": "A",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "aniso_k100",
+          "method": "B",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "aniso_k100",
+          "method": "C",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "aniso_k100",
+          "method": "tflow",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "aniso_k3",
+          "method": "A",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "aniso_k3",
+          "method": "B",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "aniso_k3",
+          "method": "C",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "aniso_k3",
+          "method": "tflow",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "aniso_k30",
+          "method": "A",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "aniso_k30",
+          "method": "B",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "aniso_k30",
+          "method": "C",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "aniso_k30",
+          "method": "tflow",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "aniso_k300",
+          "method": "A",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "aniso_k300",
+          "method": "B",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "aniso_k300",
+          "method": "C",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "aniso_k300",
+          "method": "tflow",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "audiomnist_stft",
+          "method": "A",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "audiomnist_stft",
+          "method": "B",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "audiomnist_stft",
+          "method": "C",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "audiomnist_stft",
+          "method": "tflow",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "finance_ff49",
+          "method": "A",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "finance_ff49",
+          "method": "B",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "finance_ff49",
+          "method": "C",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "finance_ff49",
+          "method": "tflow",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "gaussian_aniso_d16_cor",
+          "method": "A",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "gaussian_aniso_d16_cor",
+          "method": "B",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "gaussian_aniso_d16_cor",
+          "method": "C",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "gaussian_aniso_d16_cor",
+          "method": "tflow",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "imagenette_dcae",
+          "method": "A",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "imagenette_dcae",
+          "method": "B",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "imagenette_dcae",
+          "method": "C",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "imagenette_dcae",
+          "method": "tflow",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "piv_d16",
+          "method": "A",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "piv_d16",
+          "method": "B",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "piv_d16",
+          "method": "C",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "piv_d16",
+          "method": "tflow",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "piv_d256",
+          "method": "A",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "piv_d256",
+          "method": "B",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "piv_d256",
+          "method": "C",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "piv_d32",
+          "method": "A",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "piv_d32",
+          "method": "B",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "piv_d32",
+          "method": "C",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "piv_d32",
+          "method": "tflow",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "piv_d64",
+          "method": "A",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "piv_d64",
+          "method": "B",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "piv_d64",
+          "method": "C",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "student_t_d128_df3.0_cor",
+          "method": "A",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "student_t_d128_df3.0_cor",
+          "method": "B",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "student_t_d128_df3.0_cor",
+          "method": "C",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "student_t_d16_df1.5_cor",
+          "method": "A",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "student_t_d16_df1.5_cor",
+          "method": "B",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "student_t_d16_df1.5_cor",
+          "method": "C",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "student_t_d16_df1.5_cor",
+          "method": "tflow",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "student_t_d16_df10.0_cor",
+          "method": "A",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "student_t_d16_df10.0_cor",
+          "method": "B",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "student_t_d16_df10.0_cor",
+          "method": "C",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "student_t_d16_df10.0_cor",
+          "method": "tflow",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "student_t_d16_df2.0_cor",
+          "method": "A",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "student_t_d16_df2.0_cor",
+          "method": "B",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "student_t_d16_df2.0_cor",
+          "method": "C",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "student_t_d16_df2.0_cor",
+          "method": "tflow",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "student_t_d16_df3.0_cor",
+          "method": "A",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "student_t_d16_df3.0_cor",
+          "method": "B",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "student_t_d16_df3.0_cor",
+          "method": "C",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "student_t_d16_df3.0_cor",
+          "method": "tflow",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "student_t_d16_df5.0_cor",
+          "method": "A",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "student_t_d16_df5.0_cor",
+          "method": "B",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "student_t_d16_df5.0_cor",
+          "method": "C",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "student_t_d16_df5.0_cor",
+          "method": "tflow",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "student_t_d16_df50.0_cor",
+          "method": "A",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "student_t_d16_df50.0_cor",
+          "method": "B",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "student_t_d16_df50.0_cor",
+          "method": "C",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "student_t_d16_df50.0_cor",
+          "method": "tflow",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "student_t_d256_df3.0_cor",
+          "method": "A",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "student_t_d256_df3.0_cor",
+          "method": "B",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "student_t_d256_df3.0_cor",
+          "method": "C",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "student_t_d2_df3.0_cor",
+          "method": "B",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "student_t_d2_df3.0_cor",
+          "method": "C",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "student_t_d2_df3.0_cor",
+          "method": "tflow",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "student_t_d32_df3.0_cor",
+          "method": "A",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "student_t_d32_df3.0_cor",
+          "method": "B",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "student_t_d32_df3.0_cor",
+          "method": "C",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "student_t_d32_df3.0_cor",
+          "method": "tflow",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "student_t_d64_df3.0_cor",
+          "method": "A",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "student_t_d64_df3.0_cor",
+          "method": "B",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "student_t_d64_df3.0_cor",
+          "method": "C",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "student_t_d8_df3.0_cor",
+          "method": "A",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "student_t_d8_df3.0_cor",
+          "method": "B",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "student_t_d8_df3.0_cor",
+          "method": "C",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "student_t_d8_df3.0_cor",
+          "method": "tflow",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "toy_radial_angular",
+          "method": "tflow",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "weather_au_wind",
+          "method": "A",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "weather_au_wind",
+          "method": "B",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "weather_au_wind",
+          "method": "C",
+          "metric": "total_train_time_s"
+        },
+        {
+          "condition": "aniso_k1",
+          "method": "A",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "aniso_k1",
+          "method": "B",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "aniso_k1",
+          "method": "C",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "aniso_k1",
+          "method": "tflow",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "aniso_k10",
+          "method": "A",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "aniso_k10",
+          "method": "B",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "aniso_k10",
+          "method": "C",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "aniso_k100",
+          "method": "A",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "aniso_k100",
+          "method": "B",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "aniso_k100",
+          "method": "C",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "aniso_k100",
+          "method": "tflow",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "aniso_k3",
+          "method": "A",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "aniso_k3",
+          "method": "B",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "aniso_k3",
+          "method": "C",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "aniso_k3",
+          "method": "tflow",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "aniso_k30",
+          "method": "A",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "aniso_k30",
+          "method": "B",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "aniso_k30",
+          "method": "C",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "aniso_k30",
+          "method": "tflow",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "aniso_k300",
+          "method": "A",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "aniso_k300",
+          "method": "B",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "aniso_k300",
+          "method": "C",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "aniso_k300",
+          "method": "tflow",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "audiomnist_stft",
+          "method": "A",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "audiomnist_stft",
+          "method": "B",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "audiomnist_stft",
+          "method": "C",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "audiomnist_stft",
+          "method": "tflow",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "finance_ff49",
+          "method": "A",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "finance_ff49",
+          "method": "B",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "finance_ff49",
+          "method": "C",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "finance_ff49",
+          "method": "tflow",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "gaussian_aniso_d16_cor",
+          "method": "A",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "gaussian_aniso_d16_cor",
+          "method": "B",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "gaussian_aniso_d16_cor",
+          "method": "C",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "gaussian_aniso_d16_cor",
+          "method": "tflow",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "imagenette_dcae",
+          "method": "A",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "imagenette_dcae",
+          "method": "B",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "imagenette_dcae",
+          "method": "C",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "imagenette_dcae",
+          "method": "tflow",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "piv_d16",
+          "method": "A",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "piv_d16",
+          "method": "B",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "piv_d16",
+          "method": "C",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "piv_d16",
+          "method": "tflow",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "piv_d256",
+          "method": "A",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "piv_d256",
+          "method": "B",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "piv_d256",
+          "method": "C",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "piv_d32",
+          "method": "A",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "piv_d32",
+          "method": "B",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "piv_d32",
+          "method": "C",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "piv_d32",
+          "method": "tflow",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "piv_d64",
+          "method": "A",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "piv_d64",
+          "method": "B",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "piv_d64",
+          "method": "C",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "student_t_d128_df3.0_cor",
+          "method": "A",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "student_t_d128_df3.0_cor",
+          "method": "B",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "student_t_d128_df3.0_cor",
+          "method": "C",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "student_t_d16_df1.5_cor",
+          "method": "A",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "student_t_d16_df1.5_cor",
+          "method": "B",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "student_t_d16_df1.5_cor",
+          "method": "C",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "student_t_d16_df1.5_cor",
+          "method": "tflow",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "student_t_d16_df10.0_cor",
+          "method": "A",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "student_t_d16_df10.0_cor",
+          "method": "B",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "student_t_d16_df10.0_cor",
+          "method": "C",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "student_t_d16_df10.0_cor",
+          "method": "tflow",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "student_t_d16_df2.0_cor",
+          "method": "A",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "student_t_d16_df2.0_cor",
+          "method": "B",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "student_t_d16_df2.0_cor",
+          "method": "C",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "student_t_d16_df2.0_cor",
+          "method": "tflow",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "student_t_d16_df3.0_cor",
+          "method": "A",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "student_t_d16_df3.0_cor",
+          "method": "B",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "student_t_d16_df3.0_cor",
+          "method": "C",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "student_t_d16_df3.0_cor",
+          "method": "tflow",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "student_t_d16_df5.0_cor",
+          "method": "A",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "student_t_d16_df5.0_cor",
+          "method": "B",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "student_t_d16_df5.0_cor",
+          "method": "C",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "student_t_d16_df5.0_cor",
+          "method": "tflow",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "student_t_d16_df50.0_cor",
+          "method": "A",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "student_t_d16_df50.0_cor",
+          "method": "B",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "student_t_d16_df50.0_cor",
+          "method": "C",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "student_t_d16_df50.0_cor",
+          "method": "tflow",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "student_t_d256_df3.0_cor",
+          "method": "A",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "student_t_d256_df3.0_cor",
+          "method": "B",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "student_t_d256_df3.0_cor",
+          "method": "C",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "student_t_d2_df3.0_cor",
+          "method": "B",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "student_t_d2_df3.0_cor",
+          "method": "C",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "student_t_d2_df3.0_cor",
+          "method": "tflow",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "student_t_d32_df3.0_cor",
+          "method": "A",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "student_t_d32_df3.0_cor",
+          "method": "B",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "student_t_d32_df3.0_cor",
+          "method": "C",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "student_t_d32_df3.0_cor",
+          "method": "tflow",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "student_t_d64_df3.0_cor",
+          "method": "A",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "student_t_d64_df3.0_cor",
+          "method": "B",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "student_t_d64_df3.0_cor",
+          "method": "C",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "student_t_d8_df3.0_cor",
+          "method": "A",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "student_t_d8_df3.0_cor",
+          "method": "B",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "student_t_d8_df3.0_cor",
+          "method": "C",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "student_t_d8_df3.0_cor",
+          "method": "tflow",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "toy_radial_angular",
+          "method": "tflow",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "weather_au_wind",
+          "method": "A",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "weather_au_wind",
+          "method": "B",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "weather_au_wind",
+          "method": "C",
+          "metric": "sample_time_s"
+        },
+        {
+          "condition": "aniso_k1",
+          "method": "A",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "aniso_k1",
+          "method": "B",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "aniso_k1",
+          "method": "C",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "aniso_k10",
+          "method": "A",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "aniso_k10",
+          "method": "B",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "aniso_k10",
+          "method": "C",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "aniso_k100",
+          "method": "A",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "aniso_k100",
+          "method": "B",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "aniso_k100",
+          "method": "C",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "aniso_k3",
+          "method": "A",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "aniso_k3",
+          "method": "B",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "aniso_k3",
+          "method": "C",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "aniso_k30",
+          "method": "A",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "aniso_k30",
+          "method": "B",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "aniso_k30",
+          "method": "C",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "aniso_k300",
+          "method": "A",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "aniso_k300",
+          "method": "B",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "aniso_k300",
+          "method": "C",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "audiomnist_stft",
+          "method": "A",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "audiomnist_stft",
+          "method": "B",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "audiomnist_stft",
+          "method": "C",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "finance_ff49",
+          "method": "A",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "finance_ff49",
+          "method": "B",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "finance_ff49",
+          "method": "C",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "gaussian_aniso_d16_cor",
+          "method": "A",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "gaussian_aniso_d16_cor",
+          "method": "B",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "gaussian_aniso_d16_cor",
+          "method": "C",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "imagenette_dcae",
+          "method": "A",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "imagenette_dcae",
+          "method": "B",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "imagenette_dcae",
+          "method": "C",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "piv_d16",
+          "method": "A",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "piv_d16",
+          "method": "B",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "piv_d16",
+          "method": "C",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "piv_d256",
+          "method": "A",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "piv_d256",
+          "method": "B",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "piv_d256",
+          "method": "C",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "piv_d32",
+          "method": "A",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "piv_d32",
+          "method": "B",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "piv_d32",
+          "method": "C",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "piv_d64",
+          "method": "A",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "piv_d64",
+          "method": "B",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "piv_d64",
+          "method": "C",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "student_t_d128_df3.0_cor",
+          "method": "A",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "student_t_d128_df3.0_cor",
+          "method": "B",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "student_t_d128_df3.0_cor",
+          "method": "C",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "student_t_d16_df1.5_cor",
+          "method": "A",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "student_t_d16_df1.5_cor",
+          "method": "B",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "student_t_d16_df1.5_cor",
+          "method": "C",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "student_t_d16_df10.0_cor",
+          "method": "A",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "student_t_d16_df10.0_cor",
+          "method": "B",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "student_t_d16_df10.0_cor",
+          "method": "C",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "student_t_d16_df2.0_cor",
+          "method": "A",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "student_t_d16_df2.0_cor",
+          "method": "B",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "student_t_d16_df2.0_cor",
+          "method": "C",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "student_t_d16_df3.0_cor",
+          "method": "A",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "student_t_d16_df3.0_cor",
+          "method": "B",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "student_t_d16_df3.0_cor",
+          "method": "C",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "student_t_d16_df5.0_cor",
+          "method": "A",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "student_t_d16_df5.0_cor",
+          "method": "B",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "student_t_d16_df5.0_cor",
+          "method": "C",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "student_t_d16_df50.0_cor",
+          "method": "A",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "student_t_d16_df50.0_cor",
+          "method": "B",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "student_t_d16_df50.0_cor",
+          "method": "C",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "student_t_d256_df3.0_cor",
+          "method": "A",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "student_t_d256_df3.0_cor",
+          "method": "B",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "student_t_d256_df3.0_cor",
+          "method": "C",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "student_t_d2_df3.0_cor",
+          "method": "B",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "student_t_d2_df3.0_cor",
+          "method": "C",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "student_t_d32_df3.0_cor",
+          "method": "A",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "student_t_d32_df3.0_cor",
+          "method": "B",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "student_t_d32_df3.0_cor",
+          "method": "C",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "student_t_d64_df3.0_cor",
+          "method": "A",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "student_t_d64_df3.0_cor",
+          "method": "B",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "student_t_d64_df3.0_cor",
+          "method": "C",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "student_t_d8_df3.0_cor",
+          "method": "A",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "student_t_d8_df3.0_cor",
+          "method": "B",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "student_t_d8_df3.0_cor",
+          "method": "C",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "weather_au_wind",
+          "method": "A",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "weather_au_wind",
+          "method": "B",
+          "metric": "conditioning_overhead_fraction"
+        },
+        {
+          "condition": "weather_au_wind",
+          "method": "C",
+          "metric": "conditioning_overhead_fraction"
+        }
+      ],
+      "caption": "Measured current training and sampling wall times include the recorded instrumentation and checkpoint scopes. Hardware/precision differences are retained in report.json; these panels alone do not establish hardware-matched speedups. Missing overhead values are not treated as zero. Only complete three-seed groups shown. Blocked: none. Failed/incompatible groups: aniso_k10/tflow, piv_d256/tflow, piv_d64/tflow, student_t_d128_df3.0_cor/tflow, student_t_d256_df3.0_cor/tflow, student_t_d2_df3.0_cor/A, student_t_d64_df3.0_cor/tflow, toy_radial_angular/A, toy_radial_angular/B, toy_radial_angular/C, weather_au_wind/tflow. All pending groups are listed in plot_manifest.json; published results are unchanged.",
+      "pdf": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/figures/measured_runtime_and_parameter_overhead.pdf",
+      "png": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/figures/measured_runtime_and_parameter_overhead.png"
+    }
+  ],
+  "omissions": [
+    {
+      "condition": "aniso_k10",
+      "method": "tflow",
+      "status": "incomplete",
+      "seed_status_counts": {
+        "complete": 2,
+        "failed": 1
+      },
+      "blocking_issues": []
+    },
+    {
+      "condition": "piv_d256",
+      "method": "tflow",
+      "status": "incomplete",
+      "seed_status_counts": {
+        "failed": 3
+      },
+      "blocking_issues": []
+    },
+    {
+      "condition": "piv_d64",
+      "method": "tflow",
+      "status": "incomplete",
+      "seed_status_counts": {
+        "failed": 3
+      },
+      "blocking_issues": []
+    },
+    {
+      "condition": "student_t_d128_df3.0_cor",
+      "method": "tflow",
+      "status": "incomplete",
+      "seed_status_counts": {
+        "failed": 3
+      },
+      "blocking_issues": []
+    },
+    {
+      "condition": "student_t_d256_df3.0_cor",
+      "method": "tflow",
+      "status": "incomplete",
+      "seed_status_counts": {
+        "failed": 3
+      },
+      "blocking_issues": []
+    },
+    {
+      "condition": "student_t_d2_df3.0_cor",
+      "method": "A",
+      "status": "incomplete",
+      "seed_status_counts": {
+        "complete": 2,
+        "failed": 1
+      },
+      "blocking_issues": []
+    },
+    {
+      "condition": "student_t_d64_df3.0_cor",
+      "method": "tflow",
+      "status": "incomplete",
+      "seed_status_counts": {
+        "failed": 3
+      },
+      "blocking_issues": []
+    },
+    {
+      "condition": "toy_radial_angular",
+      "method": "A",
+      "status": "incomplete",
+      "seed_status_counts": {
+        "complete": 1,
+        "failed": 2
+      },
+      "blocking_issues": []
+    },
+    {
+      "condition": "toy_radial_angular",
+      "method": "B",
+      "status": "incomplete",
+      "seed_status_counts": {
+        "failed": 2,
+        "complete": 1
+      },
+      "blocking_issues": []
+    },
+    {
+      "condition": "toy_radial_angular",
+      "method": "C",
+      "status": "incomplete",
+      "seed_status_counts": {
+        "failed": 2,
+        "complete": 1
+      },
+      "blocking_issues": []
+    },
+    {
+      "condition": "weather_au_wind",
+      "method": "tflow",
+      "status": "incomplete",
+      "seed_status_counts": {
+        "failed": 3
+      },
+      "blocking_issues": []
+    }
+  ],
+  "policy": "Plot only measured complete three-seed groups. Error bars are population SD; small dots are individual seeds. No imputed values.",
+  "timing_note": "Current measured times, not historical timings; inspect per-seed hardware/software before interpreting speed differences."
+}

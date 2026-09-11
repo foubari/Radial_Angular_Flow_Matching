@@ -1,0 +1,27 @@
+{
+  "files": {
+    "baselines/tflow_core.py": "9c1d323fe3bb6ca357459f63e6fea3542e28645616d7981c314f5226f04b5a81",
+    "baselines/tflow_downstream.py": "f2e3d8f04b6ac9bf5b1a0b4234c75854c23a284fbca7a9bdbfcb46a6008ad287",
+    "experiments/tflow/run.py": "67b512f5607525814d08f60195846741089714e134bb65303904bbdea9849f0c",
+    "experiments/tflow/data.py": "f4cdc9a8bd409268974a0218c566246acf8adae4bdc11843d81251bdca74a605",
+    "experiments/tflow/validation.py": "1f25c0bd7edf874a8235550113e286fe58d34ef3cb518b3402e639392292d87d",
+    "experiments/tflow/tune.py": "4888acd712de66fbb02fe0a87ff40f309a76a6f8977f869281a2c806feba1f7e",
+    "rafm/utils/seeds.py": "8b6e8cea98a6519f7067808163f065d6d797df0d82aec4d3dfbc6d8ee76bbf39",
+    "rafm/models/mlp.py": "abe7b4e44e034a897e4772df0929053a24edaa92047eb48846a60667deb5a483",
+    "rebuttal_experiments/lib/resmlp.py": "cc9d03a579feacbdaaf203852b57fbf26f6310d0f2188c414a7d793363fe1d6c",
+    "rafm/metrics/radial.py": "ff8bc071b0be0ea30f25ed7aa06652b9bf0440f55243a4bf5492540b5c384643",
+    "rafm/metrics/distributional.py": "dd39671b785012948fdfbb1013450db4bb221a9631f084e7b6d67e0cbd144467",
+    "rafm/metrics/angular.py": "4466ab2ac76bc981a3308ee11b7100178f058cb81adc698a7581daf395474583",
+    "rafm/metrics/stability.py": "00e62e779d4ddea860a64c6fd89fb7ac7f0e30be20105ef06fcfab992ed7a5cc",
+    "experiments/rafm_inputs/run.py": "58fdbc9ae54dab4c43278bb58c0b7ed2fbef1fbd94c7f56f0be3332e4d359818",
+    "baselines/rafm_input_parameterization.py": "80242e47fde4210bace698b60ecb85ffe26a5f2baa2c93b00652286d65e823c8",
+    "rafm/flow_matching/loss.py": "dcc1cfdf9cffee5c8d64f4054a38d5d2ece4ed1f0b543c3db9fcb067e14a19df",
+    "rafm/flow_matching/sampler.py": "6b3e79a81e2ce982e5467b8ca563decc457f2cd16f9e919c626f710ece224de0",
+    "rafm/paths/spherical_geodesic.py": "aa1211671c19332718f97973e451d59b1c6bb00169f21a40ab22718a2a511e77",
+    "rafm/utils/sphere.py": "83d29211579a819576f5a80564328c83c0868d1d351803ae9335720a23c59dfb",
+    "rafm/sources/radial_empirical.py": "efcd2ff006d18ddf39b54bf33026b040b0c1badf9ec5b26edaefec7fb6d4d84e"
+  },
+  "python": "3.10.12",
+  "torch": "2.7.1+rocm6.3",
+  "numpy": "2.2.6"
+}

@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "sample_sha256": "bd3aca9e74849ee7ef42c2990376f2cce06c998fe6188718556992992b784e03",
+  "result_sha256": "83015908fa14bcdbb6c2d4bcf54804f8ac0664f9a8fed6a4361340478187c33a",
+  "n_samples": 10000,
+  "dimension": 32,
+  "class_counts": null,
+  "nonfinite_rows": 0,
+  "nan_rows": 0,
+  "inf_rows": 0,
+  "zero_radius_rows": 0,
+  "nfe": 512,
+  "model_calls_total": 512,
+  "n_batches": 1,
+  "configured_sample_seed": null,
+  "seed_evidence": "Configuration and frozen sampling implementation; cannot infer RNG seed from output tensor",
+  "hardware": {
+    "host": "auh7-3b-gpu-030",
+    "slurm_job_id": "766339",
+    "python": "3.10.12",
+    "torch": "2.7.1+rocm6.3",
+    "cuda": null,
+    "hip": "6.3.42131-fa1d09cbd",
+    "gpu": "AMD Instinct MI210",
+    "vram_bytes": 68702699520
+  },
+  "errors": []
+}

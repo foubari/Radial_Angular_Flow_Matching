@@ -1,0 +1,29 @@
+{
+  "generated_at_paris": "2026-09-10T18:59:58.769297+02:00",
+  "files": [
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/abc_completion.json",
+      "sha256": "ba974421bb90fbb6cf15ced7ba8250fbb4a16dd355b278baf5180d299f9913ae"
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/abc_completion.md",
+      "sha256": "a230489ddf7e174ac357251d4925db5ded5d7a4d07fcbd5b94777b192a52c992"
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/abc_seed_status.csv",
+      "sha256": "10f933edc225edec1a87544f5291660bcdb387a70dec11c2591bbe8cbace9b9c"
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/abc_per_seed_metrics.csv",
+      "sha256": "97ee222c7adf507686a409922e012e94da8a813f335123cebe0e1e15858300c8"
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/abc_aggregate_metrics.csv",
+      "sha256": "e21b7f1a5163d7c706340d95a9b50d692acaf61c5319f9e7f00ff04743bee799"
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/abc_tflow_reference_metrics.csv",
+      "sha256": "e8e55277d3fc372ececc95df27405277e51ad7b0a391cb7061776d1bf3f37970"
+    }
+  ]
+}

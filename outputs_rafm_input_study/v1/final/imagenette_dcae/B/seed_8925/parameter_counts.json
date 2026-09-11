@@ -1,0 +1,10 @@
+{
+  "arm": "B",
+  "backbone_kind": "image_sit",
+  "original_backbone_parameters": 32515616,
+  "total_parameters": 32522176,
+  "trainable_parameters": 32497600,
+  "conditioning_overhead_parameters": 6560,
+  "conditioning_overhead_fraction": 0.0002017492149003113,
+  "radius_embedding_hidden_width": 16
+}

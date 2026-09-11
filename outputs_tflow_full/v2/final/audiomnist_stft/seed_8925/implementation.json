@@ -1,0 +1,17 @@
+{
+  "files": {
+    "baselines/tflow_core.py": "9c1d323fe3bb6ca357459f63e6fea3542e28645616d7981c314f5226f04b5a81",
+    "baselines/tflow_downstream.py": "f2e3d8f04b6ac9bf5b1a0b4234c75854c23a284fbca7a9bdbfcb46a6008ad287",
+    "experiments/tflow/run.py": "67b512f5607525814d08f60195846741089714e134bb65303904bbdea9849f0c",
+    "experiments/tflow/data.py": "f4cdc9a8bd409268974a0218c566246acf8adae4bdc11843d81251bdca74a605",
+    "experiments/tflow/validation.py": "1f25c0bd7edf874a8235550113e286fe58d34ef3cb518b3402e639392292d87d",
+    "experiments/tflow/tune.py": "4888acd712de66fbb02fe0a87ff40f309a76a6f8977f869281a2c806feba1f7e",
+    "rafm/utils/seeds.py": "8b6e8cea98a6519f7067808163f065d6d797df0d82aec4d3dfbc6d8ee76bbf39",
+    "experiments/poc_audio/audio_flow.py": "002401d0933edc1e090279428fbbfcf3d764910b1bf15a9840ba48d36e731dc0",
+    "experiments/poc_audio/audio_classifier.py": "7af21994c8e7f428252ed566dbfae8274bf0b3368b96509dd76f7f65136f923a",
+    "experiments/poc_audio/audio_empirical_gain.py": "cc2ef04792bdce97157827847b84a77ffc82f5ac95cf484a40ea6213b5498301"
+  },
+  "python": "3.10.12",
+  "torch": "2.7.1+rocm6.3",
+  "numpy": "2.2.6"
+}

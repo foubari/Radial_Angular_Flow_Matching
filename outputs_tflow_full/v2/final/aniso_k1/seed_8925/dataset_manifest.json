@@ -1,0 +1,67 @@
+{
+  "values": {
+    "shape": [
+      50000,
+      32
+    ],
+    "dtype": "<f4",
+    "sha256": "0302f66630a3827ecd8b2443a236e8e161c6be0bbcaf3e08509e810a030010b3"
+  },
+  "preprocessing_mean": {
+    "shape": [
+      32
+    ],
+    "dtype": "<f4",
+    "sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+  },
+  "split_indices": {
+    "train": {
+      "shape": [
+        30000
+      ],
+      "dtype": "<i8",
+      "sha256": "7146f11166efda28ca9ca43d607a7b85de395dda7fb78283479068313b757972"
+    },
+    "val": {
+      "shape": [
+        10000
+      ],
+      "dtype": "<i8",
+      "sha256": "cd3dc9872ac384e17efbba319358f5e6cb222c3a689dd5876093a545c974362f"
+    },
+    "test": {
+      "shape": [
+        10000
+      ],
+      "dtype": "<i8",
+      "sha256": "f24ddb1d6fc91e214922492334d63277e2ba81167c771133c5d4336cc110c823"
+    }
+  },
+  "splits": {
+    "train": {
+      "shape": [
+        30000,
+        32
+      ],
+      "dtype": "<f4",
+      "sha256": "0f7811a534f8cde49d6232f477ddae67ac685f5048e3e81f6dab211bca3f9033"
+    },
+    "val": {
+      "shape": [
+        10000,
+        32
+      ],
+      "dtype": "<f4",
+      "sha256": "3c4b08300d69c7d6ebe0f0a5827b0afae52851f3d1efc7eb12ce26b3d2d51649"
+    },
+    "test": {
+      "shape": [
+        10000,
+        32
+      ],
+      "dtype": "<f4",
+      "sha256": "bc4aac4335ecba28554e8c46c04bf0fd17b65918ec6cddb9c32c8843ef0d7851"
+    }
+  },
+  "external_test_loaded": false
+}

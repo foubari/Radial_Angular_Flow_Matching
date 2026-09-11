@@ -1,0 +1,224 @@
+{
+  "schema_version": 2,
+  "finalized_after": "collector, plots (if requested), findings",
+  "input_report": {
+    "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/report.json",
+    "sha256": "85d0f16a7d9f85a48bee3cf6d3eaa569afeb1afaba09e1ae53c3f9b65d731c01",
+    "size_bytes": 10194177
+  },
+  "files": [
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/README.md",
+      "relative_path": "README.md",
+      "sha256": "8149d33e6b3d7ff412db39a8b4ffca55fe1faab0fcd2fbdf93947dc0619a6e67",
+      "size_bytes": 34950
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/abc_aggregate_metrics.csv",
+      "relative_path": "abc_aggregate_metrics.csv",
+      "sha256": "e21b7f1a5163d7c706340d95a9b50d692acaf61c5319f9e7f00ff04743bee799",
+      "size_bytes": 210434
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/abc_completion.json",
+      "relative_path": "abc_completion.json",
+      "sha256": "ba974421bb90fbb6cf15ced7ba8250fbb4a16dd355b278baf5180d299f9913ae",
+      "size_bytes": 7255664
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/abc_completion.md",
+      "relative_path": "abc_completion.md",
+      "sha256": "a230489ddf7e174ac357251d4925db5ded5d7a4d07fcbd5b94777b192a52c992",
+      "size_bytes": 86221
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/abc_completion_files.json",
+      "relative_path": "abc_completion_files.json",
+      "sha256": "1ac9564c61529ffb86a70fc12fc05b9438bdb75fb394354382a6a8fc873ec2a9",
+      "size_bytes": 1487
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/abc_per_seed_metrics.csv",
+      "relative_path": "abc_per_seed_metrics.csv",
+      "sha256": "97ee222c7adf507686a409922e012e94da8a813f335123cebe0e1e15858300c8",
+      "size_bytes": 1112526
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/abc_seed_status.csv",
+      "relative_path": "abc_seed_status.csv",
+      "sha256": "10f933edc225edec1a87544f5291660bcdb387a70dec11c2591bbe8cbace9b9c",
+      "size_bytes": 74604
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/abc_tflow_reference_metrics.csv",
+      "relative_path": "abc_tflow_reference_metrics.csv",
+      "sha256": "e8e55277d3fc372ececc95df27405277e51ad7b0a391cb7061776d1bf3f37970",
+      "size_bytes": 380747
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/aggregate_metrics.csv",
+      "relative_path": "aggregate_metrics.csv",
+      "sha256": "5c86cc9b7da86c56a2c37723b33d33de9f660b7441aed8a28d5608ba29f70f34",
+      "size_bytes": 193869
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/audio_comparison.csv",
+      "relative_path": "audio_comparison.csv",
+      "sha256": "004de07a7e1eeba84271265d0c50a0c28e42667650e4af1c8fae087f8f4f12fe",
+      "size_bytes": 2079
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/audio_comparison.tex",
+      "relative_path": "audio_comparison.tex",
+      "sha256": "aa3226f6e74ebfcf37e69bb77164a8aa8e86ae63b8cf4da7e5243542bda9e5c0",
+      "size_bytes": 958
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/comparison_table.tex",
+      "relative_path": "comparison_table.tex",
+      "sha256": "1677be9773bdd3e50f3362b446643c66a7fb131f452a352a10d2f7e9eaa50e6f",
+      "size_bytes": 7239
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/figures/ambient_sampler_radius_drift.pdf",
+      "relative_path": "figures/ambient_sampler_radius_drift.pdf",
+      "sha256": "8001b47df88e218e815fedcf63ed6f1602fa5a055b511b4598126a4e8a867a10",
+      "size_bytes": 52294
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/figures/ambient_sampler_radius_drift.png",
+      "relative_path": "figures/ambient_sampler_radius_drift.png",
+      "sha256": "afcb4af3b89c62ecb477f703b5f6e11289da406c13d6fc7b90d9da3e38d45735",
+      "size_bytes": 323569
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/figures/angular_fit_by_radius_bin.pdf",
+      "relative_path": "figures/angular_fit_by_radius_bin.pdf",
+      "sha256": "eee7e76b5c9bb03f776a6189a850c89a4430dbbf10abfc3c93e9c6daa33a4666",
+      "size_bytes": 105618
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/figures/angular_fit_by_radius_bin.png",
+      "relative_path": "figures/angular_fit_by_radius_bin.png",
+      "sha256": "82a65a1992ea72ff52c7a12b74058e975fbee4b0392347a5d079dc18837274bb",
+      "size_bytes": 409653
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/figures/audio_content_energy_and_tails.pdf",
+      "relative_path": "figures/audio_content_energy_and_tails.pdf",
+      "sha256": "1effc72341de242ee68623e0ec1685983c4adace9638d7f944eacbc7b3e732c0",
+      "size_bytes": 27262
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/figures/audio_content_energy_and_tails.png",
+      "relative_path": "figures/audio_content_energy_and_tails.png",
+      "sha256": "b362e8db633d02e58b1d869bd4caf210b962b520dc1cfd51152c8816982442f3",
+      "size_bytes": 189284
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/figures/figure_captions.md",
+      "relative_path": "figures/figure_captions.md",
+      "sha256": "0699d23391101097e12a36aae82a578867c020f619daa52ad686c2ad4ee244fb",
+      "size_bytes": 5344
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/figures/measured_runtime_and_parameter_overhead.pdf",
+      "relative_path": "figures/measured_runtime_and_parameter_overhead.pdf",
+      "sha256": "9be2d30ecb5e7d9befaca5c75768c02292eda6d5aa456012d93c0165593ff538",
+      "size_bytes": 75394
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/figures/measured_runtime_and_parameter_overhead.png",
+      "relative_path": "figures/measured_runtime_and_parameter_overhead.png",
+      "sha256": "9e7cd5149da63a024707d174c12dafd6ae9320af262d9ca93816f23567b3425c",
+      "size_bytes": 445141
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/figures/paired_B_minus_A.pdf",
+      "relative_path": "figures/paired_B_minus_A.pdf",
+      "sha256": "f71eee142be69ac1b3a8e882e57db3b0b538dedc09c17989044c640263fa0f9e",
+      "size_bytes": 30990
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/figures/paired_B_minus_A.png",
+      "relative_path": "figures/paired_B_minus_A.png",
+      "sha256": "4fd97c65f4468a3e28e5c0f26a9ca6e9368be77cc918a5fbe761c6b865e0e5d7",
+      "size_bytes": 239569
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/figures/paired_B_minus_C.pdf",
+      "relative_path": "figures/paired_B_minus_C.pdf",
+      "sha256": "52da550e5d62c63a2449dbbca1e9da89eb1f084e4fca44961edc48b8b67b31d1",
+      "size_bytes": 31473
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/figures/paired_B_minus_C.png",
+      "relative_path": "figures/paired_B_minus_C.png",
+      "sha256": "e693dfc856e087b0c21e34c6fb3a15386a0c597d2be243d4759b21d3e1424304",
+      "size_bytes": 243310
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/figures/plot_manifest.json",
+      "relative_path": "figures/plot_manifest.json",
+      "sha256": "264724c15b882d3b52861b238c32e167d1ccf2c257687017bf2840f45ea15c69",
+      "size_bytes": 142451
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/figures/quality_tflow_and_rafm_inputs.pdf",
+      "relative_path": "figures/quality_tflow_and_rafm_inputs.pdf",
+      "sha256": "03b888a1918087504d53edaff613f31df071865b8c9cc3aa1907381a6add1379",
+      "size_bytes": 77687
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/figures/quality_tflow_and_rafm_inputs.png",
+      "relative_path": "figures/quality_tflow_and_rafm_inputs.png",
+      "sha256": "e14584a2b8c85cf5f51da0c7c17b7a4e214657361445ea67d8644235f6afb23f",
+      "size_bytes": 290645
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/findings.json",
+      "relative_path": "findings.json",
+      "sha256": "00d7b1382a8f9c20533b2c6f3019b0ad82d5124e27d302e8ec90044d50f678be",
+      "size_bytes": 1338246
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/findings.md",
+      "relative_path": "findings.md",
+      "sha256": "5d871bc446cdef995584385bc485d50e93d855ecdcaf78ff068532ddf1c988c1",
+      "size_bytes": 86207
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/manuscript_addition.md",
+      "relative_path": "manuscript_addition.md",
+      "sha256": "db93823e37010e144947d5915c6ce38003299790b2aaf562f22bd0c58a8470da",
+      "size_bytes": 1184
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/paired_deltas.csv",
+      "relative_path": "paired_deltas.csv",
+      "sha256": "201cd82e93befdf0f922195e74fe50085452058bf9d20db1e396ba99cba4140f",
+      "size_bytes": 311366
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/per_seed_metrics.csv",
+      "relative_path": "per_seed_metrics.csv",
+      "sha256": "53a04ce585dad5554e769b9f93f5ffac5ef234d3da4974b6950f6d02992c325b",
+      "size_bytes": 1282671
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/recovered_provenance_note.md",
+      "relative_path": "recovered_provenance_note.md",
+      "sha256": "fe649a2190df4fdd910a65e2aa3ad63848a1a66218d971d9f155a0b4f80d4925",
+      "size_bytes": 1020
+    },
+    {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/complete_report_tflow/report.json",
+      "relative_path": "report.json",
+      "sha256": "85d0f16a7d9f85a48bee3cf6d3eaa569afeb1afaba09e1ae53c3f9b65d731c01",
+      "size_bytes": 10194177
+    }
+  ],
+  "excluded_ephemeral_files": [
+    "cache/matplotlib/fontlist-v390.json"
+  ]
+}

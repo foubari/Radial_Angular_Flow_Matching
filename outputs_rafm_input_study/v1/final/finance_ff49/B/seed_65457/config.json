@@ -1,0 +1,181 @@
+{
+  "config": {
+    "schema_version": 1,
+    "condition_id": "finance_ff49",
+    "kind": "vector",
+    "protocol_status": "resolved",
+    "blocking_issues": [],
+    "seeds": [
+      8925,
+      77395,
+      65457
+    ],
+    "data": {
+      "input": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/rebuttal_experiments/data/finance/finance_returns_raw.pt",
+        "sha256": "7ce89c88cf8c55c669aa6172fdbfb0c7efe1211cea7ee608bc6c9e139a74d51e"
+      },
+      "shape": [
+        14349,
+        49
+      ],
+      "split": {
+        "kind": "indices",
+        "seed": 0,
+        "n_train": 8609,
+        "n_val": 2869,
+        "n_test": 2871,
+        "file": {
+          "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/v1/finance_ff49/split_indices.pt",
+          "sha256": "bbf8ddc9064c03a9ed2e8da17f5627f4b46fbf979a6e1548f958f38d2820899c"
+        }
+      },
+      "transform": "as_cached"
+    },
+    "model": {
+      "kind": "mlp",
+      "hidden_dim": 128,
+      "n_layers": 3
+    },
+    "training": {
+      "steps": 10000,
+      "batch_size": 4096,
+      "optimizer": "Adam",
+      "lr": 0.001,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "gradient_clip": null,
+      "ema": null,
+      "precision": "float32",
+      "batch_rule": "global_torch",
+      "compile": true,
+      "checkpoint_every": 5000,
+      "log_every": 200,
+      "class_dropout": 0.0
+    },
+    "evaluation": {
+      "n_samples": 2871,
+      "model_evaluations": 512,
+      "sample_batch_size": 2871,
+      "sample_seed": null,
+      "metric_seed": 0,
+      "metric_seed_note": "Common new seed-0 metric projections across A/B/C and t-Flow; historical projections unavailable."
+    },
+    "sampler": {
+      "t_min": 0.001,
+      "rho": 7.0,
+      "grid": "power_sigma",
+      "sigma_min": 0.01
+    },
+    "tuning": {
+      "seed": 46021,
+      "nu": [
+        3,
+        5,
+        7
+      ],
+      "scale_multipliers": [
+        0.5,
+        1,
+        2
+      ],
+      "stage1_fraction": 0.05,
+      "continuation_fraction": 0.1,
+      "n_finalists": 2,
+      "validation_generated_samples": 1000,
+      "sample_seed": 61717,
+      "projection_seed": 61719
+    },
+    "provenance": {
+      "paper_sha256": "97f709df2a45e4acf4ba186379c60e9c75120d95e09af782d7a18c8b56d00367",
+      "baseline_commit": "5b89ed5f4af8a47c3b57eb9d595203daafc6d2c4",
+      "source_artifacts": [
+        "rebuttal_experiments/scripts/prep_finance.py",
+        "rebuttal_experiments/data/finance/finance_meta.json",
+        "rebuttal_experiments/scripts/run_real.py"
+      ],
+      "cached_input_only": true,
+      "existing_results_unchanged": true,
+      "study_id": "rafm_input_parameterization_v1",
+      "historical_result_reuse": false,
+      "comparison_label": "new_matched_runs_on_verified_existing_cache",
+      "original_prepared_config_sha256": "197ed4c76e3b4531d73e3e1e5d9602a6c83bb172e7fb92b2fa44ebb0a9579d9e",
+      "batch_resolution": {
+        "prepared_value": 4096,
+        "selected_value": 4096,
+        "evidence": "Supplied PDF p34 C.7: Student-t/PIV256; Weather2048; other vectors4096; downstream p35 C.10"
+      },
+      "original_split_spec": {
+        "kind": "chrono",
+        "seed": 0,
+        "n_train": 8609,
+        "n_val": 2869,
+        "n_test": 2871
+      },
+      "generation": null,
+      "shared_preparation_identity_sha256": "72b8e4a4e3a71ac0cb0057a26c6bf3300e2a6aaa4b2b179974a3f6c797662101"
+    },
+    "experiment_launch_status": "authorized_after_correctness_checks_and_verified_cache",
+    "rafm_sampling_source": {
+      "kind": "radial_empirical_ecdf",
+      "fit_split": "generator_train_only",
+      "implementation": "rafm/sources/radial_empirical.py:RadialEmpiricalSource(mode=ecdf)",
+      "interpolation": "torch.quantile linear, independent uniform radius draw",
+      "log_radius_source": false,
+      "evidence": [
+        "rebuttal_experiments/configs/E1_studentt_d16.yaml",
+        "rebuttal_experiments/configs/E1_gaussian_d16.yaml",
+        "rebuttal_experiments/configs/E5_toy2d.yaml",
+        "rebuttal_experiments/configs/E6_dim16.yaml",
+        "rebuttal_experiments/configs/E8_df3.0.yaml",
+        "rebuttal_experiments/scripts/run_real.py",
+        "experiments/poc_audio/audio_flow.py",
+        "experiments/image_latents/dit/dit_train_sit.py"
+      ],
+      "note": "Explicit angular_rafm entries use empirical ECDF; rafm_oracle is a separate reference method."
+    },
+    "study": {
+      "id": "rafm_input_parameterization_v1",
+      "methods": [
+        "A",
+        "B",
+        "C",
+        "tflow"
+      ],
+      "training_seeds_shared": true,
+      "new_A_rerun": true,
+      "B_C_additional_tuning_steps": 0,
+      "final_checkpoint_selection": "prescribed_final_update_or_final_EMA",
+      "radius_stat_fit_split": "generator_train_only",
+      "authorization": "User authorized full t-Flow and A/B/C study on 2026-09-10, after small correctness runs"
+    },
+    "shared_cache": {
+      "directory": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/v1/finance_ff49",
+      "manifest_path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/v1/finance_ff49/manifest.json",
+      "manifest_sha256": "ef145db7ca27e7243dd1df965c6963f669f9b4f342a03a10aeeacccffd3c026a"
+    }
+  },
+  "arm": "B",
+  "seed": 65457,
+  "stage": "final",
+  "radius_statistics": {
+    "mean_log_radius": 1.6876131318203715,
+    "population_std_log_radius": 0.45274108825943477,
+    "standardization_scale": 0.45274108825943477,
+    "radius_floor": 1e-08,
+    "std_floor": 1e-08,
+    "n_training_samples": 8609,
+    "dimension": 49,
+    "training_data_sha256": "829e098ec51b866ebaddeba6efb9c922fecf74e3644259da1fcddaa883aa7a69",
+    "training_indices_sha256": "f9043a9250a85430ecc1f626dfcb644afb0190d271a864a3e7801f48846457d5",
+    "zero_radius_count": 0,
+    "below_radius_floor_count": 0,
+    "fit_split": "generator_training",
+    "accumulation_dtype": "float64"
+  },
+  "implementation_sha256": "89d0c5819f1e80de00bb3a0827ae2bc57a27c01bbf66ec78f23ef88a7d30a6b1"
+}

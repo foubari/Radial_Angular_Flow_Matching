@@ -1,0 +1,5 @@
+# Recovered-condition reporting note
+
+The generated manuscript_addition.md retains a legacy sentence saying that PIV d32 and image provenance are blockers. That sentence is obsolete for this complete 28-condition report: both recovered conditions use the verified release, pinned caches and recorded protocols. Use findings.md and report.json for measured outcomes and remaining scientific failures. The original main manuscript has not been modified.
+
+The historical 3,925-image FID reference is retained by authorization; it overlaps generator train/validation/test by 2,339/775/811 images and is not a held-out reference. New shared synthetic caches remain labelled new matched comparisons, not recovered historical realizations. See docs/rafm_toy_numerical_failure_analysis.md and docs/tflow_matched_backbone_failure_analysis.md for numerical and architecture qualifications. Means and population standard deviations require all three compatible, finite final seeds; failed or missing seeds are never averaged away.

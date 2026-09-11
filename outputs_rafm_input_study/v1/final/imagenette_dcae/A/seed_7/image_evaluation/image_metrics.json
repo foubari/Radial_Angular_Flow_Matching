@@ -1,0 +1,63 @@
+{
+  "method": "tflow",
+  "n": 3000,
+  "real_n": 3925,
+  "cfg": 1.0,
+  "latent": {
+    "radial_w1": 0.26603636145591736,
+    "ks": 0.04048258066177368,
+    "sliced_w1": 0.04609336704015732
+  },
+  "image": {
+    "fid": 148.40519583250529,
+    "kid": 0.09584259748458862,
+    "kid_std": 0.0026815428715114605,
+    "precision": 0.153,
+    "recall": 0.6721019108280255,
+    "density": 0.049800000000000004,
+    "coverage": 0.05426751592356688
+  },
+  "reference": {
+    "path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/image_latents/dit/eval_std/_real_ref",
+    "count": 3925,
+    "sha256": "79064131fa4cad5529be9ba8b37d3da62a2002adb1b011cfc6bdf148b25382b7"
+  },
+  "protocol": {
+    "source": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/experiments/image_latents/dit/dit_eval_sit.py",
+    "source_sha256": "103a53a9e53e4e0bad1186793ed52d99b8c8fefaaba031039407559822a22436",
+    "decoder_path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.cache/huggingface/hub/models--mit-han-lab--dc-ae-f32c32-sana-1.0-diffusers/snapshots/ca69e17e97609e64ce055115a6515215109b1f50",
+    "latent_scale": 0.41407,
+    "inception_weights_path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.cache/torch/hub/checkpoints/weights-inception-2015-12-05-6726825d.pth",
+    "inception_weights_sha256": "6726825d0af5f729cebd5821db510b11b1cfad8faad88a03f1befd49fb9129b2",
+    "inception_layer": "2048",
+    "kid_subset_size": 1000,
+    "kid_rng_seed": 2020,
+    "prdc_nearest_k": 5,
+    "sliced_projections": 200,
+    "sliced_seed": 0,
+    "generated_image_dir": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/generated/decoded/74494794344f50bdfc470aa91d497fa45fa5585938553d62eeaeaf7499f080ec",
+    "package_versions": {
+      "torch": "2.7.1+rocm6.3",
+      "torchvision": "0.22.1+rocm6.3",
+      "torch-fidelity": "0.4.0",
+      "prdc": "0.2",
+      "diffusers": "0.40.0",
+      "numpy": "2.2.6",
+      "Pillow": "12.3.0"
+    },
+    "precision": "float32",
+    "device": "cuda:0"
+  },
+  "class_counts": {
+    "0": 300,
+    "1": 300,
+    "2": 300,
+    "3": 300,
+    "4": 300,
+    "5": 300,
+    "6": 300,
+    "7": 300,
+    "8": 300,
+    "9": 300
+  }
+}

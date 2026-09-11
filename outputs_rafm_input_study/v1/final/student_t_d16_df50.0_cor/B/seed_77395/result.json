@@ -1,0 +1,411 @@
+{
+  "schema_version": 1,
+  "condition_id": "student_t_d16_df50.0_cor",
+  "method": "rafm_ang_input",
+  "arm": "B",
+  "seed": 77395,
+  "status": "complete",
+  "config": {
+    "schema_version": 1,
+    "condition_id": "student_t_d16_df50.0_cor",
+    "kind": "vector",
+    "protocol_status": "resolved",
+    "blocking_issues": [],
+    "seeds": [
+      8925,
+      77395,
+      65457
+    ],
+    "data": {
+      "input": {
+        "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/v1/student_t_d16_df50.0_cor/values.pt",
+        "sha256": "bb8cfc8f4703bd9559731118c2e8d44c2320bb9dc2d513275738aa0c01b93532"
+      },
+      "shape": [
+        50000,
+        16
+      ],
+      "split": {
+        "kind": "indices",
+        "seed": 0,
+        "n_train": 30000,
+        "n_val": 10000,
+        "n_test": 10000,
+        "file": {
+          "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/v1/student_t_d16_df50.0_cor/split_indices.pt",
+          "sha256": "7576e19e67db45f8bb09321918e5c23a08f62f292b855cc8fd6562608d129b93"
+        }
+      },
+      "transform": "as_cached"
+    },
+    "model": {
+      "kind": "mlp",
+      "hidden_dim": 128,
+      "n_layers": 3
+    },
+    "training": {
+      "steps": 10000,
+      "batch_size": 256,
+      "optimizer": "Adam",
+      "lr": 0.001,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "gradient_clip": null,
+      "ema": null,
+      "precision": "float32",
+      "batch_rule": "global_torch",
+      "compile": true,
+      "checkpoint_every": 5000,
+      "log_every": 200,
+      "class_dropout": 0.0
+    },
+    "evaluation": {
+      "n_samples": 10000,
+      "model_evaluations": 512,
+      "sample_batch_size": 10000,
+      "sample_seed": 0,
+      "metric_seed": 0,
+      "metric_seed_note": "Common new seed-0 metric projections across A/B/C and t-Flow; historical projections unavailable."
+    },
+    "sampler": {
+      "t_min": 0.001,
+      "rho": 7.0,
+      "grid": "power_sigma",
+      "sigma_min": 0.01
+    },
+    "tuning": {
+      "seed": 46021,
+      "nu": [
+        3,
+        5,
+        7
+      ],
+      "scale_multipliers": [
+        0.5,
+        1,
+        2
+      ],
+      "stage1_fraction": 0.05,
+      "continuation_fraction": 0.1,
+      "n_finalists": 2,
+      "validation_generated_samples": 1000,
+      "sample_seed": 61717,
+      "projection_seed": 61719
+    },
+    "provenance": {
+      "paper_sha256": "97f709df2a45e4acf4ba186379c60e9c75120d95e09af782d7a18c8b56d00367",
+      "baseline_commit": "5b89ed5f4af8a47c3b57eb9d595203daafc6d2c4",
+      "source_artifacts": [
+        "rebuttal_experiments/configs/E8_df50.0.yaml"
+      ],
+      "cached_input_only": true,
+      "existing_results_unchanged": true,
+      "study_id": "rafm_input_parameterization_v1",
+      "historical_result_reuse": false,
+      "comparison_label": "new_matched_realization",
+      "original_prepared_config_sha256": "067751f983ee5a5a18c0b6c7117754f2f85382933aeb5cddc304bf3f0880f0d9",
+      "batch_resolution": {
+        "prepared_value": null,
+        "selected_value": 256,
+        "evidence": "Supplied PDF p34 C.7: Student-t/PIV256; Weather2048; other vectors4096; downstream p35 C.10"
+      },
+      "original_split_spec": {
+        "kind": "random",
+        "seed": 0,
+        "n_train": 30000,
+        "n_val": 10000,
+        "n_test": 10000
+      },
+      "generation": {
+        "realization": "new_matched_comparison_not_historical",
+        "sample_seed": 420432268,
+        "split_seed": 0,
+        "shape": [
+          50000,
+          16
+        ],
+        "device": "cpu",
+        "dtype": "float32",
+        "family": "student_t",
+        "dim": 16,
+        "df": 50.0,
+        "matrix_seed": 42,
+        "correlated": true,
+        "source_files": [
+          "rafm/data/student_t.py",
+          "rafm/data/base.py"
+        ],
+        "target_noise": "independent univariate Student-t coordinates, then z @ A.T; unchanged target generator"
+      },
+      "shared_preparation_identity_sha256": "02410e3c1a61e2527b80860ef7fd7bb824cb1aa3e608dcd723a41bfe7a885b6f"
+    },
+    "experiment_launch_status": "authorized_after_correctness_checks_and_verified_cache",
+    "rafm_sampling_source": {
+      "kind": "radial_empirical_ecdf",
+      "fit_split": "generator_train_only",
+      "implementation": "rafm/sources/radial_empirical.py:RadialEmpiricalSource(mode=ecdf)",
+      "interpolation": "torch.quantile linear, independent uniform radius draw",
+      "log_radius_source": false,
+      "evidence": [
+        "rebuttal_experiments/configs/E1_studentt_d16.yaml",
+        "rebuttal_experiments/configs/E1_gaussian_d16.yaml",
+        "rebuttal_experiments/configs/E5_toy2d.yaml",
+        "rebuttal_experiments/configs/E6_dim16.yaml",
+        "rebuttal_experiments/configs/E8_df3.0.yaml",
+        "rebuttal_experiments/scripts/run_real.py",
+        "experiments/poc_audio/audio_flow.py",
+        "experiments/image_latents/dit/dit_train_sit.py"
+      ],
+      "note": "Explicit angular_rafm entries use empirical ECDF; rafm_oracle is a separate reference method."
+    },
+    "study": {
+      "id": "rafm_input_parameterization_v1",
+      "methods": [
+        "A",
+        "B",
+        "C",
+        "tflow"
+      ],
+      "training_seeds_shared": true,
+      "new_A_rerun": true,
+      "B_C_additional_tuning_steps": 0,
+      "final_checkpoint_selection": "prescribed_final_update_or_final_EMA",
+      "radius_stat_fit_split": "generator_train_only",
+      "authorization": "User authorized full t-Flow and A/B/C study on 2026-09-10, after small correctness runs"
+    },
+    "shared_cache": {
+      "directory": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/v1/student_t_d16_df50.0_cor",
+      "manifest_path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/v1/student_t_d16_df50.0_cor/manifest.json",
+      "manifest_sha256": "a8fe5ab1a78b64115a6cee19f14942a7f3fd0a8eda2174412937f6cdbc5e4a9e"
+    }
+  },
+  "config_sha256": "f4e32bfde47e809109a1d23cc91ba879d75cbceedc1072c961aec04ba4953e8b",
+  "implementation_sha256": "89d0c5819f1e80de00bb3a0827ae2bc57a27c01bbf66ec78f23ef88a7d30a6b1",
+  "metrics": {
+    "radial_w1": 0.09306200593709946,
+    "ks_stat": 0.013599991798400879,
+    "q950_err": 0.00986571821318306,
+    "q990_err": 0.005890877431143043,
+    "q995_err": 0.022920826271696858,
+    "tail_exc_95": 0.004300001263618514,
+    "tail_exc_99": 0.0006000001356005757,
+    "sliced_w1": 0.26195797324180603,
+    "mmd": 0.0017968416213989258,
+    "angular_sw_bin0": 0.019641442224383354,
+    "angular_sw_bin1": 0.02232292853295803,
+    "angular_sw_bin2": 0.019099710509181023,
+    "angular_sw_bin3": 0.01746976748108864,
+    "angular_sw_mean": 0.01963346218690276,
+    "nan_rate": 0.0,
+    "exploding_norm_rate": 0.0,
+    "invalid_rate": 0.0,
+    "inf_rate": 0.0,
+    "sample_time_s": 0.2557176575064659,
+    "total_train_time_s": 26.656704023480415,
+    "nfe": 512
+  },
+  "nonfinite_metric_fields": [],
+  "parameters": {
+    "arm": "B",
+    "backbone_kind": "mlp",
+    "original_backbone_parameters": 37392,
+    "total_parameters": 37520,
+    "trainable_parameters": 37520,
+    "conditioning_overhead_parameters": 128,
+    "conditioning_overhead_fraction": 0.0034231921266581087,
+    "radius_embedding_hidden_width": null
+  },
+  "radius_drift": {
+    "mean_absolute": 1.5070438621478388e-06,
+    "max_absolute": 1.1444091796875e-05,
+    "mean_relative": 9.603667194824084e-08,
+    "max_relative": 5.739149173678015e-07,
+    "initial_below_radius_floor": 0,
+    "radius_floor": 1e-08
+  },
+  "radius_statistics": {
+    "mean_log_radius": 2.719782631072454,
+    "population_std_log_radius": 0.2566974695504652,
+    "standardization_scale": 0.2566974695504652,
+    "radius_floor": 1e-08,
+    "std_floor": 1e-08,
+    "n_training_samples": 30000,
+    "dimension": 16,
+    "training_data_sha256": "f5eaef9029ac0d81b3b6695ca51bdb9bc61780553e259f650a252f8ea99a3c9d",
+    "training_indices_sha256": "b955ac5fbf11416eea13fe84909def75a462565a10c6cea35e1bb3ffe431ced0",
+    "zero_radius_count": 0,
+    "below_radius_floor_count": 0,
+    "fit_split": "generator_training",
+    "accumulation_dtype": "float64"
+  },
+  "hardware": {
+    "host": "auh7-3b-gpu-015",
+    "slurm_job_id": "765753",
+    "python": "3.10.12",
+    "torch": "2.7.1+rocm6.3",
+    "cuda": null,
+    "hip": "6.3.42131-fa1d09cbd",
+    "gpu": "AMD Instinct MI210",
+    "vram_bytes": 68702699520
+  },
+  "checkpoint": {
+    "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/final/student_t_d16_df50.0_cor/B/seed_77395/checkpoint.pt",
+    "sha256": "23ff2cffd9793890496a4f8e30004d428bfeaaa0095e16bfba46afe49bb1839e",
+    "step": 10000
+  },
+  "sample_artifact": {
+    "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/generated/student_t_d16_df50.0_cor/B/seed_77395/00f2d3087b2b6d58f4c9fc7c6caf7a06877c9ed52e8d9a2040e74b6936b78195/samples.pt",
+    "sha256": "843c74eaa83d42870f358bbbd31308699a56c39c81f054405e280e1ef5bf64b2"
+  },
+  "sampler": {
+    "sample_time_s": 0.2557176575064659,
+    "nfe": 512,
+    "n_batches": 1,
+    "model_calls_total": 512,
+    "n_samples": 10000,
+    "sample_seed": 0,
+    "class_counts": null,
+    "peak_memory": {
+      "allocated_bytes": 96536576,
+      "reserved_bytes": 109051904
+    },
+    "radius_drift": {
+      "mean_absolute": 1.5070438621478388e-06,
+      "max_absolute": 1.1444091796875e-05,
+      "mean_relative": 9.603667194824084e-08,
+      "max_relative": 5.739149173678015e-07,
+      "initial_below_radius_floor": 0,
+      "radius_floor": 1e-08
+    },
+    "solver": "original_ambient_rk4",
+    "state_renormalization": false,
+    "projection_r_min": 0.001,
+    "radius_multiplier_floor": 1e-08,
+    "timing_scope": "source draw, original RK4, finite checks and CPU transfer; excludes metrics"
+  },
+  "dataset": {
+    "values": {
+      "shape": [
+        50000,
+        16
+      ],
+      "dtype": "<f4",
+      "sha256": "fe7871aed0e8790559bcac791a233fc3dd9866e740b0cdbedf2df91880a8f612"
+    },
+    "preprocessing_mean": {
+      "shape": [
+        16
+      ],
+      "dtype": "<f4",
+      "sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b"
+    },
+    "split_indices": {
+      "train": {
+        "shape": [
+          30000
+        ],
+        "dtype": "<i8",
+        "sha256": "b955ac5fbf11416eea13fe84909def75a462565a10c6cea35e1bb3ffe431ced0"
+      },
+      "val": {
+        "shape": [
+          10000
+        ],
+        "dtype": "<i8",
+        "sha256": "5bdf682852f3ead5ff1e7a41c197778c54c07375214fc084af7d1e0a625a8d1b"
+      },
+      "test": {
+        "shape": [
+          10000
+        ],
+        "dtype": "<i8",
+        "sha256": "8315449edebe105e2fd535d2652bc5590ce186353d6bf2415bf201306d12da5a"
+      }
+    },
+    "splits": {
+      "train": {
+        "shape": [
+          30000,
+          16
+        ],
+        "dtype": "<f4",
+        "sha256": "f5eaef9029ac0d81b3b6695ca51bdb9bc61780553e259f650a252f8ea99a3c9d"
+      },
+      "val": {
+        "shape": [
+          10000,
+          16
+        ],
+        "dtype": "<f4",
+        "sha256": "b7c89ef680e78defdbc307173b23449b49ab8d6d33c8c66b504217584cab451b"
+      },
+      "test": {
+        "shape": [
+          10000,
+          16
+        ],
+        "dtype": "<f4",
+        "sha256": "081e62a34a4d0a4b4e30e3d473c82e043ecf56e9979ecba3b89408906954cbc9"
+      }
+    },
+    "external_test_loaded": false
+  },
+  "evaluation_details": {},
+  "peak_memory": {
+    "training": {
+      "allocated_bytes": 82961920,
+      "reserved_bytes": 102760448
+    },
+    "sampling": {
+      "allocated_bytes": 96536576,
+      "reserved_bytes": 109051904
+    },
+    "sampling_and_evaluation": {
+      "allocated_bytes": 96536576,
+      "reserved_bytes": 109051904
+    }
+  },
+  "training_stats": {
+    "run_sha256": "cfc2298aebf33be193795943632a6aa7f18c8849c259d2093d4b7c232efe2c1e",
+    "training_step": 10000,
+    "total_train_time_s": 26.669239602982998,
+    "final_loss": 2.128359317779541,
+    "parameters": {
+      "arm": "B",
+      "backbone_kind": "mlp",
+      "original_backbone_parameters": 37392,
+      "total_parameters": 37520,
+      "trainable_parameters": 37520,
+      "conditioning_overhead_parameters": 128,
+      "conditioning_overhead_fraction": 0.0034231921266581087,
+      "radius_embedding_hidden_width": null
+    },
+    "hardware": {
+      "host": "auh7-3b-gpu-015",
+      "slurm_job_id": "765753",
+      "python": "3.10.12",
+      "torch": "2.7.1+rocm6.3",
+      "cuda": null,
+      "hip": "6.3.42131-fa1d09cbd",
+      "gpu": "AMD Instinct MI210",
+      "vram_bytes": 68702699520
+    },
+    "peak_memory": {
+      "allocated_bytes": 82961920,
+      "reserved_bytes": 102760448
+    },
+    "timing_kind": "measured",
+    "timing_scope": "training loop including compile, finite checks, logging and checkpoints",
+    "gradient_observed": null,
+    "radius_embedding_gradient_observed": null,
+    "backend": {
+      "cudnn_deterministic": true,
+      "cudnn_benchmark": false,
+      "note": "Shared seed helper for every new arm; historical downstream scripts did not explicitly force deterministic cuDNN/MIOpen"
+    }
+  }
+}

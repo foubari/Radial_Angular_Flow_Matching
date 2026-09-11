@@ -1,0 +1,601 @@
+{
+  "schema_version": 1,
+  "condition_id": "imagenette_dcae",
+  "method": "tflow",
+  "seed": 1234,
+  "stage": "final",
+  "status": "complete",
+  "config": {
+    "schema_version": 1,
+    "condition_id": "imagenette_dcae",
+    "kind": "image",
+    "protocol_status": "resolved",
+    "blocking_issues": [],
+    "seeds": [
+      8925,
+      1234,
+      7
+    ],
+    "data": {
+      "input": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/image_latents/data/dcae_latents_scaled.pt",
+        "sha256": "15088880ca60e69747d4c8bb55eda046d0667475e35ff6d7133e876090d83116"
+      },
+      "shape": [
+        13394,
+        2048
+      ],
+      "split": {
+        "kind": "indices",
+        "seed": 0,
+        "n_train": 8036,
+        "n_val": 2678,
+        "n_test": 2680,
+        "file": {
+          "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/v1/imagenette_dcae/split_indices.pt",
+          "sha256": "cac9bfcf824deb8d42ce91404dbd3801634066ec10127b0c8aa73c1b3f5b4549"
+        }
+      },
+      "transform": "train_center",
+      "labels": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/image_latents/data/dcae_labels.pt",
+        "sha256": "95e17fe21ec2a8644dfb1f4cd00b576c0ab307b333d83f6baa67d67026a1f671"
+      }
+    },
+    "model": {
+      "kind": "image_sit",
+      "hidden": 384,
+      "depth": 12,
+      "heads": 6,
+      "class_dropout": 0.1,
+      "source_dir": "/mnt/vast01/users/fouad.oubari/references/SiT-tflow"
+    },
+    "training": {
+      "steps": 40000,
+      "batch_size": 64,
+      "optimizer": "AdamW",
+      "lr": 0.0001,
+      "betas": [
+        0.9,
+        0.95
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "gradient_clip": null,
+      "ema": 0.9999,
+      "precision": "bfloat16_autocast",
+      "batch_rule": "step_seeded",
+      "compile": false,
+      "checkpoint_every": 2000,
+      "log_every": 500,
+      "class_dropout": 0.1
+    },
+    "evaluation": {
+      "n_samples": 3000,
+      "model_evaluations": 100,
+      "sample_batch_size": 512,
+      "sample_seed": 0,
+      "metric_seed": 2020,
+      "metric_seed_note": "Common new seed-0 metric projections across A/B/C and t-Flow; historical projections unavailable.",
+      "device": "cuda:0",
+      "real_n": 3925,
+      "real_reference_dir": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/image_latents/dit/eval_std/_real_ref",
+      "expected_reference_sha256": "79064131fa4cad5529be9ba8b37d3da62a2002adb1b011cfc6bdf148b25382b7",
+      "decoder_path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.cache/huggingface/hub/models--mit-han-lab--dc-ae-f32c32-sana-1.0-diffusers/snapshots/ca69e17e97609e64ce055115a6515215109b1f50",
+      "inception_weights_path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.cache/torch/hub/checkpoints/weights-inception-2015-12-05-6726825d.pth",
+      "generated_image_root": "/mnt/vast01/users/fouad.oubari/data/tflow/generated_images",
+      "decoder_files_sha256": {
+        "config.json": "604288647c7e5b7db62d3b1dc771dfee72dacd5f713c9b0b96ae5333a47299ee",
+        "diffusion_pytorch_model.safetensors": "15a4b09e56d95b768a0ec9da50b702e21d920333fc9b3480d66bb5c7fad9d87f"
+      },
+      "inception_weights_sha256": "6726825d0af5f729cebd5821db510b11b1cfad8faad88a03f1befd49fb9129b2"
+    },
+    "sampler": {
+      "t_min": 0.001,
+      "rho": 7.0,
+      "grid": "power_sigma",
+      "sigma_min": 0.01
+    },
+    "tuning": {
+      "seed": 46021,
+      "nu": [
+        3,
+        5,
+        7
+      ],
+      "scale_multipliers": [
+        0.5,
+        1,
+        2
+      ],
+      "stage1_fraction": 0.05,
+      "continuation_fraction": 0.1,
+      "n_finalists": 2,
+      "validation_generated_samples": 1000,
+      "sample_seed": 61717,
+      "projection_seed": 61719
+    },
+    "provenance": {
+      "paper_sha256": "97f709df2a45e4acf4ba186379c60e9c75120d95e09af782d7a18c8b56d00367",
+      "baseline_commit": "5b89ed5f4af8a47c3b57eb9d595203daafc6d2c4",
+      "source_artifacts": [
+        "experiments/image_latents/scripts/extract_dcae_latents.py",
+        "experiments/image_latents/dit/dit_train_sit.py",
+        "experiments/image_latents/dit/dit_eval_sit.py",
+        "experiments/image_latents/dit/eval_phaseB.bat",
+        "experiments/image_latents/launch_angular_dit.bat",
+        "experiments/image_latents/results_phaseB.json"
+      ],
+      "cached_input_only": true,
+      "existing_results_unchanged": true,
+      "study_id": "rafm_input_parameterization_v1",
+      "historical_result_reuse": false,
+      "comparison_label": "new_matched_runs_on_verified_existing_cache",
+      "original_prepared_config_sha256": "ab2c261e67435871710c68abef81c55e7c558f8e7210f8639f7421e215e83976",
+      "batch_resolution": {
+        "prepared_value": 64,
+        "selected_value": 64,
+        "evidence": "Supplied PDF p34 C.7: Student-t/PIV256; Weather2048; other vectors4096; downstream p35 C.10"
+      },
+      "original_split_spec": {
+        "kind": "indices",
+        "seed": 0,
+        "n_train": null,
+        "n_val": null,
+        "n_test": null,
+        "file": {
+          "path": null,
+          "sha256": null
+        }
+      },
+      "generation": null,
+      "shared_preparation_identity_sha256": "7bd6f9d3ff0a7dfad9c14cebefadf4028c2f12bd205e5bddd6705012c426b7a7",
+      "recovered_artifacts": {
+        "release": "foubari/msgm-sparse-control/piv-imagenette-provenance-v1",
+        "receipt": {
+          "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/docs/recovered_artifacts/release_verification.json",
+          "sha256": "60b0ebf97086060569eee12966e88511320bbc36908d66110ba53ba0ec02a381",
+          "size_bytes": 5807
+        },
+        "assets": {
+          "manifest.json": {
+            "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/releases/piv-imagenette-provenance-v1_20260910/manifest.json",
+            "sha256": "4a356fe047a8d916dccc1610e238bbb3f4cb021357305a87c04fb9d1d3edef49",
+            "size_bytes": 8456
+          },
+          "manifest_addendum.json": {
+            "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/releases/piv-imagenette-provenance-v1_20260910/manifest_addendum.json",
+            "sha256": "a8049c5ddf64477fc1415c1a5dd4915041e9b0e37efa8468a6f98c21dc6761ef",
+            "size_bytes": 1918
+          },
+          "AUDIT_REPORT.md": {
+            "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/releases/piv-imagenette-provenance-v1_20260910/AUDIT_REPORT.md",
+            "sha256": "06c17e49d01e31aa6ca658208bf78221f741075b35af8c6d536aa9eea4f29e26",
+            "size_bytes": 2213
+          },
+          "piv_d32.pt": {
+            "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/releases/piv-imagenette-provenance-v1_20260910/piv_d32.pt",
+            "sha256": "8437048cf028dafeaf45f61339a323628b8be6df586ee180e45706cbb617d911",
+            "size_bytes": 128924
+          },
+          "piv_d16.pt": {
+            "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/releases/piv-imagenette-provenance-v1_20260910/piv_d16.pt",
+            "sha256": "a30a243c46d7095581ce86be562a40ac9f7195d1b55b40374721ce23db14e5e4",
+            "size_bytes": 128924
+          },
+          "dcae_real_centered.pt": {
+            "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/releases/piv-imagenette-provenance-v1_20260910/dcae_real_centered.pt",
+            "sha256": "848a876bfeb3b1c80ee0d7aae8988355100374a6c2ac318aa6b4cc20a2dbe344",
+            "size_bytes": 109840830
+          },
+          "radial_quantile_indices.npz": {
+            "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/releases/piv-imagenette-provenance-v1_20260910/radial_quantile_indices.npz",
+            "sha256": "12f3129d04e65e627b17f313810f888c108458829fd319e7a4e059cfcd91f4d4",
+            "size_bytes": 314416
+          },
+          "audit_result.npz": {
+            "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/releases/piv-imagenette-provenance-v1_20260910/audit_result.npz",
+            "sha256": "06480e5ef211850f65bb6dde3941c15ae4b504e42b87844138470237e2e6e113",
+            "size_bytes": 2626236
+          },
+          "verified_row_to_filename.csv": {
+            "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/releases/piv-imagenette-provenance-v1_20260910/verified_row_to_filename.csv",
+            "sha256": "1d39c416095c65965a92490aa7a192d32b8b725bc3ba8fa96c9c19fe6a4609cd",
+            "size_bytes": 1083091
+          },
+          "imagenette_audit.py": {
+            "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/releases/piv-imagenette-provenance-v1_20260910/imagenette_audit.py",
+            "sha256": "a2d4d60038a27b2dd5e694fb5a8e0b554d93dcd595ea85c164cc02bf53aaff2c",
+            "size_bytes": 4292
+          },
+          "provenance_code_and_logs.tar": {
+            "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/releases/piv-imagenette-provenance-v1_20260910/provenance_code_and_logs.tar",
+            "sha256": "9551483c015aec5942c19d5496106ed84e740c39f80633353481a852b29f2fef",
+            "size_bytes": 30720
+          }
+        },
+        "checkout_holding_artifacts": "d3006dc8ee61b2ab6e470115d3f21c778fefcf81 (iclr-image-experiments)",
+        "verified_extraction_or_training_commit": null,
+        "commit_caveat": "Data .pt/.npz files are gitignored and carry no commit stamp. Script commits below are the LATEST commit touching each script, NOT a verified proof that the on-disk artifacts were produced by that exact commit. The exact extraction/training commit is UNVERIFIED.",
+        "archived_members": {
+          "code_logs/dit_eval.log": {
+            "sha256": "78299d2ef0f2bbd07a883cf3ce1923b8421b015a98a9005ee2632ed5f98e20af",
+            "size_bytes": 5183
+          },
+          "code_logs/dit_train_sit.py": {
+            "sha256": "300626b1ba4b9bf9bbb204882dc08590e14cc2013f0744bacb8b368867d2950e",
+            "size_bytes": 7350
+          },
+          "code_logs/E3_piv.log": {
+            "sha256": "7810c21399784a1c1f78c9c2df0e46206351fcc710038a1c508fc0ff4cceea24",
+            "size_bytes": 961
+          },
+          "code_logs/extract_dcae_latents.py": {
+            "sha256": "df10ea03cca270cc1def643d764ec4608e176350c3cef937005a02ab9e32ef42",
+            "size_bytes": 1318
+          },
+          "code_logs/launch_phaseB.bat": {
+            "sha256": "4bd79df5989e52c33e45bc14e21e7aee153e890f9c2827ca4623bd9513bf7eb6",
+            "size_bytes": 1441
+          },
+          "code_logs/prepare_piv.py": {
+            "sha256": "82d4130e48beaf2376208a7da0141b492b94e336cdb9b8fab1081640b694c9fe",
+            "size_bytes": 6773
+          }
+        },
+        "numerical_verification": {
+          "archived_centering_and_runtime_values_bitwise_equal": true,
+          "archived_mean_equals_generator_training_mean_bitwise": true,
+          "split_indices_archived_npz_and_original_cpu_rng_bitwise_equal": true,
+          "split_counts": {
+            "train": 8036,
+            "val": 2678,
+            "test": 2680
+          },
+          "class_labels_archived_npz_csv_and_data_v1_identical": true,
+          "row_mapping": {
+            "n_rows": 13394,
+            "n_unique_filenames": 13394,
+            "reencoded_identity_matches": 13394,
+            "max_l2": 0.0,
+            "mean_l2": 0.0,
+            "encoding_was_run_here": false,
+            "source": {
+              "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/releases/piv-imagenette-provenance-v1_20260910/audit_result.npz",
+              "sha256": "06480e5ef211850f65bb6dde3941c15ae4b504e42b87844138470237e2e6e113",
+              "size_bytes": 2626236
+            },
+            "official_filename_split_counts": {
+              "train": 9469,
+              "val": 3925
+            }
+          },
+          "diagnostic_radius_max_abs_difference": 7.62939453125e-06,
+          "csv_rounded_radius_max_abs_difference": 5.000000000165983e-05,
+          "fid_reference": {
+            "path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/image_latents/dit/eval_std/_real_ref",
+            "count": 3925,
+            "sha256": "79064131fa4cad5529be9ba8b37d3da62a2002adb1b011cfc6bdf148b25382b7",
+            "manifest_digest_algorithm": "SHA256 over sorted filename + NUL + file SHA256 + newline"
+          },
+          "fid_reference_overlap": {
+            "n_reference": 3925,
+            "generator_split_counts": {
+              "train": 2339,
+              "val": 775,
+              "test": 811
+            },
+            "train_fraction": 0.5959235668789808,
+            "definition": "sorted(np.random.default_rng(1).permutation(13394)[:3925]) in verified latent-row order",
+            "evidence": "VM audit report/addendum and supplied CSV; CSV flags, seeded subset and archived split intersections independently checked here",
+            "png_to_jpeg_identity_independently_reverified_here": false,
+            "held_out_reference": false,
+            "authorized_use": "User explicitly authorized the existing reference protocol for this comparison; no reference or manuscript changes"
+          },
+          "archived_preprocessing_mean": {
+            "shape": [
+              2048
+            ],
+            "dtype": "torch.float32",
+            "sha256_contiguous_bytes": "e4a0ee2412a39a56f0e76ea8c1b53f86a34a9cc78fd6fa6d8c7644c7d3ee290e",
+            "md5_contiguous_bytes": "987ec25e10fd8f4c214a2e144dd5ba7f"
+          },
+          "archived_centered_data": {
+            "shape": [
+              13394,
+              2048
+            ],
+            "dtype": "torch.float32",
+            "sha256_contiguous_bytes": "519491dbb4d863c1e88cd6b9451930302582a1844a2908d812d44c2fe97ab463",
+            "md5_contiguous_bytes": "a3ef7f2655df1fddf8e5b77af3512d9a"
+          }
+        },
+        "authorization": "User authorized recovery, checks and remaining A/B/C runs on 2026-09-10; preserve existing image-reference overlap protocol"
+      }
+    },
+    "experiment_launch_status": "authorized_after_correctness_checks_and_verified_cache",
+    "rafm_sampling_source": {
+      "kind": "radial_empirical_ecdf",
+      "fit_split": "generator_train_only",
+      "implementation": "rafm/sources/radial_empirical.py:RadialEmpiricalSource(mode=ecdf)",
+      "interpolation": "torch.quantile linear, independent uniform radius draw",
+      "log_radius_source": false,
+      "evidence": [
+        "rebuttal_experiments/configs/E1_studentt_d16.yaml",
+        "rebuttal_experiments/configs/E1_gaussian_d16.yaml",
+        "rebuttal_experiments/configs/E5_toy2d.yaml",
+        "rebuttal_experiments/configs/E6_dim16.yaml",
+        "rebuttal_experiments/configs/E8_df3.0.yaml",
+        "rebuttal_experiments/scripts/run_real.py",
+        "experiments/poc_audio/audio_flow.py",
+        "experiments/image_latents/dit/dit_train_sit.py"
+      ],
+      "note": "Explicit angular_rafm entries use empirical ECDF; rafm_oracle is a separate reference method."
+    },
+    "study": {
+      "id": "rafm_input_parameterization_v1",
+      "methods": [
+        "A",
+        "B",
+        "C",
+        "tflow"
+      ],
+      "training_seeds_shared": true,
+      "new_A_rerun": true,
+      "B_C_additional_tuning_steps": 0,
+      "final_checkpoint_selection": "prescribed_final_update_or_final_EMA",
+      "radius_stat_fit_split": "generator_train_only",
+      "authorization": "User authorized full t-Flow and A/B/C study on 2026-09-10, after small correctness runs"
+    },
+    "shared_cache": {
+      "directory": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/v1/imagenette_dcae",
+      "manifest_path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/v1/imagenette_dcae/manifest.json",
+      "manifest_sha256": "c19527b82b5ee5cfbe519dd643487663bdaa6cf2713b7fcb9cb937a9b43bb0bb"
+    }
+  },
+  "config_sha256": "1e6dca1ffe1ee8ba4e4efc62b7737a1f0e872a1ca050756346772e1d25671e29",
+  "source": {
+    "nu": 5.0,
+    "scale": 1.6929918865639924
+  },
+  "hardware": {
+    "host": "auh7-3b-gpu-031",
+    "slurm_job_id": "766524",
+    "python": "3.10.12",
+    "torch": "2.7.1+rocm6.3",
+    "cuda": null,
+    "hip": "6.3.42131-fa1d09cbd",
+    "gpu": "AMD Instinct MI210",
+    "vram_bytes": 68702699520
+  },
+  "dataset_manifest": {
+    "values": {
+      "shape": [
+        13394,
+        2048
+      ],
+      "dtype": "<f4",
+      "sha256": "519491dbb4d863c1e88cd6b9451930302582a1844a2908d812d44c2fe97ab463"
+    },
+    "preprocessing_mean": {
+      "shape": [
+        2048
+      ],
+      "dtype": "<f4",
+      "sha256": "e4a0ee2412a39a56f0e76ea8c1b53f86a34a9cc78fd6fa6d8c7644c7d3ee290e"
+    },
+    "split_indices": {
+      "train": {
+        "shape": [
+          8036
+        ],
+        "dtype": "<i8",
+        "sha256": "68f42227413797e54ea37f517a2e91c5ada6fa0a663bc8af4e1dcb306f84393d"
+      },
+      "val": {
+        "shape": [
+          2678
+        ],
+        "dtype": "<i8",
+        "sha256": "a5e8f5d079d8874fd8e0bee3088e2842575fe9e7b6a3f87760b7b01f1aea202b"
+      },
+      "test": {
+        "shape": [
+          2680
+        ],
+        "dtype": "<i8",
+        "sha256": "2ae5a1eb2c63eb21d97903c3491234fe3f34a4576cba0c2fdb617dc15b00c57d"
+      }
+    },
+    "splits": {
+      "train": {
+        "shape": [
+          8036,
+          2048
+        ],
+        "dtype": "<f4",
+        "sha256": "620153b279aa4076064d0a786be3040dd47e13c69f98681c634b68b933b295f7"
+      },
+      "val": {
+        "shape": [
+          2678,
+          2048
+        ],
+        "dtype": "<f4",
+        "sha256": "e95a34c945396dd68f350e3c75ef8d16f8d40555950092359e23010551b26bd2"
+      },
+      "test": {
+        "shape": [
+          2680,
+          2048
+        ],
+        "dtype": "<f4",
+        "sha256": "18b67294bcf8fb9701b894fba12e30f09ea345781a99c52903b90d7dc1de3fd5"
+      }
+    },
+    "external_test_loaded": false,
+    "labels": {
+      "shape": [
+        13394
+      ],
+      "dtype": "<i8",
+      "sha256": "7874b0973c0e7e21c0037a80e9eee304727ed882b669a45727f8a1e1de16bfc0"
+    }
+  },
+  "peak_memory": {
+    "training": {
+      "allocated_bytes": 1699508736,
+      "reserved_bytes": 1757413376
+    },
+    "sampling": {
+      "allocated_bytes": 1273227264,
+      "reserved_bytes": 2311061504
+    },
+    "sampling_and_evaluation": {
+      "allocated_bytes": 11134032896,
+      "reserved_bytes": 20206059520
+    }
+  },
+  "implementation_sha256": "15a2ffd4088bc3f1bf99e2c6bb25cfa06e1d93be71b0d674bb62b3cfc43dfd7d",
+  "checkpoint": {
+    "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/final/imagenette_dcae/seed_1234/checkpoint.pt",
+    "sha256": "6d838f31c5f2c97223def501298430e9eb65c0338f1663877a83e25db8e4c5aa",
+    "step": 40000,
+    "run_sha256": "431d6d438f03f6a6347a9b82a9da96835e36025904b78df0e92f0e4eb79435e4"
+  },
+  "sample_artifact": {
+    "path": "/mnt/vast01/users/fouad.oubari/data/tflow/samples/imagenette_dcae/seed_1234/326a5221e68c62a576b7a4ecd04ca6cd379f91471053ad6766998feca154d13f/samples.pt",
+    "sha256": "619a8758621137d2cdeced739bc5a6633b613bdd92500df89400523af443849f"
+  },
+  "sampler": {
+    "nfe": 100,
+    "model_calls_total": 600,
+    "n_batches": 6,
+    "time_grid": [
+      0.001,
+      0.06778839213015542,
+      0.1307123637009776,
+      0.1899600725868229,
+      0.245712275016863,
+      0.29814254612966984,
+      0.34741749610215167,
+      0.39369698189769864,
+      0.4371343146783855,
+      0.47787646292609176,
+      0.5160642513173941,
+      0.5518325553970889,
+      0.5853104920951959,
+      0.6166216061323013,
+      0.6458840523580981,
+      0.6732107740679742,
+      0.6987096773425091,
+      0.7224838014547297,
+      0.7446314853899872,
+      0.7652465305233045,
+      0.7844183594990521,
+      0.8022321713578117,
+      0.818769092955276,
+      0.8341063267180462,
+      0.8483172947811817,
+      0.8614717795523545,
+      0.8736360607474685,
+      0.8848730489425957,
+      0.8952424156870872,
+      0.9048007202227131,
+      0.9136015328536887,
+      0.9216955550124405,
+      0.9291307360659689,
+      0.9359523869076642,
+      0.9422032903794295,
+      0.9479238085689663,
+      0.9531519870270815,
+      0.9579236559498672,
+      0.9622725283706114,
+      0.9662302954062953,
+      0.9698267186035321,
+      0.9730897194288023,
+      0.9760454659478437,
+      0.9787184567390481,
+      0.9811316020857243,
+      0.9833063024920788,
+      0.9852625245677745,
+      0.9870188743259186,
+      0.9885926679393385,
+      0.99,
+      1.0
+    ],
+    "parameters": {
+      "t_min": 0.001,
+      "rho": 7.0,
+      "grid": "power_sigma",
+      "sigma_min": 0.01
+    },
+    "timing_scope": "source draw, Heun, strict finite checks, and CPU sample transfers; excludes metrics"
+  },
+  "metrics": {
+    "fid": 230.86925330211199,
+    "kid": 0.09418156623840332,
+    "kid_std": 0.0016717669987535893,
+    "precision": 0.033,
+    "recall": 0.11719745222929936,
+    "density": 0.0071333333333333335,
+    "coverage": 0.006114649681528662,
+    "radial_w1": 379.38995361328125,
+    "ks": 0.7967562079429626,
+    "sliced_w1": 6.83755350112915,
+    "nfe": 100,
+    "sample_time_s": 50.057512015104294,
+    "total_train_time_s": 1771.0647304654121,
+    "n_params": 32515616
+  },
+  "nonfinite_metric_fields": [],
+  "downstream_evaluation": {
+    "method": "tflow",
+    "n": 3000,
+    "real_n": 3925,
+    "cfg": 1.0,
+    "reference": {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/image_latents/dit/eval_std/_real_ref",
+      "count": 3925,
+      "sha256": "79064131fa4cad5529be9ba8b37d3da62a2002adb1b011cfc6bdf148b25382b7"
+    },
+    "protocol": {
+      "source": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/experiments/image_latents/dit/dit_eval_sit.py",
+      "source_sha256": "103a53a9e53e4e0bad1186793ed52d99b8c8fefaaba031039407559822a22436",
+      "decoder_path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.cache/huggingface/hub/models--mit-han-lab--dc-ae-f32c32-sana-1.0-diffusers/snapshots/ca69e17e97609e64ce055115a6515215109b1f50",
+      "latent_scale": 0.41407,
+      "inception_weights_path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/.cache/torch/hub/checkpoints/weights-inception-2015-12-05-6726825d.pth",
+      "inception_weights_sha256": "6726825d0af5f729cebd5821db510b11b1cfad8faad88a03f1befd49fb9129b2",
+      "inception_layer": "2048",
+      "kid_subset_size": 1000,
+      "kid_rng_seed": 2020,
+      "prdc_nearest_k": 5,
+      "sliced_projections": 200,
+      "sliced_seed": 0,
+      "generated_image_dir": "/mnt/vast01/users/fouad.oubari/data/tflow/generated_images/imagenette_dcae/seed_1234/326a5221e68c62a576b7a4ecd04ca6cd379f91471053ad6766998feca154d13f",
+      "package_versions": {
+        "torch": "2.7.1+rocm6.3",
+        "torchvision": "0.22.1+rocm6.3",
+        "torch-fidelity": "0.4.0",
+        "prdc": "0.2",
+        "diffusers": "0.40.0",
+        "numpy": "2.2.6",
+        "Pillow": "12.3.0"
+      },
+      "precision": "float32",
+      "device": "cuda:0"
+    },
+    "class_counts": {
+      "0": 300,
+      "1": 300,
+      "2": 300,
+      "3": 300,
+      "4": 300,
+      "5": 300,
+      "6": 300,
+      "7": 300,
+      "8": 300,
+      "9": 300
+    }
+  }
+}

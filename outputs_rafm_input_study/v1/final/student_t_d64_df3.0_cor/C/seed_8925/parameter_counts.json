@@ -1,0 +1,10 @@
+{
+  "arm": "C",
+  "backbone_kind": "mlp",
+  "original_backbone_parameters": 49728,
+  "total_parameters": 49856,
+  "trainable_parameters": 49856,
+  "conditioning_overhead_parameters": 128,
+  "conditioning_overhead_fraction": 0.002574002574002574,
+  "radius_embedding_hidden_width": null
+}

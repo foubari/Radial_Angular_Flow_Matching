@@ -1,0 +1,10 @@
+{
+  "arm": "C",
+  "backbone_kind": "audio_unet",
+  "original_backbone_parameters": 27896802,
+  "total_parameters": 27901186,
+  "trainable_parameters": 27901186,
+  "conditioning_overhead_parameters": 4384,
+  "conditioning_overhead_fraction": 0.00015715062966715682,
+  "radius_embedding_hidden_width": 16
+}

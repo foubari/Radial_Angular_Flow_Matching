@@ -1,0 +1,383 @@
+{
+  "status": "frozen",
+  "selection_split": "validation",
+  "config_sha256": "f236e256b20b9b8f365445d8d4b2a9e578466fe2d494b69d4288cfa1e6b3148f",
+  "condition_id": "weather_au_wind",
+  "tuning_seed": 46021,
+  "implementation_sha256": "3297bfee029c574a545cc713f3266c074896b9051fabfbc3c4cea11e5efbcc41",
+  "selected": {
+    "nu": 7.0,
+    "scale": 0.926607487348564,
+    "scale_multiplier": 1.0,
+    "reference_scale": 0.926607487348564,
+    "training_median_radius": 9.501957954083423
+  },
+  "stage1_trials": [
+    {
+      "candidate_index": 0,
+      "source": {
+        "nu": 3.0,
+        "scale": 0.43215393806399366,
+        "scale_multiplier": 0.5,
+        "reference_scale": 0.8643078761279873,
+        "training_median_radius": 9.501957954083423
+      },
+      "steps": 500,
+      "status": "complete",
+      "metrics": {
+        "selection_score": 0.7888350887510693,
+        "radial_ks": 1.0,
+        "projected_ks_mean": 0.5776701775021387,
+        "projection_seed": 61719,
+        "n_projections": 64,
+        "n_generated": 1000,
+        "n_validation": 1169
+      },
+      "config_sha256": "f236e256b20b9b8f365445d8d4b2a9e578466fe2d494b69d4288cfa1e6b3148f",
+      "implementation_sha256": "3297bfee029c574a545cc713f3266c074896b9051fabfbc3c4cea11e5efbcc41",
+      "checkpoint": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/weather_au_wind/candidate_00/checkpoint.pt",
+        "sha256": "9cbff251125dd0f522ce24664fa87b5853cf2d3ed37b8a51b5b2282451cb186f",
+        "step": 500,
+        "run_sha256": "f8afc10fa1d9168db48817adfe68cad3c6d1ffc7a7556eb2e111729ed91a7fa7",
+        "stage": "tuning"
+      },
+      "training_time_s": 6.460965599864721,
+      "sample_time_s": 0.39688829705119133
+    },
+    {
+      "candidate_index": 1,
+      "source": {
+        "nu": 3.0,
+        "scale": 0.8643078761279873,
+        "scale_multiplier": 1.0,
+        "reference_scale": 0.8643078761279873,
+        "training_median_radius": 9.501957954083423
+      },
+      "steps": 500,
+      "status": "complete",
+      "metrics": {
+        "selection_score": 0.7915536516253208,
+        "radial_ks": 1.0,
+        "projected_ks_mean": 0.5831073032506415,
+        "projection_seed": 61719,
+        "n_projections": 64,
+        "n_generated": 1000,
+        "n_validation": 1169
+      },
+      "config_sha256": "f236e256b20b9b8f365445d8d4b2a9e578466fe2d494b69d4288cfa1e6b3148f",
+      "implementation_sha256": "3297bfee029c574a545cc713f3266c074896b9051fabfbc3c4cea11e5efbcc41",
+      "checkpoint": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/weather_au_wind/candidate_01/checkpoint.pt",
+        "sha256": "6cdec66d89c538531aa0c10005f3a6101eb033ed32cf21e8e84b98dd6e90d93e",
+        "step": 500,
+        "run_sha256": "ed01d49f4f115effa44f5ecd35f1d33f5ef0e96732b9472dbf877b84e40a3515",
+        "stage": "tuning"
+      },
+      "training_time_s": 1.423758678138256,
+      "sample_time_s": 0.39154020696878433
+    },
+    {
+      "candidate_index": 2,
+      "source": {
+        "nu": 3.0,
+        "scale": 1.7286157522559746,
+        "scale_multiplier": 2.0,
+        "reference_scale": 0.8643078761279873,
+        "training_median_radius": 9.501957954083423
+      },
+      "steps": 500,
+      "status": "complete",
+      "metrics": {
+        "selection_score": 0.7794007899379811,
+        "radial_ks": 1.0,
+        "projected_ks_mean": 0.5588015798759624,
+        "projection_seed": 61719,
+        "n_projections": 64,
+        "n_generated": 1000,
+        "n_validation": 1169
+      },
+      "config_sha256": "f236e256b20b9b8f365445d8d4b2a9e578466fe2d494b69d4288cfa1e6b3148f",
+      "implementation_sha256": "3297bfee029c574a545cc713f3266c074896b9051fabfbc3c4cea11e5efbcc41",
+      "checkpoint": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/weather_au_wind/candidate_02/checkpoint.pt",
+        "sha256": "7ef6aa98fbf736eeb9f52630e648fd2eb5c3a0215b0d486f741131edb05c4a06",
+        "step": 500,
+        "run_sha256": "94d182e14ed63a60c630bdf89003c165c598ab1182da90a93a6765cdb28890f8",
+        "stage": "tuning"
+      },
+      "training_time_s": 1.4280552975833416,
+      "sample_time_s": 0.39098354801535606
+    },
+    {
+      "candidate_index": 3,
+      "source": {
+        "nu": 5.0,
+        "scale": 0.453952229588168,
+        "scale_multiplier": 0.5,
+        "reference_scale": 0.907904459176336,
+        "training_median_radius": 9.501957954083423
+      },
+      "steps": 500,
+      "status": "complete",
+      "metrics": {
+        "selection_score": 0.7737081105645851,
+        "radial_ks": 1.0,
+        "projected_ks_mean": 0.5474162211291702,
+        "projection_seed": 61719,
+        "n_projections": 64,
+        "n_generated": 1000,
+        "n_validation": 1169
+      },
+      "config_sha256": "f236e256b20b9b8f365445d8d4b2a9e578466fe2d494b69d4288cfa1e6b3148f",
+      "implementation_sha256": "3297bfee029c574a545cc713f3266c074896b9051fabfbc3c4cea11e5efbcc41",
+      "checkpoint": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/weather_au_wind/candidate_03/checkpoint.pt",
+        "sha256": "6282f4763eef1be118e997eaf71c24e74c3bbc52e552d621c5fb85eff477202f",
+        "step": 500,
+        "run_sha256": "27c6d3ac102da07bd6249fefa59700526b15d99eeb51816dd112fc218476e61c",
+        "stage": "tuning"
+      },
+      "training_time_s": 1.4181730039417744,
+      "sample_time_s": 0.381722304970026
+    },
+    {
+      "candidate_index": 4,
+      "source": {
+        "nu": 5.0,
+        "scale": 0.907904459176336,
+        "scale_multiplier": 1.0,
+        "reference_scale": 0.907904459176336,
+        "training_median_radius": 9.501957954083423
+      },
+      "steps": 500,
+      "status": "complete",
+      "metrics": {
+        "selection_score": 0.7689623476261762,
+        "radial_ks": 1.0,
+        "projected_ks_mean": 0.5379246952523524,
+        "projection_seed": 61719,
+        "n_projections": 64,
+        "n_generated": 1000,
+        "n_validation": 1169
+      },
+      "config_sha256": "f236e256b20b9b8f365445d8d4b2a9e578466fe2d494b69d4288cfa1e6b3148f",
+      "implementation_sha256": "3297bfee029c574a545cc713f3266c074896b9051fabfbc3c4cea11e5efbcc41",
+      "checkpoint": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/weather_au_wind/candidate_04/checkpoint.pt",
+        "sha256": "9a8b4fb187adfff82f18262e6d206074cd75cd569cba6a0c5776299935c6733c",
+        "step": 500,
+        "run_sha256": "f851b71925a4621603a1c510e1a4ca67e841abf813f1476e0b6889dbb54fb368",
+        "stage": "tuning"
+      },
+      "training_time_s": 1.4363794550299644,
+      "sample_time_s": 0.3830392025411129
+    },
+    {
+      "candidate_index": 5,
+      "source": {
+        "nu": 5.0,
+        "scale": 1.815808918352672,
+        "scale_multiplier": 2.0,
+        "reference_scale": 0.907904459176336,
+        "training_median_radius": 9.501957954083423
+      },
+      "steps": 500,
+      "status": "complete",
+      "metrics": {
+        "selection_score": 0.7729588657506415,
+        "radial_ks": 1.0,
+        "projected_ks_mean": 0.5459177315012831,
+        "projection_seed": 61719,
+        "n_projections": 64,
+        "n_generated": 1000,
+        "n_validation": 1169
+      },
+      "config_sha256": "f236e256b20b9b8f365445d8d4b2a9e578466fe2d494b69d4288cfa1e6b3148f",
+      "implementation_sha256": "3297bfee029c574a545cc713f3266c074896b9051fabfbc3c4cea11e5efbcc41",
+      "checkpoint": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/weather_au_wind/candidate_05/checkpoint.pt",
+        "sha256": "cfcad700f2768412905d2c22d014b9a5952be9f1ae41b9fef5c5b435785b2ec9",
+        "step": 500,
+        "run_sha256": "78abdb80070c3cca59f1cd86b8ea5e124d4cf65f51f7cc7616a5f3e83f622290",
+        "stage": "tuning"
+      },
+      "training_time_s": 1.4295392483472824,
+      "sample_time_s": 0.3818722702562809
+    },
+    {
+      "candidate_index": 6,
+      "source": {
+        "nu": 7.0,
+        "scale": 0.463303743674282,
+        "scale_multiplier": 0.5,
+        "reference_scale": 0.926607487348564,
+        "training_median_radius": 9.501957954083423
+      },
+      "steps": 500,
+      "status": "complete",
+      "metrics": {
+        "selection_score": 0.7714502980645851,
+        "radial_ks": 1.0,
+        "projected_ks_mean": 0.5429005961291702,
+        "projection_seed": 61719,
+        "n_projections": 64,
+        "n_generated": 1000,
+        "n_validation": 1169
+      },
+      "config_sha256": "f236e256b20b9b8f365445d8d4b2a9e578466fe2d494b69d4288cfa1e6b3148f",
+      "implementation_sha256": "3297bfee029c574a545cc713f3266c074896b9051fabfbc3c4cea11e5efbcc41",
+      "checkpoint": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/weather_au_wind/candidate_06/checkpoint.pt",
+        "sha256": "718d314c610d4fbe726a6cd08168e1a3ccac60bfd93c5385356b6cdae50fcc96",
+        "step": 500,
+        "run_sha256": "be284e0263d051de85fdd3da98f5fdeee0d38c8e4d479d484c895ab0bdc04559",
+        "stage": "tuning"
+      },
+      "training_time_s": 1.4227124974131584,
+      "sample_time_s": 0.38258811086416245
+    },
+    {
+      "candidate_index": 7,
+      "source": {
+        "nu": 7.0,
+        "scale": 0.926607487348564,
+        "scale_multiplier": 1.0,
+        "reference_scale": 0.926607487348564,
+        "training_median_radius": 9.501957954083423
+      },
+      "steps": 500,
+      "status": "complete",
+      "metrics": {
+        "selection_score": 0.7661900395637297,
+        "radial_ks": 1.0,
+        "projected_ks_mean": 0.5323800791274593,
+        "projection_seed": 61719,
+        "n_projections": 64,
+        "n_generated": 1000,
+        "n_validation": 1169
+      },
+      "config_sha256": "f236e256b20b9b8f365445d8d4b2a9e578466fe2d494b69d4288cfa1e6b3148f",
+      "implementation_sha256": "3297bfee029c574a545cc713f3266c074896b9051fabfbc3c4cea11e5efbcc41",
+      "checkpoint": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/weather_au_wind/candidate_07/checkpoint.pt",
+        "sha256": "21d4adf7421bb81e1375c2aea3a65d4610f512377209d8f1a07086ebd04339c8",
+        "step": 500,
+        "run_sha256": "5bc7c9101bfff4159317b7d29f587a30c81465c6d812e9d5f1ae4024b7640d42",
+        "stage": "tuning"
+      },
+      "training_time_s": 1.4206263311207294,
+      "sample_time_s": 0.3916170969605446
+    },
+    {
+      "candidate_index": 8,
+      "source": {
+        "nu": 7.0,
+        "scale": 1.853214974697128,
+        "scale_multiplier": 2.0,
+        "reference_scale": 0.926607487348564,
+        "training_median_radius": 9.501957954083423
+      },
+      "steps": 500,
+      "status": "complete",
+      "metrics": {
+        "selection_score": 0.7702165846877673,
+        "radial_ks": 1.0,
+        "projected_ks_mean": 0.5404331693755346,
+        "projection_seed": 61719,
+        "n_projections": 64,
+        "n_generated": 1000,
+        "n_validation": 1169
+      },
+      "config_sha256": "f236e256b20b9b8f365445d8d4b2a9e578466fe2d494b69d4288cfa1e6b3148f",
+      "implementation_sha256": "3297bfee029c574a545cc713f3266c074896b9051fabfbc3c4cea11e5efbcc41",
+      "checkpoint": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/weather_au_wind/candidate_08/checkpoint.pt",
+        "sha256": "df24ee356e1c172a332e75b75c108a7410a62f8a58ebdad1fec87a5d9c5ddbca",
+        "step": 500,
+        "run_sha256": "92e8ab29993051a58a52e17eb2be0de267b46d168aa0dc757a13a2b60e5c2916",
+        "stage": "tuning"
+      },
+      "training_time_s": 1.4174001701176167,
+      "sample_time_s": 0.3913988620042801
+    }
+  ],
+  "finalist_trials": [
+    {
+      "candidate_index": 7,
+      "source": {
+        "nu": 7.0,
+        "scale": 0.926607487348564,
+        "scale_multiplier": 1.0,
+        "reference_scale": 0.926607487348564,
+        "training_median_radius": 9.501957954083423
+      },
+      "steps": 1000,
+      "status": "complete",
+      "metrics": {
+        "selection_score": 0.7656745081266039,
+        "radial_ks": 1.0,
+        "projected_ks_mean": 0.5313490162532079,
+        "projection_seed": 61719,
+        "n_projections": 64,
+        "n_generated": 1000,
+        "n_validation": 1169
+      },
+      "config_sha256": "f236e256b20b9b8f365445d8d4b2a9e578466fe2d494b69d4288cfa1e6b3148f",
+      "implementation_sha256": "3297bfee029c574a545cc713f3266c074896b9051fabfbc3c4cea11e5efbcc41",
+      "checkpoint": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/weather_au_wind/candidate_07/checkpoint.pt",
+        "sha256": "319af7c64a53d9632b01b22541900f7ada8e83022e573031c25c704d41adce4a",
+        "step": 1000,
+        "run_sha256": "5bc7c9101bfff4159317b7d29f587a30c81465c6d812e9d5f1ae4024b7640d42",
+        "stage": "tuning"
+      },
+      "training_time_s": 2.8443485721945763,
+      "sample_time_s": 0.38962501659989357
+    },
+    {
+      "candidate_index": 4,
+      "source": {
+        "nu": 5.0,
+        "scale": 0.907904459176336,
+        "scale_multiplier": 1.0,
+        "reference_scale": 0.907904459176336,
+        "training_median_radius": 9.501957954083423
+      },
+      "steps": 1000,
+      "status": "complete",
+      "metrics": {
+        "selection_score": 0.7658139101261763,
+        "radial_ks": 1.0,
+        "projected_ks_mean": 0.5316278202523524,
+        "projection_seed": 61719,
+        "n_projections": 64,
+        "n_generated": 1000,
+        "n_validation": 1169
+      },
+      "config_sha256": "f236e256b20b9b8f365445d8d4b2a9e578466fe2d494b69d4288cfa1e6b3148f",
+      "implementation_sha256": "3297bfee029c574a545cc713f3266c074896b9051fabfbc3c4cea11e5efbcc41",
+      "checkpoint": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/weather_au_wind/candidate_04/checkpoint.pt",
+        "sha256": "94460c9993ee7d66f1724f2db24a00026b8631853c8941f93cc27a8830964e00",
+        "step": 1000,
+        "run_sha256": "f851b71925a4621603a1c510e1a4ca67e841abf813f1476e0b6889dbb54fb368",
+        "stage": "tuning"
+      },
+      "training_time_s": 2.857675291597843,
+      "sample_time_s": 0.38849591091275215
+    }
+  ],
+  "selection_score": {
+    "selection_score": 0.7656745081266039,
+    "radial_ks": 1.0,
+    "projected_ks_mean": 0.5313490162532079,
+    "projection_seed": 61719,
+    "n_projections": 64,
+    "n_generated": 1000,
+    "n_validation": 1169
+  },
+  "full_training_equivalents": 0.55,
+  "test_data_used_for_selection": false,
+  "final_training": "restart all three paper seeds from scratch"
+}

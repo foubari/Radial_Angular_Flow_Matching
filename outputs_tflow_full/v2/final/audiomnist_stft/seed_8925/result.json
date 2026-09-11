@@ -1,0 +1,461 @@
+{
+  "schema_version": 1,
+  "condition_id": "audiomnist_stft",
+  "method": "tflow",
+  "seed": 8925,
+  "stage": "final",
+  "status": "complete",
+  "config": {
+    "schema_version": 1,
+    "condition_id": "audiomnist_stft",
+    "kind": "audio",
+    "protocol_status": "resolved",
+    "blocking_issues": [],
+    "seeds": [
+      8925,
+      1234,
+      7
+    ],
+    "data": {
+      "input": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/poc_audio/data/audiomnist_stft_train.pt",
+        "sha256": "d4c0e10dcae8bdb2ad6e7bf05202a42e6a6af3b6fb064e6fc97e12432e0fe7be"
+      },
+      "shape": [
+        12000,
+        16254
+      ],
+      "split": {
+        "kind": "indices",
+        "seed": 0,
+        "n_train": 10200,
+        "n_val": 1800,
+        "n_test": 0,
+        "file": {
+          "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/v1/audiomnist_stft/split_indices.pt",
+          "sha256": "a4d59c68aab7dca5a87f0f6bbb239f7b671735c9843b05de4b3001d11568bac1"
+        }
+      },
+      "transform": "as_cached",
+      "external_test": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/poc_audio/data/audiomnist_stft_test.pt",
+        "sha256": "c9ab95b3bcb0049f881a84d180bccbdedf4d25cf6723dc48cafb90e4a0e20209"
+      }
+    },
+    "model": {
+      "kind": "audio_unet",
+      "ch": 96,
+      "class_dropout": 0.1
+    },
+    "training": {
+      "steps": 24000,
+      "batch_size": 32,
+      "optimizer": "AdamW",
+      "lr": 0.0002,
+      "betas": [
+        0.9,
+        0.95
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "gradient_clip": null,
+      "ema": 0.999,
+      "precision": "bfloat16_autocast",
+      "batch_rule": "step_seeded",
+      "compile": false,
+      "checkpoint_every": 2000,
+      "log_every": 500,
+      "class_dropout": 0.1
+    },
+    "evaluation": {
+      "n_samples": 2000,
+      "model_evaluations": 160,
+      "sample_batch_size": 128,
+      "sample_seed": 0,
+      "metric_seed": 0,
+      "metric_seed_note": "Common new seed-0 metric projections across A/B/C and t-Flow; historical projections unavailable.",
+      "classifier": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/poc_audio/digit_classifier.pt",
+        "sha256": "1c68713e65df8c256bf8dd73edee70ba0e419381258cc46ff497042287946d50"
+      }
+    },
+    "sampler": {
+      "t_min": 0.001,
+      "rho": 7.0,
+      "grid": "power_sigma",
+      "sigma_min": 0.01
+    },
+    "tuning": {
+      "seed": 46021,
+      "nu": [
+        3,
+        5,
+        7
+      ],
+      "scale_multipliers": [
+        0.5,
+        1,
+        2
+      ],
+      "stage1_fraction": 0.05,
+      "continuation_fraction": 0.1,
+      "n_finalists": 2,
+      "validation_generated_samples": 1000,
+      "sample_seed": 61717,
+      "projection_seed": 61719
+    },
+    "provenance": {
+      "paper_sha256": "97f709df2a45e4acf4ba186379c60e9c75120d95e09af782d7a18c8b56d00367",
+      "baseline_commit": "5b89ed5f4af8a47c3b57eb9d595203daafc6d2c4",
+      "source_artifacts": [
+        "experiments/poc_audio/audio_data.py",
+        "experiments/poc_audio/audio_flow.py",
+        "experiments/poc_audio/audio_eval.py",
+        "experiments/poc_audio/launch_stage2_seeds.bat",
+        "experiments/poc_audio/stage2_3seed.json"
+      ],
+      "cached_input_only": true,
+      "existing_results_unchanged": true,
+      "study_id": "rafm_input_parameterization_v1",
+      "historical_result_reuse": false,
+      "comparison_label": "new_matched_runs_on_verified_existing_cache",
+      "original_prepared_config_sha256": "b115e71e1006d26917d027fef73239e8bc0a5dca97a80ca4ed6fb56cdc695c40",
+      "batch_resolution": {
+        "prepared_value": 32,
+        "selected_value": 32,
+        "evidence": "Supplied PDF p34 C.7: Student-t/PIV256; Weather2048; other vectors4096; downstream p35 C.10"
+      },
+      "original_split_spec": {
+        "kind": "random",
+        "seed": 0,
+        "n_train": 10200,
+        "n_val": 1800,
+        "n_test": 0
+      },
+      "generation": null,
+      "shared_preparation_identity_sha256": "247310996b875843c4314f6adbf3fb88de14e9f352b892d3e22486d704672436"
+    },
+    "experiment_launch_status": "authorized_after_correctness_checks_and_verified_cache",
+    "rafm_sampling_source": {
+      "kind": "radial_empirical_ecdf",
+      "fit_split": "generator_train_only",
+      "implementation": "rafm/sources/radial_empirical.py:RadialEmpiricalSource(mode=ecdf)",
+      "interpolation": "torch.quantile linear, independent uniform radius draw",
+      "log_radius_source": false,
+      "evidence": [
+        "rebuttal_experiments/configs/E1_studentt_d16.yaml",
+        "rebuttal_experiments/configs/E1_gaussian_d16.yaml",
+        "rebuttal_experiments/configs/E5_toy2d.yaml",
+        "rebuttal_experiments/configs/E6_dim16.yaml",
+        "rebuttal_experiments/configs/E8_df3.0.yaml",
+        "rebuttal_experiments/scripts/run_real.py",
+        "experiments/poc_audio/audio_flow.py",
+        "experiments/image_latents/dit/dit_train_sit.py"
+      ],
+      "note": "Explicit angular_rafm entries use empirical ECDF; rafm_oracle is a separate reference method."
+    },
+    "study": {
+      "id": "rafm_input_parameterization_v1",
+      "methods": [
+        "A",
+        "B",
+        "C",
+        "tflow"
+      ],
+      "training_seeds_shared": true,
+      "new_A_rerun": true,
+      "B_C_additional_tuning_steps": 0,
+      "final_checkpoint_selection": "prescribed_final_update_or_final_EMA",
+      "radius_stat_fit_split": "generator_train_only",
+      "authorization": "User authorized full t-Flow and A/B/C study on 2026-09-10, after small correctness runs"
+    },
+    "shared_cache": {
+      "directory": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/v1/audiomnist_stft",
+      "manifest_path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/v1/audiomnist_stft/manifest.json",
+      "manifest_sha256": "0ab9076e6bb1421f908c5b988720e2bb83d328a6e2642f105713170ec42d6a7c"
+    }
+  },
+  "config_sha256": "38c27cb839fb0249efbd684c992b5c70aea01a40435a34ef3e846439a76611fc",
+  "source": {
+    "nu": 7.0,
+    "scale": 0.004784161933072574
+  },
+  "hardware": {
+    "host": "auh7-3b-gpu-008",
+    "slurm_job_id": "765787",
+    "python": "3.10.12",
+    "torch": "2.7.1+rocm6.3",
+    "cuda": null,
+    "hip": "6.3.42131-fa1d09cbd",
+    "gpu": "AMD Instinct MI210",
+    "vram_bytes": 68702699520
+  },
+  "dataset_manifest": {
+    "values": {
+      "shape": [
+        12000,
+        16254
+      ],
+      "dtype": "<f4",
+      "sha256": "b28355438a556534a2c1f52d64ab8844eb1c1ca8565d64636f70a14f7bf3f2f6"
+    },
+    "preprocessing_mean": {
+      "shape": [
+        16254
+      ],
+      "dtype": "<f4",
+      "sha256": "37faad3484ee897be418b5f71ca30b81be3f67c8925e1cf1936b83d56556edc2"
+    },
+    "split_indices": {
+      "train": {
+        "shape": [
+          10200
+        ],
+        "dtype": "<i8",
+        "sha256": "08a2f65d538cee711cc1dfaf7ec69ecc7ce95dbebe45702839654dbc107c92cd"
+      },
+      "val": {
+        "shape": [
+          1800
+        ],
+        "dtype": "<i8",
+        "sha256": "79b1cb53ca272949bb52113f6ee99f4e2530f4014788d76ea2370a091233cb92"
+      },
+      "test": {
+        "shape": [
+          0
+        ],
+        "dtype": "<i8",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    "splits": {
+      "train": {
+        "shape": [
+          10200,
+          16254
+        ],
+        "dtype": "<f4",
+        "sha256": "03803b0928ab2dae315b4a63720304d31db0a5d59f54fffcf5e1e30aaaad5401"
+      },
+      "val": {
+        "shape": [
+          1800,
+          16254
+        ],
+        "dtype": "<f4",
+        "sha256": "c533de6f774e6ed5fe22bd07f88bb6c1bcdf45688b73d0c9655a095b0cb2b94b"
+      },
+      "test": {
+        "shape": [
+          3000,
+          16254
+        ],
+        "dtype": "<f4",
+        "sha256": "f6a722328fc903466848d2d0dac8596f5efabf245dcb3f6c8f08b9cfac9bab68"
+      }
+    },
+    "external_test_loaded": true,
+    "labels": {
+      "shape": [
+        12000
+      ],
+      "dtype": "<i8",
+      "sha256": "058060c5e01ed7704d78e45084642806a8fa15e31d658be00b90c057c0db9b57"
+    },
+    "external_test_gains": {
+      "shape": [
+        3000
+      ],
+      "dtype": "<f4",
+      "sha256": "3f1f961b0f0c33b3686e42bd2093004cf2b4c15b63268e5c20b169f71d2464a5"
+    }
+  },
+  "peak_memory": {
+    "training": {
+      "allocated_bytes": 8173539840,
+      "reserved_bytes": 9072279552
+    },
+    "sampling": {
+      "allocated_bytes": 4240910848,
+      "reserved_bytes": 13914603520
+    },
+    "sampling_and_evaluation": {
+      "allocated_bytes": 4240910848,
+      "reserved_bytes": 13914603520
+    }
+  },
+  "implementation_sha256": "afd10909f52362aacdbf1a3f42deb86cff99644aad329c111b0553e889eceb17",
+  "checkpoint": {
+    "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/final/audiomnist_stft/seed_8925/checkpoint.pt",
+    "sha256": "203e81f10aeed8f09f98cc3640cb0d22320f39d29f2512f953b35c67979e7d05",
+    "step": 24000,
+    "run_sha256": "3ca39848e9b19b6821b4539cd6a992a6126773c51e959af73248b1304c855f1c"
+  },
+  "sample_artifact": {
+    "path": "/mnt/vast01/users/fouad.oubari/data/tflow/samples/audiomnist_stft/seed_8925/66c10153fff572da6b1eb62efc427b4061dead32ae17b868497be4c375c3da80/samples.pt",
+    "sha256": "65e4f7dd982e43b29210058eb097295476334d0a7188e1322c37990b6ab339ce"
+  },
+  "sampler": {
+    "nfe": 160,
+    "model_calls_total": 2560,
+    "n_batches": 16,
+    "time_grid": [
+      0.001,
+      0.042891257576101904,
+      0.08326771800643762,
+      0.12217530534703969,
+      0.15965882300889767,
+      0.1957619743939657,
+      0.2305273832762651,
+      0.263996613929661,
+      0.29621019100390933,
+      0.32720761915055185,
+      0.35702740240023856,
+      0.38570706329307136,
+      0.4132831617635493,
+      0.43979131378169334,
+      0.46526620975194555,
+      0.4897416326714207,
+      0.5132504760490919,
+      0.535824761587502,
+      0.5574956566285798,
+      0.5782934913651432,
+      0.5982477758196805,
+      0.6173872165919894,
+      0.6357397333772543,
+      0.6533324752561558,
+      0.6701918367585883,
+      0.6863434737025712,
+      0.7018123188099419,
+      0.7166225971004117,
+      0.7307978410655661,
+      0.7443609056244007,
+      0.7573339828619708,
+      0.7697386165527415,
+      0.7815957164702201,
+      0.79292557248446,
+      0.8037478684490149,
+      0.814081695878929,
+      0.8239455674213506,
+      0.8333574301203472,
+      0.8423346784775131,
+      0.8508941673099465,
+      0.8590522244071885,
+      0.8668246629886984,
+      0.8742267939634605,
+      0.8812734379932953,
+      0.8879789373614686,
+      0.8943571676481773,
+      0.9004215492144976,
+      0.9061850584963795,
+      0.9116602391102738,
+      0.916859212771971,
+      0.9217936900302415,
+      0.9264749808168582,
+      0.9309140048145873,
+      0.9351213016447286,
+      0.9391070408757939,
+      0.9428810318549037,
+      0.946452733363488,
+      0.9498312630988767,
+      0.9530254069833602,
+      0.9560436283023082,
+      0.9588940766729283,
+      0.96158459684525,
+      0.964122737336917,
+      0.9665157589033735,
+      0.968770642845027,
+      0.9708940991529731,
+      0.972892574494866,
+      0.9747722600425186,
+      0.9765390991428162,
+      0.9781987948335295,
+      0.9797568172056084,
+      0.9812184106135435,
+      0.9825886007353781,
+      0.9838722014839538,
+      0.9850738217709766,
+      0.9861978721254852,
+      0.9872485711683068,
+      0.9882299519440848,
+      0.9891458681124613,
+      0.99,
+      1.0
+    ],
+    "parameters": {
+      "t_min": 0.001,
+      "rho": 7.0,
+      "grid": "power_sigma",
+      "sigma_min": 0.01
+    },
+    "timing_scope": "source draw, Heun, strict finite checks, and CPU sample transfers; excludes metrics"
+  },
+  "metrics": {
+    "digit_acc": 0.147,
+    "energy_KS": 0.826,
+    "cov>q95": 0.8715,
+    "cov>q99": 0.7615,
+    "cov<q10": 0.0,
+    "PIT": 0.9766765000000001,
+    "radial_w1": 7.461726380944251,
+    "cov>q90": 0.919,
+    "nfe": 160,
+    "sample_time_s": 878.0980474799871,
+    "total_train_time_s": 8931.089417293668,
+    "n_params": 27896802
+  },
+  "nonfinite_metric_fields": [],
+  "downstream_evaluation": {
+    "audio_summary": {
+      "energy": {
+        "radial_w1": 7.4617,
+        "ks": 0.826,
+        "cov_gt_q90": 0.919,
+        "cov_gt_q95": 0.8715,
+        "cov_gt_q99": 0.7615,
+        "cov_lt_q10": 0.0,
+        "pit_mean": 0.9767,
+        "gen_energy_mean": 9.76,
+        "data_energy_mean": 2.298
+      },
+      "content": {
+        "digit_acc": 0.147,
+        "mean_confidence": 0.782,
+        "acc_by_energy": {
+          "low_energy": 0.168,
+          "mid_energy": 0.14,
+          "high_energy": 0.133
+        }
+      },
+      "unrounded": {
+        "energy": {
+          "radial_w1": 7.461726380944251,
+          "ks": 0.826,
+          "cov_gt_q90": 0.919,
+          "cov_gt_q95": 0.8715,
+          "cov_gt_q99": 0.7615,
+          "cov_lt_q10": 0.0,
+          "pit_mean": 0.9766765000000001,
+          "gen_energy_mean": 9.759600639343262,
+          "data_energy_mean": 2.297874689102173
+        },
+        "digit_acc": 0.147,
+        "correct_count": 294,
+        "legacy_float32_accuracy": 0.1469999998807907,
+        "mean_confidence": 0.7815178036689758
+      }
+    },
+    "classifier_batch_size": 2000,
+    "classifier_forward_calls": 1,
+    "classifier_precision": "float32_no_autocast",
+    "classifier": {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/poc_audio/digit_classifier.pt",
+      "sha256": "1c68713e65df8c256bf8dd73edee70ba0e419381258cc46ff497042287946d50"
+    },
+    "audio_artifact": {
+      "path": "/mnt/vast01/users/fouad.oubari/data/tflow/samples/audiomnist_stft/seed_8925/66c10153fff572da6b1eb62efc427b4061dead32ae17b868497be4c375c3da80/audio_evaluation.pt",
+      "sha256": "b0c3dc36b1764a29b21d47b95b5cdfdacc55b9c9b4fbbc7a301eecc6b5e85e2b"
+    }
+  }
+}

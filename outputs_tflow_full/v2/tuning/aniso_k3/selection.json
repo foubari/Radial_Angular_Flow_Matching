@@ -1,0 +1,383 @@
+{
+  "status": "frozen",
+  "selection_split": "validation",
+  "config_sha256": "bb391e31ffaeb63475c3097d11355a4f225b2e5203330c195feb243644022563",
+  "condition_id": "aniso_k3",
+  "tuning_seed": 46021,
+  "implementation_sha256": "3297bfee029c574a545cc713f3266c074896b9051fabfbc3c4cea11e5efbcc41",
+  "selected": {
+    "nu": 5.0,
+    "scale": 3.5524838314982734,
+    "scale_multiplier": 2.0,
+    "reference_scale": 1.7762419157491367,
+    "training_median_radius": 10.65720003363785
+  },
+  "stage1_trials": [
+    {
+      "candidate_index": 0,
+      "source": {
+        "nu": 3.0,
+        "scale": 0.8455381918954444,
+        "scale_multiplier": 0.5,
+        "reference_scale": 1.6910763837908889,
+        "training_median_radius": 10.65720003363785
+      },
+      "steps": 500,
+      "status": "complete",
+      "metrics": {
+        "selection_score": 0.7584609375,
+        "radial_ks": 0.9988,
+        "projected_ks_mean": 0.518121875,
+        "projection_seed": 61719,
+        "n_projections": 64,
+        "n_generated": 1000,
+        "n_validation": 10000
+      },
+      "config_sha256": "bb391e31ffaeb63475c3097d11355a4f225b2e5203330c195feb243644022563",
+      "implementation_sha256": "3297bfee029c574a545cc713f3266c074896b9051fabfbc3c4cea11e5efbcc41",
+      "checkpoint": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/aniso_k3/candidate_00/checkpoint.pt",
+        "sha256": "6fb1b55b5f089c9b76e0e44a9cf20e8821d4fff5c47d0f5b5c3a713858fc95e2",
+        "step": 500,
+        "run_sha256": "a69ee13312da4b492ff1df6fb4ea1d4ba998c58356aeb7c6fad5f6f059225abd",
+        "stage": "tuning"
+      },
+      "training_time_s": 6.417276713997126,
+      "sample_time_s": 0.3886110447347164
+    },
+    {
+      "candidate_index": 1,
+      "source": {
+        "nu": 3.0,
+        "scale": 1.6910763837908889,
+        "scale_multiplier": 1.0,
+        "reference_scale": 1.6910763837908889,
+        "training_median_radius": 10.65720003363785
+      },
+      "steps": 500,
+      "status": "complete",
+      "metrics": {
+        "selection_score": 0.7612484374999999,
+        "radial_ks": 0.9976,
+        "projected_ks_mean": 0.5248968749999999,
+        "projection_seed": 61719,
+        "n_projections": 64,
+        "n_generated": 1000,
+        "n_validation": 10000
+      },
+      "config_sha256": "bb391e31ffaeb63475c3097d11355a4f225b2e5203330c195feb243644022563",
+      "implementation_sha256": "3297bfee029c574a545cc713f3266c074896b9051fabfbc3c4cea11e5efbcc41",
+      "checkpoint": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/aniso_k3/candidate_01/checkpoint.pt",
+        "sha256": "5838db4964b4ba9362e8c3773b9e833aad529119b269d954fc83e3d95e9b9709",
+        "step": 500,
+        "run_sha256": "297351fa96e74112582aec426b712035732bac8fca4e7cd0cf0405ae24d41030",
+        "stage": "tuning"
+      },
+      "training_time_s": 1.4369348101317883,
+      "sample_time_s": 0.3817829340696335
+    },
+    {
+      "candidate_index": 2,
+      "source": {
+        "nu": 3.0,
+        "scale": 3.3821527675817777,
+        "scale_multiplier": 2.0,
+        "reference_scale": 1.6910763837908889,
+        "training_median_radius": 10.65720003363785
+      },
+      "steps": 500,
+      "status": "complete",
+      "metrics": {
+        "selection_score": 0.8681921875,
+        "radial_ks": 0.9966,
+        "projected_ks_mean": 0.7397843749999999,
+        "projection_seed": 61719,
+        "n_projections": 64,
+        "n_generated": 1000,
+        "n_validation": 10000
+      },
+      "config_sha256": "bb391e31ffaeb63475c3097d11355a4f225b2e5203330c195feb243644022563",
+      "implementation_sha256": "3297bfee029c574a545cc713f3266c074896b9051fabfbc3c4cea11e5efbcc41",
+      "checkpoint": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/aniso_k3/candidate_02/checkpoint.pt",
+        "sha256": "a56e69ad0f4ee113cf0e389ea6ca27e0fbdec7944d3854f4d3b9ac7e7e8843bb",
+        "step": 500,
+        "run_sha256": "12a0b02819e6d1f439ae03c2e4708b3c51bc3b6d76581b5709b0ed623327cc37",
+        "stage": "tuning"
+      },
+      "training_time_s": 1.4301030598580837,
+      "sample_time_s": 0.3810471184551716
+    },
+    {
+      "candidate_index": 3,
+      "source": {
+        "nu": 5.0,
+        "scale": 0.8881209578745684,
+        "scale_multiplier": 0.5,
+        "reference_scale": 1.7762419157491367,
+        "training_median_radius": 10.65720003363785
+      },
+      "steps": 500,
+      "status": "complete",
+      "metrics": {
+        "selection_score": 0.6527343750000001,
+        "radial_ks": 0.9394,
+        "projected_ks_mean": 0.36606875000000005,
+        "projection_seed": 61719,
+        "n_projections": 64,
+        "n_generated": 1000,
+        "n_validation": 10000
+      },
+      "config_sha256": "bb391e31ffaeb63475c3097d11355a4f225b2e5203330c195feb243644022563",
+      "implementation_sha256": "3297bfee029c574a545cc713f3266c074896b9051fabfbc3c4cea11e5efbcc41",
+      "checkpoint": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/aniso_k3/candidate_03/checkpoint.pt",
+        "sha256": "09c80c3ac0ad8984b38e2389b14383440f056afc8b27f0f52f157f2b5f608f37",
+        "step": 500,
+        "run_sha256": "c1de443eb0cbffaa38d694e3da8c7b5785c4d6addc5cf66b3cd1be9d0c3bf962",
+        "stage": "tuning"
+      },
+      "training_time_s": 1.4275134839117527,
+      "sample_time_s": 0.3802833594381809
+    },
+    {
+      "candidate_index": 4,
+      "source": {
+        "nu": 5.0,
+        "scale": 1.7762419157491367,
+        "scale_multiplier": 1.0,
+        "reference_scale": 1.7762419157491367,
+        "training_median_radius": 10.65720003363785
+      },
+      "steps": 500,
+      "status": "complete",
+      "metrics": {
+        "selection_score": 0.55181875,
+        "radial_ks": 0.816,
+        "projected_ks_mean": 0.2876375,
+        "projection_seed": 61719,
+        "n_projections": 64,
+        "n_generated": 1000,
+        "n_validation": 10000
+      },
+      "config_sha256": "bb391e31ffaeb63475c3097d11355a4f225b2e5203330c195feb243644022563",
+      "implementation_sha256": "3297bfee029c574a545cc713f3266c074896b9051fabfbc3c4cea11e5efbcc41",
+      "checkpoint": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/aniso_k3/candidate_04/checkpoint.pt",
+        "sha256": "4b1a50e519e8980599042ba740261bc35e8da8390ddbb0c5182e9045fcf31802",
+        "step": 500,
+        "run_sha256": "ff3548f622b62ab768e58761a07e52458887541e0d505977df513b936bfbad2d",
+        "stage": "tuning"
+      },
+      "training_time_s": 1.430208794772625,
+      "sample_time_s": 0.38263148069381714
+    },
+    {
+      "candidate_index": 5,
+      "source": {
+        "nu": 5.0,
+        "scale": 3.5524838314982734,
+        "scale_multiplier": 2.0,
+        "reference_scale": 1.7762419157491367,
+        "training_median_radius": 10.65720003363785
+      },
+      "steps": 500,
+      "status": "complete",
+      "metrics": {
+        "selection_score": 0.17803515625,
+        "radial_ks": 0.2294,
+        "projected_ks_mean": 0.1266703125,
+        "projection_seed": 61719,
+        "n_projections": 64,
+        "n_generated": 1000,
+        "n_validation": 10000
+      },
+      "config_sha256": "bb391e31ffaeb63475c3097d11355a4f225b2e5203330c195feb243644022563",
+      "implementation_sha256": "3297bfee029c574a545cc713f3266c074896b9051fabfbc3c4cea11e5efbcc41",
+      "checkpoint": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/aniso_k3/candidate_05/checkpoint.pt",
+        "sha256": "43f0378da9e3fc725f42c839e7dd1fc1d9dd5439646f7a7819131d9c447b2723",
+        "step": 500,
+        "run_sha256": "aad53931ce079c5a29809d4cf32b896a0dcc241566ed97928ae8354be327be41",
+        "stage": "tuning"
+      },
+      "training_time_s": 1.4288030825555325,
+      "sample_time_s": 0.38206640630960464
+    },
+    {
+      "candidate_index": 6,
+      "source": {
+        "nu": 7.0,
+        "scale": 0.9063907426273797,
+        "scale_multiplier": 0.5,
+        "reference_scale": 1.8127814852547595,
+        "training_median_radius": 10.65720003363785
+      },
+      "steps": 500,
+      "status": "complete",
+      "metrics": {
+        "selection_score": 0.64229765625,
+        "radial_ks": 0.9501,
+        "projected_ks_mean": 0.3344953125,
+        "projection_seed": 61719,
+        "n_projections": 64,
+        "n_generated": 1000,
+        "n_validation": 10000
+      },
+      "config_sha256": "bb391e31ffaeb63475c3097d11355a4f225b2e5203330c195feb243644022563",
+      "implementation_sha256": "3297bfee029c574a545cc713f3266c074896b9051fabfbc3c4cea11e5efbcc41",
+      "checkpoint": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/aniso_k3/candidate_06/checkpoint.pt",
+        "sha256": "43bb372b456344084acfd831c3d6fb821d7c4b5fd6343b95da4622872e09b3ce",
+        "step": 500,
+        "run_sha256": "c0066120a3135fecdd6befc21a87f6151eee8508feb43576bb939b268444fd91",
+        "stage": "tuning"
+      },
+      "training_time_s": 1.4260219745337963,
+      "sample_time_s": 0.383697759360075
+    },
+    {
+      "candidate_index": 7,
+      "source": {
+        "nu": 7.0,
+        "scale": 1.8127814852547595,
+        "scale_multiplier": 1.0,
+        "reference_scale": 1.8127814852547595,
+        "training_median_radius": 10.65720003363785
+      },
+      "steps": 500,
+      "status": "complete",
+      "metrics": {
+        "selection_score": 0.554909375,
+        "radial_ks": 0.801,
+        "projected_ks_mean": 0.30881875000000003,
+        "projection_seed": 61719,
+        "n_projections": 64,
+        "n_generated": 1000,
+        "n_validation": 10000
+      },
+      "config_sha256": "bb391e31ffaeb63475c3097d11355a4f225b2e5203330c195feb243644022563",
+      "implementation_sha256": "3297bfee029c574a545cc713f3266c074896b9051fabfbc3c4cea11e5efbcc41",
+      "checkpoint": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/aniso_k3/candidate_07/checkpoint.pt",
+        "sha256": "4497f56900a63f2b5ee6f60991874d0541f7acab5e84ade097dafe134bca1c29",
+        "step": 500,
+        "run_sha256": "e5724485930d0fcb7485a669ad1be20d6911a3c324f5b88298755eefb00ca8c0",
+        "stage": "tuning"
+      },
+      "training_time_s": 1.421942450106144,
+      "sample_time_s": 0.3813321441411972
+    },
+    {
+      "candidate_index": 8,
+      "source": {
+        "nu": 7.0,
+        "scale": 3.625562970509519,
+        "scale_multiplier": 2.0,
+        "reference_scale": 1.8127814852547595,
+        "training_median_radius": 10.65720003363785
+      },
+      "steps": 500,
+      "status": "complete",
+      "metrics": {
+        "selection_score": 0.23292578125000002,
+        "radial_ks": 0.2813,
+        "projected_ks_mean": 0.18455156250000002,
+        "projection_seed": 61719,
+        "n_projections": 64,
+        "n_generated": 1000,
+        "n_validation": 10000
+      },
+      "config_sha256": "bb391e31ffaeb63475c3097d11355a4f225b2e5203330c195feb243644022563",
+      "implementation_sha256": "3297bfee029c574a545cc713f3266c074896b9051fabfbc3c4cea11e5efbcc41",
+      "checkpoint": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/aniso_k3/candidate_08/checkpoint.pt",
+        "sha256": "fe67cc9c4fbd8fb2c20fe64a60283b84734b6ad4898ccc79ce6f4ab11dc3da80",
+        "step": 500,
+        "run_sha256": "837dffba74e6e0237978984d745c3ac6c3fe43a5f8843bbf6a2b7fa5f58f97c7",
+        "stage": "tuning"
+      },
+      "training_time_s": 1.4299909323453903,
+      "sample_time_s": 0.3811374865472317
+    }
+  ],
+  "finalist_trials": [
+    {
+      "candidate_index": 5,
+      "source": {
+        "nu": 5.0,
+        "scale": 3.5524838314982734,
+        "scale_multiplier": 2.0,
+        "reference_scale": 1.7762419157491367,
+        "training_median_radius": 10.65720003363785
+      },
+      "steps": 1000,
+      "status": "complete",
+      "metrics": {
+        "selection_score": 0.16131328125,
+        "radial_ks": 0.0698,
+        "projected_ks_mean": 0.2528265625,
+        "projection_seed": 61719,
+        "n_projections": 64,
+        "n_generated": 1000,
+        "n_validation": 10000
+      },
+      "config_sha256": "bb391e31ffaeb63475c3097d11355a4f225b2e5203330c195feb243644022563",
+      "implementation_sha256": "3297bfee029c574a545cc713f3266c074896b9051fabfbc3c4cea11e5efbcc41",
+      "checkpoint": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/aniso_k3/candidate_05/checkpoint.pt",
+        "sha256": "f484f3954fe01cd815998cc16a20c8d95b16b3b2a37de30eb70daa75095ef875",
+        "step": 1000,
+        "run_sha256": "aad53931ce079c5a29809d4cf32b896a0dcc241566ed97928ae8354be327be41",
+        "stage": "tuning"
+      },
+      "training_time_s": 2.8623014204204082,
+      "sample_time_s": 0.3831590712070465
+    },
+    {
+      "candidate_index": 8,
+      "source": {
+        "nu": 7.0,
+        "scale": 3.625562970509519,
+        "scale_multiplier": 2.0,
+        "reference_scale": 1.8127814852547595,
+        "training_median_radius": 10.65720003363785
+      },
+      "steps": 1000,
+      "status": "complete",
+      "metrics": {
+        "selection_score": 0.24246015625,
+        "radial_ks": 0.2247,
+        "projected_ks_mean": 0.2602203125,
+        "projection_seed": 61719,
+        "n_projections": 64,
+        "n_generated": 1000,
+        "n_validation": 10000
+      },
+      "config_sha256": "bb391e31ffaeb63475c3097d11355a4f225b2e5203330c195feb243644022563",
+      "implementation_sha256": "3297bfee029c574a545cc713f3266c074896b9051fabfbc3c4cea11e5efbcc41",
+      "checkpoint": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/tuning/aniso_k3/candidate_08/checkpoint.pt",
+        "sha256": "2841839b8c1aa61f3c168c0f4de841260a45119ac357bb5d6db0fdccd2a6d700",
+        "step": 1000,
+        "run_sha256": "837dffba74e6e0237978984d745c3ac6c3fe43a5f8843bbf6a2b7fa5f58f97c7",
+        "stage": "tuning"
+      },
+      "training_time_s": 2.845460869371891,
+      "sample_time_s": 0.37977832928299904
+    }
+  ],
+  "selection_score": {
+    "selection_score": 0.16131328125,
+    "radial_ks": 0.0698,
+    "projected_ks_mean": 0.2528265625,
+    "projection_seed": 61719,
+    "n_projections": 64,
+    "n_generated": 1000,
+    "n_validation": 10000
+  },
+  "full_training_equivalents": 0.55,
+  "test_data_used_for_selection": false,
+  "final_training": "restart all three paper seeds from scratch"
+}

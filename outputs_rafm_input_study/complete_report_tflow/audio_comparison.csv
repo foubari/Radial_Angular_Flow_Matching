@@ -1,0 +1,21 @@
+method,role,status,metric,mean,std_population,n
+A,new matched study arm,complete,digit_acc,0.7883333333333333,0.01133088208785572,3
+A,new matched study arm,complete,energy_KS,0.021833333333333333,0.0,3
+A,new matched study arm,complete,cov>q95,0.05,0.0,3
+A,new matched study arm,complete,cov>q99,0.0145,0.0,3
+B,new matched study arm,complete,digit_acc,0.7765,0.013496913227351937,3
+B,new matched study arm,complete,energy_KS,0.021833333333333333,0.0,3
+B,new matched study arm,complete,cov>q95,0.05,0.0,3
+B,new matched study arm,complete,cov>q99,0.0145,0.0,3
+C,new matched study arm,complete,digit_acc,0.7868333333333334,0.008209073570683194,3
+C,new matched study arm,complete,energy_KS,0.021833333333333333,0.0,3
+C,new matched study arm,complete,cov>q95,0.05,0.0,3
+C,new matched study arm,complete,cov>q99,0.0145,0.0,3
+tflow,new matched study arm,complete,digit_acc,0.14483333333333334,0.006908127258687562,3
+tflow,new matched study arm,complete,energy_KS,0.8322777777777778,0.009593915252728864,3
+tflow,new matched study arm,complete,cov>q95,0.8755000000000001,0.01098483803552268,3
+tflow,new matched study arm,complete,cov>q99,0.764,0.017846568297574743,3
+fixed_spherical_empirical_gain_reference,"checkpoint reference re-evaluated under current backend, not new A or historical paper value",measured_under_current_backend_with_recorded_differences,digit_acc,0.8066666666666666,0.007352248333370906,3
+fixed_spherical_empirical_gain_reference,"checkpoint reference re-evaluated under current backend, not new A or historical paper value",measured_under_current_backend_with_recorded_differences,energy_KS,0.021833333333333333,0.0,3
+fixed_spherical_empirical_gain_reference,"checkpoint reference re-evaluated under current backend, not new A or historical paper value",measured_under_current_backend_with_recorded_differences,cov>q95,0.05,0.0,3
+fixed_spherical_empirical_gain_reference,"checkpoint reference re-evaluated under current backend, not new A or historical paper value",measured_under_current_backend_with_recorded_differences,cov>q99,0.0145,0.0,3

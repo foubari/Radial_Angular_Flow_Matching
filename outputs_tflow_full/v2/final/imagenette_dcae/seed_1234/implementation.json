@@ -1,0 +1,19 @@
+{
+  "files": {
+    "baselines/tflow_core.py": "9c1d323fe3bb6ca357459f63e6fea3542e28645616d7981c314f5226f04b5a81",
+    "baselines/tflow_downstream.py": "f2e3d8f04b6ac9bf5b1a0b4234c75854c23a284fbca7a9bdbfcb46a6008ad287",
+    "experiments/tflow/run.py": "67b512f5607525814d08f60195846741089714e134bb65303904bbdea9849f0c",
+    "experiments/tflow/data.py": "f4cdc9a8bd409268974a0218c566246acf8adae4bdc11843d81251bdca74a605",
+    "experiments/tflow/validation.py": "1f25c0bd7edf874a8235550113e286fe58d34ef3cb518b3402e639392292d87d",
+    "experiments/tflow/tune.py": "4888acd712de66fbb02fe0a87ff40f309a76a6f8977f869281a2c806feba1f7e",
+    "rafm/utils/seeds.py": "8b6e8cea98a6519f7067808163f065d6d797df0d82aec4d3dfbc6d8ee76bbf39",
+    "experiments/image_latents/dit/dit_eval_sit.py": "103a53a9e53e4e0bad1186793ed52d99b8c8fefaaba031039407559822a22436",
+    "rafm/metrics/radial.py": "ff8bc071b0be0ea30f25ed7aa06652b9bf0440f55243a4bf5492540b5c384643",
+    "rafm/metrics/distributional.py": "dd39671b785012948fdfbb1013450db4bb221a9631f084e7b6d67e0cbd144467",
+    "/mnt/vast01/users/fouad.oubari/references/SiT-tflow/models.py": "677cfa2cf5a7db122abd014d6d92d7ac5f39745f571773a6adcc26c7d2f33d89",
+    "/mnt/vast01/users/fouad.oubari/references/SiT-tflow/LICENSE.txt": "cf9b17822d1fcd4ff32ccbe14183386fb3adf6f2ff92dc184130823f7fc28173"
+  },
+  "python": "3.10.12",
+  "torch": "2.7.1+rocm6.3",
+  "numpy": "2.2.6"
+}

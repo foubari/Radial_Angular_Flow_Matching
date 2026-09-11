@@ -1,0 +1,469 @@
+{
+  "schema_version": 1,
+  "condition_id": "audiomnist_stft",
+  "method": "rafm_ang_input",
+  "arm": "C",
+  "seed": 8925,
+  "status": "complete",
+  "config": {
+    "schema_version": 1,
+    "condition_id": "audiomnist_stft",
+    "kind": "audio",
+    "protocol_status": "resolved",
+    "blocking_issues": [],
+    "seeds": [
+      8925,
+      1234,
+      7
+    ],
+    "data": {
+      "input": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/poc_audio/data/audiomnist_stft_train.pt",
+        "sha256": "d4c0e10dcae8bdb2ad6e7bf05202a42e6a6af3b6fb064e6fc97e12432e0fe7be"
+      },
+      "shape": [
+        12000,
+        16254
+      ],
+      "split": {
+        "kind": "indices",
+        "seed": 0,
+        "n_train": 10200,
+        "n_val": 1800,
+        "n_test": 0,
+        "file": {
+          "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/v1/audiomnist_stft/split_indices.pt",
+          "sha256": "a4d59c68aab7dca5a87f0f6bbb239f7b671735c9843b05de4b3001d11568bac1"
+        }
+      },
+      "transform": "as_cached",
+      "external_test": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/poc_audio/data/audiomnist_stft_test.pt",
+        "sha256": "c9ab95b3bcb0049f881a84d180bccbdedf4d25cf6723dc48cafb90e4a0e20209"
+      }
+    },
+    "model": {
+      "kind": "audio_unet",
+      "ch": 96,
+      "class_dropout": 0.1
+    },
+    "training": {
+      "steps": 24000,
+      "batch_size": 32,
+      "optimizer": "AdamW",
+      "lr": 0.0002,
+      "betas": [
+        0.9,
+        0.95
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "gradient_clip": null,
+      "ema": 0.999,
+      "precision": "bfloat16_autocast",
+      "batch_rule": "step_seeded",
+      "compile": false,
+      "checkpoint_every": 2000,
+      "log_every": 500,
+      "class_dropout": 0.1
+    },
+    "evaluation": {
+      "n_samples": 2000,
+      "model_evaluations": 160,
+      "sample_batch_size": 128,
+      "sample_seed": 0,
+      "metric_seed": 0,
+      "metric_seed_note": "Common new seed-0 metric projections across A/B/C and t-Flow; historical projections unavailable.",
+      "classifier": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/poc_audio/digit_classifier.pt",
+        "sha256": "1c68713e65df8c256bf8dd73edee70ba0e419381258cc46ff497042287946d50"
+      }
+    },
+    "sampler": {
+      "t_min": 0.001,
+      "rho": 7.0,
+      "grid": "power_sigma",
+      "sigma_min": 0.01
+    },
+    "tuning": {
+      "seed": 46021,
+      "nu": [
+        3,
+        5,
+        7
+      ],
+      "scale_multipliers": [
+        0.5,
+        1,
+        2
+      ],
+      "stage1_fraction": 0.05,
+      "continuation_fraction": 0.1,
+      "n_finalists": 2,
+      "validation_generated_samples": 1000,
+      "sample_seed": 61717,
+      "projection_seed": 61719
+    },
+    "provenance": {
+      "paper_sha256": "97f709df2a45e4acf4ba186379c60e9c75120d95e09af782d7a18c8b56d00367",
+      "baseline_commit": "5b89ed5f4af8a47c3b57eb9d595203daafc6d2c4",
+      "source_artifacts": [
+        "experiments/poc_audio/audio_data.py",
+        "experiments/poc_audio/audio_flow.py",
+        "experiments/poc_audio/audio_eval.py",
+        "experiments/poc_audio/launch_stage2_seeds.bat",
+        "experiments/poc_audio/stage2_3seed.json"
+      ],
+      "cached_input_only": true,
+      "existing_results_unchanged": true,
+      "study_id": "rafm_input_parameterization_v1",
+      "historical_result_reuse": false,
+      "comparison_label": "new_matched_runs_on_verified_existing_cache",
+      "original_prepared_config_sha256": "b115e71e1006d26917d027fef73239e8bc0a5dca97a80ca4ed6fb56cdc695c40",
+      "batch_resolution": {
+        "prepared_value": 32,
+        "selected_value": 32,
+        "evidence": "Supplied PDF p34 C.7: Student-t/PIV256; Weather2048; other vectors4096; downstream p35 C.10"
+      },
+      "original_split_spec": {
+        "kind": "random",
+        "seed": 0,
+        "n_train": 10200,
+        "n_val": 1800,
+        "n_test": 0
+      },
+      "generation": null,
+      "shared_preparation_identity_sha256": "247310996b875843c4314f6adbf3fb88de14e9f352b892d3e22486d704672436"
+    },
+    "experiment_launch_status": "authorized_after_correctness_checks_and_verified_cache",
+    "rafm_sampling_source": {
+      "kind": "radial_empirical_ecdf",
+      "fit_split": "generator_train_only",
+      "implementation": "rafm/sources/radial_empirical.py:RadialEmpiricalSource(mode=ecdf)",
+      "interpolation": "torch.quantile linear, independent uniform radius draw",
+      "log_radius_source": false,
+      "evidence": [
+        "rebuttal_experiments/configs/E1_studentt_d16.yaml",
+        "rebuttal_experiments/configs/E1_gaussian_d16.yaml",
+        "rebuttal_experiments/configs/E5_toy2d.yaml",
+        "rebuttal_experiments/configs/E6_dim16.yaml",
+        "rebuttal_experiments/configs/E8_df3.0.yaml",
+        "rebuttal_experiments/scripts/run_real.py",
+        "experiments/poc_audio/audio_flow.py",
+        "experiments/image_latents/dit/dit_train_sit.py"
+      ],
+      "note": "Explicit angular_rafm entries use empirical ECDF; rafm_oracle is a separate reference method."
+    },
+    "study": {
+      "id": "rafm_input_parameterization_v1",
+      "methods": [
+        "A",
+        "B",
+        "C",
+        "tflow"
+      ],
+      "training_seeds_shared": true,
+      "new_A_rerun": true,
+      "B_C_additional_tuning_steps": 0,
+      "final_checkpoint_selection": "prescribed_final_update_or_final_EMA",
+      "radius_stat_fit_split": "generator_train_only",
+      "authorization": "User authorized full t-Flow and A/B/C study on 2026-09-10, after small correctness runs"
+    },
+    "shared_cache": {
+      "directory": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/v1/audiomnist_stft",
+      "manifest_path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/v1/audiomnist_stft/manifest.json",
+      "manifest_sha256": "0ab9076e6bb1421f908c5b988720e2bb83d328a6e2642f105713170ec42d6a7c"
+    }
+  },
+  "config_sha256": "38c27cb839fb0249efbd684c992b5c70aea01a40435a34ef3e846439a76611fc",
+  "implementation_sha256": "bacb6947c93f1fb44ccffce7eff153fb59e79c7d12a8432ea54f880625d95203",
+  "metrics": {
+    "digit_acc": 0.784,
+    "energy_KS": 0.021833333333333333,
+    "cov>q95": 0.05,
+    "cov>q99": 0.0145,
+    "cov<q10": 0.0975,
+    "PIT": 0.4924903333333333,
+    "radial_w1": 0.04870487057665976,
+    "cov>q90": 0.1055,
+    "angular_sw_bin0": 0.0006840049172751606,
+    "angular_sw_bin1": 0.0007610057364217937,
+    "angular_sw_bin2": 0.0007211786578409374,
+    "angular_sw_bin3": 0.0007535872864536941,
+    "angular_sw_mean": 0.0007299441494978964,
+    "sample_time_s": 865.8001514598727,
+    "total_train_time_s": 8907.87616737932,
+    "nfe": 160
+  },
+  "nonfinite_metric_fields": [],
+  "parameters": {
+    "arm": "C",
+    "backbone_kind": "audio_unet",
+    "original_backbone_parameters": 27896802,
+    "total_parameters": 27901186,
+    "trainable_parameters": 0,
+    "conditioning_overhead_parameters": 4384,
+    "conditioning_overhead_fraction": 0.00015715062966715682,
+    "radius_embedding_hidden_width": 16
+  },
+  "radius_drift": {
+    "mean_absolute": 3.255239062127657e-05,
+    "max_absolute": 0.0016317367553710938,
+    "mean_relative": 1.3882264283893164e-05,
+    "max_relative": 0.00038865191163495183,
+    "initial_below_radius_floor": 0,
+    "radius_floor": 1e-08
+  },
+  "radius_statistics": {
+    "mean_log_radius": 0.5529856475480537,
+    "population_std_log_radius": 0.7201326163037098,
+    "standardization_scale": 0.7201326163037098,
+    "radius_floor": 1e-08,
+    "std_floor": 1e-08,
+    "n_training_samples": 10200,
+    "dimension": 16254,
+    "training_data_sha256": "03803b0928ab2dae315b4a63720304d31db0a5d59f54fffcf5e1e30aaaad5401",
+    "training_indices_sha256": "08a2f65d538cee711cc1dfaf7ec69ecc7ce95dbebe45702839654dbc107c92cd",
+    "zero_radius_count": 0,
+    "below_radius_floor_count": 0,
+    "fit_split": "generator_training",
+    "accumulation_dtype": "float64"
+  },
+  "hardware": {
+    "host": "auh7-3b-gpu-015",
+    "slurm_job_id": "765751",
+    "python": "3.10.12",
+    "torch": "2.7.1+rocm6.3",
+    "cuda": null,
+    "hip": "6.3.42131-fa1d09cbd",
+    "gpu": "AMD Instinct MI210",
+    "vram_bytes": 68702699520
+  },
+  "checkpoint": {
+    "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/final/audiomnist_stft/C/seed_8925/checkpoint.pt",
+    "sha256": "a9abe082db196c3e0447052d148cb922e84cfda14c3cfe845c3bf427851fbbd4",
+    "step": 24000
+  },
+  "sample_artifact": {
+    "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/generated/audiomnist_stft/C/seed_8925/14d6f4c085d05f61bc6ddd58e2e8b1003b8085680118aceb9f41212af392b65f/samples.pt",
+    "sha256": "e6d56b6ef5cd97bf2878084d772540f92f0190178d800050beb86e50cdd97c19"
+  },
+  "sampler": {
+    "sample_time_s": 865.8001514598727,
+    "nfe": 160,
+    "n_batches": 16,
+    "model_calls_total": 2560,
+    "n_samples": 2000,
+    "sample_seed": 0,
+    "class_counts": [
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200
+    ],
+    "peak_memory": {
+      "allocated_bytes": 4387626496,
+      "reserved_bytes": 13753122816
+    },
+    "radius_drift": {
+      "mean_absolute": 3.255239062127657e-05,
+      "max_absolute": 0.0016317367553710938,
+      "mean_relative": 1.3882264283893164e-05,
+      "max_relative": 0.00038865191163495183,
+      "initial_below_radius_floor": 0,
+      "radius_floor": 1e-08
+    },
+    "solver": "original_ambient_rk4",
+    "state_renormalization": false,
+    "projection_r_min": 0.001,
+    "radius_multiplier_floor": 0.0,
+    "timing_scope": "source draw, original RK4, finite checks and CPU transfer; excludes metrics"
+  },
+  "dataset": {
+    "values": {
+      "shape": [
+        12000,
+        16254
+      ],
+      "dtype": "<f4",
+      "sha256": "b28355438a556534a2c1f52d64ab8844eb1c1ca8565d64636f70a14f7bf3f2f6"
+    },
+    "preprocessing_mean": {
+      "shape": [
+        16254
+      ],
+      "dtype": "<f4",
+      "sha256": "37faad3484ee897be418b5f71ca30b81be3f67c8925e1cf1936b83d56556edc2"
+    },
+    "split_indices": {
+      "train": {
+        "shape": [
+          10200
+        ],
+        "dtype": "<i8",
+        "sha256": "08a2f65d538cee711cc1dfaf7ec69ecc7ce95dbebe45702839654dbc107c92cd"
+      },
+      "val": {
+        "shape": [
+          1800
+        ],
+        "dtype": "<i8",
+        "sha256": "79b1cb53ca272949bb52113f6ee99f4e2530f4014788d76ea2370a091233cb92"
+      },
+      "test": {
+        "shape": [
+          0
+        ],
+        "dtype": "<i8",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    "splits": {
+      "train": {
+        "shape": [
+          10200,
+          16254
+        ],
+        "dtype": "<f4",
+        "sha256": "03803b0928ab2dae315b4a63720304d31db0a5d59f54fffcf5e1e30aaaad5401"
+      },
+      "val": {
+        "shape": [
+          1800,
+          16254
+        ],
+        "dtype": "<f4",
+        "sha256": "c533de6f774e6ed5fe22bd07f88bb6c1bcdf45688b73d0c9655a095b0cb2b94b"
+      },
+      "test": {
+        "shape": [
+          3000,
+          16254
+        ],
+        "dtype": "<f4",
+        "sha256": "f6a722328fc903466848d2d0dac8596f5efabf245dcb3f6c8f08b9cfac9bab68"
+      }
+    },
+    "external_test_loaded": true,
+    "labels": {
+      "shape": [
+        12000
+      ],
+      "dtype": "<i8",
+      "sha256": "058060c5e01ed7704d78e45084642806a8fa15e31d658be00b90c057c0db9b57"
+    },
+    "external_test_gains": {
+      "shape": [
+        3000
+      ],
+      "dtype": "<f4",
+      "sha256": "3f1f961b0f0c33b3686e42bd2093004cf2b4c15b63268e5c20b169f71d2464a5"
+    }
+  },
+  "evaluation_details": {
+    "audio_summary": {
+      "energy": {
+        "radial_w1": 0.0487,
+        "ks": 0.0218,
+        "cov_gt_q90": 0.1055,
+        "cov_gt_q95": 0.05,
+        "cov_gt_q99": 0.0145,
+        "cov_lt_q10": 0.0975,
+        "pit_mean": 0.4925,
+        "gen_energy_mean": 2.27,
+        "data_energy_mean": 2.298
+      },
+      "content": {
+        "digit_acc": 0.784,
+        "mean_confidence": 0.821,
+        "acc_by_energy": {
+          "low_energy": 0.79,
+          "mid_energy": 0.77,
+          "high_energy": 0.792
+        }
+      },
+      "unrounded": {
+        "energy": {
+          "radial_w1": 0.04870487057665976,
+          "ks": 0.021833333333333333,
+          "cov_gt_q90": 0.1055,
+          "cov_gt_q95": 0.05,
+          "cov_gt_q99": 0.0145,
+          "cov_lt_q10": 0.0975,
+          "pit_mean": 0.4924903333333333,
+          "gen_energy_mean": 2.269838571548462,
+          "data_energy_mean": 2.297874689102173
+        },
+        "digit_acc": 0.784,
+        "correct_count": 1568,
+        "legacy_float32_accuracy": 0.7839999794960022,
+        "mean_confidence": 0.820540726184845
+      }
+    },
+    "classifier_batch_size": 2000,
+    "classifier_sha256": "1c68713e65df8c256bf8dd73edee70ba0e419381258cc46ff497042287946d50",
+    "classifier_logits": {
+      "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/generated/audiomnist_stft/C/seed_8925/14d6f4c085d05f61bc6ddd58e2e8b1003b8085680118aceb9f41212af392b65f/classifier_logits.pt",
+      "sha256": "c7d0aedcfe57239e8b8aee7fb49852c9df8a992209c7b195a76fd67b5412338d"
+    }
+  },
+  "peak_memory": {
+    "training": {
+      "allocated_bytes": 8179154944,
+      "reserved_bytes": 9172942848
+    },
+    "sampling": {
+      "allocated_bytes": 4387626496,
+      "reserved_bytes": 13753122816
+    },
+    "sampling_and_evaluation": {
+      "allocated_bytes": 4387626496,
+      "reserved_bytes": 13753122816
+    }
+  },
+  "training_stats": {
+    "run_sha256": "e40e88aa0fac13d0c2b3bf2fddef5f5de59d91a779e44610e5f15b6b75bac025",
+    "training_step": 24000,
+    "total_train_time_s": 8908.921773858368,
+    "final_loss": 0.3576822280883789,
+    "parameters": {
+      "arm": "C",
+      "backbone_kind": "audio_unet",
+      "original_backbone_parameters": 27896802,
+      "total_parameters": 27901186,
+      "trainable_parameters": 27901186,
+      "conditioning_overhead_parameters": 4384,
+      "conditioning_overhead_fraction": 0.00015715062966715682,
+      "radius_embedding_hidden_width": 16
+    },
+    "hardware": {
+      "host": "auh7-3b-gpu-015",
+      "slurm_job_id": "765751",
+      "python": "3.10.12",
+      "torch": "2.7.1+rocm6.3",
+      "cuda": null,
+      "hip": "6.3.42131-fa1d09cbd",
+      "gpu": "AMD Instinct MI210",
+      "vram_bytes": 68702699520
+    },
+    "peak_memory": {
+      "allocated_bytes": 8179154944,
+      "reserved_bytes": 9172942848
+    },
+    "timing_kind": "measured",
+    "timing_scope": "training loop including compile, finite checks, logging and checkpoints",
+    "gradient_observed": null,
+    "radius_embedding_gradient_observed": null,
+    "backend": {
+      "cudnn_deterministic": true,
+      "cudnn_benchmark": false,
+      "note": "Shared seed helper for every new arm; historical downstream scripts did not explicitly force deterministic cuDNN/MIOpen"
+    }
+  }
+}

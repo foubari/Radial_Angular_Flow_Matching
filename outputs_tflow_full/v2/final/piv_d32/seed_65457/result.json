@@ -1,0 +1,694 @@
+{
+  "schema_version": 1,
+  "condition_id": "piv_d32",
+  "method": "tflow",
+  "seed": 65457,
+  "stage": "final",
+  "status": "complete",
+  "config": {
+    "schema_version": 1,
+    "condition_id": "piv_d32",
+    "kind": "vector",
+    "protocol_status": "resolved",
+    "blocking_issues": [],
+    "seeds": [
+      8925,
+      77395,
+      65457
+    ],
+    "data": {
+      "input": {
+        "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/releases/piv-imagenette-provenance-v1_20260910/piv_d32.pt",
+        "sha256": "8437048cf028dafeaf45f61339a323628b8be6df586ee180e45706cbb617d911"
+      },
+      "shape": [
+        998,
+        32
+      ],
+      "split": {
+        "kind": "indices",
+        "seed": 0,
+        "n_train": 598,
+        "n_val": 199,
+        "n_test": 201,
+        "file": {
+          "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/v1/piv_d32/split_indices.pt",
+          "sha256": "6e5499988c9d5a213275658a88f8a1a71afd097881710deb0c61859a08b76ece"
+        }
+      },
+      "transform": "piv_recenter"
+    },
+    "model": {
+      "kind": "mlp",
+      "hidden_dim": 128,
+      "n_layers": 3
+    },
+    "training": {
+      "steps": 10000,
+      "batch_size": 256,
+      "optimizer": "Adam",
+      "lr": 0.001,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "gradient_clip": null,
+      "ema": null,
+      "precision": "float32",
+      "batch_rule": "global_torch",
+      "compile": true,
+      "checkpoint_every": 5000,
+      "log_every": 200,
+      "class_dropout": 0.0
+    },
+    "evaluation": {
+      "n_samples": 10000,
+      "model_evaluations": 512,
+      "sample_batch_size": 10000,
+      "sample_seed": null,
+      "metric_seed": 0,
+      "metric_seed_note": "Common new seed-0 metric projections across A/B/C and t-Flow; historical projections unavailable."
+    },
+    "sampler": {
+      "t_min": 0.001,
+      "rho": 7.0,
+      "grid": "power_sigma",
+      "sigma_min": 0.01
+    },
+    "tuning": {
+      "seed": 46021,
+      "nu": [
+        3,
+        5,
+        7
+      ],
+      "scale_multipliers": [
+        0.5,
+        1,
+        2
+      ],
+      "stage1_fraction": 0.05,
+      "continuation_fraction": 0.1,
+      "n_finalists": 2,
+      "validation_generated_samples": 1000,
+      "sample_seed": 61717,
+      "projection_seed": 61719
+    },
+    "provenance": {
+      "paper_sha256": "97f709df2a45e4acf4ba186379c60e9c75120d95e09af782d7a18c8b56d00367",
+      "baseline_commit": "5b89ed5f4af8a47c3b57eb9d595203daafc6d2c4",
+      "source_artifacts": [
+        "configs/exp1/piv_d32.yaml",
+        "rafm/data/prepare_piv.py"
+      ],
+      "cached_input_only": true,
+      "existing_results_unchanged": true,
+      "study_id": "rafm_input_parameterization_v1",
+      "historical_result_reuse": false,
+      "comparison_label": "new_matched_runs_on_verified_existing_cache",
+      "original_prepared_config_sha256": "c56ff4ede16ff70e2cc716eb94abc344e03e26e8e9d5be044405b3efe9011da6",
+      "batch_resolution": {
+        "prepared_value": null,
+        "selected_value": 256,
+        "evidence": "Supplied PDF p34 C.7: Student-t/PIV256; Weather2048; other vectors4096; downstream p35 C.10"
+      },
+      "original_split_spec": {
+        "kind": "random",
+        "seed": 0,
+        "n_train": 598,
+        "n_val": 199,
+        "n_test": 201
+      },
+      "generation": null,
+      "shared_preparation_identity_sha256": "39cc6362536d35868f89fe6f50794a685f6e08ed87812e387a9c5a3a913b873c",
+      "recovered_artifacts": {
+        "release": "foubari/msgm-sparse-control/piv-imagenette-provenance-v1",
+        "receipt": {
+          "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/docs/recovered_artifacts/release_verification.json",
+          "sha256": "60b0ebf97086060569eee12966e88511320bbc36908d66110ba53ba0ec02a381",
+          "size_bytes": 5807
+        },
+        "assets": {
+          "manifest.json": {
+            "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/releases/piv-imagenette-provenance-v1_20260910/manifest.json",
+            "sha256": "4a356fe047a8d916dccc1610e238bbb3f4cb021357305a87c04fb9d1d3edef49",
+            "size_bytes": 8456
+          },
+          "manifest_addendum.json": {
+            "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/releases/piv-imagenette-provenance-v1_20260910/manifest_addendum.json",
+            "sha256": "a8049c5ddf64477fc1415c1a5dd4915041e9b0e37efa8468a6f98c21dc6761ef",
+            "size_bytes": 1918
+          },
+          "AUDIT_REPORT.md": {
+            "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/releases/piv-imagenette-provenance-v1_20260910/AUDIT_REPORT.md",
+            "sha256": "06c17e49d01e31aa6ca658208bf78221f741075b35af8c6d536aa9eea4f29e26",
+            "size_bytes": 2213
+          },
+          "piv_d32.pt": {
+            "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/releases/piv-imagenette-provenance-v1_20260910/piv_d32.pt",
+            "sha256": "8437048cf028dafeaf45f61339a323628b8be6df586ee180e45706cbb617d911",
+            "size_bytes": 128924
+          },
+          "piv_d16.pt": {
+            "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/releases/piv-imagenette-provenance-v1_20260910/piv_d16.pt",
+            "sha256": "a30a243c46d7095581ce86be562a40ac9f7195d1b55b40374721ce23db14e5e4",
+            "size_bytes": 128924
+          },
+          "dcae_real_centered.pt": {
+            "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/releases/piv-imagenette-provenance-v1_20260910/dcae_real_centered.pt",
+            "sha256": "848a876bfeb3b1c80ee0d7aae8988355100374a6c2ac318aa6b4cc20a2dbe344",
+            "size_bytes": 109840830
+          },
+          "radial_quantile_indices.npz": {
+            "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/releases/piv-imagenette-provenance-v1_20260910/radial_quantile_indices.npz",
+            "sha256": "12f3129d04e65e627b17f313810f888c108458829fd319e7a4e059cfcd91f4d4",
+            "size_bytes": 314416
+          },
+          "audit_result.npz": {
+            "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/releases/piv-imagenette-provenance-v1_20260910/audit_result.npz",
+            "sha256": "06480e5ef211850f65bb6dde3941c15ae4b504e42b87844138470237e2e6e113",
+            "size_bytes": 2626236
+          },
+          "verified_row_to_filename.csv": {
+            "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/releases/piv-imagenette-provenance-v1_20260910/verified_row_to_filename.csv",
+            "sha256": "1d39c416095c65965a92490aa7a192d32b8b725bc3ba8fa96c9c19fe6a4609cd",
+            "size_bytes": 1083091
+          },
+          "imagenette_audit.py": {
+            "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/releases/piv-imagenette-provenance-v1_20260910/imagenette_audit.py",
+            "sha256": "a2d4d60038a27b2dd5e694fb5a8e0b554d93dcd595ea85c164cc02bf53aaff2c",
+            "size_bytes": 4292
+          },
+          "provenance_code_and_logs.tar": {
+            "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/releases/piv-imagenette-provenance-v1_20260910/provenance_code_and_logs.tar",
+            "sha256": "9551483c015aec5942c19d5496106ed84e740c39f80633353481a852b29f2fef",
+            "size_bytes": 30720
+          }
+        },
+        "checkout_holding_artifacts": "d3006dc8ee61b2ab6e470115d3f21c778fefcf81 (iclr-image-experiments)",
+        "verified_extraction_or_training_commit": null,
+        "commit_caveat": "Data .pt/.npz files are gitignored and carry no commit stamp. Script commits below are the LATEST commit touching each script, NOT a verified proof that the on-disk artifacts were produced by that exact commit. The exact extraction/training commit is UNVERIFIED.",
+        "archived_members": {
+          "code_logs/dit_eval.log": {
+            "sha256": "78299d2ef0f2bbd07a883cf3ce1923b8421b015a98a9005ee2632ed5f98e20af",
+            "size_bytes": 5183
+          },
+          "code_logs/dit_train_sit.py": {
+            "sha256": "300626b1ba4b9bf9bbb204882dc08590e14cc2013f0744bacb8b368867d2950e",
+            "size_bytes": 7350
+          },
+          "code_logs/E3_piv.log": {
+            "sha256": "7810c21399784a1c1f78c9c2df0e46206351fcc710038a1c508fc0ff4cceea24",
+            "size_bytes": 961
+          },
+          "code_logs/extract_dcae_latents.py": {
+            "sha256": "df10ea03cca270cc1def643d764ec4608e176350c3cef937005a02ab9e32ef42",
+            "size_bytes": 1318
+          },
+          "code_logs/launch_phaseB.bat": {
+            "sha256": "4bd79df5989e52c33e45bc14e21e7aee153e890f9c2827ca4623bd9513bf7eb6",
+            "size_bytes": 1441
+          },
+          "code_logs/prepare_piv.py": {
+            "sha256": "82d4130e48beaf2376208a7da0141b492b94e336cdb9b8fab1081640b694c9fe",
+            "size_bytes": 6773
+          }
+        },
+        "numerical_verification": {
+          "original_tensor": {
+            "shape": [
+              998,
+              32
+            ],
+            "dtype": "torch.float32",
+            "sha256_contiguous_bytes": "f3c2581041588366488e3c47af67e1c55df5b6a7f084c9c5b5002ebf826f453f",
+            "md5_contiguous_bytes": "db5ab62c9e0f6a03e59d29340baf9928"
+          },
+          "piv16_original_view_verified": true,
+          "not_truncated_piv64": true,
+          "not_truncated_piv256": true,
+          "preprocessing": "unchanged full-dataset mean subtraction before CPU torch seed-0 split",
+          "native_grid_provenance": {
+            "file": "piv_d32.pt",
+            "bytes": 128924,
+            "sha256": "8437048cf028dafeaf45f61339a323628b8be6df586ee180e45706cbb617d911",
+            "original_path": "data/piv/piv_d32.pt",
+            "shape": [
+              998,
+              32
+            ],
+            "dtype": "float32",
+            "status": "VERIFIED original (contiguous 998x32)",
+            "note": "Genuine d32 grid. VERIFIED d32 != d64[:, :32] and != d256 (different spatial grids; NOT a truncation of d64/d256).",
+            "experiments": "referenced by configs/exp1/piv_d32.yaml, configs/exp0/source_diagnostics.yaml, configs/exp3/runtime.yaml, rebuttal_experiments/configs/E6_dim32.yaml. (Main-benchmark dense MSGM results exist for d16/d64/d256, NOT d32; d32 is used in the dimension-sweep / runtime experiments.)"
+          }
+        },
+        "authorization": "User authorized recovery, checks and remaining A/B/C runs on 2026-09-10; preserve existing image-reference overlap protocol"
+      }
+    },
+    "experiment_launch_status": "authorized_after_correctness_checks_and_verified_cache",
+    "rafm_sampling_source": {
+      "kind": "radial_empirical_ecdf",
+      "fit_split": "generator_train_only",
+      "implementation": "rafm/sources/radial_empirical.py:RadialEmpiricalSource(mode=ecdf)",
+      "interpolation": "torch.quantile linear, independent uniform radius draw",
+      "log_radius_source": false,
+      "evidence": [
+        "rebuttal_experiments/configs/E1_studentt_d16.yaml",
+        "rebuttal_experiments/configs/E1_gaussian_d16.yaml",
+        "rebuttal_experiments/configs/E5_toy2d.yaml",
+        "rebuttal_experiments/configs/E6_dim16.yaml",
+        "rebuttal_experiments/configs/E8_df3.0.yaml",
+        "rebuttal_experiments/scripts/run_real.py",
+        "experiments/poc_audio/audio_flow.py",
+        "experiments/image_latents/dit/dit_train_sit.py"
+      ],
+      "note": "Explicit angular_rafm entries use empirical ECDF; rafm_oracle is a separate reference method."
+    },
+    "study": {
+      "id": "rafm_input_parameterization_v1",
+      "methods": [
+        "A",
+        "B",
+        "C",
+        "tflow"
+      ],
+      "training_seeds_shared": true,
+      "new_A_rerun": true,
+      "B_C_additional_tuning_steps": 0,
+      "final_checkpoint_selection": "prescribed_final_update_or_final_EMA",
+      "radius_stat_fit_split": "generator_train_only",
+      "authorization": "User authorized full t-Flow and A/B/C study on 2026-09-10, after small correctness runs"
+    },
+    "shared_cache": {
+      "directory": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/v1/piv_d32",
+      "manifest_path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/v1/piv_d32/manifest.json",
+      "manifest_sha256": "b1bbe36e633af5447134d6a87e83e2b9333fe0d5d9312283d2f9d42aa26c95eb"
+    }
+  },
+  "config_sha256": "e3022d209cdee20c10a25592cd3384ea11dcc4e9be61c36807b64141665b042a",
+  "source": {
+    "nu": 3.0,
+    "scale": 0.12125128639390623
+  },
+  "hardware": {
+    "host": "auh7-3b-gpu-030",
+    "slurm_job_id": "766339",
+    "python": "3.10.12",
+    "torch": "2.7.1+rocm6.3",
+    "cuda": null,
+    "hip": "6.3.42131-fa1d09cbd",
+    "gpu": "AMD Instinct MI210",
+    "vram_bytes": 68702699520
+  },
+  "dataset_manifest": {
+    "values": {
+      "shape": [
+        998,
+        32
+      ],
+      "dtype": "<f4",
+      "sha256": "2f991858eb920e7ffed0d407cb2b11485cfd2ec7862e69768a20ce92c968e98d"
+    },
+    "preprocessing_mean": {
+      "shape": [
+        32
+      ],
+      "dtype": "<f4",
+      "sha256": "e4f1f87838e436c6c227bc4298efe356eb61fc90d93c17f95281516326889fe3"
+    },
+    "split_indices": {
+      "train": {
+        "shape": [
+          598
+        ],
+        "dtype": "<i8",
+        "sha256": "a98d0ee55f839bb21c37dd2d0ae4e81471899724328eaac1dcbb8c347a5785ec"
+      },
+      "val": {
+        "shape": [
+          199
+        ],
+        "dtype": "<i8",
+        "sha256": "61258fd5f5297c49fcf46b7cbd47d5ec5d8d691bf2c08e6ebe320181ff337fb5"
+      },
+      "test": {
+        "shape": [
+          201
+        ],
+        "dtype": "<i8",
+        "sha256": "c0659bc73be9bd29159be6f9ef809f9f15cee12ab8cd41893ba7ac899ec4a4d8"
+      }
+    },
+    "splits": {
+      "train": {
+        "shape": [
+          598,
+          32
+        ],
+        "dtype": "<f4",
+        "sha256": "d68f7e95ef8ad0e3bf6642cd63b122f9a1d5f9c36209d3bbf6d623d38260d582"
+      },
+      "val": {
+        "shape": [
+          199,
+          32
+        ],
+        "dtype": "<f4",
+        "sha256": "35ed9f571f19e51ddd25a0587972a08c591749a01657ea00004534eeec7c34e6"
+      },
+      "test": {
+        "shape": [
+          201,
+          32
+        ],
+        "dtype": "<f4",
+        "sha256": "8e9b1404fb019e9a59f16c51b395bdc9710fed9a769fdb8a032283f7e9653539"
+      }
+    },
+    "external_test_loaded": false
+  },
+  "peak_memory": {
+    "training": {
+      "allocated_bytes": 88663040,
+      "reserved_bytes": 161480704
+    },
+    "sampling": {
+      "allocated_bytes": 98322432,
+      "reserved_bytes": 161480704
+    },
+    "sampling_and_evaluation": {
+      "allocated_bytes": 98322432,
+      "reserved_bytes": 161480704
+    }
+  },
+  "implementation_sha256": "3297bfee029c574a545cc713f3266c074896b9051fabfbc3c4cea11e5efbcc41",
+  "checkpoint": {
+    "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/final/piv_d32/seed_65457/checkpoint.pt",
+    "sha256": "ed093eb44d327451fb88d77e00089ad5069627cffcddb6c00c9f3f96ddc30ca8",
+    "step": 10000,
+    "run_sha256": "9d8461993d94ef241b07a7e6f26e70974a89b55f20af76532fb4afffdf0b685e"
+  },
+  "sample_artifact": {
+    "path": "/mnt/vast01/users/fouad.oubari/data/tflow/samples/piv_d32/seed_65457/6cb8798aa0889a5aef049d1e673d2448443e6bdef0869ddae3adac1a83a4d5eb/samples.pt",
+    "sha256": "bd3aca9e74849ee7ef42c2990376f2cce06c998fe6188718556992992b784e03"
+  },
+  "sampler": {
+    "nfe": 512,
+    "model_calls_total": 512,
+    "n_batches": 1,
+    "time_grid": [
+      0.001,
+      0.014142839201640722,
+      0.027137192874202465,
+      0.03998446162821301,
+      0.05268603548503403,
+      0.06524329393701911,
+      0.07765760600744209,
+      0.08993033031020159,
+      0.1020628151092906,
+      0.11405639837804626,
+      0.12591240785816993,
+      0.13763216111852128,
+      0.14921696561368747,
+      0.16066811874232645,
+      0.17198690790528537,
+      0.1831746105634955,
+      0.1942324942956416,
+      0.20516181685561163,
+      0.21596382622971655,
+      0.22663976069369418,
+      0.23719084886948782,
+      0.247618309781803,
+      0.25792335291444424,
+      0.26810717826642905,
+      0.27817097640788346,
+      0.28811592853571577,
+      0.2979432065290717,
+      0.3076539730045721,
+      0.3172493813713263,
+      0.32673057588573373,
+      0.3360986917060641,
+      0.3453548549468207,
+      0.3545001827328871,
+      0.36353578325345715,
+      0.3724627558157487,
+      0.3812821908985019,
+      0.38999517020526187,
+      0.3986027667174463,
+      0.4071060447472016,
+      0.415506059990039,
+      0.4238038595772631,
+      0.43200048212818465,
+      0.44009695780212066,
+      0.44809430835018293,
+      0.4559935471668546,
+      0.463795679341355,
+      0.4715017017087937,
+      0.47911260290111635,
+      0.4866293633978336,
+      0.49405295557655104,
+      0.5013843437632801,
+      0.5086244842825451,
+      0.5157743255072822,
+      0.5228348079085277,
+      0.5298068641049021,
+      0.5366914189118848,
+      0.5434893893908832,
+      0.550201684898095,
+      0.5568292071331671,
+      0.563372850187645,
+      0.5698335005932214,
+      0.576212037369778,
+      0.5825093320732246,
+      0.5887262488431342,
+      0.5948636444501743,
+      0.6009223683433368,
+      0.6069032626969646,
+      0.6128071624575787,
+      0.6186348953904979,
+      0.6243872821262667,
+      0.6300651362068743,
+      0.6356692641317785,
+      0.641200465403728,
+      0.6466595325743857,
+      0.6520472512897544,
+      0.6573644003354024,
+      0.6626117516814922,
+      0.667790070527612,
+      0.67290011534741,
+      0.6779426379330298,
+      0.6829183834393552,
+      0.6878280904280527,
+      0.6926724909114234,
+      0.6974523103960578,
+      0.7021682679262973,
+      0.7068210761275007,
+      0.7114114412491179,
+      0.7159400632075708,
+      0.7204076356289388,
+      0.7248148458914581,
+      0.7291623751678211,
+      0.7334508984672912,
+      0.7376810846776227,
+      0.7418535966067925,
+      0.7459690910245402,
+      0.7500282187037188,
+      0.7540316244614571,
+      0.7579799472001318,
+      0.7618738199481536,
+      0.765713869900562,
+      0.7695007184594358,
+      0.7732349812741147,
+      0.7769172682812353,
+      0.78054818374458,
+      0.7841283262947409,
+      0.7876582889685979,
+      0.7911386592486123,
+      0.7945700191019361,
+      0.7979529450193358,
+      0.8012880080539353,
+      0.8045757738597732,
+      0.8078168027301783,
+      0.8110116496359635,
+      0.8141608642634367,
+      0.8172649910522308,
+      0.820324569232953,
+      0.8233401328646535,
+      0.8263122108721126,
+      0.829241327082952,
+      0.8321280002645608,
+      0.8349727441608494,
+      0.8377760675288202,
+      0.8405384741749617,
+      0.8432604629914663,
+      0.8459425279922695,
+      0.8485851583489133,
+      0.8511888384262332,
+      0.853754047817869,
+      0.8562812613816009,
+      0.8587709492745111,
+      0.8612235769879691,
+      0.863639605382445,
+      0.8660194907221478,
+      0.868363684709492,
+      0.8706726345193893,
+      0.8729467828333706,
+      0.8751865678735337,
+      0.8773924234363213,
+      0.8795647789261278,
+      0.8817040593887335,
+      0.8838106855445725,
+      0.8858850738218267,
+      0.887927636389354,
+      0.8899387811894457,
+      0.8919189119704158,
+      0.8938684283190229,
+      0.895787725692724,
+      0.8976771954517624,
+      0.8995372248910859,
+      0.9013681972721038,
+      0.9031704918542723,
+      0.9049444839265199,
+      0.9066905448385039,
+      0.9084090420317041,
+      0.9101003390703534,
+      0.9117647956722019,
+      0.9134027677391217,
+      0.9150146073875447,
+      0.9166006629787421,
+      0.9181612791489389,
+      0.9196967968392687,
+      0.9212075533255669,
+      0.9226938822480037,
+      0.9241561136405563,
+      0.9255945739603214,
+      0.9270095861166698,
+      0.9284014695002405,
+      0.9297705400117767,
+      0.9311171100908048,
+      0.932441488744155,
+      0.9337439815743247,
+      0.935024890807686,
+      0.9362845153225358,
+      0.9375231506769915,
+      0.9387410891367305,
+      0.9399386197025739,
+      0.9411160281379181,
+      0.9422735969960097,
+      0.9434116056470687,
+      0.9445303303052573,
+      0.9456300440554968,
+      0.9467110168801308,
+      0.9477735156854389,
+      0.9488178043279961,
+      0.9498441436408833,
+      0.9508527914597462,
+      0.9518440026487042,
+      0.95281802912611,
+      0.953775119890159,
+      0.9547155210443505,
+      0.9556394758228011,
+      0.9565472246154079,
+      0.9574390049928669,
+      0.9583150517315426,
+      0.9591755968381908,
+      0.9600208695745358,
+      0.9608510964817022,
+      0.9616665014044997,
+      0.9624673055155647,
+      0.963253727339356,
+      0.9640259827760078,
+      0.964784285125037,
+      0.96552884510891,
+      0.9662598708964641,
+      0.9669775681261883,
+      0.967682139929361,
+      0.9683737869530474,
+      0.969052707382955,
+      0.9697190969661483,
+      0.9703731490336246,
+      0.9710150545227478,
+      0.971645001999546,
+      0.9722631776808666,
+      0.9728697654563961,
+      0.9734649469105406,
+      0.9740489013441677,
+      0.9746218057962129,
+      0.9751838350651492,
+      0.9757351617303187,
+      0.9762759561731303,
+      0.9768063865981211,
+      0.9773266190538827,
+      0.9778368174538536,
+      0.9783371435969763,
+      0.9788277571882226,
+      0.9793088158589833,
+      0.9797804751873275,
+      0.9802428887181276,
+      0.9806962079830536,
+      0.9811405825204348,
+      0.9815761598949918,
+      0.9820030857174368,
+      0.9824215036639435,
+      0.9828315554954887,
+      0.9832333810770628,
+      0.9836271183967525,
+      0.9840129035846946,
+      0.9843908709319021,
+      0.9847611529089623,
+      0.9851238801846077,
+      0.9854791816441612,
+      0.9858271844078528,
+      0.9861680138490131,
+      0.9865017936121397,
+      0.9868286456308386,
+      0.9871486901456417,
+      0.9874620457216997,
+      0.987768829266352,
+      0.9880691560465723,
+      0.988363139706292,
+      0.988650892283601,
+      0.9889325242278272,
+      0.9892081444164932,
+      0.989477860172153,
+      0.9897417772791074,
+      0.99,
+      1.0
+    ],
+    "parameters": {
+      "t_min": 0.001,
+      "rho": 7.0,
+      "grid": "power_sigma",
+      "sigma_min": 0.01
+    },
+    "timing_scope": "source draw, Heun, strict finite checks, and CPU sample transfers; excludes metrics"
+  },
+  "metrics": {
+    "radial_w1": 12.35915470123291,
+    "ks_stat": 0.9648497700691223,
+    "q950_err": 39.60949993816742,
+    "q990_err": 121.50075323401016,
+    "q995_err": 158.35866589593067,
+    "tail_exc_95": 0.9329000234603881,
+    "tail_exc_99": 0.9647999906539917,
+    "sliced_w1": 1.7647396326065063,
+    "mmd": 0.1600499153137207,
+    "angular_sw_bin0": 0.0966775193810463,
+    "angular_sw_bin1": 0.10259148478507996,
+    "angular_sw_bin2": 0.07712743431329727,
+    "angular_sw_bin3": 0.07485662400722504,
+    "angular_sw_mean": 0.08781326562166214,
+    "nan_rate": 0.0,
+    "exploding_norm_rate": 0.0005000000237487257,
+    "invalid_rate": 0.0005000000237487257,
+    "inf_rate": 0.0,
+    "nfe": 512,
+    "sample_time_s": 0.4177699461579323,
+    "total_train_time_s": 32.805739521980286,
+    "n_params": 41504
+  },
+  "nonfinite_metric_fields": []
+}
