@@ -1,0 +1,2118 @@
+{
+  "schema_version": 1,
+  "recorded_at_utc": "2026-09-11T07:27:38.497243+00:00",
+  "condition": "imagenette_dcae",
+  "status": "passed",
+  "scope": "Independent stdlib-only read/hash audit; no tensor/model loading, training, sampling or GPU work. These reports serialize the completed audit; frozen results are unchanged.",
+  "runs_verified": 12,
+  "checks_per_run": 15,
+  "unique_current_files_hashed": 3996,
+  "errors": [],
+  "checkpoint_step_evidence": "All current checkpoint bytes match recorded SHA-256. Result checkpoint step, training_stats.training_step, and final training.jsonl step independently match 40000. Checkpoints were not deserialized during this audit.",
+  "common_settings": {
+    "config_sha256": "1e6dca1ffe1ee8ba4e4efc62b7737a1f0e872a1ca050756346772e1d25671e29",
+    "training": {
+      "steps": 40000,
+      "batch_size": 64,
+      "optimizer": "AdamW",
+      "lr": 0.0001,
+      "betas": [
+        0.9,
+        0.95
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0,
+      "gradient_clip": null,
+      "ema": 0.9999,
+      "precision": "bfloat16_autocast",
+      "batch_rule": "step_seeded",
+      "compile": false,
+      "checkpoint_every": 2000,
+      "log_every": 500,
+      "class_dropout": 0.1
+    },
+    "model": {
+      "kind": "image_sit",
+      "hidden": 384,
+      "depth": 12,
+      "heads": 6,
+      "class_dropout": 0.1,
+      "source_dir": "/mnt/vast01/users/fouad.oubari/references/SiT-tflow"
+    },
+    "seeds": [
+      8925,
+      1234,
+      7
+    ],
+    "n_samples": 3000,
+    "samples_per_class": 300,
+    "sample_seed": 0,
+    "model_evaluations_per_trajectory": 100,
+    "model_calls_across_6_batches": 600,
+    "gpu": "AMD Instinct MI210",
+    "evaluation_precision": "float32",
+    "samplers": "A/B/C retain original ambient RK4; t-Flow uses its frozen noise-prediction field and power-sigma Heun schedule."
+  },
+  "current_input_file_checks": {
+    "latents": {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/image_latents/data/dcae_latents_scaled.pt",
+      "sha256": "15088880ca60e69747d4c8bb55eda046d0667475e35ff6d7133e876090d83116"
+    },
+    "labels": {
+      "path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/image_latents/data/dcae_labels.pt",
+      "sha256": "95e17fe21ec2a8644dfb1f4cd00b576c0ab307b333d83f6baa67d67026a1f671"
+    },
+    "split_file": {
+      "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/v1/imagenette_dcae/split_indices.pt",
+      "sha256": "cac9bfcf824deb8d42ce91404dbd3801634066ec10127b0c8aa73c1b3f5b4549"
+    },
+    "shared_cache_manifest": {
+      "path": "/mnt/vast01/users/fouad.oubari/data/rafm_input_study/v1/imagenette_dcae/manifest.json",
+      "sha256": "c19527b82b5ee5cfbe519dd643487663bdaa6cf2713b7fcb9cb937a9b43bb0bb"
+    },
+    "all_file_checksums_match": true
+  },
+  "reference": {
+    "path": "/mnt/vast01/users/fouad.oubari/msgm/msgm-sparse-control/data/experiments/image_latents/dit/eval_std/_real_ref",
+    "count": 3925,
+    "sha256": "79064131fa4cad5529be9ba8b37d3da62a2002adb1b011cfc6bdf148b25382b7",
+    "manifest_digest_algorithm": "SHA256 over sorted filename + NUL + file SHA256 + newline",
+    "all_3925_pngs_individually_rehashed": true,
+    "aggregate_digest_matches": true,
+    "overlap": {
+      "n_reference": 3925,
+      "generator_split_counts": {
+        "train": 2339,
+        "val": 775,
+        "test": 811
+      },
+      "train_fraction": 0.5959235668789808,
+      "definition": "sorted(np.random.default_rng(1).permutation(13394)[:3925]) in verified latent-row order",
+      "evidence": "VM audit report/addendum and supplied CSV; CSV flags, seeded subset and archived split intersections independently checked here",
+      "png_to_jpeg_identity_independently_reverified_here": false,
+      "held_out_reference": false,
+      "authorized_use": "User explicitly authorized the existing reference protocol for this comparison; no reference or manuscript changes"
+    }
+  },
+  "config_and_dataset_consistency": "All 12 nested configs equal one another and each saved config.json; all runtime dataset manifests (centered values, mean, split tensors/indices and labels) equal one another; decoder/evaluator/Inception protocol matches apart from distinct generated-image output directories. Every pinned implementation file matches current bytes.",
+  "provenance_limitation": "d3006dc8 checkout holds recovered artifacts; exact historical extraction/training commit remains unverified.",
+  "aggregates": {
+    "A": {
+      "n": 3,
+      "standard_deviation": "population (ddof=0)",
+      "metrics": {
+        "fid": {
+          "mean": 147.9570705364819,
+          "std": 0.37797351428389375,
+          "by_seed": {
+            "8925": 147.4806514826705,
+            "1234": 147.98536429426986,
+            "7": 148.40519583250529
+          }
+        },
+        "kid": {
+          "mean": 0.09576944351196288,
+          "std": 5.485172914290621e-05,
+          "by_seed": {
+            "8925": 0.09571051836013794,
+            "1234": 0.0957552146911621,
+            "7": 0.09584259748458862
+          }
+        },
+        "precision": {
+          "mean": 0.15922222222222224,
+          "std": 0.004909049340972121,
+          "by_seed": {
+            "8925": 0.15966666666666668,
+            "1234": 0.165,
+            "7": 0.153
+          }
+        },
+        "recall": {
+          "mean": 0.6811889596602972,
+          "std": 0.011440092538656148,
+          "by_seed": {
+            "8925": 0.6973248407643312,
+            "1234": 0.674140127388535,
+            "7": 0.6721019108280255
+          }
+        },
+        "density": {
+          "mean": 0.05444444444444445,
+          "std": 0.0036799087481976657,
+          "by_seed": {
+            "8925": 0.0588,
+            "1234": 0.054733333333333335,
+            "7": 0.049800000000000004
+          }
+        },
+        "coverage": {
+          "mean": 0.06063694267515923,
+          "std": 0.004646917713903846,
+          "by_seed": {
+            "8925": 0.06522292993630573,
+            "1234": 0.062420382165605096,
+            "7": 0.05426751592356688
+          }
+        },
+        "radial_w1": {
+          "mean": 0.26603636145591736,
+          "std": 2.1900144899933143e-07,
+          "by_seed": {
+            "8925": 0.26603662967681885,
+            "1234": 0.26603609323501587,
+            "7": 0.26603636145591736
+          }
+        },
+        "ks": {
+          "mean": 0.04048258066177368,
+          "std": 0.0,
+          "by_seed": {
+            "8925": 0.04048258066177368,
+            "1234": 0.04048258066177368,
+            "7": 0.04048258066177368
+          }
+        },
+        "sliced_w1": {
+          "mean": 0.04706759254137675,
+          "std": 0.000817161031883816,
+          "by_seed": {
+            "8925": 0.04701638221740723,
+            "1234": 0.048093028366565704,
+            "7": 0.04609336704015732
+          }
+        },
+        "total_train_time_s": {
+          "mean": 1775.3995405038197,
+          "std": 33.070914055750784,
+          "by_seed": {
+            "8925": 1751.9984952434897,
+            "1234": 1752.0312544107437,
+            "7": 1822.168871857226
+          }
+        },
+        "sample_time_s": {
+          "mean": 49.154609521230064,
+          "std": 0.7545388618715059,
+          "by_seed": {
+            "8925": 48.60046635568142,
+            "1234": 50.221419893205166,
+            "7": 48.6419423148036
+          }
+        }
+      }
+    },
+    "B": {
+      "n": 3,
+      "standard_deviation": "population (ddof=0)",
+      "metrics": {
+        "fid": {
+          "mean": 311.40280945625057,
+          "std": 11.058005244532191,
+          "by_seed": {
+            "8925": 324.62676725593263,
+            "1234": 297.56141667516556,
+            "7": 312.02024443765356
+          }
+        },
+        "kid": {
+          "mean": 0.3184788584709168,
+          "std": 0.021294051103273415,
+          "by_seed": {
+            "8925": 0.3457028937339783,
+            "1234": 0.29371812582015994,
+            "7": 0.3160155558586121
+          }
+        },
+        "precision": {
+          "mean": 0.005,
+          "std": 0.003681787005729087,
+          "by_seed": {
+            "8925": 0.009333333333333334,
+            "1234": 0.005333333333333333,
+            "7": 0.0003333333333333333
+          }
+        },
+        "recall": {
+          "mean": 0.0,
+          "std": 0.0,
+          "by_seed": {
+            "8925": 0.0,
+            "1234": 0.0,
+            "7": 0.0
+          }
+        },
+        "density": {
+          "mean": 0.0010222222222222223,
+          "std": 0.0007390350732584841,
+          "by_seed": {
+            "8925": 0.0018666666666666669,
+            "1234": 0.0011333333333333334,
+            "7": 6.666666666666667e-05
+          }
+        },
+        "coverage": {
+          "mean": 0.00059447983014862,
+          "std": 0.0002402061252438378,
+          "by_seed": {
+            "8925": 0.0007643312101910828,
+            "1234": 0.0007643312101910828,
+            "7": 0.00025477707006369424
+          }
+        },
+        "radial_w1": {
+          "mean": 0.26601141691207886,
+          "std": 1.7033446033281332e-07,
+          "by_seed": {
+            "8925": 0.26601141691207886,
+            "1234": 0.26601120829582214,
+            "7": 0.26601162552833557
+          }
+        },
+        "ks": {
+          "mean": 0.04048258066177368,
+          "std": 0.0,
+          "by_seed": {
+            "8925": 0.04048258066177368,
+            "1234": 0.04048258066177368,
+            "7": 0.04048258066177368
+          }
+        },
+        "sliced_w1": {
+          "mean": 0.22041369477907816,
+          "std": 0.09318036384526314,
+          "by_seed": {
+            "8925": 0.15152636170387268,
+            "1234": 0.15757030248641968,
+            "7": 0.35214442014694214
+          }
+        },
+        "total_train_time_s": {
+          "mean": 1805.704392053187,
+          "std": 41.336614363834904,
+          "by_seed": {
+            "8925": 1787.2997935041785,
+            "1234": 1766.8543594926596,
+            "7": 1862.9590231627226
+          }
+        },
+        "sample_time_s": {
+          "mean": 49.07617118706306,
+          "std": 0.2539602242305605,
+          "by_seed": {
+            "8925": 49.02521216124296,
+            "1234": 48.79376098513603,
+            "7": 49.40954041481018
+          }
+        }
+      }
+    },
+    "C": {
+      "n": 3,
+      "standard_deviation": "population (ddof=0)",
+      "metrics": {
+        "fid": {
+          "mean": 227.43675485271265,
+          "std": 67.72442808354815,
+          "by_seed": {
+            "8925": 182.24609107426488,
+            "1234": 323.1638183590191,
+            "7": 176.90035512485395
+          }
+        },
+        "kid": {
+          "mean": 0.1982350492477417,
+          "std": 0.1063208060799008,
+          "by_seed": {
+            "8925": 0.12682852983474732,
+            "1234": 0.34853325843811034,
+            "7": 0.11934335947036744
+          }
+        },
+        "precision": {
+          "mean": 0.06933333333333333,
+          "std": 0.045191772440304846,
+          "by_seed": {
+            "8925": 0.106,
+            "1234": 0.005666666666666667,
+            "7": 0.09633333333333334
+          }
+        },
+        "recall": {
+          "mean": 0.4473885350318471,
+          "std": 0.3169173466302895,
+          "by_seed": {
+            "8925": 0.6478980891719746,
+            "1234": 0.0,
+            "7": 0.6942675159235668
+          }
+        },
+        "density": {
+          "mean": 0.021866666666666666,
+          "std": 0.01465403496449837,
+          "by_seed": {
+            "8925": 0.03353333333333333,
+            "1234": 0.0012000000000000001,
+            "7": 0.030866666666666667
+          }
+        },
+        "coverage": {
+          "mean": 0.021316348195329085,
+          "std": 0.014757045269823887,
+          "by_seed": {
+            "8925": 0.033121019108280254,
+            "1234": 0.0005095541401273885,
+            "7": 0.030318471337579617
+          }
+        },
+        "radial_w1": {
+          "mean": 0.26602335770924884,
+          "std": 8.4864376997497e-06,
+          "by_seed": {
+            "8925": 0.2660295069217682,
+            "1234": 0.2660113573074341,
+            "7": 0.2660292088985443
+          }
+        },
+        "ks": {
+          "mean": 0.04048258066177368,
+          "std": 0.0,
+          "by_seed": {
+            "8925": 0.04048258066177368,
+            "1234": 0.04048258066177368,
+            "7": 0.04048258066177368
+          }
+        },
+        "sliced_w1": {
+          "mean": 0.06654396901528041,
+          "std": 0.010403711077127592,
+          "by_seed": {
+            "8925": 0.05493742972612381,
+            "1234": 0.08017807453870773,
+            "7": 0.06451640278100967
+          }
+        },
+        "total_train_time_s": {
+          "mean": 1785.2816286509235,
+          "std": 15.469177386612106,
+          "by_seed": {
+            "8925": 1770.831034258008,
+            "1234": 1778.2827065438032,
+            "7": 1806.7311451509595
+          }
+        },
+        "sample_time_s": {
+          "mean": 49.11000048369169,
+          "std": 0.0954716157209419,
+          "by_seed": {
+            "8925": 49.11640923470259,
+            "1234": 48.989999532699585,
+            "7": 49.223592683672905
+          }
+        }
+      }
+    },
+    "tflow": {
+      "n": 3,
+      "standard_deviation": "population (ddof=0)",
+      "metrics": {
+        "fid": {
+          "mean": 223.7960738837206,
+          "std": 6.271901828596999,
+          "by_seed": {
+            "8925": 215.62453773386662,
+            "1234": 230.86925330211199,
+            "7": 224.89443061518318
+          }
+        },
+        "kid": {
+          "mean": 0.0902553129196167,
+          "std": 0.00614688153255219,
+          "by_seed": {
+            "8925": 0.08157544374465943,
+            "1234": 0.09418156623840332,
+            "7": 0.09500892877578736
+          }
+        },
+        "precision": {
+          "mean": 0.044222222222222225,
+          "std": 0.008434204317488153,
+          "by_seed": {
+            "8925": 0.05333333333333334,
+            "1234": 0.033,
+            "7": 0.04633333333333333
+          }
+        },
+        "recall": {
+          "mean": 0.17876857749469216,
+          "std": 0.05859294103570944,
+          "by_seed": {
+            "8925": 0.16152866242038216,
+            "1234": 0.11719745222929936,
+            "7": 0.2575796178343949
+          }
+        },
+        "density": {
+          "mean": 0.00988888888888889,
+          "std": 0.00196059955556558,
+          "by_seed": {
+            "8925": 0.011000000000000001,
+            "1234": 0.0071333333333333335,
+            "7": 0.011533333333333333
+          }
+        },
+        "coverage": {
+          "mean": 0.006539278131634819,
+          "std": 0.00043303775062359106,
+          "by_seed": {
+            "8925": 0.006369426751592357,
+            "1234": 0.006114649681528662,
+            "7": 0.0071337579617834395
+          }
+        },
+        "radial_w1": {
+          "mean": 405.59482828776044,
+          "std": 66.36997590287898,
+          "by_seed": {
+            "8925": 496.7513427734375,
+            "1234": 379.38995361328125,
+            "7": 340.6431884765625
+          }
+        },
+        "ks": {
+          "mean": 0.6738673051198324,
+          "std": 0.08958287428018143,
+          "by_seed": {
+            "8925": 0.6390944719314575,
+            "1234": 0.7967562079429626,
+            "7": 0.5857512354850769
+          }
+        },
+        "sliced_w1": {
+          "mean": 7.243133385976155,
+          "std": 1.1614874343750952,
+          "by_seed": {
+            "8925": 8.824403762817383,
+            "1234": 6.83755350112915,
+            "7": 6.067442893981934
+          }
+        },
+        "total_train_time_s": {
+          "mean": 1772.3880231107275,
+          "std": 1.1664799208153844,
+          "by_seed": {
+            "8925": 1772.1966245695949,
+            "1234": 1771.0647304654121,
+            "7": 1773.9027142971754
+          }
+        },
+        "sample_time_s": {
+          "mean": 50.18982760111491,
+          "std": 0.121355225281914,
+          "by_seed": {
+            "8925": 50.161327719688416,
+            "1234": 50.057512015104294,
+            "7": 50.35064306855202
+          }
+        }
+      }
+    }
+  },
+  "interpretation": {
+    "fid": "Original RAFM-Ang A has lowest FID for all three seeds. B is substantially worse; C has high seed variance. t-Flow is worse than A on FID.",
+    "kid": "t-Flow mean KID 0.0902553 is lower than A 0.0957694; do not claim all image metrics favor A. This is a descriptive three-seed comparison, not a significance result.",
+    "b": "B has recall 0 for all three seeds, despite finite metrics/samples.",
+    "c": "C seed1234 FID323.1638 drives the large across-seed SD.",
+    "tflow_radial": "t-Flow latent radial W1 405.5948 \u00b166.3700 and KS0.673867 \u00b10.089583 show a large radial discrepancy despite finite samples.",
+    "nested_method_metadata": "The shared evaluator emits method=tflow even for ABC. Identify runs using top-level method plus arm; all 12 identities were checked.",
+    "angular_diagnostic_gap": {
+      "status": "Not computed for t-Flow image outputs; all original image-evaluation metrics are present.",
+      "original_image_protocol": "experiments/image_latents/dit/dit_eval_sit.py:110-136 emits radial_w1/ks/sliced_w1 and FID/KID/PRDC, no conditional angular metrics.",
+      "abc_addition": "experiments/rafm_inputs/run.py:311-314 adds conditional angular metrics to non-vector outputs.",
+      "tflow_branch": "experiments/tflow/run.py:591-608 calls the original image helper without those additional angular diagnostics.",
+      "helper": "rafm/metrics/angular.py:13; 4 test-radius quantile bins, 200 unit-direction projections. Bins with fewer than 10 generated or test examples return NaN; mean averages populated bins.",
+      "completion_schema": "tools/report_shared_study.py:26 IMAGE fields do not require conditional angular diagnostics.",
+      "remaining_work": "If completing the expanded cross-method dependence diagnostics, compute them separately from existing saved samples under the same helper/seed; do not alter frozen metrics or rerun models."
+    }
+  },
+  "runs": [
+    {
+      "arm": "A",
+      "seed": 8925,
+      "result_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/final/imagenette_dcae/A/seed_8925/result.json",
+      "metrics_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/final/imagenette_dcae/A/seed_8925/metrics.json",
+      "result_sha256": "f400706ac6ee5820eea4b02a6ab1e2aceda56c857d12584bb93d7147dd39b5ef",
+      "sample_audit_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/final/imagenette_dcae/A/seed_8925/sample_audit.json",
+      "sample_audit_sha256": "60aecf8d82476357a6b0be960a0e7e07d960464e3e76aff577c9fdd19d03aad5",
+      "sample_sha256": "fc0b0f1c7ec36d993ae3e9bd4e6f8d7d16f22768780c3c0cf5b343f342f74100",
+      "checkpoint": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/final/imagenette_dcae/A/seed_8925/checkpoint.pt",
+        "sha256": "dde50c2e8759456198abe8553a980869e53512063c469c05702735d92b354fa3",
+        "step": 40000
+      },
+      "config_sha256": "1e6dca1ffe1ee8ba4e4efc62b7737a1f0e872a1ca050756346772e1d25671e29",
+      "implementation_sha256": "19abfd8ac9fb79afc3f9037f9b6d190c958db7f313c6c9a511f79debc91df823",
+      "top_level_method": "rafm_ang_input",
+      "nested_evaluator_method": "tflow",
+      "checks": {
+        "complete": "passed",
+        "arm_seed": "passed",
+        "same_config": "passed",
+        "same_data": "passed",
+        "same_evaluator": "passed",
+        "metrics_same": "passed",
+        "finite": "passed",
+        "final_step": "passed",
+        "checkpoint_sha": "passed",
+        "sample_sha": "passed",
+        "audit_result_sha": "passed",
+        "audit_passed": "passed",
+        "samples_nfe": "passed",
+        "reference": "passed",
+        "sources": "passed"
+      },
+      "errors": [],
+      "metrics": {
+        "fid": 147.4806514826705,
+        "kid": 0.09571051836013794,
+        "kid_std": 0.0026876032109143227,
+        "precision": 0.15966666666666668,
+        "recall": 0.6973248407643312,
+        "density": 0.0588,
+        "coverage": 0.06522292993630573,
+        "radial_w1": 0.26603662967681885,
+        "ks": 0.04048258066177368,
+        "sliced_w1": 0.04701638221740723,
+        "angular_sw_bin0": 0.00187996169552207,
+        "angular_sw_bin1": 0.0018207526300102472,
+        "angular_sw_bin2": 0.001860255841165781,
+        "angular_sw_bin3": 0.0024674381129443645,
+        "angular_sw_mean": 0.0020071020699106157,
+        "sample_time_s": 48.60046635568142,
+        "total_train_time_s": 1751.9984952434897,
+        "nfe": 100
+      },
+      "training_stats": {
+        "run_sha256": "c9f2f2caec3af4cfc475187094d130e7b6b3b9ce431bdbfcfb74fbf2a4298888",
+        "training_step": 40000,
+        "total_train_time_s": 1753.0899486094713,
+        "final_loss": 1.7902357578277588,
+        "parameters": {
+          "arm": "A",
+          "backbone_kind": "image_sit",
+          "original_backbone_parameters": 32515616,
+          "total_parameters": 32515616,
+          "trainable_parameters": 32491040,
+          "conditioning_overhead_parameters": 0,
+          "conditioning_overhead_fraction": 0.0,
+          "radius_embedding_hidden_width": null
+        },
+        "hardware": {
+          "host": "auh7-3b-gpu-029",
+          "slurm_job_id": "766006",
+          "python": "3.10.12",
+          "torch": "2.7.1+rocm6.3",
+          "cuda": null,
+          "hip": "6.3.42131-fa1d09cbd",
+          "gpu": "AMD Instinct MI210",
+          "vram_bytes": 68702699520
+        },
+        "peak_memory": {
+          "allocated_bytes": 1700032512,
+          "reserved_bytes": 1757413376
+        },
+        "timing_kind": "measured",
+        "timing_scope": "training loop including compile, finite checks, logging and checkpoints",
+        "gradient_observed": null,
+        "radius_embedding_gradient_observed": null,
+        "backend": {
+          "cudnn_deterministic": true,
+          "cudnn_benchmark": false,
+          "note": "Shared seed helper for every new arm; historical downstream scripts did not explicitly force deterministic cuDNN/MIOpen"
+        }
+      },
+      "sample_audit": {
+        "schema_version": 1,
+        "status": "passed",
+        "sample_sha256": "fc0b0f1c7ec36d993ae3e9bd4e6f8d7d16f22768780c3c0cf5b343f342f74100",
+        "result_sha256": "f400706ac6ee5820eea4b02a6ab1e2aceda56c857d12584bb93d7147dd39b5ef",
+        "n_samples": 3000,
+        "dimension": 2048,
+        "class_counts": [
+          300,
+          300,
+          300,
+          300,
+          300,
+          300,
+          300,
+          300,
+          300,
+          300
+        ],
+        "nonfinite_rows": 0,
+        "nan_rows": 0,
+        "inf_rows": 0,
+        "zero_radius_rows": 0,
+        "nfe": 100,
+        "model_calls_total": 600,
+        "n_batches": 6,
+        "configured_sample_seed": 0,
+        "seed_evidence": "Configuration and frozen sampling implementation; cannot infer RNG seed from output tensor",
+        "hardware": {
+          "host": "auh7-3b-gpu-029",
+          "slurm_job_id": "766006",
+          "python": "3.10.12",
+          "torch": "2.7.1+rocm6.3",
+          "cuda": null,
+          "hip": "6.3.42131-fa1d09cbd",
+          "gpu": "AMD Instinct MI210",
+          "vram_bytes": 68702699520
+        },
+        "errors": []
+      }
+    },
+    {
+      "arm": "A",
+      "seed": 1234,
+      "result_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/final/imagenette_dcae/A/seed_1234/result.json",
+      "metrics_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/final/imagenette_dcae/A/seed_1234/metrics.json",
+      "result_sha256": "3dbaa6d3dea18866eb982a2e8bec9132f3354661d5d777bbc6de78d958b20573",
+      "sample_audit_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/final/imagenette_dcae/A/seed_1234/sample_audit.json",
+      "sample_audit_sha256": "7fdcc0c3b772c283037648787856d94d636d079bf01942a0021dd54b6706ff9b",
+      "sample_sha256": "ed101d10b8422d649ca31c762b928055f23dd434561f3252a65b479936e56656",
+      "checkpoint": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/final/imagenette_dcae/A/seed_1234/checkpoint.pt",
+        "sha256": "0b632ffbe27f7ce73658fa09aba894d21a409b0f95105695d55477eb3a42d8fe",
+        "step": 40000
+      },
+      "config_sha256": "1e6dca1ffe1ee8ba4e4efc62b7737a1f0e872a1ca050756346772e1d25671e29",
+      "implementation_sha256": "19abfd8ac9fb79afc3f9037f9b6d190c958db7f313c6c9a511f79debc91df823",
+      "top_level_method": "rafm_ang_input",
+      "nested_evaluator_method": "tflow",
+      "checks": {
+        "complete": "passed",
+        "arm_seed": "passed",
+        "same_config": "passed",
+        "same_data": "passed",
+        "same_evaluator": "passed",
+        "metrics_same": "passed",
+        "finite": "passed",
+        "final_step": "passed",
+        "checkpoint_sha": "passed",
+        "sample_sha": "passed",
+        "audit_result_sha": "passed",
+        "audit_passed": "passed",
+        "samples_nfe": "passed",
+        "reference": "passed",
+        "sources": "passed"
+      },
+      "errors": [],
+      "metrics": {
+        "fid": 147.98536429426986,
+        "kid": 0.0957552146911621,
+        "kid_std": 0.002578843215523666,
+        "precision": 0.165,
+        "recall": 0.674140127388535,
+        "density": 0.054733333333333335,
+        "coverage": 0.062420382165605096,
+        "radial_w1": 0.26603609323501587,
+        "ks": 0.04048258066177368,
+        "sliced_w1": 0.048093028366565704,
+        "angular_sw_bin0": 0.0018902042647823691,
+        "angular_sw_bin1": 0.0017937275115400553,
+        "angular_sw_bin2": 0.0018766657449305058,
+        "angular_sw_bin3": 0.0025077955797314644,
+        "angular_sw_mean": 0.0020170982752460986,
+        "sample_time_s": 50.221419893205166,
+        "total_train_time_s": 1752.0312544107437,
+        "nfe": 100
+      },
+      "training_stats": {
+        "run_sha256": "4bf69ee72854491ca52e47b6f095bb586aea4e6e7479a4f8f2c3808d59ab133c",
+        "training_step": 40000,
+        "total_train_time_s": 1753.1593023762107,
+        "final_loss": 1.8525053262710571,
+        "parameters": {
+          "arm": "A",
+          "backbone_kind": "image_sit",
+          "original_backbone_parameters": 32515616,
+          "total_parameters": 32515616,
+          "trainable_parameters": 32491040,
+          "conditioning_overhead_parameters": 0,
+          "conditioning_overhead_fraction": 0.0,
+          "radius_embedding_hidden_width": null
+        },
+        "hardware": {
+          "host": "auh7-3b-gpu-029",
+          "slurm_job_id": "766009",
+          "python": "3.10.12",
+          "torch": "2.7.1+rocm6.3",
+          "cuda": null,
+          "hip": "6.3.42131-fa1d09cbd",
+          "gpu": "AMD Instinct MI210",
+          "vram_bytes": 68702699520
+        },
+        "peak_memory": {
+          "allocated_bytes": 1700032512,
+          "reserved_bytes": 1757413376
+        },
+        "timing_kind": "measured",
+        "timing_scope": "training loop including compile, finite checks, logging and checkpoints",
+        "gradient_observed": null,
+        "radius_embedding_gradient_observed": null,
+        "backend": {
+          "cudnn_deterministic": true,
+          "cudnn_benchmark": false,
+          "note": "Shared seed helper for every new arm; historical downstream scripts did not explicitly force deterministic cuDNN/MIOpen"
+        }
+      },
+      "sample_audit": {
+        "schema_version": 1,
+        "status": "passed",
+        "sample_sha256": "ed101d10b8422d649ca31c762b928055f23dd434561f3252a65b479936e56656",
+        "result_sha256": "3dbaa6d3dea18866eb982a2e8bec9132f3354661d5d777bbc6de78d958b20573",
+        "n_samples": 3000,
+        "dimension": 2048,
+        "class_counts": [
+          300,
+          300,
+          300,
+          300,
+          300,
+          300,
+          300,
+          300,
+          300,
+          300
+        ],
+        "nonfinite_rows": 0,
+        "nan_rows": 0,
+        "inf_rows": 0,
+        "zero_radius_rows": 0,
+        "nfe": 100,
+        "model_calls_total": 600,
+        "n_batches": 6,
+        "configured_sample_seed": 0,
+        "seed_evidence": "Configuration and frozen sampling implementation; cannot infer RNG seed from output tensor",
+        "hardware": {
+          "host": "auh7-3b-gpu-029",
+          "slurm_job_id": "766009",
+          "python": "3.10.12",
+          "torch": "2.7.1+rocm6.3",
+          "cuda": null,
+          "hip": "6.3.42131-fa1d09cbd",
+          "gpu": "AMD Instinct MI210",
+          "vram_bytes": 68702699520
+        },
+        "errors": []
+      }
+    },
+    {
+      "arm": "A",
+      "seed": 7,
+      "result_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/final/imagenette_dcae/A/seed_7/result.json",
+      "metrics_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/final/imagenette_dcae/A/seed_7/metrics.json",
+      "result_sha256": "f487b4b9c301a7e0ad5e666b3c370b9c061b9d5f805667604d8926b5ca703a4d",
+      "sample_audit_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/final/imagenette_dcae/A/seed_7/sample_audit.json",
+      "sample_audit_sha256": "c98258bc478036279960cd36ca2b72c259e8fa1a5f178d434416917b06781e07",
+      "sample_sha256": "3416cf2403da06f4b8e56485d2a062079ad8a031e42f7909540d541fb75013a0",
+      "checkpoint": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/final/imagenette_dcae/A/seed_7/checkpoint.pt",
+        "sha256": "500eda6bf0281850e039560d72e6d15b22406442c90c83d8302b41f2db2491d1",
+        "step": 40000
+      },
+      "config_sha256": "1e6dca1ffe1ee8ba4e4efc62b7737a1f0e872a1ca050756346772e1d25671e29",
+      "implementation_sha256": "19abfd8ac9fb79afc3f9037f9b6d190c958db7f313c6c9a511f79debc91df823",
+      "top_level_method": "rafm_ang_input",
+      "nested_evaluator_method": "tflow",
+      "checks": {
+        "complete": "passed",
+        "arm_seed": "passed",
+        "same_config": "passed",
+        "same_data": "passed",
+        "same_evaluator": "passed",
+        "metrics_same": "passed",
+        "finite": "passed",
+        "final_step": "passed",
+        "checkpoint_sha": "passed",
+        "sample_sha": "passed",
+        "audit_result_sha": "passed",
+        "audit_passed": "passed",
+        "samples_nfe": "passed",
+        "reference": "passed",
+        "sources": "passed"
+      },
+      "errors": [],
+      "metrics": {
+        "fid": 148.40519583250529,
+        "kid": 0.09584259748458862,
+        "kid_std": 0.0026815428715114605,
+        "precision": 0.153,
+        "recall": 0.6721019108280255,
+        "density": 0.049800000000000004,
+        "coverage": 0.05426751592356688,
+        "radial_w1": 0.26603636145591736,
+        "ks": 0.04048258066177368,
+        "sliced_w1": 0.04609336704015732,
+        "angular_sw_bin0": 0.0018617836758494377,
+        "angular_sw_bin1": 0.0017996419919654727,
+        "angular_sw_bin2": 0.001850881497375667,
+        "angular_sw_bin3": 0.002393340691924095,
+        "angular_sw_mean": 0.001976411964278668,
+        "sample_time_s": 48.6419423148036,
+        "total_train_time_s": 1822.168871857226,
+        "nfe": 100
+      },
+      "training_stats": {
+        "run_sha256": "d264b92d1fade76340e0823b8ff692a19777a2ee8e5fbc7039d3ef42c4f204e1",
+        "training_step": 40000,
+        "total_train_time_s": 1823.2833379134536,
+        "final_loss": 1.780231237411499,
+        "parameters": {
+          "arm": "A",
+          "backbone_kind": "image_sit",
+          "original_backbone_parameters": 32515616,
+          "total_parameters": 32515616,
+          "trainable_parameters": 32491040,
+          "conditioning_overhead_parameters": 0,
+          "conditioning_overhead_fraction": 0.0,
+          "radius_embedding_hidden_width": null
+        },
+        "hardware": {
+          "host": "auh7-3b-gpu-029",
+          "slurm_job_id": "766006",
+          "python": "3.10.12",
+          "torch": "2.7.1+rocm6.3",
+          "cuda": null,
+          "hip": "6.3.42131-fa1d09cbd",
+          "gpu": "AMD Instinct MI210",
+          "vram_bytes": 68702699520
+        },
+        "peak_memory": {
+          "allocated_bytes": 1700032512,
+          "reserved_bytes": 1757413376
+        },
+        "timing_kind": "measured",
+        "timing_scope": "training loop including compile, finite checks, logging and checkpoints",
+        "gradient_observed": null,
+        "radius_embedding_gradient_observed": null,
+        "backend": {
+          "cudnn_deterministic": true,
+          "cudnn_benchmark": false,
+          "note": "Shared seed helper for every new arm; historical downstream scripts did not explicitly force deterministic cuDNN/MIOpen"
+        }
+      },
+      "sample_audit": {
+        "schema_version": 1,
+        "status": "passed",
+        "sample_sha256": "3416cf2403da06f4b8e56485d2a062079ad8a031e42f7909540d541fb75013a0",
+        "result_sha256": "f487b4b9c301a7e0ad5e666b3c370b9c061b9d5f805667604d8926b5ca703a4d",
+        "n_samples": 3000,
+        "dimension": 2048,
+        "class_counts": [
+          300,
+          300,
+          300,
+          300,
+          300,
+          300,
+          300,
+          300,
+          300,
+          300
+        ],
+        "nonfinite_rows": 0,
+        "nan_rows": 0,
+        "inf_rows": 0,
+        "zero_radius_rows": 0,
+        "nfe": 100,
+        "model_calls_total": 600,
+        "n_batches": 6,
+        "configured_sample_seed": 0,
+        "seed_evidence": "Configuration and frozen sampling implementation; cannot infer RNG seed from output tensor",
+        "hardware": {
+          "host": "auh7-3b-gpu-029",
+          "slurm_job_id": "766006",
+          "python": "3.10.12",
+          "torch": "2.7.1+rocm6.3",
+          "cuda": null,
+          "hip": "6.3.42131-fa1d09cbd",
+          "gpu": "AMD Instinct MI210",
+          "vram_bytes": 68702699520
+        },
+        "errors": []
+      }
+    },
+    {
+      "arm": "B",
+      "seed": 8925,
+      "result_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/final/imagenette_dcae/B/seed_8925/result.json",
+      "metrics_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/final/imagenette_dcae/B/seed_8925/metrics.json",
+      "result_sha256": "48b7e69d8af604db2c1482e053051dba92b991c50ee0595dbcdff1cfe3b6bbab",
+      "sample_audit_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/final/imagenette_dcae/B/seed_8925/sample_audit.json",
+      "sample_audit_sha256": "e3d385b660efc101eab3cff59e67594cd774cb3e7f853eeb3e0e874aa3d6bf63",
+      "sample_sha256": "6f21f42a82e1e5e4e7169fd7a51fb48e7f2226008d2a975d74b7b96370414408",
+      "checkpoint": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/final/imagenette_dcae/B/seed_8925/checkpoint.pt",
+        "sha256": "cb9beaf5f4b03917d838335441a8eb93eade1df654629b8d0abdc6a5eedb6317",
+        "step": 40000
+      },
+      "config_sha256": "1e6dca1ffe1ee8ba4e4efc62b7737a1f0e872a1ca050756346772e1d25671e29",
+      "implementation_sha256": "19abfd8ac9fb79afc3f9037f9b6d190c958db7f313c6c9a511f79debc91df823",
+      "top_level_method": "rafm_ang_input",
+      "nested_evaluator_method": "tflow",
+      "checks": {
+        "complete": "passed",
+        "arm_seed": "passed",
+        "same_config": "passed",
+        "same_data": "passed",
+        "same_evaluator": "passed",
+        "metrics_same": "passed",
+        "finite": "passed",
+        "final_step": "passed",
+        "checkpoint_sha": "passed",
+        "sample_sha": "passed",
+        "audit_result_sha": "passed",
+        "audit_passed": "passed",
+        "samples_nfe": "passed",
+        "reference": "passed",
+        "sources": "passed"
+      },
+      "errors": [],
+      "metrics": {
+        "fid": 324.62676725593263,
+        "kid": 0.3457028937339783,
+        "kid_std": 0.0037011673362087826,
+        "precision": 0.009333333333333334,
+        "recall": 0.0,
+        "density": 0.0018666666666666669,
+        "coverage": 0.0007643312101910828,
+        "radial_w1": 0.26601141691207886,
+        "ks": 0.04048258066177368,
+        "sliced_w1": 0.15152636170387268,
+        "angular_sw_bin0": 0.004076747689396143,
+        "angular_sw_bin1": 0.004119529388844967,
+        "angular_sw_bin2": 0.00451995525509119,
+        "angular_sw_bin3": 0.004385977517813444,
+        "angular_sw_mean": 0.004275552462786436,
+        "sample_time_s": 49.02521216124296,
+        "total_train_time_s": 1787.2997935041785,
+        "nfe": 100
+      },
+      "training_stats": {
+        "run_sha256": "59c90dd684f99c33210d0dfb96eddbda48a21837eed2562ae4ab529e0921e585",
+        "training_step": 40000,
+        "total_train_time_s": 1788.4060496538877,
+        "final_loss": 2.4197773933410645,
+        "parameters": {
+          "arm": "B",
+          "backbone_kind": "image_sit",
+          "original_backbone_parameters": 32515616,
+          "total_parameters": 32522176,
+          "trainable_parameters": 32497600,
+          "conditioning_overhead_parameters": 6560,
+          "conditioning_overhead_fraction": 0.0002017492149003113,
+          "radius_embedding_hidden_width": 16
+        },
+        "hardware": {
+          "host": "auh7-3b-gpu-029",
+          "slurm_job_id": "766007",
+          "python": "3.10.12",
+          "torch": "2.7.1+rocm6.3",
+          "cuda": null,
+          "hip": "6.3.42131-fa1d09cbd",
+          "gpu": "AMD Instinct MI210",
+          "vram_bytes": 68702699520
+        },
+        "peak_memory": {
+          "allocated_bytes": 1700735488,
+          "reserved_bytes": 1759510528
+        },
+        "timing_kind": "measured",
+        "timing_scope": "training loop including compile, finite checks, logging and checkpoints",
+        "gradient_observed": null,
+        "radius_embedding_gradient_observed": null,
+        "backend": {
+          "cudnn_deterministic": true,
+          "cudnn_benchmark": false,
+          "note": "Shared seed helper for every new arm; historical downstream scripts did not explicitly force deterministic cuDNN/MIOpen"
+        }
+      },
+      "sample_audit": {
+        "schema_version": 1,
+        "status": "passed",
+        "sample_sha256": "6f21f42a82e1e5e4e7169fd7a51fb48e7f2226008d2a975d74b7b96370414408",
+        "result_sha256": "48b7e69d8af604db2c1482e053051dba92b991c50ee0595dbcdff1cfe3b6bbab",
+        "n_samples": 3000,
+        "dimension": 2048,
+        "class_counts": [
+          300,
+          300,
+          300,
+          300,
+          300,
+          300,
+          300,
+          300,
+          300,
+          300
+        ],
+        "nonfinite_rows": 0,
+        "nan_rows": 0,
+        "inf_rows": 0,
+        "zero_radius_rows": 0,
+        "nfe": 100,
+        "model_calls_total": 600,
+        "n_batches": 6,
+        "configured_sample_seed": 0,
+        "seed_evidence": "Configuration and frozen sampling implementation; cannot infer RNG seed from output tensor",
+        "hardware": {
+          "host": "auh7-3b-gpu-029",
+          "slurm_job_id": "766007",
+          "python": "3.10.12",
+          "torch": "2.7.1+rocm6.3",
+          "cuda": null,
+          "hip": "6.3.42131-fa1d09cbd",
+          "gpu": "AMD Instinct MI210",
+          "vram_bytes": 68702699520
+        },
+        "errors": []
+      }
+    },
+    {
+      "arm": "B",
+      "seed": 1234,
+      "result_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/final/imagenette_dcae/B/seed_1234/result.json",
+      "metrics_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/final/imagenette_dcae/B/seed_1234/metrics.json",
+      "result_sha256": "383ff988ca1955f62c552f9275adf5808a6102c848c39240bdd34e1887769ad0",
+      "sample_audit_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/final/imagenette_dcae/B/seed_1234/sample_audit.json",
+      "sample_audit_sha256": "244ed0a361bdc678a02af27e1c5f2a6a76ff667e53694cf07fbf2fe501b3e826",
+      "sample_sha256": "6610c84ea97b8e20e55a4d78067340610653b5a61c967f455b7ef778caddcdc2",
+      "checkpoint": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/final/imagenette_dcae/B/seed_1234/checkpoint.pt",
+        "sha256": "41dd26310f451b7ccc5d3a09d8973b7e8b62dcf77094bbb16e9094db96b36fa9",
+        "step": 40000
+      },
+      "config_sha256": "1e6dca1ffe1ee8ba4e4efc62b7737a1f0e872a1ca050756346772e1d25671e29",
+      "implementation_sha256": "19abfd8ac9fb79afc3f9037f9b6d190c958db7f313c6c9a511f79debc91df823",
+      "top_level_method": "rafm_ang_input",
+      "nested_evaluator_method": "tflow",
+      "checks": {
+        "complete": "passed",
+        "arm_seed": "passed",
+        "same_config": "passed",
+        "same_data": "passed",
+        "same_evaluator": "passed",
+        "metrics_same": "passed",
+        "finite": "passed",
+        "final_step": "passed",
+        "checkpoint_sha": "passed",
+        "sample_sha": "passed",
+        "audit_result_sha": "passed",
+        "audit_passed": "passed",
+        "samples_nfe": "passed",
+        "reference": "passed",
+        "sources": "passed"
+      },
+      "errors": [],
+      "metrics": {
+        "fid": 297.56141667516556,
+        "kid": 0.29371812582015994,
+        "kid_std": 0.0032493769945166665,
+        "precision": 0.005333333333333333,
+        "recall": 0.0,
+        "density": 0.0011333333333333334,
+        "coverage": 0.0007643312101910828,
+        "radial_w1": 0.26601120829582214,
+        "ks": 0.04048258066177368,
+        "sliced_w1": 0.15757030248641968,
+        "angular_sw_bin0": 0.003715591272339225,
+        "angular_sw_bin1": 0.0037465684581547976,
+        "angular_sw_bin2": 0.0035291260574012995,
+        "angular_sw_bin3": 0.005090431310236454,
+        "angular_sw_mean": 0.004020429274532944,
+        "sample_time_s": 48.79376098513603,
+        "total_train_time_s": 1766.8543594926596,
+        "nfe": 100
+      },
+      "training_stats": {
+        "run_sha256": "76a544a01a768764d476c468352f62e5eb54b35a8ee65975c527ff21cfe0b325",
+        "training_step": 40000,
+        "total_train_time_s": 1768.0668091475964,
+        "final_loss": 2.413519859313965,
+        "parameters": {
+          "arm": "B",
+          "backbone_kind": "image_sit",
+          "original_backbone_parameters": 32515616,
+          "total_parameters": 32522176,
+          "trainable_parameters": 32497600,
+          "conditioning_overhead_parameters": 6560,
+          "conditioning_overhead_fraction": 0.0002017492149003113,
+          "radius_embedding_hidden_width": 16
+        },
+        "hardware": {
+          "host": "auh7-3b-gpu-029",
+          "slurm_job_id": "766010",
+          "python": "3.10.12",
+          "torch": "2.7.1+rocm6.3",
+          "cuda": null,
+          "hip": "6.3.42131-fa1d09cbd",
+          "gpu": "AMD Instinct MI210",
+          "vram_bytes": 68702699520
+        },
+        "peak_memory": {
+          "allocated_bytes": 1700735488,
+          "reserved_bytes": 1759510528
+        },
+        "timing_kind": "measured",
+        "timing_scope": "training loop including compile, finite checks, logging and checkpoints",
+        "gradient_observed": null,
+        "radius_embedding_gradient_observed": null,
+        "backend": {
+          "cudnn_deterministic": true,
+          "cudnn_benchmark": false,
+          "note": "Shared seed helper for every new arm; historical downstream scripts did not explicitly force deterministic cuDNN/MIOpen"
+        }
+      },
+      "sample_audit": {
+        "schema_version": 1,
+        "status": "passed",
+        "sample_sha256": "6610c84ea97b8e20e55a4d78067340610653b5a61c967f455b7ef778caddcdc2",
+        "result_sha256": "383ff988ca1955f62c552f9275adf5808a6102c848c39240bdd34e1887769ad0",
+        "n_samples": 3000,
+        "dimension": 2048,
+        "class_counts": [
+          300,
+          300,
+          300,
+          300,
+          300,
+          300,
+          300,
+          300,
+          300,
+          300
+        ],
+        "nonfinite_rows": 0,
+        "nan_rows": 0,
+        "inf_rows": 0,
+        "zero_radius_rows": 0,
+        "nfe": 100,
+        "model_calls_total": 600,
+        "n_batches": 6,
+        "configured_sample_seed": 0,
+        "seed_evidence": "Configuration and frozen sampling implementation; cannot infer RNG seed from output tensor",
+        "hardware": {
+          "host": "auh7-3b-gpu-029",
+          "slurm_job_id": "766010",
+          "python": "3.10.12",
+          "torch": "2.7.1+rocm6.3",
+          "cuda": null,
+          "hip": "6.3.42131-fa1d09cbd",
+          "gpu": "AMD Instinct MI210",
+          "vram_bytes": 68702699520
+        },
+        "errors": []
+      }
+    },
+    {
+      "arm": "B",
+      "seed": 7,
+      "result_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/final/imagenette_dcae/B/seed_7/result.json",
+      "metrics_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/final/imagenette_dcae/B/seed_7/metrics.json",
+      "result_sha256": "7224160e0e984e3c79d2537f8bbf49b2b55b05305fce1ce92d474b22cf0a6479",
+      "sample_audit_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/final/imagenette_dcae/B/seed_7/sample_audit.json",
+      "sample_audit_sha256": "e19663a1dd257567673bc955956ad51d81de5f3d44041d20910b6b75063b4db3",
+      "sample_sha256": "23b8072ef7730aa7e04f7d4476ecfb465a63e9ac28d40e28eb03e5fd96210fe9",
+      "checkpoint": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/final/imagenette_dcae/B/seed_7/checkpoint.pt",
+        "sha256": "a64bd468a358c48c86d6ea146a01010142fd9c820f0f33b09641edd0cfb968c4",
+        "step": 40000
+      },
+      "config_sha256": "1e6dca1ffe1ee8ba4e4efc62b7737a1f0e872a1ca050756346772e1d25671e29",
+      "implementation_sha256": "19abfd8ac9fb79afc3f9037f9b6d190c958db7f313c6c9a511f79debc91df823",
+      "top_level_method": "rafm_ang_input",
+      "nested_evaluator_method": "tflow",
+      "checks": {
+        "complete": "passed",
+        "arm_seed": "passed",
+        "same_config": "passed",
+        "same_data": "passed",
+        "same_evaluator": "passed",
+        "metrics_same": "passed",
+        "finite": "passed",
+        "final_step": "passed",
+        "checkpoint_sha": "passed",
+        "sample_sha": "passed",
+        "audit_result_sha": "passed",
+        "audit_passed": "passed",
+        "samples_nfe": "passed",
+        "reference": "passed",
+        "sources": "passed"
+      },
+      "errors": [],
+      "metrics": {
+        "fid": 312.02024443765356,
+        "kid": 0.3160155558586121,
+        "kid_std": 0.003191987678601086,
+        "precision": 0.0003333333333333333,
+        "recall": 0.0,
+        "density": 6.666666666666667e-05,
+        "coverage": 0.00025477707006369424,
+        "radial_w1": 0.26601162552833557,
+        "ks": 0.04048258066177368,
+        "sliced_w1": 0.35214442014694214,
+        "angular_sw_bin0": 0.008321233093738556,
+        "angular_sw_bin1": 0.008202885277569294,
+        "angular_sw_bin2": 0.010026928968727589,
+        "angular_sw_bin3": 0.009566021151840687,
+        "angular_sw_mean": 0.009029267122969031,
+        "sample_time_s": 49.40954041481018,
+        "total_train_time_s": 1862.9590231627226,
+        "nfe": 100
+      },
+      "training_stats": {
+        "run_sha256": "6eca7b7adc6b2003cd84cc05ae5a09a7b2bfc99d8241151f734dc21d860f137e",
+        "training_step": 40000,
+        "total_train_time_s": 1864.116898573935,
+        "final_loss": 2.3514721393585205,
+        "parameters": {
+          "arm": "B",
+          "backbone_kind": "image_sit",
+          "original_backbone_parameters": 32515616,
+          "total_parameters": 32522176,
+          "trainable_parameters": 32497600,
+          "conditioning_overhead_parameters": 6560,
+          "conditioning_overhead_fraction": 0.0002017492149003113,
+          "radius_embedding_hidden_width": 16
+        },
+        "hardware": {
+          "host": "auh7-3b-gpu-029",
+          "slurm_job_id": "766007",
+          "python": "3.10.12",
+          "torch": "2.7.1+rocm6.3",
+          "cuda": null,
+          "hip": "6.3.42131-fa1d09cbd",
+          "gpu": "AMD Instinct MI210",
+          "vram_bytes": 68702699520
+        },
+        "peak_memory": {
+          "allocated_bytes": 1700735488,
+          "reserved_bytes": 1759510528
+        },
+        "timing_kind": "measured",
+        "timing_scope": "training loop including compile, finite checks, logging and checkpoints",
+        "gradient_observed": null,
+        "radius_embedding_gradient_observed": null,
+        "backend": {
+          "cudnn_deterministic": true,
+          "cudnn_benchmark": false,
+          "note": "Shared seed helper for every new arm; historical downstream scripts did not explicitly force deterministic cuDNN/MIOpen"
+        }
+      },
+      "sample_audit": {
+        "schema_version": 1,
+        "status": "passed",
+        "sample_sha256": "23b8072ef7730aa7e04f7d4476ecfb465a63e9ac28d40e28eb03e5fd96210fe9",
+        "result_sha256": "7224160e0e984e3c79d2537f8bbf49b2b55b05305fce1ce92d474b22cf0a6479",
+        "n_samples": 3000,
+        "dimension": 2048,
+        "class_counts": [
+          300,
+          300,
+          300,
+          300,
+          300,
+          300,
+          300,
+          300,
+          300,
+          300
+        ],
+        "nonfinite_rows": 0,
+        "nan_rows": 0,
+        "inf_rows": 0,
+        "zero_radius_rows": 0,
+        "nfe": 100,
+        "model_calls_total": 600,
+        "n_batches": 6,
+        "configured_sample_seed": 0,
+        "seed_evidence": "Configuration and frozen sampling implementation; cannot infer RNG seed from output tensor",
+        "hardware": {
+          "host": "auh7-3b-gpu-029",
+          "slurm_job_id": "766007",
+          "python": "3.10.12",
+          "torch": "2.7.1+rocm6.3",
+          "cuda": null,
+          "hip": "6.3.42131-fa1d09cbd",
+          "gpu": "AMD Instinct MI210",
+          "vram_bytes": 68702699520
+        },
+        "errors": []
+      }
+    },
+    {
+      "arm": "C",
+      "seed": 8925,
+      "result_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/final/imagenette_dcae/C/seed_8925/result.json",
+      "metrics_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/final/imagenette_dcae/C/seed_8925/metrics.json",
+      "result_sha256": "54dae492db5648290c087d0a3bcaf76db39794287e302c1f5c4f79e4760cd2f3",
+      "sample_audit_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/final/imagenette_dcae/C/seed_8925/sample_audit.json",
+      "sample_audit_sha256": "02958432fb1440bbdb1e68228e6e0ad5cb8aa344c6f2b3b5cf6da8681536f12f",
+      "sample_sha256": "7b7ba5d281d0d8eb3a5cfce55b978e3f4bc562ce969881c915fbe338b085d3a7",
+      "checkpoint": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/final/imagenette_dcae/C/seed_8925/checkpoint.pt",
+        "sha256": "822a31f6abb3febf42fff5c76293c689d4a52e4b557612ff1bac6ed51332ff42",
+        "step": 40000
+      },
+      "config_sha256": "1e6dca1ffe1ee8ba4e4efc62b7737a1f0e872a1ca050756346772e1d25671e29",
+      "implementation_sha256": "19abfd8ac9fb79afc3f9037f9b6d190c958db7f313c6c9a511f79debc91df823",
+      "top_level_method": "rafm_ang_input",
+      "nested_evaluator_method": "tflow",
+      "checks": {
+        "complete": "passed",
+        "arm_seed": "passed",
+        "same_config": "passed",
+        "same_data": "passed",
+        "same_evaluator": "passed",
+        "metrics_same": "passed",
+        "finite": "passed",
+        "final_step": "passed",
+        "checkpoint_sha": "passed",
+        "sample_sha": "passed",
+        "audit_result_sha": "passed",
+        "audit_passed": "passed",
+        "samples_nfe": "passed",
+        "reference": "passed",
+        "sources": "passed"
+      },
+      "errors": [],
+      "metrics": {
+        "fid": 182.24609107426488,
+        "kid": 0.12682852983474732,
+        "kid_std": 0.0028692271807011223,
+        "precision": 0.106,
+        "recall": 0.6478980891719746,
+        "density": 0.03353333333333333,
+        "coverage": 0.033121019108280254,
+        "radial_w1": 0.2660295069217682,
+        "ks": 0.04048258066177368,
+        "sliced_w1": 0.05493742972612381,
+        "angular_sw_bin0": 0.0022312323562800884,
+        "angular_sw_bin1": 0.001958061009645462,
+        "angular_sw_bin2": 0.0022137488704174757,
+        "angular_sw_bin3": 0.0032486815471202135,
+        "angular_sw_mean": 0.00241293094586581,
+        "sample_time_s": 49.11640923470259,
+        "total_train_time_s": 1770.831034258008,
+        "nfe": 100
+      },
+      "training_stats": {
+        "run_sha256": "e3657ee12e0b4a3f5cb4d0fa8ffc06372887a1fcb53d51cff66cb9a903daabb2",
+        "training_step": 40000,
+        "total_train_time_s": 1771.9803284555674,
+        "final_loss": 1.8466911315917969,
+        "parameters": {
+          "arm": "C",
+          "backbone_kind": "image_sit",
+          "original_backbone_parameters": 32515616,
+          "total_parameters": 32522176,
+          "trainable_parameters": 32497600,
+          "conditioning_overhead_parameters": 6560,
+          "conditioning_overhead_fraction": 0.0002017492149003113,
+          "radius_embedding_hidden_width": 16
+        },
+        "hardware": {
+          "host": "auh7-3b-gpu-029",
+          "slurm_job_id": "766008",
+          "python": "3.10.12",
+          "torch": "2.7.1+rocm6.3",
+          "cuda": null,
+          "hip": "6.3.42131-fa1d09cbd",
+          "gpu": "AMD Instinct MI210",
+          "vram_bytes": 68702699520
+        },
+        "peak_memory": {
+          "allocated_bytes": 1700735488,
+          "reserved_bytes": 1757413376
+        },
+        "timing_kind": "measured",
+        "timing_scope": "training loop including compile, finite checks, logging and checkpoints",
+        "gradient_observed": null,
+        "radius_embedding_gradient_observed": null,
+        "backend": {
+          "cudnn_deterministic": true,
+          "cudnn_benchmark": false,
+          "note": "Shared seed helper for every new arm; historical downstream scripts did not explicitly force deterministic cuDNN/MIOpen"
+        }
+      },
+      "sample_audit": {
+        "schema_version": 1,
+        "status": "passed",
+        "sample_sha256": "7b7ba5d281d0d8eb3a5cfce55b978e3f4bc562ce969881c915fbe338b085d3a7",
+        "result_sha256": "54dae492db5648290c087d0a3bcaf76db39794287e302c1f5c4f79e4760cd2f3",
+        "n_samples": 3000,
+        "dimension": 2048,
+        "class_counts": [
+          300,
+          300,
+          300,
+          300,
+          300,
+          300,
+          300,
+          300,
+          300,
+          300
+        ],
+        "nonfinite_rows": 0,
+        "nan_rows": 0,
+        "inf_rows": 0,
+        "zero_radius_rows": 0,
+        "nfe": 100,
+        "model_calls_total": 600,
+        "n_batches": 6,
+        "configured_sample_seed": 0,
+        "seed_evidence": "Configuration and frozen sampling implementation; cannot infer RNG seed from output tensor",
+        "hardware": {
+          "host": "auh7-3b-gpu-029",
+          "slurm_job_id": "766008",
+          "python": "3.10.12",
+          "torch": "2.7.1+rocm6.3",
+          "cuda": null,
+          "hip": "6.3.42131-fa1d09cbd",
+          "gpu": "AMD Instinct MI210",
+          "vram_bytes": 68702699520
+        },
+        "errors": []
+      }
+    },
+    {
+      "arm": "C",
+      "seed": 1234,
+      "result_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/final/imagenette_dcae/C/seed_1234/result.json",
+      "metrics_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/final/imagenette_dcae/C/seed_1234/metrics.json",
+      "result_sha256": "4dffca2bd1858b66e00238172b7038c4c7a22315c2e058f8227a5c33d30f3849",
+      "sample_audit_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/final/imagenette_dcae/C/seed_1234/sample_audit.json",
+      "sample_audit_sha256": "a1efba525e056231c0c747c7ff23401a2d63fa507f1ecd1321286f3270f70583",
+      "sample_sha256": "12b667f68d801f34bc3fc4d39a9da487bf48f61d5d34bc83602babcf0f2bf705",
+      "checkpoint": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/final/imagenette_dcae/C/seed_1234/checkpoint.pt",
+        "sha256": "18526420bb9f50498a85362d407b6024e4d00f8b5f77428592b5e83c2a9b0ad3",
+        "step": 40000
+      },
+      "config_sha256": "1e6dca1ffe1ee8ba4e4efc62b7737a1f0e872a1ca050756346772e1d25671e29",
+      "implementation_sha256": "19abfd8ac9fb79afc3f9037f9b6d190c958db7f313c6c9a511f79debc91df823",
+      "top_level_method": "rafm_ang_input",
+      "nested_evaluator_method": "tflow",
+      "checks": {
+        "complete": "passed",
+        "arm_seed": "passed",
+        "same_config": "passed",
+        "same_data": "passed",
+        "same_evaluator": "passed",
+        "metrics_same": "passed",
+        "finite": "passed",
+        "final_step": "passed",
+        "checkpoint_sha": "passed",
+        "sample_sha": "passed",
+        "audit_result_sha": "passed",
+        "audit_passed": "passed",
+        "samples_nfe": "passed",
+        "reference": "passed",
+        "sources": "passed"
+      },
+      "errors": [],
+      "metrics": {
+        "fid": 323.1638183590191,
+        "kid": 0.34853325843811034,
+        "kid_std": 0.003677857521392658,
+        "precision": 0.005666666666666667,
+        "recall": 0.0,
+        "density": 0.0012000000000000001,
+        "coverage": 0.0005095541401273885,
+        "radial_w1": 0.2660113573074341,
+        "ks": 0.04048258066177368,
+        "sliced_w1": 0.08017807453870773,
+        "angular_sw_bin0": 0.0032978069502860308,
+        "angular_sw_bin1": 0.0025870613753795624,
+        "angular_sw_bin2": 0.002504094270989299,
+        "angular_sw_bin3": 0.0028179169166833162,
+        "angular_sw_mean": 0.002801719878334552,
+        "sample_time_s": 48.989999532699585,
+        "total_train_time_s": 1778.2827065438032,
+        "nfe": 100
+      },
+      "training_stats": {
+        "run_sha256": "b81b06f5770f80c1407d117b627250f2b046e270ef67dce5e938758d817d423e",
+        "training_step": 40000,
+        "total_train_time_s": 1779.4430630728602,
+        "final_loss": 2.4034066200256348,
+        "parameters": {
+          "arm": "C",
+          "backbone_kind": "image_sit",
+          "original_backbone_parameters": 32515616,
+          "total_parameters": 32522176,
+          "trainable_parameters": 32497600,
+          "conditioning_overhead_parameters": 6560,
+          "conditioning_overhead_fraction": 0.0002017492149003113,
+          "radius_embedding_hidden_width": 16
+        },
+        "hardware": {
+          "host": "auh7-3b-gpu-029",
+          "slurm_job_id": "765988",
+          "python": "3.10.12",
+          "torch": "2.7.1+rocm6.3",
+          "cuda": null,
+          "hip": "6.3.42131-fa1d09cbd",
+          "gpu": "AMD Instinct MI210",
+          "vram_bytes": 68702699520
+        },
+        "peak_memory": {
+          "allocated_bytes": 1700735488,
+          "reserved_bytes": 1757413376
+        },
+        "timing_kind": "measured",
+        "timing_scope": "training loop including compile, finite checks, logging and checkpoints",
+        "gradient_observed": null,
+        "radius_embedding_gradient_observed": null,
+        "backend": {
+          "cudnn_deterministic": true,
+          "cudnn_benchmark": false,
+          "note": "Shared seed helper for every new arm; historical downstream scripts did not explicitly force deterministic cuDNN/MIOpen"
+        }
+      },
+      "sample_audit": {
+        "schema_version": 1,
+        "status": "passed",
+        "sample_sha256": "12b667f68d801f34bc3fc4d39a9da487bf48f61d5d34bc83602babcf0f2bf705",
+        "result_sha256": "4dffca2bd1858b66e00238172b7038c4c7a22315c2e058f8227a5c33d30f3849",
+        "n_samples": 3000,
+        "dimension": 2048,
+        "class_counts": [
+          300,
+          300,
+          300,
+          300,
+          300,
+          300,
+          300,
+          300,
+          300,
+          300
+        ],
+        "nonfinite_rows": 0,
+        "nan_rows": 0,
+        "inf_rows": 0,
+        "zero_radius_rows": 0,
+        "nfe": 100,
+        "model_calls_total": 600,
+        "n_batches": 6,
+        "configured_sample_seed": 0,
+        "seed_evidence": "Configuration and frozen sampling implementation; cannot infer RNG seed from output tensor",
+        "hardware": {
+          "host": "auh7-3b-gpu-029",
+          "slurm_job_id": "765988",
+          "python": "3.10.12",
+          "torch": "2.7.1+rocm6.3",
+          "cuda": null,
+          "hip": "6.3.42131-fa1d09cbd",
+          "gpu": "AMD Instinct MI210",
+          "vram_bytes": 68702699520
+        },
+        "errors": []
+      }
+    },
+    {
+      "arm": "C",
+      "seed": 7,
+      "result_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/final/imagenette_dcae/C/seed_7/result.json",
+      "metrics_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/final/imagenette_dcae/C/seed_7/metrics.json",
+      "result_sha256": "206e8e7ff4136560d97c42afd4767ebc6260cb5247e3998d9224d14713fd03ef",
+      "sample_audit_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/final/imagenette_dcae/C/seed_7/sample_audit.json",
+      "sample_audit_sha256": "c4417f03e9a02408aeda690879713b3a109e1a8a55bbd5df4dc72ff686546b34",
+      "sample_sha256": "0d7498e3f513ad909e1a2a36c160449d6a4888864cd5f79545f969abb69f4ce9",
+      "checkpoint": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/v1/final/imagenette_dcae/C/seed_7/checkpoint.pt",
+        "sha256": "981e8ded0ec7ebfc0b04777d7b468a3c2617aaa5023ed1e025fda252d3bf0432",
+        "step": 40000
+      },
+      "config_sha256": "1e6dca1ffe1ee8ba4e4efc62b7737a1f0e872a1ca050756346772e1d25671e29",
+      "implementation_sha256": "19abfd8ac9fb79afc3f9037f9b6d190c958db7f313c6c9a511f79debc91df823",
+      "top_level_method": "rafm_ang_input",
+      "nested_evaluator_method": "tflow",
+      "checks": {
+        "complete": "passed",
+        "arm_seed": "passed",
+        "same_config": "passed",
+        "same_data": "passed",
+        "same_evaluator": "passed",
+        "metrics_same": "passed",
+        "finite": "passed",
+        "final_step": "passed",
+        "checkpoint_sha": "passed",
+        "sample_sha": "passed",
+        "audit_result_sha": "passed",
+        "audit_passed": "passed",
+        "samples_nfe": "passed",
+        "reference": "passed",
+        "sources": "passed"
+      },
+      "errors": [],
+      "metrics": {
+        "fid": 176.90035512485395,
+        "kid": 0.11934335947036744,
+        "kid_std": 0.0028408951057725036,
+        "precision": 0.09633333333333334,
+        "recall": 0.6942675159235668,
+        "density": 0.030866666666666667,
+        "coverage": 0.030318471337579617,
+        "radial_w1": 0.2660292088985443,
+        "ks": 0.04048258066177368,
+        "sliced_w1": 0.06451640278100967,
+        "angular_sw_bin0": 0.0020278661977499723,
+        "angular_sw_bin1": 0.0019971011206507683,
+        "angular_sw_bin2": 0.0022177831269800663,
+        "angular_sw_bin3": 0.0034118981566280127,
+        "angular_sw_mean": 0.002413662150502205,
+        "sample_time_s": 49.223592683672905,
+        "total_train_time_s": 1806.7311451509595,
+        "nfe": 100
+      },
+      "training_stats": {
+        "run_sha256": "cb00df1deacd2de1782b0186179f1f910410fddd32ce47950de359546d0af186",
+        "training_step": 40000,
+        "total_train_time_s": 1807.9133490398526,
+        "final_loss": 1.8294506072998047,
+        "parameters": {
+          "arm": "C",
+          "backbone_kind": "image_sit",
+          "original_backbone_parameters": 32515616,
+          "total_parameters": 32522176,
+          "trainable_parameters": 32497600,
+          "conditioning_overhead_parameters": 6560,
+          "conditioning_overhead_fraction": 0.0002017492149003113,
+          "radius_embedding_hidden_width": 16
+        },
+        "hardware": {
+          "host": "auh7-3b-gpu-029",
+          "slurm_job_id": "766008",
+          "python": "3.10.12",
+          "torch": "2.7.1+rocm6.3",
+          "cuda": null,
+          "hip": "6.3.42131-fa1d09cbd",
+          "gpu": "AMD Instinct MI210",
+          "vram_bytes": 68702699520
+        },
+        "peak_memory": {
+          "allocated_bytes": 1700735488,
+          "reserved_bytes": 1757413376
+        },
+        "timing_kind": "measured",
+        "timing_scope": "training loop including compile, finite checks, logging and checkpoints",
+        "gradient_observed": null,
+        "radius_embedding_gradient_observed": null,
+        "backend": {
+          "cudnn_deterministic": true,
+          "cudnn_benchmark": false,
+          "note": "Shared seed helper for every new arm; historical downstream scripts did not explicitly force deterministic cuDNN/MIOpen"
+        }
+      },
+      "sample_audit": {
+        "schema_version": 1,
+        "status": "passed",
+        "sample_sha256": "0d7498e3f513ad909e1a2a36c160449d6a4888864cd5f79545f969abb69f4ce9",
+        "result_sha256": "206e8e7ff4136560d97c42afd4767ebc6260cb5247e3998d9224d14713fd03ef",
+        "n_samples": 3000,
+        "dimension": 2048,
+        "class_counts": [
+          300,
+          300,
+          300,
+          300,
+          300,
+          300,
+          300,
+          300,
+          300,
+          300
+        ],
+        "nonfinite_rows": 0,
+        "nan_rows": 0,
+        "inf_rows": 0,
+        "zero_radius_rows": 0,
+        "nfe": 100,
+        "model_calls_total": 600,
+        "n_batches": 6,
+        "configured_sample_seed": 0,
+        "seed_evidence": "Configuration and frozen sampling implementation; cannot infer RNG seed from output tensor",
+        "hardware": {
+          "host": "auh7-3b-gpu-029",
+          "slurm_job_id": "766008",
+          "python": "3.10.12",
+          "torch": "2.7.1+rocm6.3",
+          "cuda": null,
+          "hip": "6.3.42131-fa1d09cbd",
+          "gpu": "AMD Instinct MI210",
+          "vram_bytes": 68702699520
+        },
+        "errors": []
+      }
+    },
+    {
+      "arm": "tflow",
+      "seed": 8925,
+      "result_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/final/imagenette_dcae/seed_8925/result.json",
+      "metrics_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/final/imagenette_dcae/seed_8925/metrics.json",
+      "result_sha256": "652afd6759241abef5340dbc607b8ffdeea36d1e81a2cf1f3c627ccb2c615bdb",
+      "sample_audit_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/final/imagenette_dcae/seed_8925/sample_audit.json",
+      "sample_audit_sha256": "b76d1a41d7a8c7a8d8211b328830434bd03526253af2ee2dbd61745e2b9472c4",
+      "sample_sha256": "92fb1f13356ea0519bf2a536077462531c5fd5c133d77cffe4e388f0c113729c",
+      "checkpoint": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/final/imagenette_dcae/seed_8925/checkpoint.pt",
+        "sha256": "0b786dc15039037509a4e6fcffd469423041b25f10d7b13393d93cb174276d44",
+        "step": 40000,
+        "run_sha256": "0a02a4e94ee62424a5dd27b952286d774f2615c9ca637bfa881311f3d21302e9"
+      },
+      "config_sha256": "1e6dca1ffe1ee8ba4e4efc62b7737a1f0e872a1ca050756346772e1d25671e29",
+      "implementation_sha256": "15a2ffd4088bc3f1bf99e2c6bb25cfa06e1d93be71b0d674bb62b3cfc43dfd7d",
+      "top_level_method": "tflow",
+      "nested_evaluator_method": "tflow",
+      "checks": {
+        "complete": "passed",
+        "arm_seed": "passed",
+        "same_config": "passed",
+        "same_data": "passed",
+        "same_evaluator": "passed",
+        "metrics_same": "passed",
+        "finite": "passed",
+        "final_step": "passed",
+        "checkpoint_sha": "passed",
+        "sample_sha": "passed",
+        "audit_result_sha": "passed",
+        "audit_passed": "passed",
+        "samples_nfe": "passed",
+        "reference": "passed",
+        "sources": "passed"
+      },
+      "errors": [],
+      "metrics": {
+        "fid": 215.62453773386662,
+        "kid": 0.08157544374465943,
+        "kid_std": 0.0025337505080728607,
+        "precision": 0.05333333333333334,
+        "recall": 0.16152866242038216,
+        "density": 0.011000000000000001,
+        "coverage": 0.006369426751592357,
+        "radial_w1": 496.7513427734375,
+        "ks": 0.6390944719314575,
+        "sliced_w1": 8.824403762817383,
+        "nfe": 100,
+        "sample_time_s": 50.161327719688416,
+        "total_train_time_s": 1772.1966245695949,
+        "n_params": 32515616
+      },
+      "training_stats": {
+        "run_sha256": "0a02a4e94ee62424a5dd27b952286d774f2615c9ca637bfa881311f3d21302e9",
+        "total_train_time_s": 1773.2874285951257,
+        "training_step": 40000,
+        "final_loss": 1576.2413330078125,
+        "timing_kind": "measured",
+        "timing_scope": "training loop including compile, logging, finite checks and checkpoints; excludes data/model setup",
+        "peak_memory": {
+          "allocated_bytes": 1699508736,
+          "reserved_bytes": 1757413376
+        },
+        "peak_memory_scope": "model, EMA, optimizer, accelerator training data and training loop; maximum across resumes",
+        "n_params": 32515616,
+        "hardware": {
+          "host": "auh7-3b-gpu-030",
+          "slurm_job_id": "766491",
+          "python": "3.10.12",
+          "torch": "2.7.1+rocm6.3",
+          "cuda": null,
+          "hip": "6.3.42131-fa1d09cbd",
+          "gpu": "AMD Instinct MI210",
+          "vram_bytes": 68702699520
+        }
+      },
+      "sample_audit": {
+        "schema_version": 1,
+        "status": "passed",
+        "sample_sha256": "92fb1f13356ea0519bf2a536077462531c5fd5c133d77cffe4e388f0c113729c",
+        "result_sha256": "652afd6759241abef5340dbc607b8ffdeea36d1e81a2cf1f3c627ccb2c615bdb",
+        "n_samples": 3000,
+        "dimension": 2048,
+        "class_counts": [
+          300,
+          300,
+          300,
+          300,
+          300,
+          300,
+          300,
+          300,
+          300,
+          300
+        ],
+        "nonfinite_rows": 0,
+        "nan_rows": 0,
+        "inf_rows": 0,
+        "zero_radius_rows": 0,
+        "nfe": 100,
+        "model_calls_total": 600,
+        "n_batches": 6,
+        "configured_sample_seed": 0,
+        "seed_evidence": "Configuration and frozen sampling implementation; cannot infer RNG seed from output tensor",
+        "hardware": {
+          "host": "auh7-3b-gpu-030",
+          "slurm_job_id": "766491",
+          "python": "3.10.12",
+          "torch": "2.7.1+rocm6.3",
+          "cuda": null,
+          "hip": "6.3.42131-fa1d09cbd",
+          "gpu": "AMD Instinct MI210",
+          "vram_bytes": 68702699520
+        },
+        "errors": []
+      }
+    },
+    {
+      "arm": "tflow",
+      "seed": 1234,
+      "result_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/final/imagenette_dcae/seed_1234/result.json",
+      "metrics_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/final/imagenette_dcae/seed_1234/metrics.json",
+      "result_sha256": "a5ad91d716b9d89bb67321f61c566847621a4c71fca229dc048c042acf40649c",
+      "sample_audit_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/final/imagenette_dcae/seed_1234/sample_audit.json",
+      "sample_audit_sha256": "2b21e2a16bc83dae511ae3dc8236a39a52c02f8208616fe3262ee648f9f95893",
+      "sample_sha256": "619a8758621137d2cdeced739bc5a6633b613bdd92500df89400523af443849f",
+      "checkpoint": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/final/imagenette_dcae/seed_1234/checkpoint.pt",
+        "sha256": "6d838f31c5f2c97223def501298430e9eb65c0338f1663877a83e25db8e4c5aa",
+        "step": 40000,
+        "run_sha256": "431d6d438f03f6a6347a9b82a9da96835e36025904b78df0e92f0e4eb79435e4"
+      },
+      "config_sha256": "1e6dca1ffe1ee8ba4e4efc62b7737a1f0e872a1ca050756346772e1d25671e29",
+      "implementation_sha256": "15a2ffd4088bc3f1bf99e2c6bb25cfa06e1d93be71b0d674bb62b3cfc43dfd7d",
+      "top_level_method": "tflow",
+      "nested_evaluator_method": "tflow",
+      "checks": {
+        "complete": "passed",
+        "arm_seed": "passed",
+        "same_config": "passed",
+        "same_data": "passed",
+        "same_evaluator": "passed",
+        "metrics_same": "passed",
+        "finite": "passed",
+        "final_step": "passed",
+        "checkpoint_sha": "passed",
+        "sample_sha": "passed",
+        "audit_result_sha": "passed",
+        "audit_passed": "passed",
+        "samples_nfe": "passed",
+        "reference": "passed",
+        "sources": "passed"
+      },
+      "errors": [],
+      "metrics": {
+        "fid": 230.86925330211199,
+        "kid": 0.09418156623840332,
+        "kid_std": 0.0016717669987535893,
+        "precision": 0.033,
+        "recall": 0.11719745222929936,
+        "density": 0.0071333333333333335,
+        "coverage": 0.006114649681528662,
+        "radial_w1": 379.38995361328125,
+        "ks": 0.7967562079429626,
+        "sliced_w1": 6.83755350112915,
+        "nfe": 100,
+        "sample_time_s": 50.057512015104294,
+        "total_train_time_s": 1771.0647304654121,
+        "n_params": 32515616
+      },
+      "training_stats": {
+        "run_sha256": "431d6d438f03f6a6347a9b82a9da96835e36025904b78df0e92f0e4eb79435e4",
+        "total_train_time_s": 1772.178690329194,
+        "training_step": 40000,
+        "final_loss": 2764.675048828125,
+        "timing_kind": "measured",
+        "timing_scope": "training loop including compile, logging, finite checks and checkpoints; excludes data/model setup",
+        "peak_memory": {
+          "allocated_bytes": 1699508736,
+          "reserved_bytes": 1757413376
+        },
+        "peak_memory_scope": "model, EMA, optimizer, accelerator training data and training loop; maximum across resumes",
+        "n_params": 32515616,
+        "hardware": {
+          "host": "auh7-3b-gpu-031",
+          "slurm_job_id": "766524",
+          "python": "3.10.12",
+          "torch": "2.7.1+rocm6.3",
+          "cuda": null,
+          "hip": "6.3.42131-fa1d09cbd",
+          "gpu": "AMD Instinct MI210",
+          "vram_bytes": 68702699520
+        }
+      },
+      "sample_audit": {
+        "schema_version": 1,
+        "status": "passed",
+        "sample_sha256": "619a8758621137d2cdeced739bc5a6633b613bdd92500df89400523af443849f",
+        "result_sha256": "a5ad91d716b9d89bb67321f61c566847621a4c71fca229dc048c042acf40649c",
+        "n_samples": 3000,
+        "dimension": 2048,
+        "class_counts": [
+          300,
+          300,
+          300,
+          300,
+          300,
+          300,
+          300,
+          300,
+          300,
+          300
+        ],
+        "nonfinite_rows": 0,
+        "nan_rows": 0,
+        "inf_rows": 0,
+        "zero_radius_rows": 0,
+        "nfe": 100,
+        "model_calls_total": 600,
+        "n_batches": 6,
+        "configured_sample_seed": 0,
+        "seed_evidence": "Configuration and frozen sampling implementation; cannot infer RNG seed from output tensor",
+        "hardware": {
+          "host": "auh7-3b-gpu-031",
+          "slurm_job_id": "766524",
+          "python": "3.10.12",
+          "torch": "2.7.1+rocm6.3",
+          "cuda": null,
+          "hip": "6.3.42131-fa1d09cbd",
+          "gpu": "AMD Instinct MI210",
+          "vram_bytes": 68702699520
+        },
+        "errors": []
+      }
+    },
+    {
+      "arm": "tflow",
+      "seed": 7,
+      "result_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/final/imagenette_dcae/seed_7/result.json",
+      "metrics_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/final/imagenette_dcae/seed_7/metrics.json",
+      "result_sha256": "a50f3c2a186c430bdc1bed9416695d4ba1e8b6de097f6ead3fafe37938ef23e8",
+      "sample_audit_path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/final/imagenette_dcae/seed_7/sample_audit.json",
+      "sample_audit_sha256": "3c781b7e467d15798c4a64441a71efd8c05df729d975bb3f08aa29bb9f6c8c3b",
+      "sample_sha256": "9132399d0c4a8cb93fb45bed7ae21e026e8ef0c68731b80a539138e6a6005fde",
+      "checkpoint": {
+        "path": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_tflow_full/v2/final/imagenette_dcae/seed_7/checkpoint.pt",
+        "sha256": "1c661a024de0a0d628e8d0234302b6776dbff42a681a727a5f7e9aa8d396975e",
+        "step": 40000,
+        "run_sha256": "b0f99b150ad9200306e7192886f8072296f5f8e9b273a7f3f5ae2ba98e822cd8"
+      },
+      "config_sha256": "1e6dca1ffe1ee8ba4e4efc62b7737a1f0e872a1ca050756346772e1d25671e29",
+      "implementation_sha256": "15a2ffd4088bc3f1bf99e2c6bb25cfa06e1d93be71b0d674bb62b3cfc43dfd7d",
+      "top_level_method": "tflow",
+      "nested_evaluator_method": "tflow",
+      "checks": {
+        "complete": "passed",
+        "arm_seed": "passed",
+        "same_config": "passed",
+        "same_data": "passed",
+        "same_evaluator": "passed",
+        "metrics_same": "passed",
+        "finite": "passed",
+        "final_step": "passed",
+        "checkpoint_sha": "passed",
+        "sample_sha": "passed",
+        "audit_result_sha": "passed",
+        "audit_passed": "passed",
+        "samples_nfe": "passed",
+        "reference": "passed",
+        "sources": "passed"
+      },
+      "errors": [],
+      "metrics": {
+        "fid": 224.89443061518318,
+        "kid": 0.09500892877578736,
+        "kid_std": 0.0025736811082799982,
+        "precision": 0.04633333333333333,
+        "recall": 0.2575796178343949,
+        "density": 0.011533333333333333,
+        "coverage": 0.0071337579617834395,
+        "radial_w1": 340.6431884765625,
+        "ks": 0.5857512354850769,
+        "sliced_w1": 6.067442893981934,
+        "nfe": 100,
+        "sample_time_s": 50.35064306855202,
+        "total_train_time_s": 1773.9027142971754,
+        "n_params": 32515616
+      },
+      "training_stats": {
+        "run_sha256": "b0f99b150ad9200306e7192886f8072296f5f8e9b273a7f3f5ae2ba98e822cd8",
+        "total_train_time_s": 1775.0210815295577,
+        "training_step": 40000,
+        "final_loss": 3193.857666015625,
+        "timing_kind": "measured",
+        "timing_scope": "training loop including compile, logging, finite checks and checkpoints; excludes data/model setup",
+        "peak_memory": {
+          "allocated_bytes": 1699508736,
+          "reserved_bytes": 1757413376
+        },
+        "peak_memory_scope": "model, EMA, optimizer, accelerator training data and training loop; maximum across resumes",
+        "n_params": 32515616,
+        "hardware": {
+          "host": "auh7-3b-gpu-031",
+          "slurm_job_id": "766523",
+          "python": "3.10.12",
+          "torch": "2.7.1+rocm6.3",
+          "cuda": null,
+          "hip": "6.3.42131-fa1d09cbd",
+          "gpu": "AMD Instinct MI210",
+          "vram_bytes": 68702699520
+        }
+      },
+      "sample_audit": {
+        "schema_version": 1,
+        "status": "passed",
+        "sample_sha256": "9132399d0c4a8cb93fb45bed7ae21e026e8ef0c68731b80a539138e6a6005fde",
+        "result_sha256": "a50f3c2a186c430bdc1bed9416695d4ba1e8b6de097f6ead3fafe37938ef23e8",
+        "n_samples": 3000,
+        "dimension": 2048,
+        "class_counts": [
+          300,
+          300,
+          300,
+          300,
+          300,
+          300,
+          300,
+          300,
+          300,
+          300
+        ],
+        "nonfinite_rows": 0,
+        "nan_rows": 0,
+        "inf_rows": 0,
+        "zero_radius_rows": 0,
+        "nfe": 100,
+        "model_calls_total": 600,
+        "n_batches": 6,
+        "configured_sample_seed": 0,
+        "seed_evidence": "Configuration and frozen sampling implementation; cannot infer RNG seed from output tensor",
+        "hardware": {
+          "host": "auh7-3b-gpu-031",
+          "slurm_job_id": "766523",
+          "python": "3.10.12",
+          "torch": "2.7.1+rocm6.3",
+          "cuda": null,
+          "hip": "6.3.42131-fa1d09cbd",
+          "gpu": "AMD Instinct MI210",
+          "vram_bytes": 68702699520
+        },
+        "errors": []
+      }
+    }
+  ]
+}

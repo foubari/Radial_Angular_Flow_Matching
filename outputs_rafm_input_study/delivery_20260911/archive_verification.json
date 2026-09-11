@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "archive": "/mnt/vast01/users/fouad.oubari/msgm/rafm-additions/outputs_rafm_input_study/delivery_20260911/rafm_tflow_results_20260911.zip",
+  "archive_bytes": 12522085,
+  "archive_sha256": "18187cf14cc3cfb49cd1b99126fc59f3fa59f6008add33994aa65bf29c3f90f9",
+  "manifest_sha256": "790bc62b739fd6696d383e65044e6be7a23256869a94f238cc0fab5fe1cfd7cb",
+  "verified_members": 3553,
+  "all_336_result_hashes_match_validated_report": true,
+  "all_310_complete_sample_audits_match_current_results": true,
+  "created_utc": "2026-09-11T07:28:30.794587+00:00"
+}
